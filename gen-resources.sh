@@ -10,7 +10,7 @@ generateDefinitions() {
   unzip -o definitions.zip profiles-resources.json profiles-types.json valuesets.json -d "fhir${1}"
   rm definitions.zip
   pushd "fhir${1}"
-  fhir-models-gen gen-resources .
+  gofhir-models-gen gen-resources .
   popd
 #  go generate "./fhir${1}"
 }
