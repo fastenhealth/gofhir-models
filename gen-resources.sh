@@ -10,16 +10,16 @@ generateDefinitions() {
   unzip -o definitions.zip profiles-resources.json profiles-types.json valuesets.json -d "fhir${1}"
   rm definitions.zip
   pushd "fhir${1}"
-  gofhir-models-gen gen-resources .
+  gofhir-models-gen gen-resources --package fhir${1} .
   popd
 #  go generate "./fhir${1}"
 }
 
 # R4B (Current)
-generateDefinitions "4.3.0" "http://hl7.org/fhir/R4/definitions.json.zip"
+generateDefinitions "430" "http://hl7.org/fhir/R4/definitions.json.zip"
 
 # R4
-generateDefinitions "4.0.1" "http://hl7.org/fhir/R4/definitions.json.zip"
+generateDefinitions "401" "http://hl7.org/fhir/R4/definitions.json.zip"
 
 # FHIR STU3 Candidate + Connectathon 14 (San Antonio)
 #generateDefinitions "1.8.0" "http://hl7.org/fhir/2017Jan/definitions.json.zip"
