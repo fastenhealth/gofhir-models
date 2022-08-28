@@ -1,4 +1,4 @@
-# gofhir-client
+# gofhir-models
 FHIR models & client for Go, forked from https://github.com/samply/golang-fhir-models at 03dc486
 
 ## Develop

@@ -1,3 +1,3 @@
-module github.com/fastenhealth/gofhir-client
+module github.com/fastenhealth/gofhir-models
 
 go 1.17
