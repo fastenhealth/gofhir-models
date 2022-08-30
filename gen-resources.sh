@@ -10,7 +10,7 @@ generateDefinitions() {
   unzip -o definitions.zip profiles-resources.json profiles-types.json valuesets.json -d "fhir${1}"
   rm definitions.zip
   pushd "fhir${1}"
-  gofhir-models-gen gen-resources --package fhir${1} .
+  gofhir-models-gen gen-resources --package fhir${1} --modulePath github.com/fastenhealth/gofhir-models .
   popd
 #  go generate "./fhir${1}"
 }
