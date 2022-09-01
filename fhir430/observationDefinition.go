@@ -69,6 +69,12 @@ type ObservationDefinitionQualifiedInterval struct {
 	GestationalAge    *Range                    `bson:"gestationalAge,omitempty" json:"gestationalAge,omitempty"`
 	Condition         *string                   `bson:"condition,omitempty" json:"condition,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ObservationDefinition) ResourceRef() (string, *string) {
+	return "ObservationDefinition", r.Id
+}
+
 type OtherObservationDefinition ObservationDefinition
 
 // MarshalJSON marshals the given ObservationDefinition as JSON into a byte slice

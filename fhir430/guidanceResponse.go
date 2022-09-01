@@ -44,6 +44,12 @@ type GuidanceResponse struct {
 	Result             *Reference             `bson:"result,omitempty" json:"result,omitempty"`
 	DataRequirement    []DataRequirement      `bson:"dataRequirement,omitempty" json:"dataRequirement,omitempty"`
 }
+
+// This function returns resource reference information
+func (r GuidanceResponse) ResourceRef() (string, *string) {
+	return "GuidanceResponse", r.Id
+}
+
 type OtherGuidanceResponse GuidanceResponse
 
 // MarshalJSON marshals the given GuidanceResponse as JSON into a byte slice

@@ -89,6 +89,12 @@ type CoverageEligibilityRequestItemDiagnosis struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// This function returns resource reference information
+func (r CoverageEligibilityRequest) ResourceRef() (string, *string) {
+	return "CoverageEligibilityRequest", r.Id
+}
+
 type OtherCoverageEligibilityRequest CoverageEligibilityRequest
 
 // MarshalJSON marshals the given CoverageEligibilityRequest as JSON into a byte slice

@@ -138,6 +138,12 @@ type InsurancePlanPlanSpecificCostBenefitCost struct {
 	Qualifiers        []CodeableConcept `bson:"qualifiers,omitempty" json:"qualifiers,omitempty"`
 	Value             *Quantity         `bson:"value,omitempty" json:"value,omitempty"`
 }
+
+// This function returns resource reference information
+func (r InsurancePlan) ResourceRef() (string, *string) {
+	return "InsurancePlan", r.Id
+}
+
 type OtherInsurancePlan InsurancePlan
 
 // MarshalJSON marshals the given InsurancePlan as JSON into a byte slice

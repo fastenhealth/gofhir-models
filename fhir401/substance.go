@@ -56,6 +56,12 @@ type SubstanceIngredient struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Quantity          *Ratio      `bson:"quantity,omitempty" json:"quantity,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Substance) ResourceRef() (string, *string) {
+	return "Substance", r.Id
+}
+
 type OtherSubstance Substance
 
 // MarshalJSON marshals the given Substance as JSON into a byte slice

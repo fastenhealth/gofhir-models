@@ -56,6 +56,12 @@ type DiagnosticReportMedia struct {
 	Comment           *string     `bson:"comment,omitempty" json:"comment,omitempty"`
 	Link              Reference   `bson:"link" json:"link"`
 }
+
+// This function returns resource reference information
+func (r DiagnosticReport) ResourceRef() (string, *string) {
+	return "DiagnosticReport", r.Id
+}
+
 type OtherDiagnosticReport DiagnosticReport
 
 // MarshalJSON marshals the given DiagnosticReport as JSON into a byte slice

@@ -48,6 +48,12 @@ type SupplyDeliverySuppliedItem struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Quantity          *Quantity   `bson:"quantity,omitempty" json:"quantity,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SupplyDelivery) ResourceRef() (string, *string) {
+	return "SupplyDelivery", r.Id
+}
+
 type OtherSupplyDelivery SupplyDelivery
 
 // MarshalJSON marshals the given SupplyDelivery as JSON into a byte slice

@@ -42,6 +42,12 @@ type DeviceUseStatement struct {
 	BodySite          *CodeableConcept         `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
 	Note              []Annotation             `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DeviceUseStatement) ResourceRef() (string, *string) {
+	return "DeviceUseStatement", r.Id
+}
+
 type OtherDeviceUseStatement DeviceUseStatement
 
 // MarshalJSON marshals the given DeviceUseStatement as JSON into a byte slice

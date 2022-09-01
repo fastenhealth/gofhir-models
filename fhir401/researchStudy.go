@@ -73,6 +73,12 @@ type ResearchStudyObjective struct {
 	Name              *string          `bson:"name,omitempty" json:"name,omitempty"`
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ResearchStudy) ResourceRef() (string, *string) {
+	return "ResearchStudy", r.Id
+}
+
 type OtherResearchStudy ResearchStudy
 
 // MarshalJSON marshals the given ResearchStudy as JSON into a byte slice

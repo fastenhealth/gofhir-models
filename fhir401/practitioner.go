@@ -51,6 +51,12 @@ type PractitionerQualification struct {
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 	Issuer            *Reference      `bson:"issuer,omitempty" json:"issuer,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Practitioner) ResourceRef() (string, *string) {
+	return "Practitioner", r.Id
+}
+
 type OtherPractitioner Practitioner
 
 // MarshalJSON marshals the given Practitioner as JSON into a byte slice

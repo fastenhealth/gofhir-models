@@ -52,6 +52,12 @@ type DocumentManifestRelated struct {
 	Identifier        *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Ref               *Reference  `bson:"ref,omitempty" json:"ref,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DocumentManifest) ResourceRef() (string, *string) {
+	return "DocumentManifest", r.Id
+}
+
 type OtherDocumentManifest DocumentManifest
 
 // MarshalJSON marshals the given DocumentManifest as JSON into a byte slice

@@ -38,6 +38,12 @@ type AppointmentResponse struct {
 	ParticipantStatus ParticipationStatus `bson:"participantStatus" json:"participantStatus"`
 	Comment           *string             `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// This function returns resource reference information
+func (r AppointmentResponse) ResourceRef() (string, *string) {
+	return "AppointmentResponse", r.Id
+}
+
 type OtherAppointmentResponse AppointmentResponse
 
 // MarshalJSON marshals the given AppointmentResponse as JSON into a byte slice

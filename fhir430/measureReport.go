@@ -101,6 +101,12 @@ type MeasureReportGroupStratifierStratumPopulation struct {
 	Count             *int             `bson:"count,omitempty" json:"count,omitempty"`
 	SubjectResults    *Reference       `bson:"subjectResults,omitempty" json:"subjectResults,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MeasureReport) ResourceRef() (string, *string) {
+	return "MeasureReport", r.Id
+}
+
 type OtherMeasureReport MeasureReport
 
 // MarshalJSON marshals the given MeasureReport as JSON into a byte slice

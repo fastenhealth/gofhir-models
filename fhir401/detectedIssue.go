@@ -60,6 +60,12 @@ type DetectedIssueMitigation struct {
 	Date              *string         `bson:"date,omitempty" json:"date,omitempty"`
 	Author            *Reference      `bson:"author,omitempty" json:"author,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DetectedIssue) ResourceRef() (string, *string) {
+	return "DetectedIssue", r.Id
+}
+
 type OtherDetectedIssue DetectedIssue
 
 // MarshalJSON marshals the given DetectedIssue as JSON into a byte slice

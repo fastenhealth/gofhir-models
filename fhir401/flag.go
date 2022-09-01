@@ -38,6 +38,12 @@ type Flag struct {
 	Encounter         *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	Author            *Reference        `bson:"author,omitempty" json:"author,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Flag) ResourceRef() (string, *string) {
+	return "Flag", r.Id
+}
+
 type OtherFlag Flag
 
 // MarshalJSON marshals the given Flag as JSON into a byte slice

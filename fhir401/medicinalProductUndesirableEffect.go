@@ -35,6 +35,12 @@ type MedicinalProductUndesirableEffect struct {
 	FrequencyOfOccurrence  *CodeableConcept `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty"`
 	Population             []Population     `bson:"population,omitempty" json:"population,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductUndesirableEffect) ResourceRef() (string, *string) {
+	return "MedicinalProductUndesirableEffect", r.Id
+}
+
 type OtherMedicinalProductUndesirableEffect MedicinalProductUndesirableEffect
 
 // MarshalJSON marshals the given MedicinalProductUndesirableEffect as JSON into a byte slice

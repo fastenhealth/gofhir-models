@@ -61,6 +61,12 @@ type GroupMember struct {
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
 	Inactive          *bool       `bson:"inactive,omitempty" json:"inactive,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Group) ResourceRef() (string, *string) {
+	return "Group", r.Id
+}
+
 type OtherGroup Group
 
 // MarshalJSON marshals the given Group as JSON into a byte slice

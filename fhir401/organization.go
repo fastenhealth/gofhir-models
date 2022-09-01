@@ -52,6 +52,12 @@ type OrganizationContact struct {
 	Telecom           []ContactPoint   `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Address           *Address         `bson:"address,omitempty" json:"address,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Organization) ResourceRef() (string, *string) {
+	return "Organization", r.Id
+}
+
 type OtherOrganization Organization
 
 // MarshalJSON marshals the given Organization as JSON into a byte slice

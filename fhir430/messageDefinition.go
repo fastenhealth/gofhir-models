@@ -74,6 +74,12 @@ type MessageDefinitionAllowedResponse struct {
 	Message           string      `bson:"message" json:"message"`
 	Situation         *string     `bson:"situation,omitempty" json:"situation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MessageDefinition) ResourceRef() (string, *string) {
+	return "MessageDefinition", r.Id
+}
+
 type OtherMessageDefinition MessageDefinition
 
 // MarshalJSON marshals the given MessageDefinition as JSON into a byte slice

@@ -52,6 +52,12 @@ type RelatedPersonCommunication struct {
 	Language          CodeableConcept `bson:"language" json:"language"`
 	Preferred         *bool           `bson:"preferred,omitempty" json:"preferred,omitempty"`
 }
+
+// This function returns resource reference information
+func (r RelatedPerson) ResourceRef() (string, *string) {
+	return "RelatedPerson", r.Id
+}
+
 type OtherRelatedPerson RelatedPerson
 
 // MarshalJSON marshals the given RelatedPerson as JSON into a byte slice

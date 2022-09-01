@@ -68,6 +68,12 @@ type MedicinalProductAuthorizationProcedure struct {
 	Type              CodeableConcept                          `bson:"type" json:"type"`
 	Application       []MedicinalProductAuthorizationProcedure `bson:"application,omitempty" json:"application,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductAuthorization) ResourceRef() (string, *string) {
+	return "MedicinalProductAuthorization", r.Id
+}
+
 type OtherMedicinalProductAuthorization MedicinalProductAuthorization
 
 // MarshalJSON marshals the given MedicinalProductAuthorization as JSON into a byte slice

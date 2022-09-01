@@ -68,6 +68,12 @@ type MedicationAdministrationDosage struct {
 	Method            *CodeableConcept `bson:"method,omitempty" json:"method,omitempty"`
 	Dose              *Quantity        `bson:"dose,omitempty" json:"dose,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicationAdministration) ResourceRef() (string, *string) {
+	return "MedicationAdministration", r.Id
+}
+
 type OtherMedicationAdministration MedicationAdministration
 
 // MarshalJSON marshals the given MedicationAdministration as JSON into a byte slice

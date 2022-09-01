@@ -56,6 +56,12 @@ type FamilyMemberHistoryCondition struct {
 	ContributedToDeath *bool            `bson:"contributedToDeath,omitempty" json:"contributedToDeath,omitempty"`
 	Note               []Annotation     `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r FamilyMemberHistory) ResourceRef() (string, *string) {
+	return "FamilyMemberHistory", r.Id
+}
+
 type OtherFamilyMemberHistory FamilyMemberHistory
 
 // MarshalJSON marshals the given FamilyMemberHistory as JSON into a byte slice

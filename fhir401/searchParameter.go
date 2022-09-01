@@ -65,6 +65,12 @@ type SearchParameterComponent struct {
 	Definition        string      `bson:"definition" json:"definition"`
 	Expression        string      `bson:"expression" json:"expression"`
 }
+
+// This function returns resource reference information
+func (r SearchParameter) ResourceRef() (string, *string) {
+	return "SearchParameter", r.Id
+}
+
 type OtherSearchParameter SearchParameter
 
 // MarshalJSON marshals the given SearchParameter as JSON into a byte slice

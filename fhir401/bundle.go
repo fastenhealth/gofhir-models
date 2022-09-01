@@ -97,6 +97,12 @@ type BundleEntryResponse struct {
 	LastModified      *string         `bson:"lastModified,omitempty" json:"lastModified,omitempty"`
 	Outcome           json.RawMessage `bson:"outcome,omitempty" json:"outcome,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Bundle) ResourceRef() (string, *string) {
+	return "Bundle", r.Id
+}
+
 type OtherBundle Bundle
 
 // MarshalJSON marshals the given Bundle as JSON into a byte slice

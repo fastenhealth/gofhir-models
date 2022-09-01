@@ -60,6 +60,12 @@ type Library struct {
 	DataRequirement   []DataRequirement     `bson:"dataRequirement,omitempty" json:"dataRequirement,omitempty"`
 	Content           []Attachment          `bson:"content,omitempty" json:"content,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Library) ResourceRef() (string, *string) {
+	return "Library", r.Id
+}
+
 type OtherLibrary Library
 
 // MarshalJSON marshals the given Library as JSON into a byte slice

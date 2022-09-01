@@ -79,6 +79,12 @@ type MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalP
 	Value                 Quantity        `bson:"value" json:"value"`
 	SupportingInformation *string         `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductPharmaceutical) ResourceRef() (string, *string) {
+	return "MedicinalProductPharmaceutical", r.Id
+}
+
 type OtherMedicinalProductPharmaceutical MedicinalProductPharmaceutical
 
 // MarshalJSON marshals the given MedicinalProductPharmaceutical as JSON into a byte slice

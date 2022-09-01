@@ -38,6 +38,12 @@ type ResearchSubject struct {
 	ActualArm         *string               `bson:"actualArm,omitempty" json:"actualArm,omitempty"`
 	Consent           *Reference            `bson:"consent,omitempty" json:"consent,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ResearchSubject) ResourceRef() (string, *string) {
+	return "ResearchSubject", r.Id
+}
+
 type OtherResearchSubject ResearchSubject
 
 // MarshalJSON marshals the given ResearchSubject as JSON into a byte slice

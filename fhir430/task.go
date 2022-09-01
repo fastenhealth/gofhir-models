@@ -87,6 +87,12 @@ type TaskOutput struct {
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept `bson:"type" json:"type"`
 }
+
+// This function returns resource reference information
+func (r Task) ResourceRef() (string, *string) {
+	return "Task", r.Id
+}
+
 type OtherTask Task
 
 // MarshalJSON marshals the given Task as JSON into a byte slice

@@ -92,6 +92,12 @@ type RequestGroupActionRelatedAction struct {
 	ActionId          string                 `bson:"actionId" json:"actionId"`
 	Relationship      ActionRelationshipType `bson:"relationship" json:"relationship"`
 }
+
+// This function returns resource reference information
+func (r RequestGroup) ResourceRef() (string, *string) {
+	return "RequestGroup", r.Id
+}
+
 type OtherRequestGroup RequestGroup
 
 // MarshalJSON marshals the given RequestGroup as JSON into a byte slice

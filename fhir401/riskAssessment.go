@@ -58,6 +58,12 @@ type RiskAssessmentPrediction struct {
 	RelativeRisk      *string          `bson:"relativeRisk,omitempty" json:"relativeRisk,omitempty"`
 	Rationale         *string          `bson:"rationale,omitempty" json:"rationale,omitempty"`
 }
+
+// This function returns resource reference information
+func (r RiskAssessment) ResourceRef() (string, *string) {
+	return "RiskAssessment", r.Id
+}
+
 type OtherRiskAssessment RiskAssessment
 
 // MarshalJSON marshals the given RiskAssessment as JSON into a byte slice

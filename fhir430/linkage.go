@@ -42,6 +42,12 @@ type LinkageItem struct {
 	Type              LinkageType `bson:"type" json:"type"`
 	Resource          Reference   `bson:"resource" json:"resource"`
 }
+
+// This function returns resource reference information
+func (r Linkage) ResourceRef() (string, *string) {
+	return "Linkage", r.Id
+}
+
 type OtherLinkage Linkage
 
 // MarshalJSON marshals the given Linkage as JSON into a byte slice

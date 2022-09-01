@@ -35,6 +35,12 @@ type Basic struct {
 	Created           *string         `bson:"created,omitempty" json:"created,omitempty"`
 	Author            *Reference      `bson:"author,omitempty" json:"author,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Basic) ResourceRef() (string, *string) {
+	return "Basic", r.Id
+}
+
 type OtherBasic Basic
 
 // MarshalJSON marshals the given Basic as JSON into a byte slice

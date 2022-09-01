@@ -67,6 +67,12 @@ type MedicinalProductPackagedPackageItem struct {
 	ShelfLifeStorage        []ProductShelfLife                    `bson:"shelfLifeStorage,omitempty" json:"shelfLifeStorage,omitempty"`
 	Manufacturer            []Reference                           `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductPackaged) ResourceRef() (string, *string) {
+	return "MedicinalProductPackaged", r.Id
+}
+
 type OtherMedicinalProductPackaged MedicinalProductPackaged
 
 // MarshalJSON marshals the given MedicinalProductPackaged as JSON into a byte slice

@@ -57,6 +57,12 @@ type MedicationBatch struct {
 	LotNumber         *string     `bson:"lotNumber,omitempty" json:"lotNumber,omitempty"`
 	ExpirationDate    *string     `bson:"expirationDate,omitempty" json:"expirationDate,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Medication) ResourceRef() (string, *string) {
+	return "Medication", r.Id
+}
+
 type OtherMedication Medication
 
 // MarshalJSON marshals the given Medication as JSON into a byte slice

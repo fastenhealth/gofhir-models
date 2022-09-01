@@ -54,6 +54,12 @@ type GoalTarget struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Measure           *CodeableConcept `bson:"measure,omitempty" json:"measure,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Goal) ResourceRef() (string, *string) {
+	return "Goal", r.Id
+}
+
 type OtherGoal Goal
 
 // MarshalJSON marshals the given Goal as JSON into a byte slice

@@ -252,6 +252,12 @@ type TestScriptTeardownAction struct {
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Operation         TestScriptSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r TestScript) ResourceRef() (string, *string) {
+	return "TestScript", r.Id
+}
+
 type OtherTestScript TestScript
 
 // MarshalJSON marshals the given TestScript as JSON into a byte slice

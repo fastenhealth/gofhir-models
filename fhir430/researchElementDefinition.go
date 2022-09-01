@@ -79,6 +79,12 @@ type ResearchElementDefinitionCharacteristic struct {
 	ParticipantEffectiveTimeFromStart *Duration        `bson:"participantEffectiveTimeFromStart,omitempty" json:"participantEffectiveTimeFromStart,omitempty"`
 	ParticipantEffectiveGroupMeasure  *GroupMeasure    `bson:"participantEffectiveGroupMeasure,omitempty" json:"participantEffectiveGroupMeasure,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ResearchElementDefinition) ResourceRef() (string, *string) {
+	return "ResearchElementDefinition", r.Id
+}
+
 type OtherResearchElementDefinition ResearchElementDefinition
 
 // MarshalJSON marshals the given ResearchElementDefinition as JSON into a byte slice

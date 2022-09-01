@@ -76,6 +76,12 @@ type ProcedureFocalDevice struct {
 	Action            *CodeableConcept `bson:"action,omitempty" json:"action,omitempty"`
 	Manipulated       Reference        `bson:"manipulated" json:"manipulated"`
 }
+
+// This function returns resource reference information
+func (r Procedure) ResourceRef() (string, *string) {
+	return "Procedure", r.Id
+}
+
 type OtherProcedure Procedure
 
 // MarshalJSON marshals the given Procedure as JSON into a byte slice

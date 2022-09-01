@@ -214,6 +214,12 @@ type CapabilityStatementDocument struct {
 	Documentation     *string      `bson:"documentation,omitempty" json:"documentation,omitempty"`
 	Profile           string       `bson:"profile" json:"profile"`
 }
+
+// This function returns resource reference information
+func (r CapabilityStatement) ResourceRef() (string, *string) {
+	return "CapabilityStatement", r.Id
+}
+
 type OtherCapabilityStatement CapabilityStatement
 
 // MarshalJSON marshals the given CapabilityStatement as JSON into a byte slice

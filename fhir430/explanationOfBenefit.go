@@ -351,6 +351,12 @@ type ExplanationOfBenefitBenefitBalanceFinancial struct {
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept `bson:"type" json:"type"`
 }
+
+// This function returns resource reference information
+func (r ExplanationOfBenefit) ResourceRef() (string, *string) {
+	return "ExplanationOfBenefit", r.Id
+}
+
 type OtherExplanationOfBenefit ExplanationOfBenefit
 
 // MarshalJSON marshals the given ExplanationOfBenefit as JSON into a byte slice

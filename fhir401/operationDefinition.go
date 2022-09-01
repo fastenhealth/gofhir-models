@@ -104,6 +104,12 @@ type OperationDefinitionOverload struct {
 	ParameterName     []string    `bson:"parameterName,omitempty" json:"parameterName,omitempty"`
 	Comment           *string     `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// This function returns resource reference information
+func (r OperationDefinition) ResourceRef() (string, *string) {
+	return "OperationDefinition", r.Id
+}
+
 type OtherOperationDefinition OperationDefinition
 
 // MarshalJSON marshals the given OperationDefinition as JSON into a byte slice

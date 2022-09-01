@@ -77,6 +77,12 @@ type SpecimenContainer struct {
 	Capacity          *Quantity        `bson:"capacity,omitempty" json:"capacity,omitempty"`
 	SpecimenQuantity  *Quantity        `bson:"specimenQuantity,omitempty" json:"specimenQuantity,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Specimen) ResourceRef() (string, *string) {
+	return "Specimen", r.Id
+}
+
 type OtherSpecimen Specimen
 
 // MarshalJSON marshals the given Specimen as JSON into a byte slice

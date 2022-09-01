@@ -44,6 +44,12 @@ type OperationOutcomeIssue struct {
 	Location          []string         `bson:"location,omitempty" json:"location,omitempty"`
 	Expression        []string         `bson:"expression,omitempty" json:"expression,omitempty"`
 }
+
+// This function returns resource reference information
+func (r OperationOutcome) ResourceRef() (string, *string) {
+	return "OperationOutcome", r.Id
+}
+
 type OtherOperationOutcome OperationOutcome
 
 // MarshalJSON marshals the given OperationOutcome as JSON into a byte slice

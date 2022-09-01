@@ -79,6 +79,12 @@ type PatientLink struct {
 	Other             Reference   `bson:"other" json:"other"`
 	Type              LinkType    `bson:"type" json:"type"`
 }
+
+// This function returns resource reference information
+func (r Patient) ResourceRef() (string, *string) {
+	return "Patient", r.Id
+}
+
 type OtherPatient Patient
 
 // MarshalJSON marshals the given Patient as JSON into a byte slice

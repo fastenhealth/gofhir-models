@@ -98,6 +98,12 @@ type SubstancePolymerRepeatRepeatUnitStructuralRepresentation struct {
 	Representation    *string          `bson:"representation,omitempty" json:"representation,omitempty"`
 	Attachment        *Attachment      `bson:"attachment,omitempty" json:"attachment,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstancePolymer) ResourceRef() (string, *string) {
+	return "SubstancePolymer", r.Id
+}
+
 type OtherSubstancePolymer SubstancePolymer
 
 // MarshalJSON marshals the given SubstancePolymer as JSON into a byte slice

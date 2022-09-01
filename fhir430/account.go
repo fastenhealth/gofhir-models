@@ -66,6 +66,12 @@ type AccountGuarantor struct {
 	OnHold            *bool       `bson:"onHold,omitempty" json:"onHold,omitempty"`
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Account) ResourceRef() (string, *string) {
+	return "Account", r.Id
+}
+
 type OtherAccount Account
 
 // MarshalJSON marshals the given Account as JSON into a byte slice

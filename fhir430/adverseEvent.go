@@ -70,6 +70,12 @@ type AdverseEventSuspectEntityCausality struct {
 	Author             *Reference       `bson:"author,omitempty" json:"author,omitempty"`
 	Method             *CodeableConcept `bson:"method,omitempty" json:"method,omitempty"`
 }
+
+// This function returns resource reference information
+func (r AdverseEvent) ResourceRef() (string, *string) {
+	return "AdverseEvent", r.Id
+}
+
 type OtherAdverseEvent AdverseEvent
 
 // MarshalJSON marshals the given AdverseEvent as JSON into a byte slice

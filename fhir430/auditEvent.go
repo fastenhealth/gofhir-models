@@ -109,6 +109,12 @@ type AuditEventEntityDetail struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              string      `bson:"type" json:"type"`
 }
+
+// This function returns resource reference information
+func (r AuditEvent) ResourceRef() (string, *string) {
+	return "AuditEvent", r.Id
+}
+
 type OtherAuditEvent AuditEvent
 
 // MarshalJSON marshals the given AuditEvent as JSON into a byte slice

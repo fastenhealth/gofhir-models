@@ -41,6 +41,12 @@ type Endpoint struct {
 	Address              string            `bson:"address" json:"address"`
 	Header               []string          `bson:"header,omitempty" json:"header,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Endpoint) ResourceRef() (string, *string) {
+	return "Endpoint", r.Id
+}
+
 type OtherEndpoint Endpoint
 
 // MarshalJSON marshals the given Endpoint as JSON into a byte slice

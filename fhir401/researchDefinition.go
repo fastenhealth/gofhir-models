@@ -63,6 +63,12 @@ type ResearchDefinition struct {
 	ExposureAlternative *Reference        `bson:"exposureAlternative,omitempty" json:"exposureAlternative,omitempty"`
 	Outcome             *Reference        `bson:"outcome,omitempty" json:"outcome,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ResearchDefinition) ResourceRef() (string, *string) {
+	return "ResearchDefinition", r.Id
+}
+
 type OtherResearchDefinition ResearchDefinition
 
 // MarshalJSON marshals the given ResearchDefinition as JSON into a byte slice

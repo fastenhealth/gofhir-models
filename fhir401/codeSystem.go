@@ -112,6 +112,12 @@ type CodeSystemConceptProperty struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              string      `bson:"code" json:"code"`
 }
+
+// This function returns resource reference information
+func (r CodeSystem) ResourceRef() (string, *string) {
+	return "CodeSystem", r.Id
+}
+
 type OtherCodeSystem CodeSystem
 
 // MarshalJSON marshals the given CodeSystem as JSON into a byte slice

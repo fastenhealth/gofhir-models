@@ -38,6 +38,12 @@ type ParametersParameter struct {
 	Resource          json.RawMessage       `bson:"resource,omitempty" json:"resource,omitempty"`
 	Part              []ParametersParameter `bson:"part,omitempty" json:"part,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Parameters) ResourceRef() (string, *string) {
+	return "Parameters", r.Id
+}
+
 type OtherParameters Parameters
 
 // MarshalJSON marshals the given Parameters as JSON into a byte slice

@@ -58,6 +58,12 @@ type Evidence struct {
 	ExposureVariant    []Reference       `bson:"exposureVariant,omitempty" json:"exposureVariant,omitempty"`
 	Outcome            []Reference       `bson:"outcome,omitempty" json:"outcome,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Evidence) ResourceRef() (string, *string) {
+	return "Evidence", r.Id
+}
+
 type OtherEvidence Evidence
 
 // MarshalJSON marshals the given Evidence as JSON into a byte slice

@@ -108,6 +108,12 @@ type DeviceProperty struct {
 	ValueQuantity     []Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueCode         []CodeableConcept `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Device) ResourceRef() (string, *string) {
+	return "Device", r.Id
+}
+
 type OtherDevice Device
 
 // MarshalJSON marshals the given Device as JSON into a byte slice

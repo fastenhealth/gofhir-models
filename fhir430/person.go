@@ -49,6 +49,12 @@ type PersonLink struct {
 	Target            Reference               `bson:"target" json:"target"`
 	Assurance         *IdentityAssuranceLevel `bson:"assurance,omitempty" json:"assurance,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Person) ResourceRef() (string, *string) {
+	return "Person", r.Id
+}
+
 type OtherPerson Person
 
 // MarshalJSON marshals the given Person as JSON into a byte slice

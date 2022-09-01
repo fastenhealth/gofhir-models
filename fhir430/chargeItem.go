@@ -63,6 +63,12 @@ type ChargeItemPerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
+
+// This function returns resource reference information
+func (r ChargeItem) ResourceRef() (string, *string) {
+	return "ChargeItem", r.Id
+}
+
 type OtherChargeItem ChargeItem
 
 // MarshalJSON marshals the given ChargeItem as JSON into a byte slice

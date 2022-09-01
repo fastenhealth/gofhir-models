@@ -56,6 +56,12 @@ type NamingSystemUniqueId struct {
 	Comment           *string                    `bson:"comment,omitempty" json:"comment,omitempty"`
 	Period            *Period                    `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r NamingSystem) ResourceRef() (string, *string) {
+	return "NamingSystem", r.Id
+}
+
 type OtherNamingSystem NamingSystem
 
 // MarshalJSON marshals the given NamingSystem as JSON into a byte slice

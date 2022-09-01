@@ -80,6 +80,12 @@ type DocumentReferenceContext struct {
 	SourcePatientInfo *Reference        `bson:"sourcePatientInfo,omitempty" json:"sourcePatientInfo,omitempty"`
 	Related           []Reference       `bson:"related,omitempty" json:"related,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DocumentReference) ResourceRef() (string, *string) {
+	return "DocumentReference", r.Id
+}
+
 type OtherDocumentReference DocumentReference
 
 // MarshalJSON marshals the given DocumentReference as JSON into a byte slice

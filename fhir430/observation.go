@@ -78,6 +78,12 @@ type ObservationComponent struct {
 	Interpretation    []CodeableConcept           `bson:"interpretation,omitempty" json:"interpretation,omitempty"`
 	ReferenceRange    []ObservationReferenceRange `bson:"referenceRange,omitempty" json:"referenceRange,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Observation) ResourceRef() (string, *string) {
+	return "Observation", r.Id
+}
+
 type OtherObservation Observation
 
 // MarshalJSON marshals the given Observation as JSON into a byte slice

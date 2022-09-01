@@ -128,6 +128,12 @@ type EffectEvidenceSynthesisCertaintyCertaintySubcomponent struct {
 	Rating            []CodeableConcept `bson:"rating,omitempty" json:"rating,omitempty"`
 	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r EffectEvidenceSynthesis) ResourceRef() (string, *string) {
+	return "EffectEvidenceSynthesis", r.Id
+}
+
 type OtherEffectEvidenceSynthesis EffectEvidenceSynthesis
 
 // MarshalJSON marshals the given EffectEvidenceSynthesis as JSON into a byte slice

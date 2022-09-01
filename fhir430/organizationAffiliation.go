@@ -42,6 +42,12 @@ type OrganizationAffiliation struct {
 	Telecom                   []ContactPoint    `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Endpoint                  []Reference       `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
+
+// This function returns resource reference information
+func (r OrganizationAffiliation) ResourceRef() (string, *string) {
+	return "OrganizationAffiliation", r.Id
+}
+
 type OtherOrganizationAffiliation OrganizationAffiliation
 
 // MarshalJSON marshals the given OrganizationAffiliation as JSON into a byte slice

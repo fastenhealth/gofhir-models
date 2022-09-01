@@ -55,6 +55,12 @@ type ListEntry struct {
 	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
 	Item              Reference        `bson:"item" json:"item"`
 }
+
+// This function returns resource reference information
+func (r List) ResourceRef() (string, *string) {
+	return "List", r.Id
+}
+
 type OtherList List
 
 // MarshalJSON marshals the given List as JSON into a byte slice

@@ -73,6 +73,12 @@ type LocationHoursOfOperation struct {
 	OpeningTime       *string      `bson:"openingTime,omitempty" json:"openingTime,omitempty"`
 	ClosingTime       *string      `bson:"closingTime,omitempty" json:"closingTime,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Location) ResourceRef() (string, *string) {
+	return "Location", r.Id
+}
+
 type OtherLocation Location
 
 // MarshalJSON marshals the given Location as JSON into a byte slice

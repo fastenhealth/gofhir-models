@@ -54,6 +54,12 @@ type CompartmentDefinitionResource struct {
 	Param             []string     `bson:"param,omitempty" json:"param,omitempty"`
 	Documentation     *string      `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r CompartmentDefinition) ResourceRef() (string, *string) {
+	return "CompartmentDefinition", r.Id
+}
+
 type OtherCompartmentDefinition CompartmentDefinition
 
 // MarshalJSON marshals the given CompartmentDefinition as JSON into a byte slice

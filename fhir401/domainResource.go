@@ -30,6 +30,12 @@ type DomainResource struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DomainResource) ResourceRef() (string, *string) {
+	return "DomainResource", r.Id
+}
+
 type OtherDomainResource DomainResource
 
 // MarshalJSON marshals the given DomainResource as JSON into a byte slice

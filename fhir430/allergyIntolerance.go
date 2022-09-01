@@ -59,6 +59,12 @@ type AllergyIntoleranceReaction struct {
 	ExposureRoute     *CodeableConcept            `bson:"exposureRoute,omitempty" json:"exposureRoute,omitempty"`
 	Note              []Annotation                `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r AllergyIntolerance) ResourceRef() (string, *string) {
+	return "AllergyIntolerance", r.Id
+}
+
 type OtherAllergyIntolerance AllergyIntolerance
 
 // MarshalJSON marshals the given AllergyIntolerance as JSON into a byte slice

@@ -54,6 +54,12 @@ type CareTeamParticipant struct {
 	OnBehalfOf        *Reference        `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty"`
 	Period            *Period           `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r CareTeam) ResourceRef() (string, *string) {
+	return "CareTeam", r.Id
+}
+
 type OtherCareTeam CareTeam
 
 // MarshalJSON marshals the given CareTeam as JSON into a byte slice

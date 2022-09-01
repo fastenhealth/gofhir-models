@@ -83,6 +83,12 @@ type VerificationResultValidator struct {
 	IdentityCertificate  *string     `bson:"identityCertificate,omitempty" json:"identityCertificate,omitempty"`
 	AttestationSignature *Signature  `bson:"attestationSignature,omitempty" json:"attestationSignature,omitempty"`
 }
+
+// This function returns resource reference information
+func (r VerificationResult) ResourceRef() (string, *string) {
+	return "VerificationResult", r.Id
+}
+
 type OtherVerificationResult VerificationResult
 
 // MarshalJSON marshals the given VerificationResult as JSON into a byte slice

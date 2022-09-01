@@ -74,6 +74,12 @@ type MessageHeaderResponse struct {
 	Code              ResponseType `bson:"code" json:"code"`
 	Details           *Reference   `bson:"details,omitempty" json:"details,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MessageHeader) ResourceRef() (string, *string) {
+	return "MessageHeader", r.Id
+}
+
 type OtherMessageHeader MessageHeader
 
 // MarshalJSON marshals the given MessageHeader as JSON into a byte slice

@@ -197,6 +197,12 @@ type MedicationKnowledgeKinetics struct {
 	LethalDose50      []Quantity  `bson:"lethalDose50,omitempty" json:"lethalDose50,omitempty"`
 	HalfLifePeriod    *Duration   `bson:"halfLifePeriod,omitempty" json:"halfLifePeriod,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicationKnowledge) ResourceRef() (string, *string) {
+	return "MedicationKnowledge", r.Id
+}
+
 type OtherMedicationKnowledge MedicationKnowledge
 
 // MarshalJSON marshals the given MedicationKnowledge as JSON into a byte slice

@@ -64,6 +64,12 @@ type AppointmentParticipant struct {
 	Status            ParticipationStatus  `bson:"status" json:"status"`
 	Period            *Period              `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Appointment) ResourceRef() (string, *string) {
+	return "Appointment", r.Id
+}
+
 type OtherAppointment Appointment
 
 // MarshalJSON marshals the given Appointment as JSON into a byte slice

@@ -127,6 +127,12 @@ type TestReportTeardownAction struct {
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Operation         TestReportSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r TestReport) ResourceRef() (string, *string) {
+	return "TestReport", r.Id
+}
+
 type OtherTestReport TestReport
 
 // MarshalJSON marshals the given TestReport as JSON into a byte slice

@@ -107,6 +107,12 @@ type ConceptMapGroupUnmapped struct {
 	Display           *string                     `bson:"display,omitempty" json:"display,omitempty"`
 	Url               *string                     `bson:"url,omitempty" json:"url,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ConceptMap) ResourceRef() (string, *string) {
+	return "ConceptMap", r.Id
+}
+
 type OtherConceptMap ConceptMap
 
 // MarshalJSON marshals the given ConceptMap as JSON into a byte slice

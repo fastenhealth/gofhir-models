@@ -57,6 +57,12 @@ type EventDefinition struct {
 	RelatedArtifact   []RelatedArtifact   `bson:"relatedArtifact,omitempty" json:"relatedArtifact,omitempty"`
 	Trigger           []TriggerDefinition `bson:"trigger" json:"trigger"`
 }
+
+// This function returns resource reference information
+func (r EventDefinition) ResourceRef() (string, *string) {
+	return "EventDefinition", r.Id
+}
+
 type OtherEventDefinition EventDefinition
 
 // MarshalJSON marshals the given EventDefinition as JSON into a byte slice

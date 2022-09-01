@@ -154,6 +154,12 @@ type PlanDefinitionActionDynamicValue struct {
 	Path              *string     `bson:"path,omitempty" json:"path,omitempty"`
 	Expression        *Expression `bson:"expression,omitempty" json:"expression,omitempty"`
 }
+
+// This function returns resource reference information
+func (r PlanDefinition) ResourceRef() (string, *string) {
+	return "PlanDefinition", r.Id
+}
+
 type OtherPlanDefinition PlanDefinition
 
 // MarshalJSON marshals the given PlanDefinition as JSON into a byte slice

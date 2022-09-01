@@ -49,6 +49,12 @@ type SubstanceProteinSubunit struct {
 	CTerminalModificationId *Identifier `bson:"cTerminalModificationId,omitempty" json:"cTerminalModificationId,omitempty"`
 	CTerminalModification   *string     `bson:"cTerminalModification,omitempty" json:"cTerminalModification,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstanceProtein) ResourceRef() (string, *string) {
+	return "SubstanceProtein", r.Id
+}
+
 type OtherSubstanceProtein SubstanceProtein
 
 // MarshalJSON marshals the given SubstanceProtein as JSON into a byte slice

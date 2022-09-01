@@ -154,6 +154,12 @@ type MolecularSequenceStructureVariantInner struct {
 	Start             *int        `bson:"start,omitempty" json:"start,omitempty"`
 	End               *int        `bson:"end,omitempty" json:"end,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MolecularSequence) ResourceRef() (string, *string) {
+	return "MolecularSequence", r.Id
+}
+
 type OtherMolecularSequence MolecularSequence
 
 // MarshalJSON marshals the given MolecularSequence as JSON into a byte slice

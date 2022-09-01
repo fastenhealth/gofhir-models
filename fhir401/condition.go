@@ -65,6 +65,12 @@ type ConditionEvidence struct {
 	Code              []CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Detail            []Reference       `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Condition) ResourceRef() (string, *string) {
+	return "Condition", r.Id
+}
+
 type OtherCondition Condition
 
 // MarshalJSON marshals the given Condition as JSON into a byte slice

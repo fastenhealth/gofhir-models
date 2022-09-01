@@ -82,6 +82,12 @@ type MedicinalProductIngredientSubstance struct {
 	Code              CodeableConcept                                        `bson:"code" json:"code"`
 	Strength          []MedicinalProductIngredientSpecifiedSubstanceStrength `bson:"strength,omitempty" json:"strength,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductIngredient) ResourceRef() (string, *string) {
+	return "MedicinalProductIngredient", r.Id
+}
+
 type OtherMedicinalProductIngredient MedicinalProductIngredient
 
 // MarshalJSON marshals the given MedicinalProductIngredient as JSON into a byte slice

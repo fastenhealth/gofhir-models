@@ -98,6 +98,12 @@ type ImmunizationProtocolApplied struct {
 	Authority         *Reference        `bson:"authority,omitempty" json:"authority,omitempty"`
 	TargetDisease     []CodeableConcept `bson:"targetDisease,omitempty" json:"targetDisease,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Immunization) ResourceRef() (string, *string) {
+	return "Immunization", r.Id
+}
+
 type OtherImmunization Immunization
 
 // MarshalJSON marshals the given Immunization as JSON into a byte slice

@@ -37,6 +37,12 @@ type EnrollmentRequest struct {
 	Candidate         *Reference                    `bson:"candidate,omitempty" json:"candidate,omitempty"`
 	Coverage          *Reference                    `bson:"coverage,omitempty" json:"coverage,omitempty"`
 }
+
+// This function returns resource reference information
+func (r EnrollmentRequest) ResourceRef() (string, *string) {
+	return "EnrollmentRequest", r.Id
+}
+
 type OtherEnrollmentRequest EnrollmentRequest
 
 // MarshalJSON marshals the given EnrollmentRequest as JSON into a byte slice

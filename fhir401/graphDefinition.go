@@ -82,6 +82,12 @@ type GraphDefinitionLinkTargetCompartment struct {
 	Expression        *string              `bson:"expression,omitempty" json:"expression,omitempty"`
 	Description       *string              `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// This function returns resource reference information
+func (r GraphDefinition) ResourceRef() (string, *string) {
+	return "GraphDefinition", r.Id
+}
+
 type OtherGraphDefinition GraphDefinition
 
 // MarshalJSON marshals the given GraphDefinition as JSON into a byte slice

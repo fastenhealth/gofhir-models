@@ -92,6 +92,12 @@ type ActivityDefinitionDynamicValue struct {
 	Path              string      `bson:"path" json:"path"`
 	Expression        Expression  `bson:"expression" json:"expression"`
 }
+
+// This function returns resource reference information
+func (r ActivityDefinition) ResourceRef() (string, *string) {
+	return "ActivityDefinition", r.Id
+}
+
 type OtherActivityDefinition ActivityDefinition
 
 // MarshalJSON marshals the given ActivityDefinition as JSON into a byte slice

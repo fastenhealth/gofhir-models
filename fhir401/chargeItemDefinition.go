@@ -84,6 +84,12 @@ type ChargeItemDefinitionPropertyGroupPriceComponent struct {
 	Factor            *string                   `bson:"factor,omitempty" json:"factor,omitempty"`
 	Amount            *Money                    `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ChargeItemDefinition) ResourceRef() (string, *string) {
+	return "ChargeItemDefinition", r.Id
+}
+
 type OtherChargeItemDefinition ChargeItemDefinition
 
 // MarshalJSON marshals the given ChargeItemDefinition as JSON into a byte slice

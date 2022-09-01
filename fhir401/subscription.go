@@ -48,6 +48,12 @@ type SubscriptionChannel struct {
 	Payload           *string                 `bson:"payload,omitempty" json:"payload,omitempty"`
 	Header            []string                `bson:"header,omitempty" json:"header,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Subscription) ResourceRef() (string, *string) {
+	return "Subscription", r.Id
+}
+
 type OtherSubscription Subscription
 
 // MarshalJSON marshals the given Subscription as JSON into a byte slice

@@ -65,6 +65,12 @@ type PractitionerRoleNotAvailable struct {
 	Description       string      `bson:"description" json:"description"`
 	During            *Period     `bson:"during,omitempty" json:"during,omitempty"`
 }
+
+// This function returns resource reference information
+func (r PractitionerRole) ResourceRef() (string, *string) {
+	return "PractitionerRole", r.Id
+}
+
 type OtherPractitionerRole PractitionerRole
 
 // MarshalJSON marshals the given PractitionerRole as JSON into a byte slice

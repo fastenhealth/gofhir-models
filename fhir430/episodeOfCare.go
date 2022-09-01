@@ -61,6 +61,12 @@ type EpisodeOfCareDiagnosis struct {
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 	Rank              *int             `bson:"rank,omitempty" json:"rank,omitempty"`
 }
+
+// This function returns resource reference information
+func (r EpisodeOfCare) ResourceRef() (string, *string) {
+	return "EpisodeOfCare", r.Id
+}
+
 type OtherEpisodeOfCare EpisodeOfCare
 
 // MarshalJSON marshals the given EpisodeOfCare as JSON into a byte slice

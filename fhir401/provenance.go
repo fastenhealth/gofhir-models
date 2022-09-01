@@ -61,6 +61,12 @@ type ProvenanceEntity struct {
 	What              Reference            `bson:"what" json:"what"`
 	Agent             []ProvenanceAgent    `bson:"agent,omitempty" json:"agent,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Provenance) ResourceRef() (string, *string) {
+	return "Provenance", r.Id
+}
+
 type OtherProvenance Provenance
 
 // MarshalJSON marshals the given Provenance as JSON into a byte slice

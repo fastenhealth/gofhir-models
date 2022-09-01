@@ -83,6 +83,12 @@ type SpecimenDefinitionTypeTestedHandling struct {
 	MaxDuration          *Duration        `bson:"maxDuration,omitempty" json:"maxDuration,omitempty"`
 	Instruction          *string          `bson:"instruction,omitempty" json:"instruction,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SpecimenDefinition) ResourceRef() (string, *string) {
+	return "SpecimenDefinition", r.Id
+}
+
 type OtherSpecimenDefinition SpecimenDefinition
 
 // MarshalJSON marshals the given SpecimenDefinition as JSON into a byte slice

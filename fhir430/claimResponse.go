@@ -213,6 +213,12 @@ type ClaimResponseError struct {
 	SubDetailSequence *int            `bson:"subDetailSequence,omitempty" json:"subDetailSequence,omitempty"`
 	Code              CodeableConcept `bson:"code" json:"code"`
 }
+
+// This function returns resource reference information
+func (r ClaimResponse) ResourceRef() (string, *string) {
+	return "ClaimResponse", r.Id
+}
+
 type OtherClaimResponse ClaimResponse
 
 // MarshalJSON marshals the given ClaimResponse as JSON into a byte slice

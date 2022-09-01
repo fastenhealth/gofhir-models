@@ -93,6 +93,12 @@ type StructureDefinitionDifferential struct {
 	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Element           []ElementDefinition `bson:"element" json:"element"`
 }
+
+// This function returns resource reference information
+func (r StructureDefinition) ResourceRef() (string, *string) {
+	return "StructureDefinition", r.Id
+}
+
 type OtherStructureDefinition StructureDefinition
 
 // MarshalJSON marshals the given StructureDefinition as JSON into a byte slice

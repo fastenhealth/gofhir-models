@@ -42,6 +42,12 @@ type PaymentNotice struct {
 	Amount            Money                        `bson:"amount" json:"amount"`
 	PaymentStatus     *CodeableConcept             `bson:"paymentStatus,omitempty" json:"paymentStatus,omitempty"`
 }
+
+// This function returns resource reference information
+func (r PaymentNotice) ResourceRef() (string, *string) {
+	return "PaymentNotice", r.Id
+}
+
 type OtherPaymentNotice PaymentNotice
 
 // MarshalJSON marshals the given PaymentNotice as JSON into a byte slice

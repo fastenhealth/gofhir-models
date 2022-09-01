@@ -49,6 +49,12 @@ type MedicationStatement struct {
 	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
 	Dosage            []Dosage          `bson:"dosage,omitempty" json:"dosage,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicationStatement) ResourceRef() (string, *string) {
+	return "MedicationStatement", r.Id
+}
+
 type OtherMedicationStatement MedicationStatement
 
 // MarshalJSON marshals the given MedicationStatement as JSON into a byte slice

@@ -38,6 +38,12 @@ type BodyStructure struct {
 	Image             []Attachment      `bson:"image,omitempty" json:"image,omitempty"`
 	Patient           Reference         `bson:"patient" json:"patient"`
 }
+
+// This function returns resource reference information
+func (r BodyStructure) ResourceRef() (string, *string) {
+	return "BodyStructure", r.Id
+}
+
 type OtherBodyStructure BodyStructure
 
 // MarshalJSON marshals the given BodyStructure as JSON into a byte slice

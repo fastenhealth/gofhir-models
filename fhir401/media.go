@@ -51,6 +51,12 @@ type Media struct {
 	Content           Attachment        `bson:"content" json:"content"`
 	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Media) ResourceRef() (string, *string) {
+	return "Media", r.Id
+}
+
 type OtherMedia Media
 
 // MarshalJSON marshals the given Media as JSON into a byte slice

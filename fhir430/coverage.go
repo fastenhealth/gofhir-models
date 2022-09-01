@@ -77,6 +77,12 @@ type CoverageCostToBeneficiaryException struct {
 	Type              CodeableConcept `bson:"type" json:"type"`
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Coverage) ResourceRef() (string, *string) {
+	return "Coverage", r.Id
+}
+
 type OtherCoverage Coverage
 
 // MarshalJSON marshals the given Coverage as JSON into a byte slice

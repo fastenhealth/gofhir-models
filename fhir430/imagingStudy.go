@@ -90,6 +90,12 @@ type ImagingStudySeriesInstance struct {
 	Number            *int        `bson:"number,omitempty" json:"number,omitempty"`
 	Title             *string     `bson:"title,omitempty" json:"title,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ImagingStudy) ResourceRef() (string, *string) {
+	return "ImagingStudy", r.Id
+}
+
 type OtherImagingStudy ImagingStudy
 
 // MarshalJSON marshals the given ImagingStudy as JSON into a byte slice

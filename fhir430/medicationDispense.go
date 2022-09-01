@@ -72,6 +72,12 @@ type MedicationDispenseSubstitution struct {
 	Reason            []CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 	ResponsibleParty  []Reference       `bson:"responsibleParty,omitempty" json:"responsibleParty,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicationDispense) ResourceRef() (string, *string) {
+	return "MedicationDispense", r.Id
+}
+
 type OtherMedicationDispense MedicationDispense
 
 // MarshalJSON marshals the given MedicationDispense as JSON into a byte slice

@@ -75,6 +75,12 @@ type InvoiceLineItemPriceComponent struct {
 	Factor            *string                   `bson:"factor,omitempty" json:"factor,omitempty"`
 	Amount            *Money                    `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Invoice) ResourceRef() (string, *string) {
+	return "Invoice", r.Id
+}
+
 type OtherInvoice Invoice
 
 // MarshalJSON marshals the given Invoice as JSON into a byte slice

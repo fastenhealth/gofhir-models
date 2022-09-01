@@ -41,6 +41,12 @@ type Slot struct {
 	Overbooked        *bool             `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
 	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Slot) ResourceRef() (string, *string) {
+	return "Slot", r.Id
+}
+
 type OtherSlot Slot
 
 // MarshalJSON marshals the given Slot as JSON into a byte slice

@@ -38,6 +38,12 @@ type Schedule struct {
 	PlanningHorizon   *Period           `bson:"planningHorizon,omitempty" json:"planningHorizon,omitempty"`
 	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Schedule) ResourceRef() (string, *string) {
+	return "Schedule", r.Id
+}
+
 type OtherSchedule Schedule
 
 // MarshalJSON marshals the given Schedule as JSON into a byte slice

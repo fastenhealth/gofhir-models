@@ -146,6 +146,12 @@ type StructureMapGroupRuleDependent struct {
 	Name              string      `bson:"name" json:"name"`
 	Variable          []string    `bson:"variable" json:"variable"`
 }
+
+// This function returns resource reference information
+func (r StructureMap) ResourceRef() (string, *string) {
+	return "StructureMap", r.Id
+}
+
 type OtherStructureMap StructureMap
 
 // MarshalJSON marshals the given StructureMap as JSON into a byte slice

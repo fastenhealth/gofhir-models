@@ -84,6 +84,12 @@ type HealthcareServiceNotAvailable struct {
 	Description       string      `bson:"description" json:"description"`
 	During            *Period     `bson:"during,omitempty" json:"during,omitempty"`
 }
+
+// This function returns resource reference information
+func (r HealthcareService) ResourceRef() (string, *string) {
+	return "HealthcareService", r.Id
+}
+
 type OtherHealthcareService HealthcareService
 
 // MarshalJSON marshals the given HealthcareService as JSON into a byte slice

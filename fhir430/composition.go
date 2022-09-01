@@ -93,6 +93,12 @@ type CompositionSection struct {
 	EmptyReason       *CodeableConcept     `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 	Section           []CompositionSection `bson:"section,omitempty" json:"section,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Composition) ResourceRef() (string, *string) {
+	return "Composition", r.Id
+}
+
 type OtherComposition Composition
 
 // MarshalJSON marshals the given Composition as JSON into a byte slice

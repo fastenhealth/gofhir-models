@@ -211,6 +211,12 @@ type ClaimItemDetailSubDetail struct {
 	Net               *Money            `bson:"net,omitempty" json:"net,omitempty"`
 	Udi               []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Claim) ResourceRef() (string, *string) {
+	return "Claim", r.Id
+}
+
 type OtherClaim Claim
 
 // MarshalJSON marshals the given Claim as JSON into a byte slice

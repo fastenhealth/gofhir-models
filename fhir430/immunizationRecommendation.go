@@ -61,6 +61,12 @@ type ImmunizationRecommendationRecommendationDateCriterion struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Value             string          `bson:"value" json:"value"`
 }
+
+// This function returns resource reference information
+func (r ImmunizationRecommendation) ResourceRef() (string, *string) {
+	return "ImmunizationRecommendation", r.Id
+}
+
 type OtherImmunizationRecommendation ImmunizationRecommendation
 
 // MarshalJSON marshals the given ImmunizationRecommendation as JSON into a byte slice

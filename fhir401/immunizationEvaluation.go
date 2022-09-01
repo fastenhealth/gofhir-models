@@ -41,6 +41,12 @@ type ImmunizationEvaluation struct {
 	Description       *string                           `bson:"description,omitempty" json:"description,omitempty"`
 	Series            *string                           `bson:"series,omitempty" json:"series,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ImmunizationEvaluation) ResourceRef() (string, *string) {
+	return "ImmunizationEvaluation", r.Id
+}
+
 type OtherImmunizationEvaluation ImmunizationEvaluation
 
 // MarshalJSON marshals the given ImmunizationEvaluation as JSON into a byte slice

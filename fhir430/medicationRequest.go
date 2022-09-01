@@ -92,6 +92,12 @@ type MedicationRequestSubstitution struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Reason            *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicationRequest) ResourceRef() (string, *string) {
+	return "MedicationRequest", r.Id
+}
+
 type OtherMedicationRequest MedicationRequest
 
 // MarshalJSON marshals the given MedicationRequest as JSON into a byte slice

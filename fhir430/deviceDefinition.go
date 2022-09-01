@@ -108,6 +108,12 @@ type DeviceDefinitionMaterial struct {
 	Alternate           *bool           `bson:"alternate,omitempty" json:"alternate,omitempty"`
 	AllergenicIndicator *bool           `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DeviceDefinition) ResourceRef() (string, *string) {
+	return "DeviceDefinition", r.Id
+}
+
 type OtherDeviceDefinition DeviceDefinition
 
 // MarshalJSON marshals the given DeviceDefinition as JSON into a byte slice

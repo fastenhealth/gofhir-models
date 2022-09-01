@@ -125,6 +125,12 @@ type MeasureSupplementalData struct {
 	Description       *string           `bson:"description,omitempty" json:"description,omitempty"`
 	Criteria          Expression        `bson:"criteria" json:"criteria"`
 }
+
+// This function returns resource reference information
+func (r Measure) ResourceRef() (string, *string) {
+	return "Measure", r.Id
+}
+
 type OtherMeasure Measure
 
 // MarshalJSON marshals the given Measure as JSON into a byte slice

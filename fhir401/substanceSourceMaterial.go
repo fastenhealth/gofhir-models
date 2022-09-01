@@ -108,6 +108,12 @@ type SubstanceSourceMaterialPartDescription struct {
 	Part              *CodeableConcept `bson:"part,omitempty" json:"part,omitempty"`
 	PartLocation      *CodeableConcept `bson:"partLocation,omitempty" json:"partLocation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstanceSourceMaterial) ResourceRef() (string, *string) {
+	return "SubstanceSourceMaterial", r.Id
+}
+
 type OtherSubstanceSourceMaterial SubstanceSourceMaterial
 
 // MarshalJSON marshals the given SubstanceSourceMaterial as JSON into a byte slice

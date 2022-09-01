@@ -87,6 +87,12 @@ type CarePlanActivityDetail struct {
 	Quantity              *Quantity              `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	Description           *string                `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// This function returns resource reference information
+func (r CarePlan) ResourceRef() (string, *string) {
+	return "CarePlan", r.Id
+}
+
 type OtherCarePlan CarePlan
 
 // MarshalJSON marshals the given CarePlan as JSON into a byte slice

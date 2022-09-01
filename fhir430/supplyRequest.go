@@ -51,6 +51,12 @@ type SupplyRequestParameter struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SupplyRequest) ResourceRef() (string, *string) {
+	return "SupplyRequest", r.Id
+}
+
 type OtherSupplyRequest SupplyRequest
 
 // MarshalJSON marshals the given SupplyRequest as JSON into a byte slice

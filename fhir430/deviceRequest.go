@@ -60,6 +60,12 @@ type DeviceRequestParameter struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DeviceRequest) ResourceRef() (string, *string) {
+	return "DeviceRequest", r.Id
+}
+
 type OtherDeviceRequest DeviceRequest
 
 // MarshalJSON marshals the given DeviceRequest as JSON into a byte slice

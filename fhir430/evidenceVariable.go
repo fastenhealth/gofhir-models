@@ -70,6 +70,12 @@ type EvidenceVariableCharacteristic struct {
 	TimeFromStart     *Duration      `bson:"timeFromStart,omitempty" json:"timeFromStart,omitempty"`
 	GroupMeasure      *GroupMeasure  `bson:"groupMeasure,omitempty" json:"groupMeasure,omitempty"`
 }
+
+// This function returns resource reference information
+func (r EvidenceVariable) ResourceRef() (string, *string) {
+	return "EvidenceVariable", r.Id
+}
+
 type OtherEvidenceVariable EvidenceVariable
 
 // MarshalJSON marshals the given EvidenceVariable as JSON into a byte slice

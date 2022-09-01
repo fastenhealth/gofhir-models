@@ -116,6 +116,12 @@ type RiskEvidenceSynthesisCertaintyCertaintySubcomponent struct {
 	Rating            []CodeableConcept `bson:"rating,omitempty" json:"rating,omitempty"`
 	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// This function returns resource reference information
+func (r RiskEvidenceSynthesis) ResourceRef() (string, *string) {
+	return "RiskEvidenceSynthesis", r.Id
+}
+
 type OtherRiskEvidenceSynthesis RiskEvidenceSynthesis
 
 // MarshalJSON marshals the given RiskEvidenceSynthesis as JSON into a byte slice

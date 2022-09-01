@@ -171,6 +171,12 @@ type SubstanceSpecificationRelationship struct {
 	AmountType          *CodeableConcept `bson:"amountType,omitempty" json:"amountType,omitempty"`
 	Source              []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstanceSpecification) ResourceRef() (string, *string) {
+	return "SubstanceSpecification", r.Id
+}
+
 type OtherSubstanceSpecification SubstanceSpecification
 
 // MarshalJSON marshals the given SubstanceSpecification as JSON into a byte slice

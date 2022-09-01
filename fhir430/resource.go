@@ -27,6 +27,12 @@ type Resource struct {
 	ImplicitRules *string `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language      *string `bson:"language,omitempty" json:"language,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Resource) ResourceRef() (string, *string) {
+	return "Resource", r.Id
+}
+
 type OtherResource Resource
 
 // MarshalJSON marshals the given Resource as JSON into a byte slice

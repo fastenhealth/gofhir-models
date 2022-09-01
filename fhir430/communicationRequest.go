@@ -58,6 +58,12 @@ type CommunicationRequestPayload struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// This function returns resource reference information
+func (r CommunicationRequest) ResourceRef() (string, *string) {
+	return "CommunicationRequest", r.Id
+}
+
 type OtherCommunicationRequest CommunicationRequest
 
 // MarshalJSON marshals the given CommunicationRequest as JSON into a byte slice

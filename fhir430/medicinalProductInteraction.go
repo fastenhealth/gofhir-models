@@ -44,6 +44,12 @@ type MedicinalProductInteractionInteractant struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductInteraction) ResourceRef() (string, *string) {
+	return "MedicinalProductInteraction", r.Id
+}
+
 type OtherMedicinalProductInteraction MedicinalProductInteraction
 
 // MarshalJSON marshals the given MedicinalProductInteraction as JSON into a byte slice

@@ -99,6 +99,12 @@ type ConsentProvisionData struct {
 	Meaning           ConsentDataMeaning `bson:"meaning" json:"meaning"`
 	Reference         Reference          `bson:"reference" json:"reference"`
 }
+
+// This function returns resource reference information
+func (r Consent) ResourceRef() (string, *string) {
+	return "Consent", r.Id
+}
+
 type OtherConsent Consent
 
 // MarshalJSON marshals the given Consent as JSON into a byte slice

@@ -71,6 +71,12 @@ type SubstanceNucleicAcidSubunitSugar struct {
 	Name              *string     `bson:"name,omitempty" json:"name,omitempty"`
 	ResidueSite       *string     `bson:"residueSite,omitempty" json:"residueSite,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstanceNucleicAcid) ResourceRef() (string, *string) {
+	return "SubstanceNucleicAcid", r.Id
+}
+
 type OtherSubstanceNucleicAcid SubstanceNucleicAcid
 
 // MarshalJSON marshals the given SubstanceNucleicAcid as JSON into a byte slice

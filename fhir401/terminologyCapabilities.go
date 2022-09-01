@@ -151,6 +151,12 @@ type TerminologyCapabilitiesClosure struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Translation       *bool       `bson:"translation,omitempty" json:"translation,omitempty"`
 }
+
+// This function returns resource reference information
+func (r TerminologyCapabilities) ResourceRef() (string, *string) {
+	return "TerminologyCapabilities", r.Id
+}
+
 type OtherTerminologyCapabilities TerminologyCapabilities
 
 // MarshalJSON marshals the given TerminologyCapabilities as JSON into a byte slice

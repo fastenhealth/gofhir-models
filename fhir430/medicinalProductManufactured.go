@@ -37,6 +37,12 @@ type MedicinalProductManufactured struct {
 	PhysicalCharacteristics *ProdCharacteristic `bson:"physicalCharacteristics,omitempty" json:"physicalCharacteristics,omitempty"`
 	OtherCharacteristics    []CodeableConcept   `bson:"otherCharacteristics,omitempty" json:"otherCharacteristics,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductManufactured) ResourceRef() (string, *string) {
+	return "MedicinalProductManufactured", r.Id
+}
+
 type OtherMedicinalProductManufactured MedicinalProductManufactured
 
 // MarshalJSON marshals the given MedicinalProductManufactured as JSON into a byte slice

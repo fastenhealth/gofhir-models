@@ -60,6 +60,12 @@ type ServiceRequest struct {
 	PatientInstruction    *string           `bson:"patientInstruction,omitempty" json:"patientInstruction,omitempty"`
 	RelevantHistory       []Reference       `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ServiceRequest) ResourceRef() (string, *string) {
+	return "ServiceRequest", r.Id
+}
+
 type OtherServiceRequest ServiceRequest
 
 // MarshalJSON marshals the given ServiceRequest as JSON into a byte slice

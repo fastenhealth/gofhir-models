@@ -30,6 +30,12 @@ type Binary struct {
 	SecurityContext *Reference `bson:"securityContext,omitempty" json:"securityContext,omitempty"`
 	Data            *string    `bson:"data,omitempty" json:"data,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Binary) ResourceRef() (string, *string) {
+	return "Binary", r.Id
+}
+
 type OtherBinary Binary
 
 // MarshalJSON marshals the given Binary as JSON into a byte slice

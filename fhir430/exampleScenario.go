@@ -139,6 +139,12 @@ type ExampleScenarioProcessStepAlternative struct {
 	Description       *string                      `bson:"description,omitempty" json:"description,omitempty"`
 	Step              []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ExampleScenario) ResourceRef() (string, *string) {
+	return "ExampleScenario", r.Id
+}
+
 type OtherExampleScenario ExampleScenario
 
 // MarshalJSON marshals the given ExampleScenario as JSON into a byte slice

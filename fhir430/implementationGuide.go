@@ -166,6 +166,12 @@ type ImplementationGuideManifestPage struct {
 	Title             *string     `bson:"title,omitempty" json:"title,omitempty"`
 	Anchor            []string    `bson:"anchor,omitempty" json:"anchor,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ImplementationGuide) ResourceRef() (string, *string) {
+	return "ImplementationGuide", r.Id
+}
+
 type OtherImplementationGuide ImplementationGuide
 
 // MarshalJSON marshals the given ImplementationGuide as JSON into a byte slice

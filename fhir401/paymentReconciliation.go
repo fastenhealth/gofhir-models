@@ -71,6 +71,12 @@ type PaymentReconciliationProcessNote struct {
 	Type              *NoteType   `bson:"type,omitempty" json:"type,omitempty"`
 	Text              *string     `bson:"text,omitempty" json:"text,omitempty"`
 }
+
+// This function returns resource reference information
+func (r PaymentReconciliation) ResourceRef() (string, *string) {
+	return "PaymentReconciliation", r.Id
+}
+
 type OtherPaymentReconciliation PaymentReconciliation
 
 // MarshalJSON marshals the given PaymentReconciliation as JSON into a byte slice

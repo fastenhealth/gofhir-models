@@ -121,6 +121,12 @@ type EncounterLocation struct {
 	PhysicalType      *CodeableConcept         `bson:"physicalType,omitempty" json:"physicalType,omitempty"`
 	Period            *Period                  `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Encounter) ResourceRef() (string, *string) {
+	return "Encounter", r.Id
+}
+
 type OtherEncounter Encounter
 
 // MarshalJSON marshals the given Encounter as JSON into a byte slice

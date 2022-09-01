@@ -80,6 +80,12 @@ type SubstanceReferenceInformationTarget struct {
 	AmountType        *CodeableConcept `bson:"amountType,omitempty" json:"amountType,omitempty"`
 	Source            []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// This function returns resource reference information
+func (r SubstanceReferenceInformation) ResourceRef() (string, *string) {
+	return "SubstanceReferenceInformation", r.Id
+}
+
 type OtherSubstanceReferenceInformation SubstanceReferenceInformation
 
 // MarshalJSON marshals the given SubstanceReferenceInformation as JSON into a byte slice

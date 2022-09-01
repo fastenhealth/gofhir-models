@@ -116,6 +116,12 @@ type NutritionOrderEnteralFormulaAdministration struct {
 	Schedule          *Timing     `bson:"schedule,omitempty" json:"schedule,omitempty"`
 	Quantity          *Quantity   `bson:"quantity,omitempty" json:"quantity,omitempty"`
 }
+
+// This function returns resource reference information
+func (r NutritionOrder) ResourceRef() (string, *string) {
+	return "NutritionOrder", r.Id
+}
+
 type OtherNutritionOrder NutritionOrder
 
 // MarshalJSON marshals the given NutritionOrder as JSON into a byte slice

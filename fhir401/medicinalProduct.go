@@ -105,6 +105,12 @@ type MedicinalProductSpecialDesignation struct {
 	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
 	Species           *CodeableConcept `bson:"species,omitempty" json:"species,omitempty"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProduct) ResourceRef() (string, *string) {
+	return "MedicinalProduct", r.Id
+}
+
 type OtherMedicinalProduct MedicinalProduct
 
 // MarshalJSON marshals the given MedicinalProduct as JSON into a byte slice

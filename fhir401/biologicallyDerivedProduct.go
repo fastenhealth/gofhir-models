@@ -82,6 +82,12 @@ type BiologicallyDerivedProductStorage struct {
 	Scale             *BiologicallyDerivedProductStorageScale `bson:"scale,omitempty" json:"scale,omitempty"`
 	Duration          *Period                                 `bson:"duration,omitempty" json:"duration,omitempty"`
 }
+
+// This function returns resource reference information
+func (r BiologicallyDerivedProduct) ResourceRef() (string, *string) {
+	return "BiologicallyDerivedProduct", r.Id
+}
+
 type OtherBiologicallyDerivedProduct BiologicallyDerivedProduct
 
 // MarshalJSON marshals the given BiologicallyDerivedProduct as JSON into a byte slice

@@ -68,6 +68,12 @@ type VisionPrescriptionLensSpecificationPrism struct {
 	Amount            string      `bson:"amount" json:"amount"`
 	Base              VisionBase  `bson:"base" json:"base"`
 }
+
+// This function returns resource reference information
+func (r VisionPrescription) ResourceRef() (string, *string) {
+	return "VisionPrescription", r.Id
+}
+
 type OtherVisionPrescription VisionPrescription
 
 // MarshalJSON marshals the given VisionPrescription as JSON into a byte slice

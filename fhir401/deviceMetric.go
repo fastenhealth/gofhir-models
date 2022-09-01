@@ -50,6 +50,12 @@ type DeviceMetricCalibration struct {
 	State             *DeviceMetricCalibrationState `bson:"state,omitempty" json:"state,omitempty"`
 	Time              *string                       `bson:"time,omitempty" json:"time,omitempty"`
 }
+
+// This function returns resource reference information
+func (r DeviceMetric) ResourceRef() (string, *string) {
+	return "DeviceMetric", r.Id
+}
+
 type OtherDeviceMetric DeviceMetric
 
 // MarshalJSON marshals the given DeviceMetric as JSON into a byte slice

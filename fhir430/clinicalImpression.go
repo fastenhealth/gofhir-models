@@ -68,6 +68,12 @@ type ClinicalImpressionFinding struct {
 	ItemReference       *Reference       `bson:"itemReference,omitempty" json:"itemReference,omitempty"`
 	Basis               *string          `bson:"basis,omitempty" json:"basis,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ClinicalImpression) ResourceRef() (string, *string) {
+	return "ClinicalImpression", r.Id
+}
+
 type OtherClinicalImpression ClinicalImpression
 
 // MarshalJSON marshals the given ClinicalImpression as JSON into a byte slice

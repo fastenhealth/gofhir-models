@@ -47,6 +47,12 @@ type MedicinalProductIndicationOtherTherapy struct {
 	ModifierExtension       []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	TherapyRelationshipType CodeableConcept `bson:"therapyRelationshipType" json:"therapyRelationshipType"`
 }
+
+// This function returns resource reference information
+func (r MedicinalProductIndication) ResourceRef() (string, *string) {
+	return "MedicinalProductIndication", r.Id
+}
+
 type OtherMedicinalProductIndication MedicinalProductIndication
 
 // MarshalJSON marshals the given MedicinalProductIndication as JSON into a byte slice

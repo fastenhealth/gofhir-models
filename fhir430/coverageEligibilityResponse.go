@@ -93,6 +93,12 @@ type CoverageEligibilityResponseError struct {
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              CodeableConcept `bson:"code" json:"code"`
 }
+
+// This function returns resource reference information
+func (r CoverageEligibilityResponse) ResourceRef() (string, *string) {
+	return "CoverageEligibilityResponse", r.Id
+}
+
 type OtherCoverageEligibilityResponse CoverageEligibilityResponse
 
 // MarshalJSON marshals the given CoverageEligibilityResponse as JSON into a byte slice

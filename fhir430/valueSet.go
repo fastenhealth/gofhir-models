@@ -147,6 +147,12 @@ type ValueSetExpansionContains struct {
 	Designation       []ValueSetComposeIncludeConceptDesignation `bson:"designation,omitempty" json:"designation,omitempty"`
 	Contains          []ValueSetExpansionContains                `bson:"contains,omitempty" json:"contains,omitempty"`
 }
+
+// This function returns resource reference information
+func (r ValueSet) ResourceRef() (string, *string) {
+	return "ValueSet", r.Id
+}
+
 type OtherValueSet ValueSet
 
 // MarshalJSON marshals the given ValueSet as JSON into a byte slice

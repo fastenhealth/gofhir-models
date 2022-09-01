@@ -103,6 +103,12 @@ type QuestionnaireItemInitial struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// This function returns resource reference information
+func (r Questionnaire) ResourceRef() (string, *string) {
+	return "Questionnaire", r.Id
+}
+
 type OtherQuestionnaire Questionnaire
 
 // MarshalJSON marshals the given Questionnaire as JSON into a byte slice

@@ -52,6 +52,12 @@ type CatalogEntryRelatedEntry struct {
 	Relationtype      CatalogEntryRelationType `bson:"relationtype" json:"relationtype"`
 	Item              Reference                `bson:"item" json:"item"`
 }
+
+// This function returns resource reference information
+func (r CatalogEntry) ResourceRef() (string, *string) {
+	return "CatalogEntry", r.Id
+}
+
 type OtherCatalogEntry CatalogEntry
 
 // MarshalJSON marshals the given CatalogEntry as JSON into a byte slice
