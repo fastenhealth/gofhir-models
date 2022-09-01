@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductPharmaceutical is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical
+// A pharmaceutical product described in terms of its composition and dose form.
 type MedicinalProductPharmaceutical struct {
 	Id                    *string                                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                                                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -36,6 +37,8 @@ type MedicinalProductPharmaceutical struct {
 	Characteristics       []MedicinalProductPharmaceuticalCharacteristics       `bson:"characteristics,omitempty" json:"characteristics,omitempty"`
 	RouteOfAdministration []MedicinalProductPharmaceuticalRouteOfAdministration `bson:"routeOfAdministration" json:"routeOfAdministration"`
 }
+
+// Characteristics e.g. a products onset of action.
 type MedicinalProductPharmaceuticalCharacteristics struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -43,6 +46,8 @@ type MedicinalProductPharmaceuticalCharacteristics struct {
 	Code              CodeableConcept  `bson:"code" json:"code"`
 	Status            *CodeableConcept `bson:"status,omitempty" json:"status,omitempty"`
 }
+
+// The path by which the pharmaceutical product is taken into or makes contact with the body.
 type MedicinalProductPharmaceuticalRouteOfAdministration struct {
 	Id                        *string                                                            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                 []Extension                                                        `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +60,8 @@ type MedicinalProductPharmaceuticalRouteOfAdministration struct {
 	MaxTreatmentPeriod        *Duration                                                          `bson:"maxTreatmentPeriod,omitempty" json:"maxTreatmentPeriod,omitempty"`
 	TargetSpecies             []MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies `bson:"targetSpecies,omitempty" json:"targetSpecies,omitempty"`
 }
+
+// A species for which this route applies.
 type MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies struct {
 	Id                *string                                                                            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                                                        `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -62,6 +69,8 @@ type MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies struct {
 	Code              CodeableConcept                                                                    `bson:"code" json:"code"`
 	WithdrawalPeriod  []MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod `bson:"withdrawalPeriod,omitempty" json:"withdrawalPeriod,omitempty"`
 }
+
+// A species specific time during which consumption of animal product is not appropriate.
 type MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod struct {
 	Id                    *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

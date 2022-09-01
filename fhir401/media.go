@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Media is documented here http://hl7.org/fhir/StructureDefinition/Media
+// A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
 type Media struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

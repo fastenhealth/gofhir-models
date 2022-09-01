@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DocumentManifest is documented here http://hl7.org/fhir/StructureDefinition/DocumentManifest
+// A collection of documents compiled for a purpose together with metadata that applies to the collection.
 type DocumentManifest struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -41,6 +42,9 @@ type DocumentManifest struct {
 	Content           []Reference               `bson:"content" json:"content"`
 	Related           []DocumentManifestRelated `bson:"related,omitempty" json:"related,omitempty"`
 }
+
+// Related identifiers or resources associated with the DocumentManifest.
+// May be identifiers or resources that caused the DocumentManifest to be created.
 type DocumentManifestRelated struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

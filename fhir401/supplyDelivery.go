@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SupplyDelivery is documented here http://hl7.org/fhir/StructureDefinition/SupplyDelivery
+// Record of delivery of what is supplied.
 type SupplyDelivery struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,8 @@ type SupplyDelivery struct {
 	Destination       *Reference                  `bson:"destination,omitempty" json:"destination,omitempty"`
 	Receiver          []Reference                 `bson:"receiver,omitempty" json:"receiver,omitempty"`
 }
+
+// The item that is being delivered or has been supplied.
 type SupplyDeliverySuppliedItem struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

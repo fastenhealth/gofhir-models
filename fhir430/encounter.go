@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Encounter is documented here http://hl7.org/fhir/StructureDefinition/Encounter
+// An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
 type Encounter struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -52,6 +53,9 @@ type Encounter struct {
 	ServiceProvider   *Reference                `bson:"serviceProvider,omitempty" json:"serviceProvider,omitempty"`
 	PartOf            *Reference                `bson:"partOf,omitempty" json:"partOf,omitempty"`
 }
+
+// The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.
+// The current status is always found in the current version of the resource, not the status history.
 type EncounterStatusHistory struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +63,8 @@ type EncounterStatusHistory struct {
 	Status            EncounterStatus `bson:"status" json:"status"`
 	Period            Period          `bson:"period" json:"period"`
 }
+
+// The class history permits the tracking of the encounters transitions without needing to go  through the resource history.  This would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient.
 type EncounterClassHistory struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -66,6 +72,8 @@ type EncounterClassHistory struct {
 	Class             Coding      `bson:"class" json:"class"`
 	Period            Period      `bson:"period" json:"period"`
 }
+
+// The list of people responsible for providing the service.
 type EncounterParticipant struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -74,6 +82,8 @@ type EncounterParticipant struct {
 	Period            *Period           `bson:"period,omitempty" json:"period,omitempty"`
 	Individual        *Reference        `bson:"individual,omitempty" json:"individual,omitempty"`
 }
+
+// The list of diagnosis relevant to this encounter.
 type EncounterDiagnosis struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -82,6 +92,9 @@ type EncounterDiagnosis struct {
 	Use               *CodeableConcept `bson:"use,omitempty" json:"use,omitempty"`
 	Rank              *int             `bson:"rank,omitempty" json:"rank,omitempty"`
 }
+
+// Details about the admission to a healthcare service.
+// An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.The duration recorded in the period of this encounter covers the entire scope of this hospitalization record.
 type EncounterHospitalization struct {
 	Id                     *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -96,6 +109,9 @@ type EncounterHospitalization struct {
 	Destination            *Reference        `bson:"destination,omitempty" json:"destination,omitempty"`
 	DischargeDisposition   *CodeableConcept  `bson:"dischargeDisposition,omitempty" json:"dischargeDisposition,omitempty"`
 }
+
+// List of locations where  the patient has been during this encounter.
+// Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type "kind" such as "client's home" and an encounter.class = "virtual".
 type EncounterLocation struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`

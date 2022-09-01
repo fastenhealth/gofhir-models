@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ObservationDefinition is documented here http://hl7.org/fhir/StructureDefinition/ObservationDefinition
+// Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
 type ObservationDefinition struct {
 	Id                     *string                                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,8 @@ type ObservationDefinition struct {
 	AbnormalCodedValueSet  *Reference                                `bson:"abnormalCodedValueSet,omitempty" json:"abnormalCodedValueSet,omitempty"`
 	CriticalCodedValueSet  *Reference                                `bson:"criticalCodedValueSet,omitempty" json:"criticalCodedValueSet,omitempty"`
 }
+
+// Characteristics for quantitative results of this observation.
 type ObservationDefinitionQuantitativeDetails struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -51,6 +54,8 @@ type ObservationDefinitionQuantitativeDetails struct {
 	ConversionFactor  *string          `bson:"conversionFactor,omitempty" json:"conversionFactor,omitempty"`
 	DecimalPrecision  *int             `bson:"decimalPrecision,omitempty" json:"decimalPrecision,omitempty"`
 }
+
+// Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition.
 type ObservationDefinitionQualifiedInterval struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`

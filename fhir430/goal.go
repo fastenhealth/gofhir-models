@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Goal is documented here http://hl7.org/fhir/StructureDefinition/Goal
+// Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
 type Goal struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,9 @@ type Goal struct {
 	OutcomeCode       []CodeableConcept   `bson:"outcomeCode,omitempty" json:"outcomeCode,omitempty"`
 	OutcomeReference  []Reference         `bson:"outcomeReference,omitempty" json:"outcomeReference,omitempty"`
 }
+
+// Indicates what should be done by when.
+// When multiple targets are present for a single goal instance, all targets must be met for the overall goal to be met.
 type GoalTarget struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

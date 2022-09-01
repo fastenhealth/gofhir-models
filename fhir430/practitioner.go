@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Practitioner is documented here http://hl7.org/fhir/StructureDefinition/Practitioner
+// A person who is directly or indirectly involved in the provisioning of healthcare.
 type Practitioner struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,8 @@ type Practitioner struct {
 	Qualification     []PractitionerQualification `bson:"qualification,omitempty" json:"qualification,omitempty"`
 	Communication     []CodeableConcept           `bson:"communication,omitempty" json:"communication,omitempty"`
 }
+
+// The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality.
 type PractitionerQualification struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

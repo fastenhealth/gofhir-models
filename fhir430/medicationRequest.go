@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicationRequest is documented here http://hl7.org/fhir/StructureDefinition/MedicationRequest
+// An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
 type MedicationRequest struct {
 	Id                    *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -59,6 +60,8 @@ type MedicationRequest struct {
 	DetectedIssue         []Reference                       `bson:"detectedIssue,omitempty" json:"detectedIssue,omitempty"`
 	EventHistory          []Reference                       `bson:"eventHistory,omitempty" json:"eventHistory,omitempty"`
 }
+
+// Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
 type MedicationRequestDispenseRequest struct {
 	Id                     *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +74,9 @@ type MedicationRequestDispenseRequest struct {
 	ExpectedSupplyDuration *Duration                                    `bson:"expectedSupplyDuration,omitempty" json:"expectedSupplyDuration,omitempty"`
 	Performer              *Reference                                   `bson:"performer,omitempty" json:"performer,omitempty"`
 }
+
+// Indicates the quantity or duration for the first dispense of the medication.
+// If populating this element, either the quantity or the duration must be included.
 type MedicationRequestDispenseRequestInitialFill struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -78,6 +84,8 @@ type MedicationRequestDispenseRequestInitialFill struct {
 	Quantity          *Quantity   `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	Duration          *Duration   `bson:"duration,omitempty" json:"duration,omitempty"`
 }
+
+// Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.
 type MedicationRequestSubstitution struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

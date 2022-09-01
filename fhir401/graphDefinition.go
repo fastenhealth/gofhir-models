@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // GraphDefinition is documented here http://hl7.org/fhir/StructureDefinition/GraphDefinition
+// A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
 type GraphDefinition struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,8 @@ type GraphDefinition struct {
 	Profile           *string               `bson:"profile,omitempty" json:"profile,omitempty"`
 	Link              []GraphDefinitionLink `bson:"link,omitempty" json:"link,omitempty"`
 }
+
+// Links this graph makes rules about.
 type GraphDefinitionLink struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +58,8 @@ type GraphDefinitionLink struct {
 	Description       *string                     `bson:"description,omitempty" json:"description,omitempty"`
 	Target            []GraphDefinitionLinkTarget `bson:"target,omitempty" json:"target,omitempty"`
 }
+
+// Potential target for the link.
 type GraphDefinitionLinkTarget struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -65,6 +70,8 @@ type GraphDefinitionLinkTarget struct {
 	Compartment       []GraphDefinitionLinkTargetCompartment `bson:"compartment,omitempty" json:"compartment,omitempty"`
 	Link              []GraphDefinitionLink                  `bson:"link,omitempty" json:"link,omitempty"`
 }
+
+// Compartment Consistency Rules.
 type GraphDefinitionLinkTargetCompartment struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`

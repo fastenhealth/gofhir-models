@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ImmunizationRecommendation is documented here http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation
+// A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
 type ImmunizationRecommendation struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -34,6 +35,8 @@ type ImmunizationRecommendation struct {
 	Authority         *Reference                                 `bson:"authority,omitempty" json:"authority,omitempty"`
 	Recommendation    []ImmunizationRecommendationRecommendation `bson:"recommendation" json:"recommendation"`
 }
+
+// Vaccine administration recommendations.
 type ImmunizationRecommendationRecommendation struct {
 	Id                           *string                                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                    []Extension                                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -49,6 +52,8 @@ type ImmunizationRecommendationRecommendation struct {
 	SupportingImmunization       []Reference                                             `bson:"supportingImmunization,omitempty" json:"supportingImmunization,omitempty"`
 	SupportingPatientInformation []Reference                                             `bson:"supportingPatientInformation,omitempty" json:"supportingPatientInformation,omitempty"`
 }
+
+// Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.
 type ImmunizationRecommendationRecommendationDateCriterion struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

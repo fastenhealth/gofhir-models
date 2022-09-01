@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Appointment is documented here http://hl7.org/fhir/StructureDefinition/Appointment
+// A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
 type Appointment struct {
 	Id                    *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -51,6 +52,8 @@ type Appointment struct {
 	Participant           []AppointmentParticipant `bson:"participant" json:"participant"`
 	RequestedPeriod       []Period                 `bson:"requestedPeriod,omitempty" json:"requestedPeriod,omitempty"`
 }
+
+// List of participants involved in the appointment.
 type AppointmentParticipant struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CoverageEligibilityRequest is documented here http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest
+// The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
 type CoverageEligibilityRequest struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,9 @@ type CoverageEligibilityRequest struct {
 	Insurance         []CoverageEligibilityRequestInsurance      `bson:"insurance,omitempty" json:"insurance,omitempty"`
 	Item              []CoverageEligibilityRequestItem           `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.
+// Often there are multiple jurisdiction specific valuesets which are required.
 type CoverageEligibilityRequestSupportingInfo struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -50,6 +54,9 @@ type CoverageEligibilityRequestSupportingInfo struct {
 	Information       Reference   `bson:"information" json:"information"`
 	AppliesToAll      *bool       `bson:"appliesToAll,omitempty" json:"appliesToAll,omitempty"`
 }
+
+// Financial instruments for reimbursement for the health care products and services.
+// All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 type CoverageEligibilityRequestInsurance struct {
 	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -58,6 +65,8 @@ type CoverageEligibilityRequestInsurance struct {
 	Coverage            Reference   `bson:"coverage" json:"coverage"`
 	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
 }
+
+// Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor.
 type CoverageEligibilityRequestItem struct {
 	Id                     *string                                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension                               `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -73,6 +82,8 @@ type CoverageEligibilityRequestItem struct {
 	Diagnosis              []CoverageEligibilityRequestItemDiagnosis `bson:"diagnosis,omitempty" json:"diagnosis,omitempty"`
 	Detail                 []Reference                               `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// Patient diagnosis for which care is sought.
 type CoverageEligibilityRequestItemDiagnosis struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

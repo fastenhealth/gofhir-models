@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // AppointmentResponse is documented here http://hl7.org/fhir/StructureDefinition/AppointmentResponse
+// A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
 type AppointmentResponse struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

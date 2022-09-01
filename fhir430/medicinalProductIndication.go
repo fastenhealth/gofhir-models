@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductIndication is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductIndication
+// Indication for the Medicinal Product.
 type MedicinalProductIndication struct {
 	Id                      *string                                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -38,6 +39,8 @@ type MedicinalProductIndication struct {
 	UndesirableEffect       []Reference                              `bson:"undesirableEffect,omitempty" json:"undesirableEffect,omitempty"`
 	Population              []Population                             `bson:"population,omitempty" json:"population,omitempty"`
 }
+
+// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
 type MedicinalProductIndicationOtherTherapy struct {
 	Id                      *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

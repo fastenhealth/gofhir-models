@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ClaimResponse is documented here http://hl7.org/fhir/StructureDefinition/ClaimResponse
+// This resource provides the adjudication details from the processing of a Claim resource.
 type ClaimResponse struct {
 	Id                   *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -56,6 +57,8 @@ type ClaimResponse struct {
 	Insurance            []ClaimResponseInsurance        `bson:"insurance,omitempty" json:"insurance,omitempty"`
 	Error                []ClaimResponseError            `bson:"error,omitempty" json:"error,omitempty"`
 }
+
+// A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.
 type ClaimResponseItem struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -65,6 +68,8 @@ type ClaimResponseItem struct {
 	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication" json:"adjudication"`
 	Detail            []ClaimResponseItemDetail       `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item.
 type ClaimResponseItemAdjudication struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -74,6 +79,8 @@ type ClaimResponseItemAdjudication struct {
 	Amount            *Money           `bson:"amount,omitempty" json:"amount,omitempty"`
 	Value             *string          `bson:"value,omitempty" json:"value,omitempty"`
 }
+
+// A claim detail. Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 type ClaimResponseItemDetail struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                        `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -83,6 +90,8 @@ type ClaimResponseItemDetail struct {
 	Adjudication      []ClaimResponseItemAdjudication    `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	SubDetail         []ClaimResponseItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty"`
 }
+
+// A sub-detail adjudication of a simple product or service.
 type ClaimResponseItemDetailSubDetail struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -91,6 +100,8 @@ type ClaimResponseItemDetailSubDetail struct {
 	NoteNumber        []int                           `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
 	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
+// The first-tier service adjudications for payor added product or service lines.
 type ClaimResponseAddItem struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -112,6 +123,8 @@ type ClaimResponseAddItem struct {
 	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	Detail            []ClaimResponseAddItemDetail    `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// The second-tier service adjudications for payor added services.
 type ClaimResponseAddItemDetail struct {
 	Id                *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -126,6 +139,8 @@ type ClaimResponseAddItemDetail struct {
 	Adjudication      []ClaimResponseItemAdjudication       `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 	SubDetail         []ClaimResponseAddItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty"`
 }
+
+// The third-tier service adjudications for payor added services.
 type ClaimResponseAddItemDetailSubDetail struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -139,6 +154,9 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	NoteNumber        []int                           `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
 	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
 }
+
+// Categorized monetary totals for the adjudication.
+// Totals for amounts submitted, co-pays, benefits payable etc.
 type ClaimResponseTotal struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -146,6 +164,8 @@ type ClaimResponseTotal struct {
 	Category          CodeableConcept `bson:"category" json:"category"`
 	Amount            Money           `bson:"amount" json:"amount"`
 }
+
+// Payment details for the adjudication of the claim.
 type ClaimResponsePayment struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -157,6 +177,8 @@ type ClaimResponsePayment struct {
 	Amount            Money            `bson:"amount" json:"amount"`
 	Identifier        *Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
 }
+
+// A note that describes or explains adjudication results in a human readable form.
 type ClaimResponseProcessNote struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -166,6 +188,9 @@ type ClaimResponseProcessNote struct {
 	Text              string           `bson:"text" json:"text"`
 	Language          *CodeableConcept `bson:"language,omitempty" json:"language,omitempty"`
 }
+
+// Financial instruments for reimbursement for the health care products and services specified on the claim.
+// All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 type ClaimResponseInsurance struct {
 	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -176,6 +201,9 @@ type ClaimResponseInsurance struct {
 	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
 	ClaimResponse       *Reference  `bson:"claimResponse,omitempty" json:"claimResponse,omitempty"`
 }
+
+// Errors encountered during the processing of the adjudication.
+// If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present.
 type ClaimResponseError struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

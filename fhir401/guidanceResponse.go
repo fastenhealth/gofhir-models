@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // GuidanceResponse is documented here http://hl7.org/fhir/StructureDefinition/GuidanceResponse
+// A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
 type GuidanceResponse struct {
 	Id                 *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`

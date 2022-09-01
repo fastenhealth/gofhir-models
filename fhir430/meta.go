@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Meta is documented here http://hl7.org/fhir/StructureDefinition/Meta
+// Base StructureDefinition for Meta Type: The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
 type Meta struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

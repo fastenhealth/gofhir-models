@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Binary is documented here http://hl7.org/fhir/StructureDefinition/Binary
+// A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc.
 type Binary struct {
 	Id              *string    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta            *Meta      `bson:"meta,omitempty" json:"meta,omitempty"`

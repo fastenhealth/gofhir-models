@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // FamilyMemberHistory is documented here http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory
+// Significant health conditions for a person related to the patient relevant in the context of care for the patient.
 type FamilyMemberHistory struct {
 	Id                    *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,8 @@ type FamilyMemberHistory struct {
 	Note                  []Annotation                   `bson:"note,omitempty" json:"note,omitempty"`
 	Condition             []FamilyMemberHistoryCondition `bson:"condition,omitempty" json:"condition,omitempty"`
 }
+
+// The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
 type FamilyMemberHistoryCondition struct {
 	Id                 *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

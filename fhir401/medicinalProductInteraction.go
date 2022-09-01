@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductInteraction is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductInteraction
+// The interactions of the medicinal product with other medicinal products, or other forms of interactions.
 type MedicinalProductInteraction struct {
 	Id                *string                                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -36,6 +37,8 @@ type MedicinalProductInteraction struct {
 	Incidence         *CodeableConcept                         `bson:"incidence,omitempty" json:"incidence,omitempty"`
 	Management        *CodeableConcept                         `bson:"management,omitempty" json:"management,omitempty"`
 }
+
+// The specific medication, food or laboratory test that interacts.
 type MedicinalProductInteractionInteractant struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

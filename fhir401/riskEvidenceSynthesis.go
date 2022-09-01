@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // RiskEvidenceSynthesis is documented here http://hl7.org/fhir/StructureDefinition/RiskEvidenceSynthesis
+// The RiskEvidenceSynthesis resource describes the likelihood of an outcome in a population plus exposure state where the risk estimate is derived from a combination of research studies.
 type RiskEvidenceSynthesis struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -60,6 +61,8 @@ type RiskEvidenceSynthesis struct {
 	RiskEstimate      *RiskEvidenceSynthesisRiskEstimate `bson:"riskEstimate,omitempty" json:"riskEstimate,omitempty"`
 	Certainty         []RiskEvidenceSynthesisCertainty   `bson:"certainty,omitempty" json:"certainty,omitempty"`
 }
+
+// A description of the size of the sample involved in the synthesis.
 type RiskEvidenceSynthesisSampleSize struct {
 	Id                   *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -68,6 +71,8 @@ type RiskEvidenceSynthesisSampleSize struct {
 	NumberOfStudies      *int        `bson:"numberOfStudies,omitempty" json:"numberOfStudies,omitempty"`
 	NumberOfParticipants *int        `bson:"numberOfParticipants,omitempty" json:"numberOfParticipants,omitempty"`
 }
+
+// The estimated risk of the outcome.
 type RiskEvidenceSynthesisRiskEstimate struct {
 	Id                *string                                              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -80,6 +85,8 @@ type RiskEvidenceSynthesisRiskEstimate struct {
 	NumeratorCount    *int                                                 `bson:"numeratorCount,omitempty" json:"numeratorCount,omitempty"`
 	PrecisionEstimate []RiskEvidenceSynthesisRiskEstimatePrecisionEstimate `bson:"precisionEstimate,omitempty" json:"precisionEstimate,omitempty"`
 }
+
+// A description of the precision of the estimate for the effect.
 type RiskEvidenceSynthesisRiskEstimatePrecisionEstimate struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -89,6 +96,8 @@ type RiskEvidenceSynthesisRiskEstimatePrecisionEstimate struct {
 	From              *string          `bson:"from,omitempty" json:"from,omitempty"`
 	To                *string          `bson:"to,omitempty" json:"to,omitempty"`
 }
+
+// A description of the certainty of the risk estimate.
 type RiskEvidenceSynthesisCertainty struct {
 	Id                    *string                                               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension                                           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -97,6 +106,8 @@ type RiskEvidenceSynthesisCertainty struct {
 	Note                  []Annotation                                          `bson:"note,omitempty" json:"note,omitempty"`
 	CertaintySubcomponent []RiskEvidenceSynthesisCertaintyCertaintySubcomponent `bson:"certaintySubcomponent,omitempty" json:"certaintySubcomponent,omitempty"`
 }
+
+// A description of a component of the overall certainty.
 type RiskEvidenceSynthesisCertaintyCertaintySubcomponent struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

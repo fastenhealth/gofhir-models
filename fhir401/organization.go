@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Organization is documented here http://hl7.org/fhir/StructureDefinition/Organization
+// A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.
 type Organization struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,9 @@ type Organization struct {
 	Contact           []OrganizationContact `bson:"contact,omitempty" json:"contact,omitempty"`
 	Endpoint          []Reference           `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
+
+// Contact for the organization for a certain purpose.
+// Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use.
 type OrganizationContact struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

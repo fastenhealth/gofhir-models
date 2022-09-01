@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CatalogEntry is documented here http://hl7.org/fhir/StructureDefinition/CatalogEntry
+// Catalog entries are wrappers that contextualize items included in a catalog.
 type CatalogEntry struct {
 	Id                       *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                     *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,8 @@ type CatalogEntry struct {
 	AdditionalClassification []CodeableConcept          `bson:"additionalClassification,omitempty" json:"additionalClassification,omitempty"`
 	RelatedEntry             []CatalogEntryRelatedEntry `bson:"relatedEntry,omitempty" json:"relatedEntry,omitempty"`
 }
+
+// Used for example, to point to a substance, or to a device used to administer a medication.
 type CatalogEntryRelatedEntry struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`

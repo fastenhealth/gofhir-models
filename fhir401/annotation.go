@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Annotation is documented here http://hl7.org/fhir/StructureDefinition/Annotation
+// Base StructureDefinition for Annotation Type: A  text note which also  contains information about who made the statement and when.
 type Annotation struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

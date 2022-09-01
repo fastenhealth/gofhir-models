@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Extension is documented here http://hl7.org/fhir/StructureDefinition/Extension
+// Base StructureDefinition for Extension Type: Optional Extension Element - found in all resources.
 type Extension struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

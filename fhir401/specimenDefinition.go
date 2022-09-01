@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SpecimenDefinition is documented here http://hl7.org/fhir/StructureDefinition/SpecimenDefinition
+// A kind of specimen with associated set of requirements.
 type SpecimenDefinition struct {
 	Id                 *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -35,6 +36,8 @@ type SpecimenDefinition struct {
 	Collection         []CodeableConcept              `bson:"collection,omitempty" json:"collection,omitempty"`
 	TypeTested         []SpecimenDefinitionTypeTested `bson:"typeTested,omitempty" json:"typeTested,omitempty"`
 }
+
+// Specimen conditioned in a container as expected by the testing laboratory.
 type SpecimenDefinitionTypeTested struct {
 	Id                 *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -48,6 +51,8 @@ type SpecimenDefinitionTypeTested struct {
 	RejectionCriterion []CodeableConcept                      `bson:"rejectionCriterion,omitempty" json:"rejectionCriterion,omitempty"`
 	Handling           []SpecimenDefinitionTypeTestedHandling `bson:"handling,omitempty" json:"handling,omitempty"`
 }
+
+// The specimen's container.
 type SpecimenDefinitionTypeTestedContainer struct {
 	Id                *string                                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,11 +65,15 @@ type SpecimenDefinitionTypeTestedContainer struct {
 	Additive          []SpecimenDefinitionTypeTestedContainerAdditive `bson:"additive,omitempty" json:"additive,omitempty"`
 	Preparation       *string                                         `bson:"preparation,omitempty" json:"preparation,omitempty"`
 }
+
+// Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
 type SpecimenDefinitionTypeTestedContainerAdditive struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process.
 type SpecimenDefinitionTypeTestedHandling struct {
 	Id                   *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

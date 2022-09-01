@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Communication is documented here http://hl7.org/fhir/StructureDefinition/Communication
+// An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency that was notified about a reportable condition.
 type Communication struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -52,6 +53,8 @@ type Communication struct {
 	Payload               []CommunicationPayload `bson:"payload,omitempty" json:"payload,omitempty"`
 	Note                  []Annotation           `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Text, attachment(s), or resource(s) that was communicated to the recipient.
 type CommunicationPayload struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

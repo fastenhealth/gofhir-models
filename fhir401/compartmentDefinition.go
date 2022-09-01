@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CompartmentDefinition is documented here http://hl7.org/fhir/StructureDefinition/CompartmentDefinition
+// A compartment definition that defines how resources are accessed on a server.
 type CompartmentDefinition struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -43,6 +44,8 @@ type CompartmentDefinition struct {
 	Search            bool                            `bson:"search" json:"search"`
 	Resource          []CompartmentDefinitionResource `bson:"resource,omitempty" json:"resource,omitempty"`
 }
+
+// Information about how a resource is related to the compartment.
 type CompartmentDefinitionResource struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

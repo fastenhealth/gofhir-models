@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Claim is documented here http://hl7.org/fhir/StructureDefinition/Claim
+// A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement.
 type Claim struct {
 	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -56,6 +57,9 @@ type Claim struct {
 	Item                 []ClaimItem                  `bson:"item,omitempty" json:"item,omitempty"`
 	Total                *Money                       `bson:"total,omitempty" json:"total,omitempty"`
 }
+
+// Other claims which are related to this claim such as prior submissions or claims for related services or for the same event.
+// For example,  for the original treatment and follow-up exams.
 type ClaimRelated struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +68,9 @@ type ClaimRelated struct {
 	Relationship      *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty"`
 	Reference         *Identifier      `bson:"reference,omitempty" json:"reference,omitempty"`
 }
+
+// The party to be reimbursed for cost of the products and services according to the terms of the policy.
+// Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead.
 type ClaimPayee struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +78,8 @@ type ClaimPayee struct {
 	Type              CodeableConcept `bson:"type" json:"type"`
 	Party             *Reference      `bson:"party,omitempty" json:"party,omitempty"`
 }
+
+// The members of the team who provided the products and services.
 type ClaimCareTeam struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -81,6 +90,9 @@ type ClaimCareTeam struct {
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 	Qualification     *CodeableConcept `bson:"qualification,omitempty" json:"qualification,omitempty"`
 }
+
+// Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.
+// Often there are multiple jurisdiction specific valuesets which are required.
 type ClaimSupportingInfo struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -90,6 +102,8 @@ type ClaimSupportingInfo struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Reason            *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }
+
+// Information about diagnoses relevant to the claim items.
 type ClaimDiagnosis struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -99,6 +113,8 @@ type ClaimDiagnosis struct {
 	OnAdmission       *CodeableConcept  `bson:"onAdmission,omitempty" json:"onAdmission,omitempty"`
 	PackageCode       *CodeableConcept  `bson:"packageCode,omitempty" json:"packageCode,omitempty"`
 }
+
+// Procedures performed on the patient relevant to the billing items with the claim.
 type ClaimProcedure struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -108,6 +124,9 @@ type ClaimProcedure struct {
 	Date              *string           `bson:"date,omitempty" json:"date,omitempty"`
 	Udi               []Reference       `bson:"udi,omitempty" json:"udi,omitempty"`
 }
+
+// Financial instruments for reimbursement for the health care products and services specified on the claim.
+// All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'Coverage.subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 type ClaimInsurance struct {
 	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -120,6 +139,8 @@ type ClaimInsurance struct {
 	PreAuthRef          []string    `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty"`
 	ClaimResponse       *Reference  `bson:"claimResponse,omitempty" json:"claimResponse,omitempty"`
 }
+
+// Details of an accident which resulted in injuries which required the products and services listed in the claim.
 type ClaimAccident struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -127,6 +148,8 @@ type ClaimAccident struct {
 	Date              string           `bson:"date" json:"date"`
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 }
+
+// A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details.
 type ClaimItem struct {
 	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -151,6 +174,8 @@ type ClaimItem struct {
 	Encounter           []Reference       `bson:"encounter,omitempty" json:"encounter,omitempty"`
 	Detail              []ClaimItemDetail `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 type ClaimItemDetail struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -168,6 +193,8 @@ type ClaimItemDetail struct {
 	Udi               []Reference                `bson:"udi,omitempty" json:"udi,omitempty"`
 	SubDetail         []ClaimItemDetailSubDetail `bson:"subDetail,omitempty" json:"subDetail,omitempty"`
 }
+
+// A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items.
 type ClaimItemDetailSubDetail struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Person is documented here http://hl7.org/fhir/StructureDefinition/Person
+// Demographics and administrative information about a person independent of a specific health-related context.
 type Person struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,8 @@ type Person struct {
 	Active               *bool                 `bson:"active,omitempty" json:"active,omitempty"`
 	Link                 []PersonLink          `bson:"link,omitempty" json:"link,omitempty"`
 }
+
+// Link to a resource that concerns the same actual person.
 type PersonLink struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`

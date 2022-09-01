@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // NamingSystem is documented here http://hl7.org/fhir/StructureDefinition/NamingSystem
+// A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
 type NamingSystem struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,9 @@ type NamingSystem struct {
 	Usage             *string                `bson:"usage,omitempty" json:"usage,omitempty"`
 	UniqueId          []NamingSystemUniqueId `bson:"uniqueId" json:"uniqueId"`
 }
+
+// Indicates how the system may be identified when referenced in electronic exchange.
+// Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.
 type NamingSystemUniqueId struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`

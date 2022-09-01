@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Location is documented here http://hl7.org/fhir/StructureDefinition/Location
+// Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
 type Location struct {
 	Id                     *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -46,6 +47,8 @@ type Location struct {
 	AvailabilityExceptions *string                    `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
 	Endpoint               []Reference                `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
+
+// The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML).
 type LocationPosition struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -54,6 +57,13 @@ type LocationPosition struct {
 	Latitude          string      `bson:"latitude" json:"latitude"`
 	Altitude          *string     `bson:"altitude,omitempty" json:"altitude,omitempty"`
 }
+
+// What days/times during a week is this location usually open.
+/*
+This type of information is commonly found published in directories and on websites informing customers when the facility is available.
+
+Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.
+*/
 type LocationHoursOfOperation struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

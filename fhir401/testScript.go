@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // TestScript is documented here http://hl7.org/fhir/StructureDefinition/TestScript
+// A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
 type TestScript struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -53,6 +54,9 @@ type TestScript struct {
 	Test              []TestScriptTest        `bson:"test,omitempty" json:"test,omitempty"`
 	Teardown          *TestScriptTeardown     `bson:"teardown,omitempty" json:"teardown,omitempty"`
 }
+
+// An abstract server used in operations within this test script in the origin element.
+// The purpose of this element is to define the profile of an origin element used elsewhere in the script.  Test engines could then use the origin-profile mapping to offer a filtered list of test systems that can serve as the sender for the interaction.
 type TestScriptOrigin struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +64,9 @@ type TestScriptOrigin struct {
 	Index             int         `bson:"index" json:"index"`
 	Profile           Coding      `bson:"profile" json:"profile"`
 }
+
+// An abstract server used in operations within this test script in the destination element.
+// The purpose of this element is to define the profile of a destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
 type TestScriptDestination struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -67,6 +74,8 @@ type TestScriptDestination struct {
 	Index             int         `bson:"index" json:"index"`
 	Profile           Coding      `bson:"profile" json:"profile"`
 }
+
+// The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 type TestScriptMetadata struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -74,6 +83,8 @@ type TestScriptMetadata struct {
 	Link              []TestScriptMetadataLink       `bson:"link,omitempty" json:"link,omitempty"`
 	Capability        []TestScriptMetadataCapability `bson:"capability" json:"capability"`
 }
+
+// A link to the FHIR specification that this test is covering.
 type TestScriptMetadataLink struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -81,6 +92,9 @@ type TestScriptMetadataLink struct {
 	Url               string      `bson:"url" json:"url"`
 	Description       *string     `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
+// When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The "metadata.capabilities.required" and "metadata.capabilities.validated" elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose "metadata.capabilities.validated" flag is true are the primary focus of the test script.
 type TestScriptMetadataCapability struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -93,6 +107,8 @@ type TestScriptMetadataCapability struct {
 	Link              []string    `bson:"link,omitempty" json:"link,omitempty"`
 	Capabilities      string      `bson:"capabilities" json:"capabilities"`
 }
+
+// Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.
 type TestScriptFixture struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -101,6 +117,9 @@ type TestScriptFixture struct {
 	Autodelete        bool        `bson:"autodelete" json:"autodelete"`
 	Resource          *Reference  `bson:"resource,omitempty" json:"resource,omitempty"`
 }
+
+// Variable is set based either on element value in response body or on header field value in the response headers.
+// Variables would be set based either on XPath/JSONPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report an error.  Variables would be used to perform clean replacements in "operation.params", "operation.requestHeader.value", and "operation.url" element values during operation calls and in "assert.value" during assertion evaluations. This limits the places that test engines would need to look for placeholders "${}".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in "operation.params", "operation.requestHeader.value", and "operation.url" element values during operation calls and in "assert.value" during assertion evaluations.  See example testscript-search.xml.
 type TestScriptVariable struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -114,12 +133,17 @@ type TestScriptVariable struct {
 	Path              *string     `bson:"path,omitempty" json:"path,omitempty"`
 	SourceId          *string     `bson:"sourceId,omitempty" json:"sourceId,omitempty"`
 }
+
+// A series of required setup operations before tests are executed.
 type TestScriptSetup struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Action            []TestScriptSetupAction `bson:"action" json:"action"`
 }
+
+// Action would contain either an operation or an assertion.
+// An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 type TestScriptSetupAction struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -127,6 +151,8 @@ type TestScriptSetupAction struct {
 	Operation         *TestScriptSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 	Assert            *TestScriptSetupActionAssert    `bson:"assert,omitempty" json:"assert,omitempty"`
 }
+
+// The operation to perform.
 type TestScriptSetupActionOperation struct {
 	Id                *string                                       `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                   `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -149,6 +175,9 @@ type TestScriptSetupActionOperation struct {
 	TargetId          *string                                       `bson:"targetId,omitempty" json:"targetId,omitempty"`
 	Url               *string                                       `bson:"url,omitempty" json:"url,omitempty"`
 }
+
+// Header elements would be used to set HTTP headers.
+// This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - "If-Modified-Since" and "If-None-Match" headers.  See http://build.fhir.org/http.html#2.1.0.5.1 - "If-Match" header.  See http://build.fhir.org/http.html#2.1.0.11 - Conditional Create using "If-None-Exist".  See http://build.fhir.org/http.html#2.1.0.13.1 - Invalid "Content-Type" header for negative testing. - etc.
 type TestScriptSetupActionOperationRequestHeader struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -156,6 +185,9 @@ type TestScriptSetupActionOperationRequestHeader struct {
 	Field             string      `bson:"field" json:"field"`
 	Value             string      `bson:"value" json:"value"`
 }
+
+// Evaluates the results of previous operations to determine if the server under test behaves appropriately.
+// In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 type TestScriptSetupActionAssert struct {
 	Id                        *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                 []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -183,6 +215,8 @@ type TestScriptSetupActionAssert struct {
 	Value                     *string                      `bson:"value,omitempty" json:"value,omitempty"`
 	WarningOnly               bool                         `bson:"warningOnly" json:"warningOnly"`
 }
+
+// A test in this script.
 type TestScriptTest struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -191,6 +225,9 @@ type TestScriptTest struct {
 	Description       *string                `bson:"description,omitempty" json:"description,omitempty"`
 	Action            []TestScriptTestAction `bson:"action" json:"action"`
 }
+
+// Action would contain either an operation or an assertion.
+// An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 type TestScriptTestAction struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -198,12 +235,17 @@ type TestScriptTestAction struct {
 	Operation         *TestScriptSetupActionOperation `bson:"operation,omitempty" json:"operation,omitempty"`
 	Assert            *TestScriptSetupActionAssert    `bson:"assert,omitempty" json:"assert,omitempty"`
 }
+
+// A series of operations required to clean up after all the tests are executed (successfully or otherwise).
 type TestScriptTeardown struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Action            []TestScriptTeardownAction `bson:"action" json:"action"`
 }
+
+// The teardown action will only contain an operation.
+// An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 type TestScriptTeardownAction struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`

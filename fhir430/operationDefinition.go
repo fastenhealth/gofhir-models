@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // OperationDefinition is documented here http://hl7.org/fhir/StructureDefinition/OperationDefinition
+// A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
 type OperationDefinition struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -55,6 +56,9 @@ type OperationDefinition struct {
 	Parameter         []OperationDefinitionParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 	Overload          []OperationDefinitionOverload  `bson:"overload,omitempty" json:"overload,omitempty"`
 }
+
+// The parameters for the operation/query.
+// Query Definitions only have one output parameter, named "result". This might not be described, but can be to allow a profile to be defined.
 type OperationDefinitionParameter struct {
 	Id                *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +75,8 @@ type OperationDefinitionParameter struct {
 	ReferencedFrom    []OperationDefinitionParameterReferencedFrom `bson:"referencedFrom,omitempty" json:"referencedFrom,omitempty"`
 	Part              []OperationDefinitionParameter               `bson:"part,omitempty" json:"part,omitempty"`
 }
+
+// Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
 type OperationDefinitionParameterBinding struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -78,6 +84,9 @@ type OperationDefinitionParameterBinding struct {
 	Strength          BindingStrength `bson:"strength" json:"strength"`
 	ValueSet          string          `bson:"valueSet" json:"valueSet"`
 }
+
+// Identifies other resource parameters within the operation invocation that are expected to resolve to this resource.
+// Resolution applies if the referenced parameter exists.
 type OperationDefinitionParameterReferencedFrom struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -85,6 +94,9 @@ type OperationDefinitionParameterReferencedFrom struct {
 	Source            string      `bson:"source" json:"source"`
 	SourceId          *string     `bson:"sourceId,omitempty" json:"sourceId,omitempty"`
 }
+
+// Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.
+// The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative.
 type OperationDefinitionOverload struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

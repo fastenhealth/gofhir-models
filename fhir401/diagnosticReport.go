@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DiagnosticReport is documented here http://hl7.org/fhir/StructureDefinition/DiagnosticReport
+// The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
 type DiagnosticReport struct {
 	Id                 *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -46,6 +47,8 @@ type DiagnosticReport struct {
 	ConclusionCode     []CodeableConcept       `bson:"conclusionCode,omitempty" json:"conclusionCode,omitempty"`
 	PresentedForm      []Attachment            `bson:"presentedForm,omitempty" json:"presentedForm,omitempty"`
 }
+
+// A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
 type DiagnosticReportMedia struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

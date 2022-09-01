@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Observation is documented here http://hl7.org/fhir/StructureDefinition/Observation
+// Measurements and simple assertions made about a patient, device or other subject.
 type Observation struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -51,6 +52,9 @@ type Observation struct {
 	DerivedFrom       []Reference                 `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
 	Component         []ObservationComponent      `bson:"component,omitempty" json:"component,omitempty"`
 }
+
+// Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an "OR".   In other words, to represent two distinct target populations, two `referenceRange` elements would be used.
+// Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.
 type ObservationReferenceRange struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -62,6 +66,9 @@ type ObservationReferenceRange struct {
 	Age               *Range            `bson:"age,omitempty" json:"age,omitempty"`
 	Text              *string           `bson:"text,omitempty" json:"text,omitempty"`
 }
+
+// Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
+// For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.
 type ObservationComponent struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`

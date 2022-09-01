@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Measure is documented here http://hl7.org/fhir/StructureDefinition/Measure
+// The Measure resource provides the definition of a quality measure.
 type Measure struct {
 	Id                              *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                            *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -69,6 +70,8 @@ type Measure struct {
 	Group                           []MeasureGroup            `bson:"group,omitempty" json:"group,omitempty"`
 	SupplementalData                []MeasureSupplementalData `bson:"supplementalData,omitempty" json:"supplementalData,omitempty"`
 }
+
+// A group of population criteria for the measure.
 type MeasureGroup struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -78,6 +81,8 @@ type MeasureGroup struct {
 	Population        []MeasureGroupPopulation `bson:"population,omitempty" json:"population,omitempty"`
 	Stratifier        []MeasureGroupStratifier `bson:"stratifier,omitempty" json:"stratifier,omitempty"`
 }
+
+// A population criteria for the measure.
 type MeasureGroupPopulation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -86,6 +91,8 @@ type MeasureGroupPopulation struct {
 	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
 	Criteria          Expression       `bson:"criteria" json:"criteria"`
 }
+
+// The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path.
 type MeasureGroupStratifier struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -95,6 +102,9 @@ type MeasureGroupStratifier struct {
 	Criteria          *Expression                       `bson:"criteria,omitempty" json:"criteria,omitempty"`
 	Component         []MeasureGroupStratifierComponent `bson:"component,omitempty" json:"component,omitempty"`
 }
+
+// A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path.
+// Stratifiers are defined either as a single criteria, or as a set of component criteria.
 type MeasureGroupStratifierComponent struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -103,6 +113,9 @@ type MeasureGroupStratifierComponent struct {
 	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
 	Criteria          Expression       `bson:"criteria" json:"criteria"`
 }
+
+// The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.
+// Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information.
 type MeasureSupplementalData struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Group is documented here http://hl7.org/fhir/StructureDefinition/Group
+// Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
 type Group struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,9 @@ type Group struct {
 	Characteristic    []GroupCharacteristic `bson:"characteristic,omitempty" json:"characteristic,omitempty"`
 	Member            []GroupMember         `bson:"member,omitempty" json:"member,omitempty"`
 }
+
+// Identifies traits whose presence r absence is shared by members of the group.
+// All the identified characteristics must be true for an entity to a member of the group.
 type GroupCharacteristic struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -47,6 +51,8 @@ type GroupCharacteristic struct {
 	Exclude           bool            `bson:"exclude" json:"exclude"`
 	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
+
+// Identifies the resource instances that are members of the group.
 type GroupMember struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

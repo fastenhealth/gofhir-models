@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Slot is documented here http://hl7.org/fhir/StructureDefinition/Slot
+// A slot of time on a schedule that may be available for booking appointments.
 type Slot struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // CodeableConcept is documented here http://hl7.org/fhir/StructureDefinition/CodeableConcept
+// Base StructureDefinition for CodeableConcept Type: A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
 type CodeableConcept struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

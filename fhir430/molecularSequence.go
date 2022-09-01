@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MolecularSequence is documented here http://hl7.org/fhir/StructureDefinition/MolecularSequence
+// Raw data describing a biological sequence.
 type MolecularSequence struct {
 	Id                *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                               `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -45,6 +46,8 @@ type MolecularSequence struct {
 	Pointer           []Reference                         `bson:"pointer,omitempty" json:"pointer,omitempty"`
 	StructureVariant  []MolecularSequenceStructureVariant `bson:"structureVariant,omitempty" json:"structureVariant,omitempty"`
 }
+
+// A sequence that is used as a reference to describe variants that are present in a sequence analyzed.
 type MolecularSequenceReferenceSeq struct {
 	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +62,8 @@ type MolecularSequenceReferenceSeq struct {
 	WindowStart         *int             `bson:"windowStart,omitempty" json:"windowStart,omitempty"`
 	WindowEnd           *int             `bson:"windowEnd,omitempty" json:"windowEnd,omitempty"`
 }
+
+// The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.
 type MolecularSequenceVariant struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -70,6 +75,8 @@ type MolecularSequenceVariant struct {
 	Cigar             *string     `bson:"cigar,omitempty" json:"cigar,omitempty"`
 	VariantPointer    *Reference  `bson:"variantPointer,omitempty" json:"variantPointer,omitempty"`
 }
+
+// An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).
 type MolecularSequenceQuality struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -90,6 +97,8 @@ type MolecularSequenceQuality struct {
 	FScore            *string                      `bson:"fScore,omitempty" json:"fScore,omitempty"`
 	Roc               *MolecularSequenceQualityRoc `bson:"roc,omitempty" json:"roc,omitempty"`
 }
+
+// Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff.
 type MolecularSequenceQualityRoc struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -102,6 +111,8 @@ type MolecularSequenceQualityRoc struct {
 	Sensitivity       []string    `bson:"sensitivity,omitempty" json:"sensitivity,omitempty"`
 	FMeasure          []string    `bson:"fMeasure,omitempty" json:"fMeasure,omitempty"`
 }
+
+// Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq.
 type MolecularSequenceRepository struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -113,6 +124,8 @@ type MolecularSequenceRepository struct {
 	VariantsetId      *string     `bson:"variantsetId,omitempty" json:"variantsetId,omitempty"`
 	ReadsetId         *string     `bson:"readsetId,omitempty" json:"readsetId,omitempty"`
 }
+
+// Information about chromosome structure variation.
 type MolecularSequenceStructureVariant struct {
 	Id                *string                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -123,6 +136,8 @@ type MolecularSequenceStructureVariant struct {
 	Outer             *MolecularSequenceStructureVariantOuter `bson:"outer,omitempty" json:"outer,omitempty"`
 	Inner             *MolecularSequenceStructureVariantInner `bson:"inner,omitempty" json:"inner,omitempty"`
 }
+
+// Structural variant outer.
 type MolecularSequenceStructureVariantOuter struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -130,6 +145,8 @@ type MolecularSequenceStructureVariantOuter struct {
 	Start             *int        `bson:"start,omitempty" json:"start,omitempty"`
 	End               *int        `bson:"end,omitempty" json:"end,omitempty"`
 }
+
+// Structural variant inner.
 type MolecularSequenceStructureVariantInner struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // EpisodeOfCare is documented here http://hl7.org/fhir/StructureDefinition/EpisodeOfCare
+// An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
 type EpisodeOfCare struct {
 	Id                   *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -41,6 +42,8 @@ type EpisodeOfCare struct {
 	Team                 []Reference                  `bson:"team,omitempty" json:"team,omitempty"`
 	Account              []Reference                  `bson:"account,omitempty" json:"account,omitempty"`
 }
+
+// The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource).
 type EpisodeOfCareStatusHistory struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -48,6 +51,8 @@ type EpisodeOfCareStatusHistory struct {
 	Status            EpisodeOfCareStatus `bson:"status" json:"status"`
 	Period            Period              `bson:"period" json:"period"`
 }
+
+// The list of diagnosis relevant to this episode of care.
 type EpisodeOfCareDiagnosis struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

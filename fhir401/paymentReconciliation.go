@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // PaymentReconciliation is documented here http://hl7.org/fhir/StructureDefinition/PaymentReconciliation
+// This resource provides the details including amount of a payment and allocates the payment items being paid.
 type PaymentReconciliation struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,8 @@ type PaymentReconciliation struct {
 	FormCode          *CodeableConcept                   `bson:"formCode,omitempty" json:"formCode,omitempty"`
 	ProcessNote       []PaymentReconciliationProcessNote `bson:"processNote,omitempty" json:"processNote,omitempty"`
 }
+
+// Distribution of the payment amount for a previously acknowledged payable.
 type PaymentReconciliationDetail struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +62,8 @@ type PaymentReconciliationDetail struct {
 	Payee             *Reference      `bson:"payee,omitempty" json:"payee,omitempty"`
 	Amount            *Money          `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// A note that describes or explains the processing in a human readable form.
 type PaymentReconciliationProcessNote struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

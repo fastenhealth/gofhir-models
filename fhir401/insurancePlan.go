@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // InsurancePlan is documented here http://hl7.org/fhir/StructureDefinition/InsurancePlan
+// Details of a Health Insurance product/plan provided by an organization.
 type InsurancePlan struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -43,6 +44,9 @@ type InsurancePlan struct {
 	Coverage          []InsurancePlanCoverage `bson:"coverage,omitempty" json:"coverage,omitempty"`
 	Plan              []InsurancePlanPlan     `bson:"plan,omitempty" json:"plan,omitempty"`
 }
+
+// The contact for the health insurance product for a certain purpose.
+// Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use.
 type InsurancePlanContact struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +56,8 @@ type InsurancePlanContact struct {
 	Telecom           []ContactPoint   `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Address           *Address         `bson:"address,omitempty" json:"address,omitempty"`
 }
+
+// Details about the coverage offered by the insurance product.
 type InsurancePlanCoverage struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +66,8 @@ type InsurancePlanCoverage struct {
 	Network           []Reference                    `bson:"network,omitempty" json:"network,omitempty"`
 	Benefit           []InsurancePlanCoverageBenefit `bson:"benefit" json:"benefit"`
 }
+
+// Specific benefits under this type of coverage.
 type InsurancePlanCoverageBenefit struct {
 	Id                *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -68,6 +76,8 @@ type InsurancePlanCoverageBenefit struct {
 	Requirement       *string                             `bson:"requirement,omitempty" json:"requirement,omitempty"`
 	Limit             []InsurancePlanCoverageBenefitLimit `bson:"limit,omitempty" json:"limit,omitempty"`
 }
+
+// The specific limits on the benefit.
 type InsurancePlanCoverageBenefitLimit struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -75,6 +85,8 @@ type InsurancePlanCoverageBenefitLimit struct {
 	Value             *Quantity        `bson:"value,omitempty" json:"value,omitempty"`
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 }
+
+// Details about an insurance plan.
 type InsurancePlanPlan struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -86,6 +98,8 @@ type InsurancePlanPlan struct {
 	GeneralCost       []InsurancePlanPlanGeneralCost  `bson:"generalCost,omitempty" json:"generalCost,omitempty"`
 	SpecificCost      []InsurancePlanPlanSpecificCost `bson:"specificCost,omitempty" json:"specificCost,omitempty"`
 }
+
+// Overall costs associated with the plan.
 type InsurancePlanPlanGeneralCost struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -95,6 +109,8 @@ type InsurancePlanPlanGeneralCost struct {
 	Cost              *Money           `bson:"cost,omitempty" json:"cost,omitempty"`
 	Comment           *string          `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// Costs associated with the coverage provided by the product.
 type InsurancePlanPlanSpecificCost struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -102,6 +118,8 @@ type InsurancePlanPlanSpecificCost struct {
 	Category          CodeableConcept                        `bson:"category" json:"category"`
 	Benefit           []InsurancePlanPlanSpecificCostBenefit `bson:"benefit,omitempty" json:"benefit,omitempty"`
 }
+
+// List of the specific benefits under this category of benefit.
 type InsurancePlanPlanSpecificCostBenefit struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -109,6 +127,8 @@ type InsurancePlanPlanSpecificCostBenefit struct {
 	Type              CodeableConcept                            `bson:"type" json:"type"`
 	Cost              []InsurancePlanPlanSpecificCostBenefitCost `bson:"cost,omitempty" json:"cost,omitempty"`
 }
+
+// List of the costs associated with a specific benefit.
 type InsurancePlanPlanSpecificCostBenefitCost struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

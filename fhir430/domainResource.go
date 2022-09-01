@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DomainResource is documented here http://hl7.org/fhir/StructureDefinition/DomainResource
+// A resource that includes narrative, extensions, and contained resources.
 type DomainResource struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta       `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // TerminologyCapabilities is documented here http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities
+// A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
 type TerminologyCapabilities struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -53,6 +54,8 @@ type TerminologyCapabilities struct {
 	Translation       *TerminologyCapabilitiesTranslation    `bson:"translation,omitempty" json:"translation,omitempty"`
 	Closure           *TerminologyCapabilitiesClosure        `bson:"closure,omitempty" json:"closure,omitempty"`
 }
+
+// Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation.
 type TerminologyCapabilitiesSoftware struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +63,8 @@ type TerminologyCapabilitiesSoftware struct {
 	Name              string      `bson:"name" json:"name"`
 	Version           *string     `bson:"version,omitempty" json:"version,omitempty"`
 }
+
+// Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program.
 type TerminologyCapabilitiesImplementation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -67,6 +72,9 @@ type TerminologyCapabilitiesImplementation struct {
 	Description       string      `bson:"description" json:"description"`
 	Url               *string     `bson:"url,omitempty" json:"url,omitempty"`
 }
+
+// Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource.
+// The code system - identified by its system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it might not be.
 type TerminologyCapabilitiesCodeSystem struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -75,6 +83,9 @@ type TerminologyCapabilitiesCodeSystem struct {
 	Version           []TerminologyCapabilitiesCodeSystemVersion `bson:"version,omitempty" json:"version,omitempty"`
 	Subsumption       *bool                                      `bson:"subsumption,omitempty" json:"subsumption,omitempty"`
 }
+
+// For the code system, a list of versions that are supported by the server.
+// Language translations might not be available for all codes.
 type TerminologyCapabilitiesCodeSystemVersion struct {
 	Id                *string                                          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -86,6 +97,8 @@ type TerminologyCapabilitiesCodeSystemVersion struct {
 	Filter            []TerminologyCapabilitiesCodeSystemVersionFilter `bson:"filter,omitempty" json:"filter,omitempty"`
 	Property          []string                                         `bson:"property,omitempty" json:"property,omitempty"`
 }
+
+// Filter Properties supported.
 type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -93,6 +106,8 @@ type TerminologyCapabilitiesCodeSystemVersionFilter struct {
 	Code              string      `bson:"code" json:"code"`
 	Op                []string    `bson:"op" json:"op"`
 }
+
+// Information about the [ValueSet/$expand](valueset-operation-expand.html) operation.
 type TerminologyCapabilitiesExpansion struct {
 	Id                *string                                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -103,6 +118,8 @@ type TerminologyCapabilitiesExpansion struct {
 	Parameter         []TerminologyCapabilitiesExpansionParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 	TextFilter        *string                                     `bson:"textFilter,omitempty" json:"textFilter,omitempty"`
 }
+
+// Supported expansion parameter.
 type TerminologyCapabilitiesExpansionParameter struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -110,18 +127,24 @@ type TerminologyCapabilitiesExpansionParameter struct {
 	Name              string      `bson:"name" json:"name"`
 	Documentation     *string     `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation.
 type TerminologyCapabilitiesValidateCode struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Translations      bool        `bson:"translations" json:"translations"`
 }
+
+// Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation.
 type TerminologyCapabilitiesTranslation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	NeedsMap          bool        `bson:"needsMap" json:"needsMap"`
 }
+
+// Whether the $closure operation is supported.
 type TerminologyCapabilitiesClosure struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

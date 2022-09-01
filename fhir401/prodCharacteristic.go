@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // ProdCharacteristic is documented here http://hl7.org/fhir/StructureDefinition/ProdCharacteristic
+// Base StructureDefinition for ProdCharacteristic Type: The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
 type ProdCharacteristic struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

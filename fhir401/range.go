@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Range is documented here http://hl7.org/fhir/StructureDefinition/Range
+// Base StructureDefinition for Range Type: A set of ordered Quantities defined by a low and high limit.
 type Range struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

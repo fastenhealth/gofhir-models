@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ConceptMap is documented here http://hl7.org/fhir/StructureDefinition/ConceptMap
+// A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
 type ConceptMap struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -45,6 +46,8 @@ type ConceptMap struct {
 	Copyright         *string           `bson:"copyright,omitempty" json:"copyright,omitempty"`
 	Group             []ConceptMapGroup `bson:"group,omitempty" json:"group,omitempty"`
 }
+
+// A group of mappings that all have the same source and target system.
 type ConceptMapGroup struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +59,9 @@ type ConceptMapGroup struct {
 	Element           []ConceptMapGroupElement `bson:"element" json:"element"`
 	Unmapped          *ConceptMapGroupUnmapped `bson:"unmapped,omitempty" json:"unmapped,omitempty"`
 }
+
+// Mappings for an individual concept in the source to one or more concepts in the target.
+// Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped multiple times with different comments or dependencies.
 type ConceptMapGroupElement struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +70,9 @@ type ConceptMapGroupElement struct {
 	Display           *string                        `bson:"display,omitempty" json:"display,omitempty"`
 	Target            []ConceptMapGroupElementTarget `bson:"target,omitempty" json:"target,omitempty"`
 }
+
+// A concept from the target value set that this concept maps to.
+// Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched.
 type ConceptMapGroupElementTarget struct {
 	Id                *string                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -75,6 +84,8 @@ type ConceptMapGroupElementTarget struct {
 	DependsOn         []ConceptMapGroupElementTargetDependsOn `bson:"dependsOn,omitempty" json:"dependsOn,omitempty"`
 	Product           []ConceptMapGroupElementTargetDependsOn `bson:"product,omitempty" json:"product,omitempty"`
 }
+
+// A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.
 type ConceptMapGroupElementTargetDependsOn struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -84,6 +95,9 @@ type ConceptMapGroupElementTargetDependsOn struct {
 	Value             string      `bson:"value" json:"value"`
 	Display           *string     `bson:"display,omitempty" json:"display,omitempty"`
 }
+
+// What to do when there is no mapping for the source concept. "Unmapped" does not include codes that are unmatched, and the unmapped element is ignored in a code is specified to have equivalence = unmatched.
+// This only applies if the source code has a system value that matches the system defined for the group.
 type ConceptMapGroupUnmapped struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`

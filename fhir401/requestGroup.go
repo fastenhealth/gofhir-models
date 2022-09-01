@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // RequestGroup is documented here http://hl7.org/fhir/StructureDefinition/RequestGroup
+// A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
 type RequestGroup struct {
 	Id                    *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -47,6 +48,8 @@ type RequestGroup struct {
 	Note                  []Annotation         `bson:"note,omitempty" json:"note,omitempty"`
 	Action                []RequestGroupAction `bson:"action,omitempty" json:"action,omitempty"`
 }
+
+// The actions, if any, produced by the evaluation of the artifact.
 type RequestGroupAction struct {
 	Id                  *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -70,6 +73,9 @@ type RequestGroupAction struct {
 	Resource            *Reference                        `bson:"resource,omitempty" json:"resource,omitempty"`
 	Action              []RequestGroupAction              `bson:"action,omitempty" json:"action,omitempty"`
 }
+
+// An expression that describes applicability criteria, or start/stop conditions for the action.
+// When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all of the conditions are true.
 type RequestGroupActionCondition struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -77,6 +83,8 @@ type RequestGroupActionCondition struct {
 	Kind              ActionConditionKind `bson:"kind" json:"kind"`
 	Expression        *Expression         `bson:"expression,omitempty" json:"expression,omitempty"`
 }
+
+// A relationship to another action such as "before" or "30-60 minutes after start of".
 type RequestGroupActionRelatedAction struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`

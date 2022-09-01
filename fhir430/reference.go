@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Reference is documented here http://hl7.org/fhir/StructureDefinition/Reference
+// Base StructureDefinition for Reference Type: A reference from one resource to another.
 type Reference struct {
 	Id         *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

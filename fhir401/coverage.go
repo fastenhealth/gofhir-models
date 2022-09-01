@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Coverage is documented here http://hl7.org/fhir/StructureDefinition/Coverage
+// Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment.
 type Coverage struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -46,6 +47,9 @@ type Coverage struct {
 	Subrogation       *bool                        `bson:"subrogation,omitempty" json:"subrogation,omitempty"`
 	Contract          []Reference                  `bson:"contract,omitempty" json:"contract,omitempty"`
 }
+
+// A suite of underwriter specific classifiers.
+// For example may be used to identify a class of coverage or employer group, Policy, Plan.
 type CoverageClass struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -54,6 +58,9 @@ type CoverageClass struct {
 	Value             string          `bson:"value" json:"value"`
 	Name              *string         `bson:"name,omitempty" json:"name,omitempty"`
 }
+
+// A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card.
+// For example by knowing the patient visit co-pay, the provider can collect the amount prior to undertaking treatment.
 type CoverageCostToBeneficiary struct {
 	Id                *string                              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -61,6 +68,8 @@ type CoverageCostToBeneficiary struct {
 	Type              *CodeableConcept                     `bson:"type,omitempty" json:"type,omitempty"`
 	Exception         []CoverageCostToBeneficiaryException `bson:"exception,omitempty" json:"exception,omitempty"`
 }
+
+// A suite of codes indicating exceptions or reductions to patient costs and their effective periods.
 type CoverageCostToBeneficiaryException struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

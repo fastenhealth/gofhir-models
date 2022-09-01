@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Flag is documented here http://hl7.org/fhir/StructureDefinition/Flag
+// Prospective warnings of potential issues when providing care to the patient.
 type Flag struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Basic is documented here http://hl7.org/fhir/StructureDefinition/Basic
+// Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
 type Basic struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta           `bson:"meta,omitempty" json:"meta,omitempty"`

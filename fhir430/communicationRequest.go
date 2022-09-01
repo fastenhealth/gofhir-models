@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CommunicationRequest is documented here http://hl7.org/fhir/StructureDefinition/CommunicationRequest
+// A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
 type CommunicationRequest struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -50,6 +51,8 @@ type CommunicationRequest struct {
 	ReasonReference   []Reference                   `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
 	Note              []Annotation                  `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Text, attachment(s), or resource(s) to be communicated to the recipient.
 type CommunicationRequestPayload struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

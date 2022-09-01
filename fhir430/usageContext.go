@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // UsageContext is documented here http://hl7.org/fhir/StructureDefinition/UsageContext
+// Base StructureDefinition for UsageContext Type: Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).
 type UsageContext struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

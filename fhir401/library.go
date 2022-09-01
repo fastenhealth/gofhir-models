@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Library is documented here http://hl7.org/fhir/StructureDefinition/Library
+// The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
 type Library struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

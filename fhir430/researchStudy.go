@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ResearchStudy is documented here http://hl7.org/fhir/StructureDefinition/ResearchStudy
+// A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
 type ResearchStudy struct {
 	Id                    *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -53,6 +54,8 @@ type ResearchStudy struct {
 	Arm                   []ResearchStudyArm       `bson:"arm,omitempty" json:"arm,omitempty"`
 	Objective             []ResearchStudyObjective `bson:"objective,omitempty" json:"objective,omitempty"`
 }
+
+// Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up.
 type ResearchStudyArm struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -61,6 +64,8 @@ type ResearchStudyArm struct {
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study.
 type ResearchStudyObjective struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Narrative is documented here http://hl7.org/fhir/StructureDefinition/Narrative
+// Base StructureDefinition for Narrative Type: A human-readable summary of the resource conveying the essential clinical and business information for the resource.
 type Narrative struct {
 	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

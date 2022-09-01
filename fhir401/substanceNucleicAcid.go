@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SubstanceNucleicAcid is documented here http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid
+// Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction.
 type SubstanceNucleicAcid struct {
 	Id                  *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -34,6 +35,8 @@ type SubstanceNucleicAcid struct {
 	OligoNucleotideType *CodeableConcept              `bson:"oligoNucleotideType,omitempty" json:"oligoNucleotideType,omitempty"`
 	Subunit             []SubstanceNucleicAcidSubunit `bson:"subunit,omitempty" json:"subunit,omitempty"`
 }
+
+// Subunits are listed in order of decreasing length; sequences of the same length will be ordered by molecular weight; subunits that have identical sequences will be repeated multiple times.
 type SubstanceNucleicAcidSubunit struct {
 	Id                 *string                              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension                          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -47,6 +50,8 @@ type SubstanceNucleicAcidSubunit struct {
 	Linkage            []SubstanceNucleicAcidSubunitLinkage `bson:"linkage,omitempty" json:"linkage,omitempty"`
 	Sugar              []SubstanceNucleicAcidSubunitSugar   `bson:"sugar,omitempty" json:"sugar,omitempty"`
 }
+
+// The linkages between sugar residues will also be captured.
 type SubstanceNucleicAcidSubunitLinkage struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +61,8 @@ type SubstanceNucleicAcidSubunitLinkage struct {
 	Name              *string     `bson:"name,omitempty" json:"name,omitempty"`
 	ResidueSite       *string     `bson:"residueSite,omitempty" json:"residueSite,omitempty"`
 }
+
+// 5.3.6.8.1 Sugar ID (Mandatory).
 type SubstanceNucleicAcidSubunitSugar struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

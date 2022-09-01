@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MessageHeader is documented here http://hl7.org/fhir/StructureDefinition/MessageHeader
+// The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
 type MessageHeader struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,9 @@ type MessageHeader struct {
 	Focus             []Reference                `bson:"focus,omitempty" json:"focus,omitempty"`
 	Definition        *string                    `bson:"definition,omitempty" json:"definition,omitempty"`
 }
+
+// The destination application which the message is intended for.
+// There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system.
 type MessageHeaderDestination struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -48,6 +52,8 @@ type MessageHeaderDestination struct {
 	Endpoint          string      `bson:"endpoint" json:"endpoint"`
 	Receiver          *Reference  `bson:"receiver,omitempty" json:"receiver,omitempty"`
 }
+
+// The source application from which this message originated.
 type MessageHeaderSource struct {
 	Id                *string       `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension   `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -58,6 +64,8 @@ type MessageHeaderSource struct {
 	Contact           *ContactPoint `bson:"contact,omitempty" json:"contact,omitempty"`
 	Endpoint          string        `bson:"endpoint" json:"endpoint"`
 }
+
+// Information about the message that this message is a response to.  Only present if this message is a response.
 type MessageHeaderResponse struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

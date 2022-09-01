@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProduct is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProduct
+// Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
 type MedicinalProduct struct {
 	Id                             *string                                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                           *Meta                                            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -49,6 +50,8 @@ type MedicinalProduct struct {
 	ManufacturingBusinessOperation []MedicinalProductManufacturingBusinessOperation `bson:"manufacturingBusinessOperation,omitempty" json:"manufacturingBusinessOperation,omitempty"`
 	SpecialDesignation             []MedicinalProductSpecialDesignation             `bson:"specialDesignation,omitempty" json:"specialDesignation,omitempty"`
 }
+
+// The product's name, including full name and possibly coded parts.
 type MedicinalProductName struct {
 	Id                *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -57,6 +60,8 @@ type MedicinalProductName struct {
 	NamePart          []MedicinalProductNameNamePart        `bson:"namePart,omitempty" json:"namePart,omitempty"`
 	CountryLanguage   []MedicinalProductNameCountryLanguage `bson:"countryLanguage,omitempty" json:"countryLanguage,omitempty"`
 }
+
+// Coding words or phrases of the name.
 type MedicinalProductNameNamePart struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +69,8 @@ type MedicinalProductNameNamePart struct {
 	Part              string      `bson:"part" json:"part"`
 	Type              Coding      `bson:"type" json:"type"`
 }
+
+// Country where the name applies.
 type MedicinalProductNameCountryLanguage struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -72,6 +79,8 @@ type MedicinalProductNameCountryLanguage struct {
 	Jurisdiction      *CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
 	Language          CodeableConcept  `bson:"language" json:"language"`
 }
+
+// An operation applied to the product, for manufacturing or adminsitrative purpose.
 type MedicinalProductManufacturingBusinessOperation struct {
 	Id                           *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                    []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -83,6 +92,8 @@ type MedicinalProductManufacturingBusinessOperation struct {
 	Manufacturer                 []Reference      `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
 	Regulator                    *Reference       `bson:"regulator,omitempty" json:"regulator,omitempty"`
 }
+
+// Indicates if the medicinal product has an orphan designation for the treatment of a rare disease.
 type MedicinalProductSpecialDesignation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

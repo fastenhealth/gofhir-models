@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // SubstanceAmount is documented here http://hl7.org/fhir/StructureDefinition/SubstanceAmount
+// Base StructureDefinition for SubstanceAmount Type: Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.
 type SubstanceAmount struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -26,6 +27,8 @@ type SubstanceAmount struct {
 	AmountText        *string                        `bson:"amountText,omitempty" json:"amountText,omitempty"`
 	ReferenceRange    *SubstanceAmountReferenceRange `bson:"referenceRange,omitempty" json:"referenceRange,omitempty"`
 }
+
+// Reference range of possible or expected values.
 type SubstanceAmountReferenceRange struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

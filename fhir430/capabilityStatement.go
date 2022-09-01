@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CapabilityStatement is documented here http://hl7.org/fhir/StructureDefinition/CapabilityStatement
+// A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
 type CapabilityStatement struct {
 	Id                  *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -55,6 +56,8 @@ type CapabilityStatement struct {
 	Messaging           []CapabilityStatementMessaging     `bson:"messaging,omitempty" json:"messaging,omitempty"`
 	Document            []CapabilityStatementDocument      `bson:"document,omitempty" json:"document,omitempty"`
 }
+
+// Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.
 type CapabilityStatementSoftware struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -63,6 +66,8 @@ type CapabilityStatementSoftware struct {
 	Version           *string     `bson:"version,omitempty" json:"version,omitempty"`
 	ReleaseDate       *string     `bson:"releaseDate,omitempty" json:"releaseDate,omitempty"`
 }
+
+// Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.
 type CapabilityStatementImplementation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +76,9 @@ type CapabilityStatementImplementation struct {
 	Url               *string     `bson:"url,omitempty" json:"url,omitempty"`
 	Custodian         *Reference  `bson:"custodian,omitempty" json:"custodian,omitempty"`
 }
+
+// A definition of the restful capabilities of the solution, if any.
+// Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements).
 type CapabilityStatementRest struct {
 	Id                *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -84,6 +92,8 @@ type CapabilityStatementRest struct {
 	Operation         []CapabilityStatementRestResourceOperation   `bson:"operation,omitempty" json:"operation,omitempty"`
 	Compartment       []string                                     `bson:"compartment,omitempty" json:"compartment,omitempty"`
 }
+
+// Information about security implementation from an interface perspective - what a client needs to know.
 type CapabilityStatementRestSecurity struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -92,6 +102,9 @@ type CapabilityStatementRestSecurity struct {
 	Service           []CodeableConcept `bson:"service,omitempty" json:"service,omitempty"`
 	Description       *string           `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// A specification of the restful capabilities of the solution for a specific resource type.
+// Max of one repetition per resource type.
 type CapabilityStatementRestResource struct {
 	Id                *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -114,6 +127,9 @@ type CapabilityStatementRestResource struct {
 	SearchParam       []CapabilityStatementRestResourceSearchParam `bson:"searchParam,omitempty" json:"searchParam,omitempty"`
 	Operation         []CapabilityStatementRestResourceOperation   `bson:"operation,omitempty" json:"operation,omitempty"`
 }
+
+// Identifies a restful operation supported by the solution.
+// In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true).
 type CapabilityStatementRestResourceInteraction struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -121,6 +137,9 @@ type CapabilityStatementRestResourceInteraction struct {
 	Code              TypeRestfulInteraction `bson:"code" json:"code"`
 	Documentation     *string                `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
+// The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions.
 type CapabilityStatementRestResourceSearchParam struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -130,6 +149,13 @@ type CapabilityStatementRestResourceSearchParam struct {
 	Type              SearchParamType `bson:"type" json:"type"`
 	Documentation     *string         `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters.
+/*
+Operations linked from CapabilityStatement.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.
+
+If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource.
+*/
 type CapabilityStatementRestResourceOperation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -138,6 +164,8 @@ type CapabilityStatementRestResourceOperation struct {
 	Definition        string      `bson:"definition" json:"definition"`
 	Documentation     *string     `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// A specification of restful operations supported by the system.
 type CapabilityStatementRestInteraction struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -145,6 +173,9 @@ type CapabilityStatementRestInteraction struct {
 	Code              SystemRestfulInteraction `bson:"code" json:"code"`
 	Documentation     *string                  `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// A description of the messaging capabilities of the solution.
+// Multiple repetitions allow the documentation of multiple endpoints per solution.
 type CapabilityStatementMessaging struct {
 	Id                *string                                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -154,6 +185,8 @@ type CapabilityStatementMessaging struct {
 	Documentation     *string                                        `bson:"documentation,omitempty" json:"documentation,omitempty"`
 	SupportedMessage  []CapabilityStatementMessagingSupportedMessage `bson:"supportedMessage,omitempty" json:"supportedMessage,omitempty"`
 }
+
+// An endpoint (network accessible address) to which messages and/or replies are to be sent.
 type CapabilityStatementMessagingEndpoint struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -161,6 +194,9 @@ type CapabilityStatementMessagingEndpoint struct {
 	Protocol          Coding      `bson:"protocol" json:"protocol"`
 	Address           string      `bson:"address" json:"address"`
 }
+
+// References to message definitions for messages this system can send or receive.
+// This is a proposed alternative to the messaging.event structure.
 type CapabilityStatementMessagingSupportedMessage struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -168,6 +204,8 @@ type CapabilityStatementMessagingSupportedMessage struct {
 	Mode              EventCapabilityMode `bson:"mode" json:"mode"`
 	Definition        string              `bson:"definition" json:"definition"`
 }
+
+// A document definition.
 type CapabilityStatementDocument struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

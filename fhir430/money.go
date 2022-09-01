@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Money is documented here http://hl7.org/fhir/StructureDefinition/Money
+// Base StructureDefinition for Money Type: An amount of economic utility in some recognized currency.
 type Money struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

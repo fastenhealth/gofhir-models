@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Specimen is documented here http://hl7.org/fhir/StructureDefinition/Specimen
+// A sample to be used for analysis.
 type Specimen struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,8 @@ type Specimen struct {
 	Condition           []CodeableConcept    `bson:"condition,omitempty" json:"condition,omitempty"`
 	Note                []Annotation         `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Details concerning the specimen collection.
 type SpecimenCollection struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +55,8 @@ type SpecimenCollection struct {
 	Method            *CodeableConcept `bson:"method,omitempty" json:"method,omitempty"`
 	BodySite          *CodeableConcept `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
 }
+
+// Details concerning processing and processing steps for the specimen.
 type SpecimenProcessing struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +65,8 @@ type SpecimenProcessing struct {
 	Procedure         *CodeableConcept `bson:"procedure,omitempty" json:"procedure,omitempty"`
 	Additive          []Reference      `bson:"additive,omitempty" json:"additive,omitempty"`
 }
+
+// The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
 type SpecimenContainer struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

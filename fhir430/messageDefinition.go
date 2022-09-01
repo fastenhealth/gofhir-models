@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MessageDefinition is documented here http://hl7.org/fhir/StructureDefinition/MessageDefinition
+// Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
 type MessageDefinition struct {
 	Id                *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -52,6 +53,8 @@ type MessageDefinition struct {
 	AllowedResponse   []MessageDefinitionAllowedResponse `bson:"allowedResponse,omitempty" json:"allowedResponse,omitempty"`
 	Graph             []string                           `bson:"graph,omitempty" json:"graph,omitempty"`
 }
+
+// Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge.
 type MessageDefinitionFocus struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -61,6 +64,9 @@ type MessageDefinitionFocus struct {
 	Min               int          `bson:"min" json:"min"`
 	Max               *string      `bson:"max,omitempty" json:"max,omitempty"`
 }
+
+// Indicates what types of messages may be sent as an application-level response to this message.
+// This indicates an application level response to "close" a transaction implicit in a particular request message.  To define a complete workflow scenario, look to the [[PlanDefinition]] resource which allows the definition of complex orchestrations, conditionality, etc.
 type MessageDefinitionAllowedResponse struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

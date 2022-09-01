@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Contract is documented here http://hl7.org/fhir/StructureDefinition/Contract
+// Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
 type Contract struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -60,6 +61,8 @@ type Contract struct {
 	Legal                 []ContractLegal              `bson:"legal,omitempty" json:"legal,omitempty"`
 	Rule                  []ContractRule               `bson:"rule,omitempty" json:"rule,omitempty"`
 }
+
+// Precusory content developed with a focus and intent of supporting the formation a Contract instance, which may be associated with and transformable into a Contract.
 type ContractContentDefinition struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +74,8 @@ type ContractContentDefinition struct {
 	PublicationStatus ContractResourcePublicationStatusCodes `bson:"publicationStatus" json:"publicationStatus"`
 	Copyright         *string                                `bson:"copyright,omitempty" json:"copyright,omitempty"`
 }
+
+// One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
 type ContractTerm struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -87,6 +92,8 @@ type ContractTerm struct {
 	Action            []ContractTermAction        `bson:"action,omitempty" json:"action,omitempty"`
 	Group             []ContractTerm              `bson:"group,omitempty" json:"group,omitempty"`
 }
+
+// Security labels that protect the handling of information about the term and its elements, which may be specifically identified..
 type ContractTermSecurityLabel struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -96,6 +103,8 @@ type ContractTermSecurityLabel struct {
 	Category          []Coding    `bson:"category,omitempty" json:"category,omitempty"`
 	Control           []Coding    `bson:"control,omitempty" json:"control,omitempty"`
 }
+
+// The matter of concern in the context of this provision of the agrement.
 type ContractTermOffer struct {
 	Id                  *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -111,6 +120,8 @@ type ContractTermOffer struct {
 	LinkId              []string                  `bson:"linkId,omitempty" json:"linkId,omitempty"`
 	SecurityLabelNumber []int                     `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty"`
 }
+
+// Offer Recipient.
 type ContractTermOfferParty struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -118,11 +129,15 @@ type ContractTermOfferParty struct {
 	Reference         []Reference     `bson:"reference" json:"reference"`
 	Role              CodeableConcept `bson:"role" json:"role"`
 }
+
+// Response to offer text.
 type ContractTermOfferAnswer struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// Contract Term Asset List.
 type ContractTermAsset struct {
 	Id                  *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -143,6 +158,8 @@ type ContractTermAsset struct {
 	SecurityLabelNumber []int                         `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty"`
 	ValuedItem          []ContractTermAssetValuedItem `bson:"valuedItem,omitempty" json:"valuedItem,omitempty"`
 }
+
+// Circumstance of the asset.
 type ContractTermAssetContext struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -151,6 +168,8 @@ type ContractTermAssetContext struct {
 	Code              []CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Text              *string           `bson:"text,omitempty" json:"text,omitempty"`
 }
+
+// Contract Valued Item List.
 type ContractTermAssetValuedItem struct {
 	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -169,6 +188,9 @@ type ContractTermAssetValuedItem struct {
 	LinkId              []string    `bson:"linkId,omitempty" json:"linkId,omitempty"`
 	SecurityLabelNumber []int       `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty"`
 }
+
+// An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+// Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 type ContractTermAction struct {
 	Id                  *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -194,6 +216,8 @@ type ContractTermAction struct {
 	Note                []Annotation                `bson:"note,omitempty" json:"note,omitempty"`
 	SecurityLabelNumber []int                       `bson:"securityLabelNumber,omitempty" json:"securityLabelNumber,omitempty"`
 }
+
+// Entity of the action.
 type ContractTermActionSubject struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -201,6 +225,9 @@ type ContractTermActionSubject struct {
 	Reference         []Reference      `bson:"reference" json:"reference"`
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 }
+
+// Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
+// Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
 type ContractSigner struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -209,16 +236,22 @@ type ContractSigner struct {
 	Party             Reference   `bson:"party" json:"party"`
 	Signature         []Signature `bson:"signature" json:"signature"`
 }
+
+// The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
 type ContractFriendly struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// List of Legal expressions or representations of this Contract.
 type ContractLegal struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// List of Computable Policy Rule Language Representations of this Contract.
 type ContractRule struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

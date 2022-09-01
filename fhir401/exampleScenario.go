@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ExampleScenario is documented here http://hl7.org/fhir/StructureDefinition/ExampleScenario
+// Example of workflow instance.
 type ExampleScenario struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -46,6 +47,8 @@ type ExampleScenario struct {
 	Process           []ExampleScenarioProcess  `bson:"process,omitempty" json:"process,omitempty"`
 	Workflow          []string                  `bson:"workflow,omitempty" json:"workflow,omitempty"`
 }
+
+// Actor participating in the resource.
 type ExampleScenarioActor struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +58,8 @@ type ExampleScenarioActor struct {
 	Name              *string                  `bson:"name,omitempty" json:"name,omitempty"`
 	Description       *string                  `bson:"description,omitempty" json:"description,omitempty"`
 }
+
+// Each resource and each version that is present in the workflow.
 type ExampleScenarioInstance struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -66,6 +71,8 @@ type ExampleScenarioInstance struct {
 	Version           []ExampleScenarioInstanceVersion           `bson:"version,omitempty" json:"version,omitempty"`
 	ContainedInstance []ExampleScenarioInstanceContainedInstance `bson:"containedInstance,omitempty" json:"containedInstance,omitempty"`
 }
+
+// A specific version of the resource.
 type ExampleScenarioInstanceVersion struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -73,6 +80,8 @@ type ExampleScenarioInstanceVersion struct {
 	VersionId         string      `bson:"versionId" json:"versionId"`
 	Description       string      `bson:"description" json:"description"`
 }
+
+// Resources contained in the instance (e.g. the observations contained in a bundle).
 type ExampleScenarioInstanceContainedInstance struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -80,6 +89,8 @@ type ExampleScenarioInstanceContainedInstance struct {
 	ResourceId        string      `bson:"resourceId" json:"resourceId"`
 	VersionId         *string     `bson:"versionId,omitempty" json:"versionId,omitempty"`
 }
+
+// Each major process - a group of operations.
 type ExampleScenarioProcess struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -90,6 +101,8 @@ type ExampleScenarioProcess struct {
 	PostConditions    *string                      `bson:"postConditions,omitempty" json:"postConditions,omitempty"`
 	Step              []ExampleScenarioProcessStep `bson:"step,omitempty" json:"step,omitempty"`
 }
+
+// Each step of the process.
 type ExampleScenarioProcessStep struct {
 	Id                *string                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -99,6 +112,8 @@ type ExampleScenarioProcessStep struct {
 	Operation         *ExampleScenarioProcessStepOperation    `bson:"operation,omitempty" json:"operation,omitempty"`
 	Alternative       []ExampleScenarioProcessStepAlternative `bson:"alternative,omitempty" json:"alternative,omitempty"`
 }
+
+// Each interaction or action.
 type ExampleScenarioProcessStepOperation struct {
 	Id                *string                                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                               `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -114,6 +129,8 @@ type ExampleScenarioProcessStepOperation struct {
 	Request           *ExampleScenarioInstanceContainedInstance `bson:"request,omitempty" json:"request,omitempty"`
 	Response          *ExampleScenarioInstanceContainedInstance `bson:"response,omitempty" json:"response,omitempty"`
 }
+
+// Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances.
 type ExampleScenarioProcessStepAlternative struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`

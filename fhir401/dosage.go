@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Dosage is documented here http://hl7.org/fhir/StructureDefinition/Dosage
+// Base StructureDefinition for Dosage Type: Indicates how the medication is/was taken or should be taken by the patient.
 type Dosage struct {
 	Id                       *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -35,6 +36,8 @@ type Dosage struct {
 	MaxDosePerAdministration *Quantity           `bson:"maxDosePerAdministration,omitempty" json:"maxDosePerAdministration,omitempty"`
 	MaxDosePerLifetime       *Quantity           `bson:"maxDosePerLifetime,omitempty" json:"maxDosePerLifetime,omitempty"`
 }
+
+// The amount of medication administered.
 type DosageDoseAndRate struct {
 	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ResearchSubject is documented here http://hl7.org/fhir/StructureDefinition/ResearchSubject
+// A physical entity which is the primary unit of operational and/or administrative interest in a study.
 type ResearchSubject struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`

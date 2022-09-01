@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // BodyStructure is documented here http://hl7.org/fhir/StructureDefinition/BodyStructure
+// Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
 type BodyStructure struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

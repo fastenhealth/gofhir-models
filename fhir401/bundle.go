@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Bundle is documented here http://hl7.org/fhir/StructureDefinition/Bundle
+// A container for a collection of resources.
 type Bundle struct {
 	Id            *string       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta          *Meta         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -33,6 +34,15 @@ type Bundle struct {
 	Entry         []BundleEntry `bson:"entry,omitempty" json:"entry,omitempty"`
 	Signature     *Signature    `bson:"signature,omitempty" json:"signature,omitempty"`
 }
+
+// A series of links that provide context to this bundle.
+/*
+Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)).
+
+Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.
+
+This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific.
+*/
 type BundleLink struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -40,6 +50,8 @@ type BundleLink struct {
 	Relation          string      `bson:"relation" json:"relation"`
 	Url               string      `bson:"url" json:"url"`
 }
+
+// An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).
 type BundleEntry struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -51,6 +63,8 @@ type BundleEntry struct {
 	Request           *BundleEntryRequest  `bson:"request,omitempty" json:"request,omitempty"`
 	Response          *BundleEntryResponse `bson:"response,omitempty" json:"response,omitempty"`
 }
+
+// Information about the search process that lead to the creation of this entry.
 type BundleEntrySearch struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -58,6 +72,8 @@ type BundleEntrySearch struct {
 	Mode              *SearchEntryMode `bson:"mode,omitempty" json:"mode,omitempty"`
 	Score             *string          `bson:"score,omitempty" json:"score,omitempty"`
 }
+
+// Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry.
 type BundleEntryRequest struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -69,6 +85,8 @@ type BundleEntryRequest struct {
 	IfMatch           *string     `bson:"ifMatch,omitempty" json:"ifMatch,omitempty"`
 	IfNoneExist       *string     `bson:"ifNoneExist,omitempty" json:"ifNoneExist,omitempty"`
 }
+
+// Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.
 type BundleEntryResponse struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

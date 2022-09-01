@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Account is documented here http://hl7.org/fhir/StructureDefinition/Account
+// A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
 type Account struct {
 	Id                *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -40,6 +41,14 @@ type Account struct {
 	Guarantor         []AccountGuarantor `bson:"guarantor,omitempty" json:"guarantor,omitempty"`
 	PartOf            *Reference         `bson:"partOf,omitempty" json:"partOf,omitempty"`
 }
+
+// The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account.
+/*
+Typically. this may be some form of insurance, internal charges, or self-pay.
+
+Local or jurisdictional business rules may determine which coverage covers which types of billable items charged to the account, and in which order.
+Where the order is important, a local/jurisdictional extension may be defined to specify the order for the type of charge.
+*/
 type AccountCoverage struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -47,6 +56,8 @@ type AccountCoverage struct {
 	Coverage          Reference   `bson:"coverage" json:"coverage"`
 	Priority          *int        `bson:"priority,omitempty" json:"priority,omitempty"`
 }
+
+// The parties responsible for balancing the account if other payment options fall short.
 type AccountGuarantor struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

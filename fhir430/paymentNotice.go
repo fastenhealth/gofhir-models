@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // PaymentNotice is documented here http://hl7.org/fhir/StructureDefinition/PaymentNotice
+// This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
 type PaymentNotice struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`

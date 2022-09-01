@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DocumentReference is documented here http://hl7.org/fhir/StructureDefinition/DocumentReference
+// A reference to a document of any kind for any purpose. Provides metadata about the document so that the document can be discovered and managed. The scope of a document is any seralized object with a mime-type, so includes formal patient centric documents (CDA), cliical notes, scanned paper, and non-patient specific documents like policy text.
 type DocumentReference struct {
 	Id                *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -45,6 +46,9 @@ type DocumentReference struct {
 	Content           []DocumentReferenceContent   `bson:"content" json:"content"`
 	Context           *DocumentReferenceContext    `bson:"context,omitempty" json:"context,omitempty"`
 }
+
+// Relationships that this document has with other document references that already exist.
+// This element is labeled as a modifier because documents that append to other documents are incomplete on their own.
 type DocumentReferenceRelatesTo struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +56,8 @@ type DocumentReferenceRelatesTo struct {
 	Code              DocumentRelationshipType `bson:"code" json:"code"`
 	Target            Reference                `bson:"target" json:"target"`
 }
+
+// The document and format referenced. There may be multiple content element repetitions, each with a different format.
 type DocumentReferenceContent struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +65,9 @@ type DocumentReferenceContent struct {
 	Attachment        Attachment  `bson:"attachment" json:"attachment"`
 	Format            *Coding     `bson:"format,omitempty" json:"format,omitempty"`
 }
+
+// The clinical context in which the document was prepared.
+// These values are primarily added to help with searching for interesting/relevant documents.
 type DocumentReferenceContext struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

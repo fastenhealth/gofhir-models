@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // PractitionerRole is documented here http://hl7.org/fhir/StructureDefinition/PractitionerRole
+// A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
 type PractitionerRole struct {
 	Id                     *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -43,6 +44,9 @@ type PractitionerRole struct {
 	AvailabilityExceptions *string                         `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
 	Endpoint               []Reference                     `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
+
+// A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.
+// More detailed availability information may be provided in associated Schedule/Slot resources.
 type PractitionerRoleAvailableTime struct {
 	Id                 *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +56,8 @@ type PractitionerRoleAvailableTime struct {
 	AvailableStartTime *string      `bson:"availableStartTime,omitempty" json:"availableStartTime,omitempty"`
 	AvailableEndTime   *string      `bson:"availableEndTime,omitempty" json:"availableEndTime,omitempty"`
 }
+
+// The practitioner is not available or performing this role during this period of time due to the provided reason.
 type PractitionerRoleNotAvailable struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

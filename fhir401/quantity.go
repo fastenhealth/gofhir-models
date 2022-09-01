@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Quantity is documented here http://hl7.org/fhir/StructureDefinition/Quantity
+// Base StructureDefinition for Quantity Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
 type Quantity struct {
 	Id         *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // ContactDetail is documented here http://hl7.org/fhir/StructureDefinition/ContactDetail
+// Base StructureDefinition for ContactDetail Type: Specifies contact information for a person or organization.
 type ContactDetail struct {
 	Id        *string        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension    `bson:"extension,omitempty" json:"extension,omitempty"`

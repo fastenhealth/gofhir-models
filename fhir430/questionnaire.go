@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Questionnaire is documented here http://hl7.org/fhir/StructureDefinition/Questionnaire
+// A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
 type Questionnaire struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -51,6 +52,9 @@ type Questionnaire struct {
 	Code              []Coding            `bson:"code,omitempty" json:"code,omitempty"`
 	Item              []QuestionnaireItem `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// A particular question, question grouping or display text that is part of the questionnaire.
+// The content of the questionnaire is constructed from an ordered, hierarchical collection of items.
 type QuestionnaireItem struct {
 	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -72,6 +76,9 @@ type QuestionnaireItem struct {
 	Initial           []QuestionnaireItemInitial      `bson:"initial,omitempty" json:"initial,omitempty"`
 	Item              []QuestionnaireItem             `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
+// If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat "enableWhen"s as being joined by an "or" clause.  This element is a modifier because if enableWhen is present for an item, "required" is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.
 type QuestionnaireItemEnableWhen struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -79,12 +86,18 @@ type QuestionnaireItemEnableWhen struct {
 	Question          string                    `bson:"question" json:"question"`
 	Operator          QuestionnaireItemOperator `bson:"operator" json:"operator"`
 }
+
+// One of the permitted answers for a "choice" or "open-choice" question.
+// This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes.
 type QuestionnaireItemAnswerOption struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	InitialSelected   *bool       `bson:"initialSelected,omitempty" json:"initialSelected,omitempty"`
 }
+
+// One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.
+// The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial[x] must agree with the item.type, and only repeating items can have more then one initial value.
 type QuestionnaireItemInitial struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

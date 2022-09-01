@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductManufactured is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductManufactured
+// The manufactured item as contained in the packaged medicinal product.
 type MedicinalProductManufactured struct {
 	Id                      *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`

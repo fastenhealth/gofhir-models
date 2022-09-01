@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Population is documented here http://hl7.org/fhir/StructureDefinition/Population
+// Base StructureDefinition for Population Type: A populatioof people with some set of grouping criteria.
 type Population struct {
 	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

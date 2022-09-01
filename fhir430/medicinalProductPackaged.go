@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductPackaged is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged
+// A medicinal product in a container or package.
 type MedicinalProductPackaged struct {
 	Id                     *string                                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -38,6 +39,8 @@ type MedicinalProductPackaged struct {
 	BatchIdentifier        []MedicinalProductPackagedBatchIdentifier `bson:"batchIdentifier,omitempty" json:"batchIdentifier,omitempty"`
 	PackageItem            []MedicinalProductPackagedPackageItem     `bson:"packageItem" json:"packageItem"`
 }
+
+// Batch numbering.
 type MedicinalProductPackagedBatchIdentifier struct {
 	Id                 *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -45,6 +48,8 @@ type MedicinalProductPackagedBatchIdentifier struct {
 	OuterPackaging     Identifier  `bson:"outerPackaging" json:"outerPackaging"`
 	ImmediatePackaging *Identifier `bson:"immediatePackaging,omitempty" json:"immediatePackaging,omitempty"`
 }
+
+// A packaging item, as a contained for medicine, possibly with other packaging items within.
 type MedicinalProductPackagedPackageItem struct {
 	Id                      *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension                           `bson:"extension,omitempty" json:"extension,omitempty"`

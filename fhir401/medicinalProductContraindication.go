@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductContraindication is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication
+// The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
 type MedicinalProductContraindication struct {
 	Id                    *string                                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -36,6 +37,8 @@ type MedicinalProductContraindication struct {
 	OtherTherapy          []MedicinalProductContraindicationOtherTherapy `bson:"otherTherapy,omitempty" json:"otherTherapy,omitempty"`
 	Population            []Population                                   `bson:"population,omitempty" json:"population,omitempty"`
 }
+
+// Information about the use of the medicinal product in relation to other therapies described as part of the indication.
 type MedicinalProductContraindicationOtherTherapy struct {
 	Id                      *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

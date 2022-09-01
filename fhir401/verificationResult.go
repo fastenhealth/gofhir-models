@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // VerificationResult is documented here http://hl7.org/fhir/StructureDefinition/VerificationResult
+// Describes validation requirements, source(s), status and dates for one or more elements.
 type VerificationResult struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -43,6 +44,8 @@ type VerificationResult struct {
 	Attestation       *VerificationResultAttestation    `bson:"attestation,omitempty" json:"attestation,omitempty"`
 	Validator         []VerificationResultValidator     `bson:"validator,omitempty" json:"validator,omitempty"`
 }
+
+// Information about the primary source(s) involved in validation.
 type VerificationResultPrimarySource struct {
 	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +58,8 @@ type VerificationResultPrimarySource struct {
 	CanPushUpdates      *CodeableConcept  `bson:"canPushUpdates,omitempty" json:"canPushUpdates,omitempty"`
 	PushTypeAvailable   []CodeableConcept `bson:"pushTypeAvailable,omitempty" json:"pushTypeAvailable,omitempty"`
 }
+
+// Information about the entity attesting to information.
 type VerificationResultAttestation struct {
 	Id                        *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                 []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -68,6 +73,8 @@ type VerificationResultAttestation struct {
 	ProxySignature            *Signature       `bson:"proxySignature,omitempty" json:"proxySignature,omitempty"`
 	SourceSignature           *Signature       `bson:"sourceSignature,omitempty" json:"sourceSignature,omitempty"`
 }
+
+// Information about the entity validating information.
 type VerificationResultValidator struct {
 	Id                   *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

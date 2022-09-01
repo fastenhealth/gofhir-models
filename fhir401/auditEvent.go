@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // AuditEvent is documented here http://hl7.org/fhir/StructureDefinition/AuditEvent
+// A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
 type AuditEvent struct {
 	Id                *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -40,6 +41,13 @@ type AuditEvent struct {
 	Source            AuditEventSource   `bson:"source" json:"source"`
 	Entity            []AuditEventEntity `bson:"entity,omitempty" json:"entity,omitempty"`
 }
+
+// An actor taking an active role in the event or activity that is logged.
+/*
+Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.
+
+For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity.
+*/
 type AuditEventAgent struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +64,8 @@ type AuditEventAgent struct {
 	Network           *AuditEventAgentNetwork `bson:"network,omitempty" json:"network,omitempty"`
 	PurposeOfUse      []CodeableConcept       `bson:"purposeOfUse,omitempty" json:"purposeOfUse,omitempty"`
 }
+
+// Logical network location for application activity, if the activity has a network location.
 type AuditEventAgentNetwork struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -63,6 +73,9 @@ type AuditEventAgentNetwork struct {
 	Address           *string                     `bson:"address,omitempty" json:"address,omitempty"`
 	Type              *AuditEventAgentNetworkType `bson:"type,omitempty" json:"type,omitempty"`
 }
+
+// The system that is reporting the event.
+// Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants (e.g. low-level network transports) need not be identified.
 type AuditEventSource struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +84,9 @@ type AuditEventSource struct {
 	Observer          Reference   `bson:"observer" json:"observer"`
 	Type              []Coding    `bson:"type,omitempty" json:"type,omitempty"`
 }
+
+// Specific instances of data or objects that have been accessed.
+// Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
 type AuditEventEntity struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -85,6 +101,8 @@ type AuditEventEntity struct {
 	Query             *string                  `bson:"query,omitempty" json:"query,omitempty"`
 	Detail            []AuditEventEntityDetail `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// Tagged value pairs for conveying additional information about the entity.
 type AuditEventEntityDetail struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

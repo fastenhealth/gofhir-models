@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Period is documented here http://hl7.org/fhir/StructureDefinition/Period
+// Base StructureDefinition for Period Type: A time period defined by a start and end date and optionally time.
 type Period struct {
 	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

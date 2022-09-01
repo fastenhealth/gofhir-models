@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // EffectEvidenceSynthesis is documented here http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis
+// The EffectEvidenceSynthesis resource describes the difference in an outcome between exposures states in a population where the effect estimate is derived from a combination of research studies.
 type EffectEvidenceSynthesis struct {
 	Id                  *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -62,6 +63,8 @@ type EffectEvidenceSynthesis struct {
 	EffectEstimate      []EffectEvidenceSynthesisEffectEstimate    `bson:"effectEstimate,omitempty" json:"effectEstimate,omitempty"`
 	Certainty           []EffectEvidenceSynthesisCertainty         `bson:"certainty,omitempty" json:"certainty,omitempty"`
 }
+
+// A description of the size of the sample involved in the synthesis.
 type EffectEvidenceSynthesisSampleSize struct {
 	Id                   *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -70,6 +73,8 @@ type EffectEvidenceSynthesisSampleSize struct {
 	NumberOfStudies      *int        `bson:"numberOfStudies,omitempty" json:"numberOfStudies,omitempty"`
 	NumberOfParticipants *int        `bson:"numberOfParticipants,omitempty" json:"numberOfParticipants,omitempty"`
 }
+
+// A description of the results for each exposure considered in the effect estimate.
 type EffectEvidenceSynthesisResultsByExposure struct {
 	Id                    *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -79,6 +84,8 @@ type EffectEvidenceSynthesisResultsByExposure struct {
 	VariantState          *CodeableConcept `bson:"variantState,omitempty" json:"variantState,omitempty"`
 	RiskEvidenceSynthesis Reference        `bson:"riskEvidenceSynthesis" json:"riskEvidenceSynthesis"`
 }
+
+// The estimated effect of the exposure variant.
 type EffectEvidenceSynthesisEffectEstimate struct {
 	Id                *string                                                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                              `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -90,6 +97,8 @@ type EffectEvidenceSynthesisEffectEstimate struct {
 	UnitOfMeasure     *CodeableConcept                                         `bson:"unitOfMeasure,omitempty" json:"unitOfMeasure,omitempty"`
 	PrecisionEstimate []EffectEvidenceSynthesisEffectEstimatePrecisionEstimate `bson:"precisionEstimate,omitempty" json:"precisionEstimate,omitempty"`
 }
+
+// A description of the precision of the estimate for the effect.
 type EffectEvidenceSynthesisEffectEstimatePrecisionEstimate struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -99,6 +108,8 @@ type EffectEvidenceSynthesisEffectEstimatePrecisionEstimate struct {
 	From              *string          `bson:"from,omitempty" json:"from,omitempty"`
 	To                *string          `bson:"to,omitempty" json:"to,omitempty"`
 }
+
+// A description of the certainty of the effect estimate.
 type EffectEvidenceSynthesisCertainty struct {
 	Id                    *string                                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension                                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -107,6 +118,8 @@ type EffectEvidenceSynthesisCertainty struct {
 	Note                  []Annotation                                            `bson:"note,omitempty" json:"note,omitempty"`
 	CertaintySubcomponent []EffectEvidenceSynthesisCertaintyCertaintySubcomponent `bson:"certaintySubcomponent,omitempty" json:"certaintySubcomponent,omitempty"`
 }
+
+// A description of a component of the overall certainty.
 type EffectEvidenceSynthesisCertaintyCertaintySubcomponent struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

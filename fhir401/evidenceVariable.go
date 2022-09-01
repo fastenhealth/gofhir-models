@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // EvidenceVariable is documented here http://hl7.org/fhir/StructureDefinition/EvidenceVariable
+// The EvidenceVariable resource describes a "PICO" element that knowledge (evidence, assertion, recommendation) is about.
 type EvidenceVariable struct {
 	Id                *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -56,6 +57,9 @@ type EvidenceVariable struct {
 	Type              *EvidenceVariableType            `bson:"type,omitempty" json:"type,omitempty"`
 	Characteristic    []EvidenceVariableCharacteristic `bson:"characteristic" json:"characteristic"`
 }
+
+// A characteristic that defines the members of the evidence element. Multiple characteristics are applied with "and" semantics.
+// Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria.
 type EvidenceVariableCharacteristic struct {
 	Id                *string        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension    `bson:"extension,omitempty" json:"extension,omitempty"`

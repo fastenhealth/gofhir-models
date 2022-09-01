@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ClinicalImpression is documented here http://hl7.org/fhir/StructureDefinition/ClinicalImpression
+// A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
 type ClinicalImpression struct {
 	Id                       *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                     *Meta                             `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -48,6 +49,8 @@ type ClinicalImpression struct {
 	SupportingInfo           []Reference                       `bson:"supportingInfo,omitempty" json:"supportingInfo,omitempty"`
 	Note                     []Annotation                      `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
 type ClinicalImpressionInvestigation struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +58,8 @@ type ClinicalImpressionInvestigation struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Item              []Reference     `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// Specific findings or diagnoses that were considered likely or relevant to ongoing treatment.
 type ClinicalImpressionFinding struct {
 	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CoverageEligibilityResponse is documented here http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse
+// This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
 type CoverageEligibilityResponse struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -43,6 +44,9 @@ type CoverageEligibilityResponse struct {
 	Form              *CodeableConcept                       `bson:"form,omitempty" json:"form,omitempty"`
 	Error             []CoverageEligibilityResponseError     `bson:"error,omitempty" json:"error,omitempty"`
 }
+
+// Financial instruments for reimbursement for the health care products and services.
+// All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim.
 type CoverageEligibilityResponseInsurance struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +56,8 @@ type CoverageEligibilityResponseInsurance struct {
 	BenefitPeriod     *Period                                    `bson:"benefitPeriod,omitempty" json:"benefitPeriod,omitempty"`
 	Item              []CoverageEligibilityResponseInsuranceItem `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// Benefits and optionally current balances, and authorization details by category or service.
 type CoverageEligibilityResponseInsuranceItem struct {
 	Id                      *string                                           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension                                       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,12 +77,16 @@ type CoverageEligibilityResponseInsuranceItem struct {
 	AuthorizationSupporting []CodeableConcept                                 `bson:"authorizationSupporting,omitempty" json:"authorizationSupporting,omitempty"`
 	AuthorizationUrl        *string                                           `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty"`
 }
+
+// Benefits used to date.
 type CoverageEligibilityResponseInsuranceItemBenefit struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept `bson:"type" json:"type"`
 }
+
+// Errors encountered during the processing of the request.
 type CoverageEligibilityResponseError struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

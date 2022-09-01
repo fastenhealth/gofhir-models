@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CodeSystem is documented here http://hl7.org/fhir/StructureDefinition/CodeSystem
+// The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
 type CodeSystem struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -55,6 +56,9 @@ type CodeSystem struct {
 	Property          []CodeSystemProperty        `bson:"property,omitempty" json:"property,omitempty"`
 	Concept           []CodeSystemConcept         `bson:"concept,omitempty" json:"concept,omitempty"`
 }
+
+// A filter that can be used in a value set compose statement when selecting concepts using a filter.
+// Note that filters defined in code systems usually require custom code on the part of any terminology engine that will make them available for use in value set filters. For this reason, they are generally only seen in high value published terminologies.
 type CodeSystemFilter struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +68,8 @@ type CodeSystemFilter struct {
 	Operator          []FilterOperator `bson:"operator" json:"operator"`
 	Value             string           `bson:"value" json:"value"`
 }
+
+// A property defines an additional slot through which additional information can be provided about a concept.
 type CodeSystemProperty struct {
 	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -73,6 +79,9 @@ type CodeSystemProperty struct {
 	Description       *string      `bson:"description,omitempty" json:"description,omitempty"`
 	Type              PropertyType `bson:"type" json:"type"`
 }
+
+// Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meanings of the hierarchical relationships are.
+// If this is empty, it means that the code system resource does not represent the content of the code system.
 type CodeSystemConcept struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -84,6 +93,9 @@ type CodeSystemConcept struct {
 	Property          []CodeSystemConceptProperty    `bson:"property,omitempty" json:"property,omitempty"`
 	Concept           []CodeSystemConcept            `bson:"concept,omitempty" json:"concept,omitempty"`
 }
+
+// Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
+// Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of "primary code" and a language equal to the [Resource Language](resource.html#language).
 type CodeSystemConceptDesignation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -92,6 +104,8 @@ type CodeSystemConceptDesignation struct {
 	Use               *Coding     `bson:"use,omitempty" json:"use,omitempty"`
 	Value             string      `bson:"value" json:"value"`
 }
+
+// A property value for this concept.
 type CodeSystemConceptProperty struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

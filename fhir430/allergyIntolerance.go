@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // AllergyIntolerance is documented here http://hl7.org/fhir/StructureDefinition/AllergyIntolerance
+// Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
 type AllergyIntolerance struct {
 	Id                 *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,8 @@ type AllergyIntolerance struct {
 	Note               []Annotation                   `bson:"note,omitempty" json:"note,omitempty"`
 	Reaction           []AllergyIntoleranceReaction   `bson:"reaction,omitempty" json:"reaction,omitempty"`
 }
+
+// Details about each adverse reaction event linked to exposure to the identified substance.
 type AllergyIntoleranceReaction struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`

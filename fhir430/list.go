@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // List is documented here http://hl7.org/fhir/StructureDefinition/List
+// A list is a curated collection of resources.
 type List struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,9 @@ type List struct {
 	Entry             []ListEntry      `bson:"entry,omitempty" json:"entry,omitempty"`
 	EmptyReason       *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 }
+
+// Entries in this list.
+// If there are no entries in the list, an emptyReason SHOULD be provided.
 type ListEntry struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductAuthorization is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization
+// The regulatory authorization of a medicinal product.
 type MedicinalProductAuthorization struct {
 	Id                          *string                                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                        *Meta                                                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -45,6 +46,8 @@ type MedicinalProductAuthorization struct {
 	Regulator                   *Reference                                                 `bson:"regulator,omitempty" json:"regulator,omitempty"`
 	Procedure                   *MedicinalProductAuthorizationProcedure                    `bson:"procedure,omitempty" json:"procedure,omitempty"`
 }
+
+// Authorization in areas within a country.
 type MedicinalProductAuthorizationJurisdictionalAuthorization struct {
 	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -55,6 +58,8 @@ type MedicinalProductAuthorizationJurisdictionalAuthorization struct {
 	LegalStatusOfSupply *CodeableConcept  `bson:"legalStatusOfSupply,omitempty" json:"legalStatusOfSupply,omitempty"`
 	ValidityPeriod      *Period           `bson:"validityPeriod,omitempty" json:"validityPeriod,omitempty"`
 }
+
+// The regulatory procedure for granting or amending a marketing authorization.
 type MedicinalProductAuthorizationProcedure struct {
 	Id                *string                                  `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                              `bson:"extension,omitempty" json:"extension,omitempty"`

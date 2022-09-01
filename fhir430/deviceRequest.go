@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DeviceRequest is documented here http://hl7.org/fhir/StructureDefinition/DeviceRequest
+// Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
 type DeviceRequest struct {
 	Id                    *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -51,6 +52,8 @@ type DeviceRequest struct {
 	Note                  []Annotation             `bson:"note,omitempty" json:"note,omitempty"`
 	RelevantHistory       []Reference              `bson:"relevantHistory,omitempty" json:"relevantHistory,omitempty"`
 }
+
+// Specific parameters for the ordered item.  For example, the prism value for lenses.
 type DeviceRequestParameter struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // StructureMap is documented here http://hl7.org/fhir/StructureDefinition/StructureMap
+// A Map of relationships between 2 structures that can be used to transform data.
 type StructureMap struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -47,6 +48,9 @@ type StructureMap struct {
 	Import            []string                `bson:"import,omitempty" json:"import,omitempty"`
 	Group             []StructureMapGroup     `bson:"group" json:"group"`
 }
+
+// A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.
+// It is not necessary for a structure map to identify any dependent structures, though not listing them may restrict its usefulness.
 type StructureMapStructure struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +60,8 @@ type StructureMapStructure struct {
 	Alias             *string               `bson:"alias,omitempty" json:"alias,omitempty"`
 	Documentation     *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Organizes the mapping into manageable chunks for human review/ease of maintenance.
 type StructureMapGroup struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -67,6 +73,9 @@ type StructureMapGroup struct {
 	Input             []StructureMapGroupInput  `bson:"input" json:"input"`
 	Rule              []StructureMapGroupRule   `bson:"rule" json:"rule"`
 }
+
+// A name assigned to an instance of data. The instance must be provided when the mapping is invoked.
+// If no inputs are named, then the entry mappings are type based.
 type StructureMapGroupInput struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -76,6 +85,8 @@ type StructureMapGroupInput struct {
 	Mode              StructureMapInputMode `bson:"mode" json:"mode"`
 	Documentation     *string               `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Transform Rule from source to target.
 type StructureMapGroupRule struct {
 	Id                *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -87,6 +98,8 @@ type StructureMapGroupRule struct {
 	Dependent         []StructureMapGroupRuleDependent `bson:"dependent,omitempty" json:"dependent,omitempty"`
 	Documentation     *string                          `bson:"documentation,omitempty" json:"documentation,omitempty"`
 }
+
+// Source inputs to the mapping.
 type StructureMapGroupRuleSource struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -102,6 +115,8 @@ type StructureMapGroupRuleSource struct {
 	Check             *string                     `bson:"check,omitempty" json:"check,omitempty"`
 	LogMessage        *string                     `bson:"logMessage,omitempty" json:"logMessage,omitempty"`
 }
+
+// Content to create because of this mapping rule.
 type StructureMapGroupRuleTarget struct {
 	Id                *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -115,11 +130,15 @@ type StructureMapGroupRuleTarget struct {
 	Transform         *StructureMapTransform                 `bson:"transform,omitempty" json:"transform,omitempty"`
 	Parameter         []StructureMapGroupRuleTargetParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
+
+// Parameters to the transform.
 type StructureMapGroupRuleTargetParameter struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
+
+// Which other rules to apply in the context of this rule.
 type StructureMapGroupRuleDependent struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

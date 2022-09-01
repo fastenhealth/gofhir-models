@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // VisionPrescription is documented here http://hl7.org/fhir/StructureDefinition/VisionPrescription
+// An authorization for the provision of glasses and/or contact lenses to a patient.
 type VisionPrescription struct {
 	Id                *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -37,6 +38,8 @@ type VisionPrescription struct {
 	Prescriber        Reference                             `bson:"prescriber" json:"prescriber"`
 	LensSpecification []VisionPrescriptionLensSpecification `bson:"lensSpecification" json:"lensSpecification"`
 }
+
+// Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals.
 type VisionPrescriptionLensSpecification struct {
 	Id                *string                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +59,8 @@ type VisionPrescriptionLensSpecification struct {
 	Brand             *string                                    `bson:"brand,omitempty" json:"brand,omitempty"`
 	Note              []Annotation                               `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Allows for adjustment on two axis.
 type VisionPrescriptionLensSpecificationPrism struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

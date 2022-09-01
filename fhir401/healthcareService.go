@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // HealthcareService is documented here http://hl7.org/fhir/StructureDefinition/HealthcareService
+// The details of a healthcare service available at a location.
 type HealthcareService struct {
 	Id                     *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -53,6 +54,8 @@ type HealthcareService struct {
 	AvailabilityExceptions *string                          `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
 	Endpoint               []Reference                      `bson:"endpoint,omitempty" json:"endpoint,omitempty"`
 }
+
+// Does this service have specific eligibility requirements that need to be met in order to use the service?
 type HealthcareServiceEligibility struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +63,9 @@ type HealthcareServiceEligibility struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Comment           *string          `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// A collection of times that the Service Site is available.
+// More detailed availability information may be provided in associated Schedule/Slot resources.
 type HealthcareServiceAvailableTime struct {
 	Id                 *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -69,6 +75,8 @@ type HealthcareServiceAvailableTime struct {
 	AvailableStartTime *string      `bson:"availableStartTime,omitempty" json:"availableStartTime,omitempty"`
 	AvailableEndTime   *string      `bson:"availableEndTime,omitempty" json:"availableEndTime,omitempty"`
 }
+
+// The HealthcareService is not available during this period of time due to the provided reason.
 type HealthcareServiceNotAvailable struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

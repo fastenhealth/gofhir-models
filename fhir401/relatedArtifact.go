@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // RelatedArtifact is documented here http://hl7.org/fhir/StructureDefinition/RelatedArtifact
+// Base StructureDefinition for RelatedArtifact Type: Related artifacts such as additional documentation, justification, or bibliographic references.
 type RelatedArtifact struct {
 	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

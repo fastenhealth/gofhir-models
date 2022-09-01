@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Address is documented here http://hl7.org/fhir/StructureDefinition/Address
+// Base StructureDefinition for Address Type: An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
 type Address struct {
 	Id         *string      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension  []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`

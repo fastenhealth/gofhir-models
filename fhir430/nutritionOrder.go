@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // NutritionOrder is documented here http://hl7.org/fhir/StructureDefinition/NutritionOrder
+// A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
 type NutritionOrder struct {
 	Id                     *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -46,6 +47,8 @@ type NutritionOrder struct {
 	EnteralFormula         *NutritionOrderEnteralFormula `bson:"enteralFormula,omitempty" json:"enteralFormula,omitempty"`
 	Note                   []Annotation                  `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Diet given orally in contrast to enteral (tube) feeding.
 type NutritionOrderOralDiet struct {
 	Id                   *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension            []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -57,6 +60,8 @@ type NutritionOrderOralDiet struct {
 	FluidConsistencyType []CodeableConcept                `bson:"fluidConsistencyType,omitempty" json:"fluidConsistencyType,omitempty"`
 	Instruction          *string                          `bson:"instruction,omitempty" json:"instruction,omitempty"`
 }
+
+// Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
 type NutritionOrderOralDietNutrient struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +69,8 @@ type NutritionOrderOralDietNutrient struct {
 	Modifier          *CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	Amount            *Quantity        `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
 type NutritionOrderOralDietTexture struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +78,8 @@ type NutritionOrderOralDietTexture struct {
 	Modifier          *CodeableConcept `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	FoodType          *CodeableConcept `bson:"foodType,omitempty" json:"foodType,omitempty"`
 }
+
+// Oral nutritional products given in order to add further nutritional value to the patient's diet.
 type NutritionOrderSupplement struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -81,6 +90,8 @@ type NutritionOrderSupplement struct {
 	Quantity          *Quantity        `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	Instruction       *string          `bson:"instruction,omitempty" json:"instruction,omitempty"`
 }
+
+// Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
 type NutritionOrderEnteralFormula struct {
 	Id                        *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                 []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -95,6 +106,9 @@ type NutritionOrderEnteralFormula struct {
 	MaxVolumeToDeliver        *Quantity                                    `bson:"maxVolumeToDeliver,omitempty" json:"maxVolumeToDeliver,omitempty"`
 	AdministrationInstruction *string                                      `bson:"administrationInstruction,omitempty" json:"administrationInstruction,omitempty"`
 }
+
+// Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.
+// See implementation notes below for further discussion on how to order continuous vs bolus enteral feeding using this resource.
 type NutritionOrderEnteralFormulaAdministration struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

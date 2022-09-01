@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CareTeam is documented here http://hl7.org/fhir/StructureDefinition/CareTeam
+// The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
 type CareTeam struct {
 	Id                   *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,8 @@ type CareTeam struct {
 	Telecom              []ContactPoint        `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Note                 []Annotation          `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Identifies all people and organizations who are expected to be involved in the care team.
 type CareTeamParticipant struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

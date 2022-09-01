@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ResearchDefinition is documented here http://hl7.org/fhir/StructureDefinition/ResearchDefinition
+// The ResearchDefinition resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
 type ResearchDefinition struct {
 	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

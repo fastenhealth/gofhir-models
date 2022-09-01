@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Subscription is documented here http://hl7.org/fhir/StructureDefinition/Subscription
+// The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.
 type Subscription struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -36,6 +37,8 @@ type Subscription struct {
 	Error             *string             `bson:"error,omitempty" json:"error,omitempty"`
 	Channel           SubscriptionChannel `bson:"channel" json:"channel"`
 }
+
+// Details where to send notifications when resources are received that meet the criteria.
 type SubscriptionChannel struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`

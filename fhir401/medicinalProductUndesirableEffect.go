@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductUndesirableEffect is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductUndesirableEffect
+// Describe the undesirable effects of the medicinal product.
 type MedicinalProductUndesirableEffect struct {
 	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`

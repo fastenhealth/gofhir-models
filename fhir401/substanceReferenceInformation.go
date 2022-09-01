@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SubstanceReferenceInformation is documented here http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation
+// Todo.
 type SubstanceReferenceInformation struct {
 	Id                *string                                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -34,6 +35,8 @@ type SubstanceReferenceInformation struct {
 	Classification    []SubstanceReferenceInformationClassification `bson:"classification,omitempty" json:"classification,omitempty"`
 	Target            []SubstanceReferenceInformationTarget         `bson:"target,omitempty" json:"target,omitempty"`
 }
+
+// Todo.
 type SubstanceReferenceInformationGene struct {
 	Id                 *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -42,6 +45,8 @@ type SubstanceReferenceInformationGene struct {
 	Gene               *CodeableConcept `bson:"gene,omitempty" json:"gene,omitempty"`
 	Source             []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// Todo.
 type SubstanceReferenceInformationGeneElement struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -50,6 +55,8 @@ type SubstanceReferenceInformationGeneElement struct {
 	Element           *Identifier      `bson:"element,omitempty" json:"element,omitempty"`
 	Source            []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// Todo.
 type SubstanceReferenceInformationClassification struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +66,8 @@ type SubstanceReferenceInformationClassification struct {
 	Subtype           []CodeableConcept `bson:"subtype,omitempty" json:"subtype,omitempty"`
 	Source            []Reference       `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// Todo.
 type SubstanceReferenceInformationTarget struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

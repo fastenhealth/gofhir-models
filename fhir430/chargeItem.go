@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ChargeItem is documented here http://hl7.org/fhir/StructureDefinition/ChargeItem
+// The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
 type ChargeItem struct {
 	Id                     *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                   *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -53,6 +54,8 @@ type ChargeItem struct {
 	Note                   []Annotation          `bson:"note,omitempty" json:"note,omitempty"`
 	SupportingInformation  []Reference           `bson:"supportingInformation,omitempty" json:"supportingInformation,omitempty"`
 }
+
+// Indicates who or what performed or participated in the charged service.
 type ChargeItemPerformer struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

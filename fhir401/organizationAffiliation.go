@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // OrganizationAffiliation is documented here http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation
+// Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.
 type OrganizationAffiliation struct {
 	Id                        *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                      *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // StructureDefinition is documented here http://hl7.org/fhir/StructureDefinition/StructureDefinition
+// A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
 type StructureDefinition struct {
 	Id                *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -56,6 +57,8 @@ type StructureDefinition struct {
 	Snapshot          *StructureDefinitionSnapshot     `bson:"snapshot,omitempty" json:"snapshot,omitempty"`
 	Differential      *StructureDefinitionDifferential `bson:"differential,omitempty" json:"differential,omitempty"`
 }
+
+// An external specification that the content is mapped to.
 type StructureDefinitionMapping struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -65,6 +68,8 @@ type StructureDefinitionMapping struct {
 	Name              *string     `bson:"name,omitempty" json:"name,omitempty"`
 	Comment           *string     `bson:"comment,omitempty" json:"comment,omitempty"`
 }
+
+// Identifies the types of resource or data type elements to which the extension can be applied.
 type StructureDefinitionContext struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -72,12 +77,16 @@ type StructureDefinitionContext struct {
 	Type              ExtensionContextType `bson:"type" json:"type"`
 	Expression        string               `bson:"expression" json:"expression"`
 }
+
+// A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.
 type StructureDefinitionSnapshot struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Element           []ElementDefinition `bson:"element" json:"element"`
 }
+
+// A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
 type StructureDefinitionDifferential struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

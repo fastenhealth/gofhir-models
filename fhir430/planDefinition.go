@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // PlanDefinition is documented here http://hl7.org/fhir/StructureDefinition/PlanDefinition
+// This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
 type PlanDefinition struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -59,6 +60,8 @@ type PlanDefinition struct {
 	Goal              []PlanDefinitionGoal   `bson:"goal,omitempty" json:"goal,omitempty"`
 	Action            []PlanDefinitionAction `bson:"action,omitempty" json:"action,omitempty"`
 }
+
+// Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
 type PlanDefinitionGoal struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -71,6 +74,8 @@ type PlanDefinitionGoal struct {
 	Documentation     []RelatedArtifact          `bson:"documentation,omitempty" json:"documentation,omitempty"`
 	Target            []PlanDefinitionGoalTarget `bson:"target,omitempty" json:"target,omitempty"`
 }
+
+// Indicates what should be done and within what timeframe.
 type PlanDefinitionGoalTarget struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -78,6 +83,9 @@ type PlanDefinitionGoalTarget struct {
 	Measure           *CodeableConcept `bson:"measure,omitempty" json:"measure,omitempty"`
 	Due               *Duration        `bson:"due,omitempty" json:"due,omitempty"`
 }
+
+// An action or group of actions to be taken as part of the plan.
+// Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information.
 type PlanDefinitionAction struct {
 	Id                  *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -107,6 +115,9 @@ type PlanDefinitionAction struct {
 	DynamicValue        []PlanDefinitionActionDynamicValue  `bson:"dynamicValue,omitempty" json:"dynamicValue,omitempty"`
 	Action              []PlanDefinitionAction              `bson:"action,omitempty" json:"action,omitempty"`
 }
+
+// An expression that describes applicability criteria or start/stop conditions for the action.
+// When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true.
 type PlanDefinitionActionCondition struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -114,6 +125,9 @@ type PlanDefinitionActionCondition struct {
 	Kind              ActionConditionKind `bson:"kind" json:"kind"`
 	Expression        *Expression         `bson:"expression,omitempty" json:"expression,omitempty"`
 }
+
+// A relationship to another action such as "before" or "30-60 minutes after start of".
+// When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency.
 type PlanDefinitionActionRelatedAction struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -121,6 +135,8 @@ type PlanDefinitionActionRelatedAction struct {
 	ActionId          string                 `bson:"actionId" json:"actionId"`
 	Relationship      ActionRelationshipType `bson:"relationship" json:"relationship"`
 }
+
+// Indicates who should participate in performing the action described.
 type PlanDefinitionActionParticipant struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -128,6 +144,9 @@ type PlanDefinitionActionParticipant struct {
 	Type              ActionParticipantType `bson:"type" json:"type"`
 	Role              *CodeableConcept      `bson:"role,omitempty" json:"role,omitempty"`
 }
+
+// Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.
+// Dynamic values are applied in the order in which they are defined in the PlanDefinition resource. Note that when dynamic values are also specified by a referenced ActivityDefinition, the dynamicValues from the ActivityDefinition are applied first, followed by the dynamicValues specified here. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform.
 type PlanDefinitionActionDynamicValue struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

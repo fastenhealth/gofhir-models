@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Linkage is documented here http://hl7.org/fhir/StructureDefinition/Linkage
+// Identifies two or more records (resource instances) that refer to the same real-world "occurrence".
 type Linkage struct {
 	Id                *string       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -32,6 +33,8 @@ type Linkage struct {
 	Author            *Reference    `bson:"author,omitempty" json:"author,omitempty"`
 	Item              []LinkageItem `bson:"item" json:"item"`
 }
+
+// Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items.
 type LinkageItem struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

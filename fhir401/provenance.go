@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Provenance is documented here http://hl7.org/fhir/StructureDefinition/Provenance
+// Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
 type Provenance struct {
 	Id                *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -38,6 +39,9 @@ type Provenance struct {
 	Entity            []ProvenanceEntity `bson:"entity,omitempty" json:"entity,omitempty"`
 	Signature         []Signature        `bson:"signature,omitempty" json:"signature,omitempty"`
 }
+
+// An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
+// Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.
 type ProvenanceAgent struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -47,6 +51,8 @@ type ProvenanceAgent struct {
 	Who               Reference         `bson:"who" json:"who"`
 	OnBehalfOf        *Reference        `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty"`
 }
+
+// An entity used in this activity.
 type ProvenanceEntity struct {
 	Id                *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`

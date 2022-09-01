@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // Ratio is documented here http://hl7.org/fhir/StructureDefinition/Ratio
+// Base StructureDefinition for Ratio Type: A relationship of two Quantity values - expressed as a numerator and a denominator.
 type Ratio struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

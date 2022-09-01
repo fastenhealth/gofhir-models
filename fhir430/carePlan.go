@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // CarePlan is documented here http://hl7.org/fhir/StructureDefinition/CarePlan
+// Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
 type CarePlan struct {
 	Id                    *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta              `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -52,6 +53,8 @@ type CarePlan struct {
 	Activity              []CarePlanActivity `bson:"activity,omitempty" json:"activity,omitempty"`
 	Note                  []Annotation       `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
 type CarePlanActivity struct {
 	Id                     *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -62,6 +65,8 @@ type CarePlanActivity struct {
 	Reference              *Reference              `bson:"reference,omitempty" json:"reference,omitempty"`
 	Detail                 *CarePlanActivityDetail `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.
 type CarePlanActivityDetail struct {
 	Id                    *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`

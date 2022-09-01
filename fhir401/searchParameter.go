@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SearchParameter is documented here http://hl7.org/fhir/StructureDefinition/SearchParameter
+// A search parameter that defines a named search item that can be used to search/filter on a resource.
 type SearchParameter struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -55,6 +56,8 @@ type SearchParameter struct {
 	Chain             []string                   `bson:"chain,omitempty" json:"chain,omitempty"`
 	Component         []SearchParameterComponent `bson:"component,omitempty" json:"component,omitempty"`
 }
+
+// Used to define the parts of a composite search parameter.
 type SearchParameterComponent struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

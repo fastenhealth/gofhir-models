@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicinalProductIngredient is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient
+// An ingredient of a manufactured item or pharmaceutical product.
 type MedicinalProductIngredient struct {
 	Id                  *string                                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -35,6 +36,8 @@ type MedicinalProductIngredient struct {
 	SpecifiedSubstance  []MedicinalProductIngredientSpecifiedSubstance `bson:"specifiedSubstance,omitempty" json:"specifiedSubstance,omitempty"`
 	Substance           *MedicinalProductIngredientSubstance           `bson:"substance,omitempty" json:"substance,omitempty"`
 }
+
+// A specified substance that comprises this ingredient.
 type MedicinalProductIngredientSpecifiedSubstance struct {
 	Id                *string                                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -44,6 +47,8 @@ type MedicinalProductIngredientSpecifiedSubstance struct {
 	Confidentiality   *CodeableConcept                                       `bson:"confidentiality,omitempty" json:"confidentiality,omitempty"`
 	Strength          []MedicinalProductIngredientSpecifiedSubstanceStrength `bson:"strength,omitempty" json:"strength,omitempty"`
 }
+
+// Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product.
 type MedicinalProductIngredientSpecifiedSubstanceStrength struct {
 	Id                    *string                                                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension             []Extension                                                             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +61,8 @@ type MedicinalProductIngredientSpecifiedSubstanceStrength struct {
 	Country               []CodeableConcept                                                       `bson:"country,omitempty" json:"country,omitempty"`
 	ReferenceStrength     []MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength `bson:"referenceStrength,omitempty" json:"referenceStrength,omitempty"`
 }
+
+// Strength expressed in terms of a reference substance.
 type MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -66,6 +73,8 @@ type MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength struc
 	MeasurementPoint  *string           `bson:"measurementPoint,omitempty" json:"measurementPoint,omitempty"`
 	Country           []CodeableConcept `bson:"country,omitempty" json:"country,omitempty"`
 }
+
+// The ingredient substance.
 type MedicinalProductIngredientSubstance struct {
 	Id                *string                                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                            `bson:"extension,omitempty" json:"extension,omitempty"`

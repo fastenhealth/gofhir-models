@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Condition is documented here http://hl7.org/fhir/StructureDefinition/Condition
+// A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
 type Condition struct {
 	Id                 *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta               `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -44,6 +45,8 @@ type Condition struct {
 	Evidence           []ConditionEvidence `bson:"evidence,omitempty" json:"evidence,omitempty"`
 	Note               []Annotation        `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Clinical stage or grade of a condition. May include formal severity assessments.
 type ConditionStage struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -52,6 +55,9 @@ type ConditionStage struct {
 	Assessment        []Reference      `bson:"assessment,omitempty" json:"assessment,omitempty"`
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 }
+
+// Supporting evidence / manifestations that are the basis of the Condition's verification status, such as evidence that confirmed or refuted the condition.
+// The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both.
 type ConditionEvidence struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

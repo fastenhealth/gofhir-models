@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ResearchElementDefinition is documented here http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition
+// The ResearchElementDefinition resource describes a "PICO" element that knowledge (evidence, assertion, recommendation) is about.
 type ResearchElementDefinition struct {
 	Id                *string                                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -61,6 +62,9 @@ type ResearchElementDefinition struct {
 	VariableType      *EvidenceVariableType                     `bson:"variableType,omitempty" json:"variableType,omitempty"`
 	Characteristic    []ResearchElementDefinitionCharacteristic `bson:"characteristic" json:"characteristic"`
 }
+
+// A characteristic that defines the members of the research element. Multiple characteristics are applied with "and" semantics.
+// Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria.
 type ResearchElementDefinitionCharacteristic struct {
 	Id                                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

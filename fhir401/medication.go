@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Medication is documented here http://hl7.org/fhir/StructureDefinition/Medication
+// This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
 type Medication struct {
 	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                  `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -37,6 +38,9 @@ type Medication struct {
 	Ingredient        []MedicationIngredient `bson:"ingredient,omitempty" json:"ingredient,omitempty"`
 	Batch             *MedicationBatch       `bson:"batch,omitempty" json:"batch,omitempty"`
 }
+
+// Identifies a particular constituent of interest in the product.
+// The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.
 type MedicationIngredient struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -44,6 +48,8 @@ type MedicationIngredient struct {
 	IsActive          *bool       `bson:"isActive,omitempty" json:"isActive,omitempty"`
 	Strength          *Ratio      `bson:"strength,omitempty" json:"strength,omitempty"`
 }
+
+// Information that only applies to packages (not products).
 type MedicationBatch struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

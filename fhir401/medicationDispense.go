@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MedicationDispense is documented here http://hl7.org/fhir/StructureDefinition/MedicationDispense
+// Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
 type MedicationDispense struct {
 	Id                      *string                         `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                    *Meta                           `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -51,6 +52,8 @@ type MedicationDispense struct {
 	DetectedIssue           []Reference                     `bson:"detectedIssue,omitempty" json:"detectedIssue,omitempty"`
 	EventHistory            []Reference                     `bson:"eventHistory,omitempty" json:"eventHistory,omitempty"`
 }
+
+// Indicates who or what performed the event.
 type MedicationDispensePerformer struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -58,6 +61,8 @@ type MedicationDispensePerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
+
+// Indicates whether or not substitution was made as part of the dispense.  In some cases, substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
 type MedicationDispenseSubstitution struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

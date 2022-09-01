@@ -18,6 +18,7 @@ package fhir430
 // PLEASE DO NOT EDIT BY HAND
 
 // ContactPoint is documented here http://hl7.org/fhir/StructureDefinition/ContactPoint
+// Base StructureDefinition for ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
 type ContactPoint struct {
 	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

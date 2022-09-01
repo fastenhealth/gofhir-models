@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DeviceUseStatement is documented here http://hl7.org/fhir/StructureDefinition/DeviceUseStatement
+// A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
 type DeviceUseStatement struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`

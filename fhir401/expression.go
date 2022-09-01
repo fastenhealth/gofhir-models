@@ -18,6 +18,7 @@ package fhir401
 // PLEASE DO NOT EDIT BY HAND
 
 // Expression is documented here http://hl7.org/fhir/StructureDefinition/Expression
+// Base StructureDefinition for Expression Type: A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
 type Expression struct {
 	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Parameters is documented here http://hl7.org/fhir/StructureDefinition/Parameters
+// This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
 type Parameters struct {
 	Id            *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta          *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -27,6 +28,8 @@ type Parameters struct {
 	Language      *string               `bson:"language,omitempty" json:"language,omitempty"`
 	Parameter     []ParametersParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 }
+
+// A parameter passed to or received from the operation.
 type ParametersParameter struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`

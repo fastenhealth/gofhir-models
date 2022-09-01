@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Task is documented here http://hl7.org/fhir/StructureDefinition/Task
+// A task to be performed.
 type Task struct {
 	Id                    *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -60,6 +61,8 @@ type Task struct {
 	Input                 []TaskInput       `bson:"input,omitempty" json:"input,omitempty"`
 	Output                []TaskOutput      `bson:"output,omitempty" json:"output,omitempty"`
 }
+
+// If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
 type TaskRestriction struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -68,12 +71,16 @@ type TaskRestriction struct {
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
 	Recipient         []Reference `bson:"recipient,omitempty" json:"recipient,omitempty"`
 }
+
+// Additional information that may be needed in the execution of the task.
 type TaskInput struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept `bson:"type" json:"type"`
 }
+
+// Outputs produced by the Task.
 type TaskOutput struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

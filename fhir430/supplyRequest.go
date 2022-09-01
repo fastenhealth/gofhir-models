@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SupplyRequest is documented here http://hl7.org/fhir/StructureDefinition/SupplyRequest
+// A record of a request for a medication, substance or device used in the healthcare setting.
 type SupplyRequest struct {
 	Id                *string                  `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                    `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -42,6 +43,8 @@ type SupplyRequest struct {
 	DeliverFrom       *Reference               `bson:"deliverFrom,omitempty" json:"deliverFrom,omitempty"`
 	DeliverTo         *Reference               `bson:"deliverTo,omitempty" json:"deliverTo,omitempty"`
 }
+
+// Specific parameters for the ordered item.  For example, the size of the indicated item.
 type SupplyRequestParameter struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

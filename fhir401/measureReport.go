@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // MeasureReport is documented here http://hl7.org/fhir/StructureDefinition/MeasureReport
+// The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.
 type MeasureReport struct {
 	Id                  *string              `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                *Meta                `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -40,6 +41,8 @@ type MeasureReport struct {
 	Group               []MeasureReportGroup `bson:"group,omitempty" json:"group,omitempty"`
 	EvaluatedResource   []Reference          `bson:"evaluatedResource,omitempty" json:"evaluatedResource,omitempty"`
 }
+
+// The results of the calculation, one for each population group in the measure.
 type MeasureReportGroup struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -49,6 +52,8 @@ type MeasureReportGroup struct {
 	MeasureScore      *Quantity                      `bson:"measureScore,omitempty" json:"measureScore,omitempty"`
 	Stratifier        []MeasureReportGroupStratifier `bson:"stratifier,omitempty" json:"stratifier,omitempty"`
 }
+
+// The populations that make up the population group, one for each type of population appropriate for the measure.
 type MeasureReportGroupPopulation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -57,6 +62,8 @@ type MeasureReportGroupPopulation struct {
 	Count             *int             `bson:"count,omitempty" json:"count,omitempty"`
 	SubjectResults    *Reference       `bson:"subjectResults,omitempty" json:"subjectResults,omitempty"`
 }
+
+// When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
 type MeasureReportGroupStratifier struct {
 	Id                *string                               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -64,6 +71,8 @@ type MeasureReportGroupStratifier struct {
 	Code              []CodeableConcept                     `bson:"code,omitempty" json:"code,omitempty"`
 	Stratum           []MeasureReportGroupStratifierStratum `bson:"stratum,omitempty" json:"stratum,omitempty"`
 }
+
+// This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value.
 type MeasureReportGroupStratifierStratum struct {
 	Id                *string                                         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -73,6 +82,8 @@ type MeasureReportGroupStratifierStratum struct {
 	Population        []MeasureReportGroupStratifierStratumPopulation `bson:"population,omitempty" json:"population,omitempty"`
 	MeasureScore      *Quantity                                       `bson:"measureScore,omitempty" json:"measureScore,omitempty"`
 }
+
+// A stratifier component value.
 type MeasureReportGroupStratifierStratumComponent struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -80,6 +91,8 @@ type MeasureReportGroupStratifierStratumComponent struct {
 	Code              CodeableConcept `bson:"code" json:"code"`
 	Value             CodeableConcept `bson:"value" json:"value"`
 }
+
+// The populations that make up the stratum, one for each type of population appropriate to the measure.
 type MeasureReportGroupStratifierStratumPopulation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

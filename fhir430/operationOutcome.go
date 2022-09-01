@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // OperationOutcome is documented here http://hl7.org/fhir/StructureDefinition/OperationOutcome
+// A collection of error, warning, or information messages that result from a system action.
 type OperationOutcome struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -30,6 +31,8 @@ type OperationOutcome struct {
 	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Issue             []OperationOutcomeIssue `bson:"issue" json:"issue"`
 }
+
+// An error, warning, or information message that results from a system action.
 type OperationOutcomeIssue struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

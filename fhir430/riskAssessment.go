@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // RiskAssessment is documented here http://hl7.org/fhir/StructureDefinition/RiskAssessment
+// An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
 type RiskAssessment struct {
 	Id                *string                    `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                      `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -45,6 +46,9 @@ type RiskAssessment struct {
 	Mitigation        *string                    `bson:"mitigation,omitempty" json:"mitigation,omitempty"`
 	Note              []Annotation               `bson:"note,omitempty" json:"note,omitempty"`
 }
+
+// Describes the expected outcome for the subject.
+// Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes.
 type RiskAssessmentPrediction struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

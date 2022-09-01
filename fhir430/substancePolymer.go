@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SubstancePolymer is documented here http://hl7.org/fhir/StructureDefinition/SubstancePolymer
+// Todo.
 type SubstancePolymer struct {
 	Id                    *string                      `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                  *Meta                        `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -35,6 +36,8 @@ type SubstancePolymer struct {
 	MonomerSet            []SubstancePolymerMonomerSet `bson:"monomerSet,omitempty" json:"monomerSet,omitempty"`
 	Repeat                []SubstancePolymerRepeat     `bson:"repeat,omitempty" json:"repeat,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerMonomerSet struct {
 	Id                *string                                      `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                  `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -42,6 +45,8 @@ type SubstancePolymerMonomerSet struct {
 	RatioType         *CodeableConcept                             `bson:"ratioType,omitempty" json:"ratioType,omitempty"`
 	StartingMaterial  []SubstancePolymerMonomerSetStartingMaterial `bson:"startingMaterial,omitempty" json:"startingMaterial,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerMonomerSetStartingMaterial struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -51,6 +56,8 @@ type SubstancePolymerMonomerSetStartingMaterial struct {
 	IsDefining        *bool            `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
 	Amount            *SubstanceAmount `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerRepeat struct {
 	Id                      *string                            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension                        `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -60,6 +67,8 @@ type SubstancePolymerRepeat struct {
 	RepeatUnitAmountType    *CodeableConcept                   `bson:"repeatUnitAmountType,omitempty" json:"repeatUnitAmountType,omitempty"`
 	RepeatUnit              []SubstancePolymerRepeatRepeatUnit `bson:"repeatUnit,omitempty" json:"repeatUnit,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerRepeatRepeatUnit struct {
 	Id                          *string                                                    `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                   []Extension                                                `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -70,6 +79,8 @@ type SubstancePolymerRepeatRepeatUnit struct {
 	DegreeOfPolymerisation      []SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation   `bson:"degreeOfPolymerisation,omitempty" json:"degreeOfPolymerisation,omitempty"`
 	StructuralRepresentation    []SubstancePolymerRepeatRepeatUnitStructuralRepresentation `bson:"structuralRepresentation,omitempty" json:"structuralRepresentation,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -77,6 +88,8 @@ type SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation struct {
 	Degree            *CodeableConcept `bson:"degree,omitempty" json:"degree,omitempty"`
 	Amount            *SubstanceAmount `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// Todo.
 type SubstancePolymerRepeatRepeatUnitStructuralRepresentation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

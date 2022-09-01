@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Consent is documented here http://hl7.org/fhir/StructureDefinition/Consent
+// A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
 type Consent struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                 `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -41,6 +42,8 @@ type Consent struct {
 	Verification      []ConsentVerification `bson:"verification,omitempty" json:"verification,omitempty"`
 	Provision         *ConsentProvision     `bson:"provision,omitempty" json:"provision,omitempty"`
 }
+
+// The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.
 type ConsentPolicy struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -48,6 +51,8 @@ type ConsentPolicy struct {
 	Authority         *string     `bson:"authority,omitempty" json:"authority,omitempty"`
 	Uri               *string     `bson:"uri,omitempty" json:"uri,omitempty"`
 }
+
+// Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person.
 type ConsentVerification struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -56,6 +61,8 @@ type ConsentVerification struct {
 	VerifiedWith      *Reference  `bson:"verifiedWith,omitempty" json:"verifiedWith,omitempty"`
 	VerificationDate  *string     `bson:"verificationDate,omitempty" json:"verificationDate,omitempty"`
 }
+
+// An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 type ConsentProvision struct {
 	Id                *string                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -72,6 +79,9 @@ type ConsentProvision struct {
 	Data              []ConsentProvisionData  `bson:"data,omitempty" json:"data,omitempty"`
 	Provision         []ConsentProvision      `bson:"provision,omitempty" json:"provision,omitempty"`
 }
+
+// Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').
+// There is no specific actor associated with the exception
 type ConsentProvisionActor struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -79,6 +89,9 @@ type ConsentProvisionActor struct {
 	Role              CodeableConcept `bson:"role" json:"role"`
 	Reference         Reference       `bson:"reference" json:"reference"`
 }
+
+// The resources controlled by this rule if specific resources are referenced.
+// all data
 type ConsentProvisionData struct {
 	Id                *string            `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension        `bson:"extension,omitempty" json:"extension,omitempty"`

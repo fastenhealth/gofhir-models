@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DeviceMetric is documented here http://hl7.org/fhir/StructureDefinition/DeviceMetric
+// Describes a measurement, calculation or setting capability of a medical device.
 type DeviceMetric struct {
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                          `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -39,6 +40,8 @@ type DeviceMetric struct {
 	MeasurementPeriod *Timing                        `bson:"measurementPeriod,omitempty" json:"measurementPeriod,omitempty"`
 	Calibration       []DeviceMetricCalibration      `bson:"calibration,omitempty" json:"calibration,omitempty"`
 }
+
+// Describes the calibrations that have been performed or that are required to be performed.
 type DeviceMetricCalibration struct {
 	Id                *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                   `bson:"extension,omitempty" json:"extension,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Evidence is documented here http://hl7.org/fhir/StructureDefinition/Evidence
+// The Evidence resource describes the conditional state (population and any exposures being compared within the population) and outcome (if specified) that the knowledge (evidence, assertion, recommendation) is about.
 type Evidence struct {
 	Id                 *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

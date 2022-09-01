@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Schedule is documented here http://hl7.org/fhir/StructureDefinition/Schedule
+// A container for slots of time that may be available for booking appointments.
 type Schedule struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`

@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // ActivityDefinition is documented here http://hl7.org/fhir/StructureDefinition/ActivityDefinition
+// This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
 type ActivityDefinition struct {
 	Id                           *string                          `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                         *Meta                            `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -72,6 +73,8 @@ type ActivityDefinition struct {
 	Transform                    *string                          `bson:"transform,omitempty" json:"transform,omitempty"`
 	DynamicValue                 []ActivityDefinitionDynamicValue `bson:"dynamicValue,omitempty" json:"dynamicValue,omitempty"`
 }
+
+// Indicates who should participate in performing the action described.
 type ActivityDefinitionParticipant struct {
 	Id                *string               `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -79,6 +82,9 @@ type ActivityDefinitionParticipant struct {
 	Type              ActionParticipantType `bson:"type" json:"type"`
 	Role              *CodeableConcept      `bson:"role,omitempty" json:"role,omitempty"`
 }
+
+// Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result.
+// Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform.
 type ActivityDefinitionDynamicValue struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

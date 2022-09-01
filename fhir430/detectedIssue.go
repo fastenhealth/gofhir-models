@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // DetectedIssue is documented here http://hl7.org/fhir/StructureDefinition/DetectedIssue
+// Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
 type DetectedIssue struct {
 	Id                *string                   `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                     `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -40,6 +41,8 @@ type DetectedIssue struct {
 	Reference         *string                   `bson:"reference,omitempty" json:"reference,omitempty"`
 	Mitigation        []DetectedIssueMitigation `bson:"mitigation,omitempty" json:"mitigation,omitempty"`
 }
+
+// Supporting evidence or manifestations that provide the basis for identifying the detected issue such as a GuidanceResponse or MeasureReport.
 type DetectedIssueEvidence struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -47,6 +50,8 @@ type DetectedIssueEvidence struct {
 	Code              []CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Detail            []Reference       `bson:"detail,omitempty" json:"detail,omitempty"`
 }
+
+// Indicates an action that has been taken or is committed to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
 type DetectedIssueMitigation struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

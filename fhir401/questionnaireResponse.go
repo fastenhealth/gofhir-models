@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // QuestionnaireResponse is documented here http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse
+// A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
 type QuestionnaireResponse struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Meta              *Meta                       `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -40,6 +41,9 @@ type QuestionnaireResponse struct {
 	Source            *Reference                  `bson:"source,omitempty" json:"source,omitempty"`
 	Item              []QuestionnaireResponseItem `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// A group or question item from the original questionnaire for which answers are provided.
+// Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).
 type QuestionnaireResponseItem struct {
 	Id                *string                           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -50,6 +54,9 @@ type QuestionnaireResponseItem struct {
 	Answer            []QuestionnaireResponseItemAnswer `bson:"answer,omitempty" json:"answer,omitempty"`
 	Item              []QuestionnaireResponseItem       `bson:"item,omitempty" json:"item,omitempty"`
 }
+
+// The respondent's answer(s) to the question.
+// The value is nested because we cannot have a repeating structure that has variable type.
 type QuestionnaireResponseItemAnswer struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`

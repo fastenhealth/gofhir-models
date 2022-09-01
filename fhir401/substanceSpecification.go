@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // SubstanceSpecification is documented here http://hl7.org/fhir/StructureDefinition/SubstanceSpecification
+// The detailed description of a substance, typically at a level beyond what is used for prescribing.
 type SubstanceSpecification struct {
 	Id                   *string                                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Meta                 *Meta                                                   `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -48,6 +49,8 @@ type SubstanceSpecification struct {
 	Protein              *Reference                                              `bson:"protein,omitempty" json:"protein,omitempty"`
 	SourceMaterial       *Reference                                              `bson:"sourceMaterial,omitempty" json:"sourceMaterial,omitempty"`
 }
+
+// Moiety, for structural modifications.
 type SubstanceSpecificationMoiety struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -59,6 +62,8 @@ type SubstanceSpecificationMoiety struct {
 	OpticalActivity   *CodeableConcept `bson:"opticalActivity,omitempty" json:"opticalActivity,omitempty"`
 	MolecularFormula  *string          `bson:"molecularFormula,omitempty" json:"molecularFormula,omitempty"`
 }
+
+// General specifications for this substance, including how it is related to other substances.
 type SubstanceSpecificationProperty struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -67,6 +72,8 @@ type SubstanceSpecificationProperty struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	Parameters        *string          `bson:"parameters,omitempty" json:"parameters,omitempty"`
 }
+
+// Structural information.
 type SubstanceSpecificationStructure struct {
 	Id                       *string                                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                []Extension                                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -80,6 +87,8 @@ type SubstanceSpecificationStructure struct {
 	Source                   []Reference                                            `bson:"source,omitempty" json:"source,omitempty"`
 	Representation           []SubstanceSpecificationStructureRepresentation        `bson:"representation,omitempty" json:"representation,omitempty"`
 }
+
+// Applicable for single substances that contain a radionuclide or a non-natural isotopic ratio.
 type SubstanceSpecificationStructureIsotope struct {
 	Id                *string                                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                            `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -90,6 +99,8 @@ type SubstanceSpecificationStructureIsotope struct {
 	HalfLife          *Quantity                                              `bson:"halfLife,omitempty" json:"halfLife,omitempty"`
 	MolecularWeight   *SubstanceSpecificationStructureIsotopeMolecularWeight `bson:"molecularWeight,omitempty" json:"molecularWeight,omitempty"`
 }
+
+// The molecular weight or weight range (for proteins, polymers or nucleic acids).
 type SubstanceSpecificationStructureIsotopeMolecularWeight struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -98,6 +109,8 @@ type SubstanceSpecificationStructureIsotopeMolecularWeight struct {
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
 	Amount            *Quantity        `bson:"amount,omitempty" json:"amount,omitempty"`
 }
+
+// Molecular structural representation.
 type SubstanceSpecificationStructureRepresentation struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -106,6 +119,8 @@ type SubstanceSpecificationStructureRepresentation struct {
 	Representation    *string          `bson:"representation,omitempty" json:"representation,omitempty"`
 	Attachment        *Attachment      `bson:"attachment,omitempty" json:"attachment,omitempty"`
 }
+
+// Codes associated with the substance.
 type SubstanceSpecificationCode struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -116,6 +131,8 @@ type SubstanceSpecificationCode struct {
 	Comment           *string          `bson:"comment,omitempty" json:"comment,omitempty"`
 	Source            []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// Names applicable to this substance.
 type SubstanceSpecificationName struct {
 	Id                *string                              `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                          `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -132,6 +149,8 @@ type SubstanceSpecificationName struct {
 	Official          []SubstanceSpecificationNameOfficial `bson:"official,omitempty" json:"official,omitempty"`
 	Source            []Reference                          `bson:"source,omitempty" json:"source,omitempty"`
 }
+
+// Details of the official nature of this name.
 type SubstanceSpecificationNameOfficial struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -140,6 +159,8 @@ type SubstanceSpecificationNameOfficial struct {
 	Status            *CodeableConcept `bson:"status,omitempty" json:"status,omitempty"`
 	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
 }
+
+// A link between this substance and another, with details of the relationship.
 type SubstanceSpecificationRelationship struct {
 	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

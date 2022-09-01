@@ -20,6 +20,7 @@ import "encoding/json"
 // PLEASE DO NOT EDIT BY HAND
 
 // Immunization is documented here http://hl7.org/fhir/StructureDefinition/Immunization
+// Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
 type Immunization struct {
 	Id                 *string                       `bson:"id,omitempty" json:"id,omitempty"`
 	Meta               *Meta                         `bson:"meta,omitempty" json:"meta,omitempty"`
@@ -56,6 +57,8 @@ type Immunization struct {
 	Reaction           []ImmunizationReaction        `bson:"reaction,omitempty" json:"reaction,omitempty"`
 	ProtocolApplied    []ImmunizationProtocolApplied `bson:"protocolApplied,omitempty" json:"protocolApplied,omitempty"`
 }
+
+// Indicates who performed the immunization event.
 type ImmunizationPerformer struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -63,6 +66,8 @@ type ImmunizationPerformer struct {
 	Function          *CodeableConcept `bson:"function,omitempty" json:"function,omitempty"`
 	Actor             Reference        `bson:"actor" json:"actor"`
 }
+
+// Educational material presented to the patient (or guardian) at the time of vaccine administration.
 type ImmunizationEducation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -72,6 +77,9 @@ type ImmunizationEducation struct {
 	PublicationDate   *string     `bson:"publicationDate,omitempty" json:"publicationDate,omitempty"`
 	PresentationDate  *string     `bson:"presentationDate,omitempty" json:"presentationDate,omitempty"`
 }
+
+// Categorical data indicating that an adverse event is associated in time to an immunization.
+// A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case, it should be recorded as a new AllergyIntolerance resource instance as most systems will not query against past Immunization.reaction elements.
 type ImmunizationReaction struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
@@ -80,6 +88,8 @@ type ImmunizationReaction struct {
 	Detail            *Reference  `bson:"detail,omitempty" json:"detail,omitempty"`
 	Reported          *bool       `bson:"reported,omitempty" json:"reported,omitempty"`
 }
+
+// The protocol (set of recommendations) being followed by the provider who administered the dose.
 type ImmunizationProtocolApplied struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
