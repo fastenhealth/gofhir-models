@@ -95,15 +95,17 @@ type MedicinalProductManufacturingBusinessOperation struct {
 
 // Indicates if the medicinal product has an orphan designation for the treatment of a rare disease.
 type MedicinalProductSpecialDesignation struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier     `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
-	IntendedUse       *CodeableConcept `bson:"intendedUse,omitempty" json:"intendedUse,omitempty"`
-	Status            *CodeableConcept `bson:"status,omitempty" json:"status,omitempty"`
-	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
-	Species           *CodeableConcept `bson:"species,omitempty" json:"species,omitempty"`
+	Id                        *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                 []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension         []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                []Identifier     `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Type                      *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
+	IntendedUse               *CodeableConcept `bson:"intendedUse,omitempty" json:"intendedUse,omitempty"`
+	IndicationCodeableConcept *CodeableConcept `bson:"indicationCodeableConcept,omitempty" json:"indicationCodeableConcept,omitempty"`
+	IndicationReference       *Reference       `bson:"indicationReference,omitempty" json:"indicationReference,omitempty"`
+	Status                    *CodeableConcept `bson:"status,omitempty" json:"status,omitempty"`
+	Date                      *string          `bson:"date,omitempty" json:"date,omitempty"`
+	Species                   *CodeableConcept `bson:"species,omitempty" json:"species,omitempty"`
 }
 
 // This function returns resource reference information

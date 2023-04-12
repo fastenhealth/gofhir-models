@@ -103,6 +103,8 @@ type ImplementationGuideDefinitionResource struct {
 	FhirVersion       []FHIRVersion `bson:"fhirVersion,omitempty" json:"fhirVersion,omitempty"`
 	Name              *string       `bson:"name,omitempty" json:"name,omitempty"`
 	Description       *string       `bson:"description,omitempty" json:"description,omitempty"`
+	ExampleBoolean    *bool         `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
+	ExampleCanonical  *string       `bson:"exampleCanonical,omitempty" json:"exampleCanonical,omitempty"`
 	GroupingId        *string       `bson:"groupingId,omitempty" json:"groupingId,omitempty"`
 }
 
@@ -112,6 +114,8 @@ type ImplementationGuideDefinitionPage struct {
 	Id                *string                             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	NameUrl           string                              `bson:"nameUrl" json:"nameUrl"`
+	NameReference     Reference                           `bson:"nameReference" json:"nameReference"`
 	Title             string                              `bson:"title" json:"title"`
 	Generation        GuidePageGeneration                 `bson:"generation" json:"generation"`
 	Page              []ImplementationGuideDefinitionPage `bson:"page,omitempty" json:"page,omitempty"`
@@ -154,6 +158,8 @@ type ImplementationGuideManifestResource struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Reference         Reference   `bson:"reference" json:"reference"`
+	ExampleBoolean    *bool       `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
+	ExampleCanonical  *string     `bson:"exampleCanonical,omitempty" json:"exampleCanonical,omitempty"`
 	RelativePath      *string     `bson:"relativePath,omitempty" json:"relativePath,omitempty"`
 }
 

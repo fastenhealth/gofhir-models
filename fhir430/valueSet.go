@@ -127,10 +127,17 @@ type ValueSetExpansion struct {
 // A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.
 // The server decides which parameters to include here, but at a minimum, the list SHOULD include all of the parameters that affect the $expand operation. If the expansion will be persisted all of these parameters SHALL be included. If the codeSystem on the server has a specified version then this version SHALL be provided as a parameter in the expansion (note that not all code systems have a version).
 type ValueSetExpansionParameter struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Name              string      `bson:"name" json:"name"`
+	Id                *string      `bson:"id,omitempty" json:"id,omitempty"`
+	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Name              string       `bson:"name" json:"name"`
+	ValueString       *string      `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueBoolean      *bool        `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueInteger      *int         `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
+	ValueDecimal      *json.Number `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
+	ValueUri          *string      `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
+	ValueCode         *string      `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
+	ValueDateTime     *string      `bson:"valueDateTime,omitempty" json:"valueDateTime,omitempty"`
 }
 
 // The codes that are contained in the value set expansion.

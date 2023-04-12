@@ -52,6 +52,8 @@ type BiologicallyDerivedProductCollection struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Collector         *Reference  `bson:"collector,omitempty" json:"collector,omitempty"`
 	Source            *Reference  `bson:"source,omitempty" json:"source,omitempty"`
+	CollectedDateTime *string     `bson:"collectedDateTime,omitempty" json:"collectedDateTime,omitempty"`
+	CollectedPeriod   *Period     `bson:"collectedPeriod,omitempty" json:"collectedPeriod,omitempty"`
 }
 
 // Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells.
@@ -62,6 +64,8 @@ type BiologicallyDerivedProductProcessing struct {
 	Description       *string          `bson:"description,omitempty" json:"description,omitempty"`
 	Procedure         *CodeableConcept `bson:"procedure,omitempty" json:"procedure,omitempty"`
 	Additive          *Reference       `bson:"additive,omitempty" json:"additive,omitempty"`
+	TimeDateTime      *string          `bson:"timeDateTime,omitempty" json:"timeDateTime,omitempty"`
+	TimePeriod        *Period          `bson:"timePeriod,omitempty" json:"timePeriod,omitempty"`
 }
 
 // Any manipulation of product post-collection that is intended to alter the product.  For example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make it more suitable for infusion.
@@ -70,6 +74,8 @@ type BiologicallyDerivedProductManipulation struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Description       *string     `bson:"description,omitempty" json:"description,omitempty"`
+	TimeDateTime      *string     `bson:"timeDateTime,omitempty" json:"timeDateTime,omitempty"`
+	TimePeriod        *Period     `bson:"timePeriod,omitempty" json:"timePeriod,omitempty"`
 }
 
 // Product storage.
@@ -78,7 +84,7 @@ type BiologicallyDerivedProductStorage struct {
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Description       *string                                 `bson:"description,omitempty" json:"description,omitempty"`
-	Temperature       *string                                 `bson:"temperature,omitempty" json:"temperature,omitempty"`
+	Temperature       *json.Number                            `bson:"temperature,omitempty" json:"temperature,omitempty"`
 	Scale             *BiologicallyDerivedProductStorageScale `bson:"scale,omitempty" json:"scale,omitempty"`
 	Duration          *Period                                 `bson:"duration,omitempty" json:"duration,omitempty"`
 }

@@ -33,6 +33,8 @@ type CoverageEligibilityResponse struct {
 	Status            FinancialResourceStatusCodes           `bson:"status" json:"status"`
 	Purpose           []EligibilityResponsePurpose           `bson:"purpose" json:"purpose"`
 	Patient           Reference                              `bson:"patient" json:"patient"`
+	ServicedDate      *string                                `bson:"servicedDate,omitempty" json:"servicedDate,omitempty"`
+	ServicedPeriod    *Period                                `bson:"servicedPeriod,omitempty" json:"servicedPeriod,omitempty"`
 	Created           string                                 `bson:"created" json:"created"`
 	Requestor         *Reference                             `bson:"requestor,omitempty" json:"requestor,omitempty"`
 	Request           Reference                              `bson:"request" json:"request"`
@@ -80,10 +82,16 @@ type CoverageEligibilityResponseInsuranceItem struct {
 
 // Benefits used to date.
 type CoverageEligibilityResponseInsuranceItemBenefit struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              CodeableConcept `bson:"type" json:"type"`
+	Id                 *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension          []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension  []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type               CodeableConcept `bson:"type" json:"type"`
+	AllowedUnsignedInt *int            `bson:"allowedUnsignedInt,omitempty" json:"allowedUnsignedInt,omitempty"`
+	AllowedString      *string         `bson:"allowedString,omitempty" json:"allowedString,omitempty"`
+	AllowedMoney       *Money          `bson:"allowedMoney,omitempty" json:"allowedMoney,omitempty"`
+	UsedUnsignedInt    *int            `bson:"usedUnsignedInt,omitempty" json:"usedUnsignedInt,omitempty"`
+	UsedString         *string         `bson:"usedString,omitempty" json:"usedString,omitempty"`
+	UsedMoney          *Money          `bson:"usedMoney,omitempty" json:"usedMoney,omitempty"`
 }
 
 // Errors encountered during the processing of the request.

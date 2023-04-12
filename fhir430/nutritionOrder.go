@@ -115,6 +115,8 @@ type NutritionOrderEnteralFormulaAdministration struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Schedule          *Timing     `bson:"schedule,omitempty" json:"schedule,omitempty"`
 	Quantity          *Quantity   `bson:"quantity,omitempty" json:"quantity,omitempty"`
+	RateQuantity      *Quantity   `bson:"rateQuantity,omitempty" json:"rateQuantity,omitempty"`
+	RateRatio         *Ratio      `bson:"rateRatio,omitempty" json:"rateRatio,omitempty"`
 }
 
 // This function returns resource reference information

@@ -70,7 +70,7 @@ type BundleEntrySearch struct {
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Mode              *SearchEntryMode `bson:"mode,omitempty" json:"mode,omitempty"`
-	Score             *string          `bson:"score,omitempty" json:"score,omitempty"`
+	Score             *json.Number     `bson:"score,omitempty" json:"score,omitempty"`
 }
 
 // Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry.

@@ -64,6 +64,8 @@ type CompositionRelatesTo struct {
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension              `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              DocumentRelationshipType `bson:"code" json:"code"`
+	TargetIdentifier  Identifier               `bson:"targetIdentifier" json:"targetIdentifier"`
+	TargetReference   Reference                `bson:"targetReference" json:"targetReference"`
 }
 
 // The clinical service, such as a colonoscopy or an appendectomy, being documented.

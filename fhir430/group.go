@@ -44,12 +44,17 @@ type Group struct {
 // Identifies traits whose presence r absence is shared by members of the group.
 // All the identified characteristics must be true for an entity to a member of the group.
 type GroupCharacteristic struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Code              CodeableConcept `bson:"code" json:"code"`
-	Exclude           bool            `bson:"exclude" json:"exclude"`
-	Period            *Period         `bson:"period,omitempty" json:"period,omitempty"`
+	Id                   *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension            []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Code                 CodeableConcept `bson:"code" json:"code"`
+	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept"`
+	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean"`
+	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity"`
+	ValueRange           Range           `bson:"valueRange" json:"valueRange"`
+	ValueReference       Reference       `bson:"valueReference" json:"valueReference"`
+	Exclude              bool            `bson:"exclude" json:"exclude"`
+	Period               *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
 
 // Identifies the resource instances that are members of the group.

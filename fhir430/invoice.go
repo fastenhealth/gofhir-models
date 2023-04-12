@@ -58,11 +58,13 @@ type InvoiceParticipant struct {
 
 // Each line item represents one charge for goods and services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource.
 type InvoiceLineItem struct {
-	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Sequence          *int                            `bson:"sequence,omitempty" json:"sequence,omitempty"`
-	PriceComponent    []InvoiceLineItemPriceComponent `bson:"priceComponent,omitempty" json:"priceComponent,omitempty"`
+	Id                        *string                         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                 []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension         []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Sequence                  *int                            `bson:"sequence,omitempty" json:"sequence,omitempty"`
+	ChargeItemReference       Reference                       `bson:"chargeItemReference" json:"chargeItemReference"`
+	ChargeItemCodeableConcept CodeableConcept                 `bson:"chargeItemCodeableConcept" json:"chargeItemCodeableConcept"`
+	PriceComponent            []InvoiceLineItemPriceComponent `bson:"priceComponent,omitempty" json:"priceComponent,omitempty"`
 }
 
 // The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice as to how the prices have been calculated.
@@ -72,7 +74,7 @@ type InvoiceLineItemPriceComponent struct {
 	ModifierExtension []Extension               `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              InvoicePriceComponentType `bson:"type" json:"type"`
 	Code              *CodeableConcept          `bson:"code,omitempty" json:"code,omitempty"`
-	Factor            *string                   `bson:"factor,omitempty" json:"factor,omitempty"`
+	Factor            *json.Number              `bson:"factor,omitempty" json:"factor,omitempty"`
 	Amount            *Money                    `bson:"amount,omitempty" json:"amount,omitempty"`
 }
 

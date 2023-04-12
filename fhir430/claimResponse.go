@@ -77,7 +77,7 @@ type ClaimResponseItemAdjudication struct {
 	Category          CodeableConcept  `bson:"category" json:"category"`
 	Reason            *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 	Amount            *Money           `bson:"amount,omitempty" json:"amount,omitempty"`
-	Value             *string          `bson:"value,omitempty" json:"value,omitempty"`
+	Value             *json.Number     `bson:"value,omitempty" json:"value,omitempty"`
 }
 
 // A claim detail. Either a simple (a product or service) or a 'group' of sub-details which are simple items.
@@ -103,25 +103,30 @@ type ClaimResponseItemDetailSubDetail struct {
 
 // The first-tier service adjudications for payor added product or service lines.
 type ClaimResponseAddItem struct {
-	Id                *string                         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ItemSequence      []int                           `bson:"itemSequence,omitempty" json:"itemSequence,omitempty"`
-	DetailSequence    []int                           `bson:"detailSequence,omitempty" json:"detailSequence,omitempty"`
-	SubdetailSequence []int                           `bson:"subdetailSequence,omitempty" json:"subdetailSequence,omitempty"`
-	Provider          []Reference                     `bson:"provider,omitempty" json:"provider,omitempty"`
-	ProductOrService  CodeableConcept                 `bson:"productOrService" json:"productOrService"`
-	Modifier          []CodeableConcept               `bson:"modifier,omitempty" json:"modifier,omitempty"`
-	ProgramCode       []CodeableConcept               `bson:"programCode,omitempty" json:"programCode,omitempty"`
-	Quantity          *Quantity                       `bson:"quantity,omitempty" json:"quantity,omitempty"`
-	UnitPrice         *Money                          `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
-	Factor            *string                         `bson:"factor,omitempty" json:"factor,omitempty"`
-	Net               *Money                          `bson:"net,omitempty" json:"net,omitempty"`
-	BodySite          *CodeableConcept                `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
-	SubSite           []CodeableConcept               `bson:"subSite,omitempty" json:"subSite,omitempty"`
-	NoteNumber        []int                           `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
-	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
-	Detail            []ClaimResponseAddItemDetail    `bson:"detail,omitempty" json:"detail,omitempty"`
+	Id                      *string                         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension               []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension       []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ItemSequence            []int                           `bson:"itemSequence,omitempty" json:"itemSequence,omitempty"`
+	DetailSequence          []int                           `bson:"detailSequence,omitempty" json:"detailSequence,omitempty"`
+	SubdetailSequence       []int                           `bson:"subdetailSequence,omitempty" json:"subdetailSequence,omitempty"`
+	Provider                []Reference                     `bson:"provider,omitempty" json:"provider,omitempty"`
+	ProductOrService        CodeableConcept                 `bson:"productOrService" json:"productOrService"`
+	Modifier                []CodeableConcept               `bson:"modifier,omitempty" json:"modifier,omitempty"`
+	ProgramCode             []CodeableConcept               `bson:"programCode,omitempty" json:"programCode,omitempty"`
+	ServicedDate            *string                         `bson:"servicedDate,omitempty" json:"servicedDate,omitempty"`
+	ServicedPeriod          *Period                         `bson:"servicedPeriod,omitempty" json:"servicedPeriod,omitempty"`
+	LocationCodeableConcept *CodeableConcept                `bson:"locationCodeableConcept,omitempty" json:"locationCodeableConcept,omitempty"`
+	LocationAddress         *Address                        `bson:"locationAddress,omitempty" json:"locationAddress,omitempty"`
+	LocationReference       *Reference                      `bson:"locationReference,omitempty" json:"locationReference,omitempty"`
+	Quantity                *Quantity                       `bson:"quantity,omitempty" json:"quantity,omitempty"`
+	UnitPrice               *Money                          `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
+	Factor                  *json.Number                    `bson:"factor,omitempty" json:"factor,omitempty"`
+	Net                     *Money                          `bson:"net,omitempty" json:"net,omitempty"`
+	BodySite                *CodeableConcept                `bson:"bodySite,omitempty" json:"bodySite,omitempty"`
+	SubSite                 []CodeableConcept               `bson:"subSite,omitempty" json:"subSite,omitempty"`
+	NoteNumber              []int                           `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
+	Adjudication            []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
+	Detail                  []ClaimResponseAddItemDetail    `bson:"detail,omitempty" json:"detail,omitempty"`
 }
 
 // The second-tier service adjudications for payor added services.
@@ -133,7 +138,7 @@ type ClaimResponseAddItemDetail struct {
 	Modifier          []CodeableConcept                     `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	Quantity          *Quantity                             `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	UnitPrice         *Money                                `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
-	Factor            *string                               `bson:"factor,omitempty" json:"factor,omitempty"`
+	Factor            *json.Number                          `bson:"factor,omitempty" json:"factor,omitempty"`
 	Net               *Money                                `bson:"net,omitempty" json:"net,omitempty"`
 	NoteNumber        []int                                 `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
 	Adjudication      []ClaimResponseItemAdjudication       `bson:"adjudication,omitempty" json:"adjudication,omitempty"`
@@ -149,7 +154,7 @@ type ClaimResponseAddItemDetailSubDetail struct {
 	Modifier          []CodeableConcept               `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	Quantity          *Quantity                       `bson:"quantity,omitempty" json:"quantity,omitempty"`
 	UnitPrice         *Money                          `bson:"unitPrice,omitempty" json:"unitPrice,omitempty"`
-	Factor            *string                         `bson:"factor,omitempty" json:"factor,omitempty"`
+	Factor            *json.Number                    `bson:"factor,omitempty" json:"factor,omitempty"`
 	Net               *Money                          `bson:"net,omitempty" json:"net,omitempty"`
 	NoteNumber        []int                           `bson:"noteNumber,omitempty" json:"noteNumber,omitempty"`
 	Adjudication      []ClaimResponseItemAdjudication `bson:"adjudication,omitempty" json:"adjudication,omitempty"`

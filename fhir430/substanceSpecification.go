@@ -61,16 +61,22 @@ type SubstanceSpecificationMoiety struct {
 	Stereochemistry   *CodeableConcept `bson:"stereochemistry,omitempty" json:"stereochemistry,omitempty"`
 	OpticalActivity   *CodeableConcept `bson:"opticalActivity,omitempty" json:"opticalActivity,omitempty"`
 	MolecularFormula  *string          `bson:"molecularFormula,omitempty" json:"molecularFormula,omitempty"`
+	AmountQuantity    *Quantity        `bson:"amountQuantity,omitempty" json:"amountQuantity,omitempty"`
+	AmountString      *string          `bson:"amountString,omitempty" json:"amountString,omitempty"`
 }
 
 // General specifications for this substance, including how it is related to other substances.
 type SubstanceSpecificationProperty struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Category          *CodeableConcept `bson:"category,omitempty" json:"category,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
-	Parameters        *string          `bson:"parameters,omitempty" json:"parameters,omitempty"`
+	Id                               *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                        []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension                []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Category                         *CodeableConcept `bson:"category,omitempty" json:"category,omitempty"`
+	Code                             *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
+	Parameters                       *string          `bson:"parameters,omitempty" json:"parameters,omitempty"`
+	DefiningSubstanceReference       *Reference       `bson:"definingSubstanceReference,omitempty" json:"definingSubstanceReference,omitempty"`
+	DefiningSubstanceCodeableConcept *CodeableConcept `bson:"definingSubstanceCodeableConcept,omitempty" json:"definingSubstanceCodeableConcept,omitempty"`
+	AmountQuantity                   *Quantity        `bson:"amountQuantity,omitempty" json:"amountQuantity,omitempty"`
+	AmountString                     *string          `bson:"amountString,omitempty" json:"amountString,omitempty"`
 }
 
 // Structural information.
@@ -162,14 +168,20 @@ type SubstanceSpecificationNameOfficial struct {
 
 // A link between this substance and another, with details of the relationship.
 type SubstanceSpecificationRelationship struct {
-	Id                  *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension           []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension   []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Relationship        *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty"`
-	IsDefining          *bool            `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
-	AmountRatioLowLimit *Ratio           `bson:"amountRatioLowLimit,omitempty" json:"amountRatioLowLimit,omitempty"`
-	AmountType          *CodeableConcept `bson:"amountType,omitempty" json:"amountType,omitempty"`
-	Source              []Reference      `bson:"source,omitempty" json:"source,omitempty"`
+	Id                       *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	SubstanceReference       *Reference       `bson:"substanceReference,omitempty" json:"substanceReference,omitempty"`
+	SubstanceCodeableConcept *CodeableConcept `bson:"substanceCodeableConcept,omitempty" json:"substanceCodeableConcept,omitempty"`
+	Relationship             *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty"`
+	IsDefining               *bool            `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
+	AmountQuantity           *Quantity        `bson:"amountQuantity,omitempty" json:"amountQuantity,omitempty"`
+	AmountRange              *Range           `bson:"amountRange,omitempty" json:"amountRange,omitempty"`
+	AmountRatio              *Ratio           `bson:"amountRatio,omitempty" json:"amountRatio,omitempty"`
+	AmountString             *string          `bson:"amountString,omitempty" json:"amountString,omitempty"`
+	AmountRatioLowLimit      *Ratio           `bson:"amountRatioLowLimit,omitempty" json:"amountRatioLowLimit,omitempty"`
+	AmountType               *CodeableConcept `bson:"amountType,omitempty" json:"amountType,omitempty"`
+	Source                   []Reference      `bson:"source,omitempty" json:"source,omitempty"`
 }
 
 // This function returns resource reference information

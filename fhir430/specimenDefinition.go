@@ -54,23 +54,27 @@ type SpecimenDefinitionTypeTested struct {
 
 // The specimen's container.
 type SpecimenDefinitionTypeTestedContainer struct {
-	Id                *string                                         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension                                     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension                                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Material          *CodeableConcept                                `bson:"material,omitempty" json:"material,omitempty"`
-	Type              *CodeableConcept                                `bson:"type,omitempty" json:"type,omitempty"`
-	Cap               *CodeableConcept                                `bson:"cap,omitempty" json:"cap,omitempty"`
-	Description       *string                                         `bson:"description,omitempty" json:"description,omitempty"`
-	Capacity          *Quantity                                       `bson:"capacity,omitempty" json:"capacity,omitempty"`
-	Additive          []SpecimenDefinitionTypeTestedContainerAdditive `bson:"additive,omitempty" json:"additive,omitempty"`
-	Preparation       *string                                         `bson:"preparation,omitempty" json:"preparation,omitempty"`
+	Id                    *string                                         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension             []Extension                                     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension     []Extension                                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Material              *CodeableConcept                                `bson:"material,omitempty" json:"material,omitempty"`
+	Type                  *CodeableConcept                                `bson:"type,omitempty" json:"type,omitempty"`
+	Cap                   *CodeableConcept                                `bson:"cap,omitempty" json:"cap,omitempty"`
+	Description           *string                                         `bson:"description,omitempty" json:"description,omitempty"`
+	Capacity              *Quantity                                       `bson:"capacity,omitempty" json:"capacity,omitempty"`
+	MinimumVolumeQuantity *Quantity                                       `bson:"minimumVolumeQuantity,omitempty" json:"minimumVolumeQuantity,omitempty"`
+	MinimumVolumeString   *string                                         `bson:"minimumVolumeString,omitempty" json:"minimumVolumeString,omitempty"`
+	Additive              []SpecimenDefinitionTypeTestedContainerAdditive `bson:"additive,omitempty" json:"additive,omitempty"`
+	Preparation           *string                                         `bson:"preparation,omitempty" json:"preparation,omitempty"`
 }
 
 // Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
 type SpecimenDefinitionTypeTestedContainerAdditive struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Id                      *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension               []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension       []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	AdditiveCodeableConcept CodeableConcept `bson:"additiveCodeableConcept" json:"additiveCodeableConcept"`
+	AdditiveReference       Reference       `bson:"additiveReference" json:"additiveReference"`
 }
 
 // Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process.

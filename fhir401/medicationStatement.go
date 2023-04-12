@@ -26,28 +26,32 @@ A record of a medication that is being consumed by a patient.   A MedicationStat
 The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
 */
 type MedicationStatement struct {
-	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	BasedOn           []Reference       `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
-	PartOf            []Reference       `bson:"partOf,omitempty" json:"partOf,omitempty"`
-	Status            string            `bson:"status" json:"status"`
-	StatusReason      []CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
-	Category          *CodeableConcept  `bson:"category,omitempty" json:"category,omitempty"`
-	Subject           Reference         `bson:"subject" json:"subject"`
-	Context           *Reference        `bson:"context,omitempty" json:"context,omitempty"`
-	DateAsserted      *string           `bson:"dateAsserted,omitempty" json:"dateAsserted,omitempty"`
-	InformationSource *Reference        `bson:"informationSource,omitempty" json:"informationSource,omitempty"`
-	DerivedFrom       []Reference       `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
-	ReasonCode        []CodeableConcept `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
-	ReasonReference   []Reference       `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
-	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
-	Dosage            []Dosage          `bson:"dosage,omitempty" json:"dosage,omitempty"`
+	Id                        *string           `bson:"id,omitempty" json:"id,omitempty"`
+	Meta                      *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules             *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	Language                  *string           `bson:"language,omitempty" json:"language,omitempty"`
+	Text                      *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Extension                 []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension         []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	BasedOn                   []Reference       `bson:"basedOn,omitempty" json:"basedOn,omitempty"`
+	PartOf                    []Reference       `bson:"partOf,omitempty" json:"partOf,omitempty"`
+	Status                    string            `bson:"status" json:"status"`
+	StatusReason              []CodeableConcept `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
+	Category                  *CodeableConcept  `bson:"category,omitempty" json:"category,omitempty"`
+	MedicationCodeableConcept CodeableConcept   `bson:"medicationCodeableConcept" json:"medicationCodeableConcept"`
+	MedicationReference       Reference         `bson:"medicationReference" json:"medicationReference"`
+	Subject                   Reference         `bson:"subject" json:"subject"`
+	Context                   *Reference        `bson:"context,omitempty" json:"context,omitempty"`
+	EffectiveDateTime         *string           `bson:"effectiveDateTime,omitempty" json:"effectiveDateTime,omitempty"`
+	EffectivePeriod           *Period           `bson:"effectivePeriod,omitempty" json:"effectivePeriod,omitempty"`
+	DateAsserted              *string           `bson:"dateAsserted,omitempty" json:"dateAsserted,omitempty"`
+	InformationSource         *Reference        `bson:"informationSource,omitempty" json:"informationSource,omitempty"`
+	DerivedFrom               []Reference       `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
+	ReasonCode                []CodeableConcept `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
+	ReasonReference           []Reference       `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
+	Note                      []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
+	Dosage                    []Dosage          `bson:"dosage,omitempty" json:"dosage,omitempty"`
 }
 
 // This function returns resource reference information

@@ -73,11 +73,13 @@ type MedicationKnowledgeMonograph struct {
 
 // Identifies a particular constituent of interest in the product.
 type MedicationKnowledgeIngredient struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	IsActive          *bool       `bson:"isActive,omitempty" json:"isActive,omitempty"`
-	Strength          *Ratio      `bson:"strength,omitempty" json:"strength,omitempty"`
+	Id                  *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension           []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension   []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept"`
+	ItemReference       Reference       `bson:"itemReference" json:"itemReference"`
+	IsActive            *bool           `bson:"isActive,omitempty" json:"isActive,omitempty"`
+	Strength            *Ratio          `bson:"strength,omitempty" json:"strength,omitempty"`
 }
 
 // The price of the medication.
@@ -101,11 +103,13 @@ type MedicationKnowledgeMonitoringProgram struct {
 
 // Guidelines for the administration of the medication.
 type MedicationKnowledgeAdministrationGuidelines struct {
-	Id                     *string                                                             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension              []Extension                                                         `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension                                                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Dosage                 []MedicationKnowledgeAdministrationGuidelinesDosage                 `bson:"dosage,omitempty" json:"dosage,omitempty"`
-	PatientCharacteristics []MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics `bson:"patientCharacteristics,omitempty" json:"patientCharacteristics,omitempty"`
+	Id                        *string                                                             `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                 []Extension                                                         `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension         []Extension                                                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Dosage                    []MedicationKnowledgeAdministrationGuidelinesDosage                 `bson:"dosage,omitempty" json:"dosage,omitempty"`
+	IndicationCodeableConcept *CodeableConcept                                                    `bson:"indicationCodeableConcept,omitempty" json:"indicationCodeableConcept,omitempty"`
+	IndicationReference       *Reference                                                          `bson:"indicationReference,omitempty" json:"indicationReference,omitempty"`
+	PatientCharacteristics    []MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics `bson:"patientCharacteristics,omitempty" json:"patientCharacteristics,omitempty"`
 }
 
 // Dosage for the medication for the specific guidelines.
@@ -119,10 +123,12 @@ type MedicationKnowledgeAdministrationGuidelinesDosage struct {
 
 // Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.).
 type MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Value             []string    `bson:"value,omitempty" json:"value,omitempty"`
+	Id                            *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                     []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension             []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	CharacteristicCodeableConcept CodeableConcept `bson:"characteristicCodeableConcept" json:"characteristicCodeableConcept"`
+	CharacteristicQuantity        Quantity        `bson:"characteristicQuantity" json:"characteristicQuantity"`
+	Value                         []string        `bson:"value,omitempty" json:"value,omitempty"`
 }
 
 // Categorization of the medication within a formulary or classification system.
@@ -145,10 +151,14 @@ type MedicationKnowledgePackaging struct {
 
 // Specifies descriptive properties of the medicine, such as color, shape, imprints, etc.
 type MedicationKnowledgeDrugCharacteristic struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
+	Id                   *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension            []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension    []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Type                 *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
+	ValueCodeableConcept *CodeableConcept `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
+	ValueString          *string          `bson:"valueString,omitempty" json:"valueString,omitempty"`
+	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
+	ValueBase64Binary    *string          `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
 }
 
 // Regulatory information about a medication.

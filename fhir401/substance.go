@@ -51,10 +51,12 @@ type SubstanceInstance struct {
 
 // A substance can be composed of other substances.
 type SubstanceIngredient struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Quantity          *Ratio      `bson:"quantity,omitempty" json:"quantity,omitempty"`
+	Id                       *string         `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Quantity                 *Ratio          `bson:"quantity,omitempty" json:"quantity,omitempty"`
+	SubstanceCodeableConcept CodeableConcept `bson:"substanceCodeableConcept" json:"substanceCodeableConcept"`
+	SubstanceReference       Reference       `bson:"substanceReference" json:"substanceReference"`
 }
 
 // This function returns resource reference information

@@ -34,6 +34,8 @@ type CoverageEligibilityRequest struct {
 	Priority          *CodeableConcept                           `bson:"priority,omitempty" json:"priority,omitempty"`
 	Purpose           []EligibilityRequestPurpose                `bson:"purpose" json:"purpose"`
 	Patient           Reference                                  `bson:"patient" json:"patient"`
+	ServicedDate      *string                                    `bson:"servicedDate,omitempty" json:"servicedDate,omitempty"`
+	ServicedPeriod    *Period                                    `bson:"servicedPeriod,omitempty" json:"servicedPeriod,omitempty"`
 	Created           string                                     `bson:"created" json:"created"`
 	Enterer           *Reference                                 `bson:"enterer,omitempty" json:"enterer,omitempty"`
 	Provider          *Reference                                 `bson:"provider,omitempty" json:"provider,omitempty"`
@@ -85,9 +87,11 @@ type CoverageEligibilityRequestItem struct {
 
 // Patient diagnosis for which care is sought.
 type CoverageEligibilityRequestItemDiagnosis struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Id                       *string          `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension        []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	DiagnosisCodeableConcept *CodeableConcept `bson:"diagnosisCodeableConcept,omitempty" json:"diagnosisCodeableConcept,omitempty"`
+	DiagnosisReference       *Reference       `bson:"diagnosisReference,omitempty" json:"diagnosisReference,omitempty"`
 }
 
 // This function returns resource reference information
