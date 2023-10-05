@@ -16,7 +16,7 @@ generateDefinitions() {
 }
 
 # R4B (Current)
-generateDefinitions "430" "http://hl7.org/fhir/R4/definitions.json.zip"
+generateDefinitions "430" "http://hl7.org/fhir/R4B/definitions.json.zip"
 
 # R4
 generateDefinitions "401" "http://hl7.org/fhir/R4/definitions.json.zip"
