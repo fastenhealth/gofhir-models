@@ -27,6 +27,7 @@ type ChargeItemDefinition struct {
 	ImplicitRules     *string                             `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                             `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                          `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage                   `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                         `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Url               string                              `bson:"url" json:"url"`
@@ -88,6 +89,11 @@ type ChargeItemDefinitionPropertyGroupPriceComponent struct {
 // This function returns resource reference information
 func (r ChargeItemDefinition) ResourceRef() (string, *string) {
 	return "ChargeItemDefinition", r.Id
+}
+
+// This function returns resource reference information
+func (r ChargeItemDefinition) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherChargeItemDefinition ChargeItemDefinition

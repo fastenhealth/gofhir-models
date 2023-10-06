@@ -27,6 +27,7 @@ type MedicinalProductIngredient struct {
 	ImplicitRules       *string                                        `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language            *string                                        `bson:"language,omitempty" json:"language,omitempty"`
 	Text                *Narrative                                     `bson:"text,omitempty" json:"text,omitempty"`
+	Contained           []json.RawMessage                              `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension           []Extension                                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension                                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier          *Identifier                                    `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -86,6 +87,11 @@ type MedicinalProductIngredientSubstance struct {
 // This function returns resource reference information
 func (r MedicinalProductIngredient) ResourceRef() (string, *string) {
 	return "MedicinalProductIngredient", r.Id
+}
+
+// This function returns resource reference information
+func (r MedicinalProductIngredient) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherMedicinalProductIngredient MedicinalProductIngredient

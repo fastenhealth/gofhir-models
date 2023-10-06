@@ -22,23 +22,29 @@ import "encoding/json"
 // MedicinalProductUndesirableEffect is documented here http://hl7.org/fhir/StructureDefinition/MedicinalProductUndesirableEffect
 // Describe the undesirable effects of the medicinal product.
 type MedicinalProductUndesirableEffect struct {
-	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Meta                   *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules          *string          `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language               *string          `bson:"language,omitempty" json:"language,omitempty"`
-	Text                   *Narrative       `bson:"text,omitempty" json:"text,omitempty"`
-	Extension              []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Subject                []Reference      `bson:"subject,omitempty" json:"subject,omitempty"`
-	SymptomConditionEffect *CodeableConcept `bson:"symptomConditionEffect,omitempty" json:"symptomConditionEffect,omitempty"`
-	Classification         *CodeableConcept `bson:"classification,omitempty" json:"classification,omitempty"`
-	FrequencyOfOccurrence  *CodeableConcept `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty"`
-	Population             []Population     `bson:"population,omitempty" json:"population,omitempty"`
+	Id                     *string           `bson:"id,omitempty" json:"id,omitempty"`
+	Meta                   *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules          *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	Language               *string           `bson:"language,omitempty" json:"language,omitempty"`
+	Text                   *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained              []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
+	Extension              []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension      []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Subject                []Reference       `bson:"subject,omitempty" json:"subject,omitempty"`
+	SymptomConditionEffect *CodeableConcept  `bson:"symptomConditionEffect,omitempty" json:"symptomConditionEffect,omitempty"`
+	Classification         *CodeableConcept  `bson:"classification,omitempty" json:"classification,omitempty"`
+	FrequencyOfOccurrence  *CodeableConcept  `bson:"frequencyOfOccurrence,omitempty" json:"frequencyOfOccurrence,omitempty"`
+	Population             []Population      `bson:"population,omitempty" json:"population,omitempty"`
 }
 
 // This function returns resource reference information
 func (r MedicinalProductUndesirableEffect) ResourceRef() (string, *string) {
 	return "MedicinalProductUndesirableEffect", r.Id
+}
+
+// This function returns resource reference information
+func (r MedicinalProductUndesirableEffect) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherMedicinalProductUndesirableEffect MedicinalProductUndesirableEffect

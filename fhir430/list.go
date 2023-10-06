@@ -22,26 +22,27 @@ import "encoding/json"
 // List is documented here http://hl7.org/fhir/StructureDefinition/List
 // A list is a curated collection of resources.
 type List struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta            `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string          `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string          `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative       `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier     `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Status            ListStatus       `bson:"status" json:"status"`
-	Mode              ListMode         `bson:"mode" json:"mode"`
-	Title             *string          `bson:"title,omitempty" json:"title,omitempty"`
-	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
-	Subject           *Reference       `bson:"subject,omitempty" json:"subject,omitempty"`
-	Encounter         *Reference       `bson:"encounter,omitempty" json:"encounter,omitempty"`
-	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
-	Source            *Reference       `bson:"source,omitempty" json:"source,omitempty"`
-	OrderedBy         *CodeableConcept `bson:"orderedBy,omitempty" json:"orderedBy,omitempty"`
-	Note              []Annotation     `bson:"note,omitempty" json:"note,omitempty"`
-	Entry             []ListEntry      `bson:"entry,omitempty" json:"entry,omitempty"`
-	EmptyReason       *CodeableConcept `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
+	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Status            ListStatus        `bson:"status" json:"status"`
+	Mode              ListMode          `bson:"mode" json:"mode"`
+	Title             *string           `bson:"title,omitempty" json:"title,omitempty"`
+	Code              *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
+	Subject           *Reference        `bson:"subject,omitempty" json:"subject,omitempty"`
+	Encounter         *Reference        `bson:"encounter,omitempty" json:"encounter,omitempty"`
+	Date              *string           `bson:"date,omitempty" json:"date,omitempty"`
+	Source            *Reference        `bson:"source,omitempty" json:"source,omitempty"`
+	OrderedBy         *CodeableConcept  `bson:"orderedBy,omitempty" json:"orderedBy,omitempty"`
+	Note              []Annotation      `bson:"note,omitempty" json:"note,omitempty"`
+	Entry             []ListEntry       `bson:"entry,omitempty" json:"entry,omitempty"`
+	EmptyReason       *CodeableConcept  `bson:"emptyReason,omitempty" json:"emptyReason,omitempty"`
 }
 
 // Entries in this list.
@@ -59,6 +60,11 @@ type ListEntry struct {
 // This function returns resource reference information
 func (r List) ResourceRef() (string, *string) {
 	return "List", r.Id
+}
+
+// This function returns resource reference information
+func (r List) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherList List

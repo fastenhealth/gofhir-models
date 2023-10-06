@@ -27,6 +27,7 @@ type Slot struct {
 	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -45,6 +46,11 @@ type Slot struct {
 // This function returns resource reference information
 func (r Slot) ResourceRef() (string, *string) {
 	return "Slot", r.Id
+}
+
+// This function returns resource reference information
+func (r Slot) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherSlot Slot

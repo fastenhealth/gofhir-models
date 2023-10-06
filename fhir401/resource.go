@@ -33,6 +33,11 @@ func (r Resource) ResourceRef() (string, *string) {
 	return "Resource", r.Id
 }
 
+// This function returns resource reference information
+func (r Resource) ContainedResources() []json.RawMessage {
+	return nil
+}
+
 type OtherResource Resource
 
 // MarshalJSON marshals the given Resource as JSON into a byte slice

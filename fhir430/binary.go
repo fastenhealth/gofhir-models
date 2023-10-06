@@ -36,6 +36,11 @@ func (r Binary) ResourceRef() (string, *string) {
 	return "Binary", r.Id
 }
 
+// This function returns resource reference information
+func (r Binary) ContainedResources() []json.RawMessage {
+	return nil
+}
+
 type OtherBinary Binary
 
 // MarshalJSON marshals the given Binary as JSON into a byte slice

@@ -22,18 +22,24 @@ import "encoding/json"
 // DomainResource is documented here http://hl7.org/fhir/StructureDefinition/DomainResource
 // A resource that includes narrative, extensions, and contained resources.
 type DomainResource struct {
-	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta       `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string     `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative  `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
+	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 }
 
 // This function returns resource reference information
 func (r DomainResource) ResourceRef() (string, *string) {
 	return "DomainResource", r.Id
+}
+
+// This function returns resource reference information
+func (r DomainResource) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherDomainResource DomainResource

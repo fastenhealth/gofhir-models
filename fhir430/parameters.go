@@ -94,6 +94,11 @@ func (r Parameters) ResourceRef() (string, *string) {
 	return "Parameters", r.Id
 }
 
+// This function returns resource reference information
+func (r Parameters) ContainedResources() []json.RawMessage {
+	return nil
+}
+
 type OtherParameters Parameters
 
 // MarshalJSON marshals the given Parameters as JSON into a byte slice

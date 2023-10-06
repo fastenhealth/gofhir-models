@@ -27,6 +27,7 @@ type CodeSystem struct {
 	ImplicitRules     *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                     `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage           `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Url               *string                     `bson:"url,omitempty" json:"url,omitempty"`
@@ -123,6 +124,11 @@ type CodeSystemConceptProperty struct {
 // This function returns resource reference information
 func (r CodeSystem) ResourceRef() (string, *string) {
 	return "CodeSystem", r.Id
+}
+
+// This function returns resource reference information
+func (r CodeSystem) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherCodeSystem CodeSystem

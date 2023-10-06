@@ -103,6 +103,11 @@ func (r Bundle) ResourceRef() (string, *string) {
 	return "Bundle", r.Id
 }
 
+// This function returns resource reference information
+func (r Bundle) ContainedResources() []json.RawMessage {
+	return nil
+}
+
 type OtherBundle Bundle
 
 // MarshalJSON marshals the given Bundle as JSON into a byte slice

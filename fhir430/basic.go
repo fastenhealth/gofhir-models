@@ -22,23 +22,29 @@ import "encoding/json"
 // Basic is documented here http://hl7.org/fhir/StructureDefinition/Basic
 // Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
 type Basic struct {
-	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Meta              *Meta           `bson:"meta,omitempty" json:"meta,omitempty"`
-	ImplicitRules     *string         `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
-	Language          *string         `bson:"language,omitempty" json:"language,omitempty"`
-	Text              *Narrative      `bson:"text,omitempty" json:"text,omitempty"`
-	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier        []Identifier    `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Code              CodeableConcept `bson:"code" json:"code"`
-	Subject           *Reference      `bson:"subject,omitempty" json:"subject,omitempty"`
-	Created           *string         `bson:"created,omitempty" json:"created,omitempty"`
-	Author            *Reference      `bson:"author,omitempty" json:"author,omitempty"`
+	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
+	Meta              *Meta             `bson:"meta,omitempty" json:"meta,omitempty"`
+	ImplicitRules     *string           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
+	Language          *string           `bson:"language,omitempty" json:"language,omitempty"`
+	Text              *Narrative        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
+	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Code              CodeableConcept   `bson:"code" json:"code"`
+	Subject           *Reference        `bson:"subject,omitempty" json:"subject,omitempty"`
+	Created           *string           `bson:"created,omitempty" json:"created,omitempty"`
+	Author            *Reference        `bson:"author,omitempty" json:"author,omitempty"`
 }
 
 // This function returns resource reference information
 func (r Basic) ResourceRef() (string, *string) {
 	return "Basic", r.Id
+}
+
+// This function returns resource reference information
+func (r Basic) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherBasic Basic

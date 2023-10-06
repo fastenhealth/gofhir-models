@@ -27,6 +27,7 @@ type SubstanceProtein struct {
 	ImplicitRules     *string                   `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                   `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage         `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension               `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension               `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	SequenceType      *CodeableConcept          `bson:"sequenceType,omitempty" json:"sequenceType,omitempty"`
@@ -53,6 +54,11 @@ type SubstanceProteinSubunit struct {
 // This function returns resource reference information
 func (r SubstanceProtein) ResourceRef() (string, *string) {
 	return "SubstanceProtein", r.Id
+}
+
+// This function returns resource reference information
+func (r SubstanceProtein) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherSubstanceProtein SubstanceProtein

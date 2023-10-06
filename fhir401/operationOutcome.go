@@ -27,6 +27,7 @@ type OperationOutcome struct {
 	ImplicitRules     *string                 `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                 `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative              `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage       `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Issue             []OperationOutcomeIssue `bson:"issue" json:"issue"`
@@ -48,6 +49,11 @@ type OperationOutcomeIssue struct {
 // This function returns resource reference information
 func (r OperationOutcome) ResourceRef() (string, *string) {
 	return "OperationOutcome", r.Id
+}
+
+// This function returns resource reference information
+func (r OperationOutcome) ContainedResources() []json.RawMessage {
+	return r.Contained
 }
 
 type OtherOperationOutcome OperationOutcome
