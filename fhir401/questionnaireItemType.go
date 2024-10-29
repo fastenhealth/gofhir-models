@@ -51,6 +51,7 @@ func (code QuestionnaireItemType) MarshalJSON() ([]byte, error) {
 }
 func (code *QuestionnaireItemType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "group":
 		*code = QuestionnaireItemTypeGroup

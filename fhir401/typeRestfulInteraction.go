@@ -51,6 +51,7 @@ func (code TypeRestfulInteraction) MarshalJSON() ([]byte, error) {
 }
 func (code *TypeRestfulInteraction) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "read":
 		*code = TypeRestfulInteractionRead

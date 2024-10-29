@@ -41,6 +41,7 @@ func (code DaysOfWeek) MarshalJSON() ([]byte, error) {
 }
 func (code *DaysOfWeek) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "mon":
 		*code = DaysOfWeekMon

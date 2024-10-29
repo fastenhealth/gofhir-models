@@ -37,6 +37,7 @@ func (code ActionConditionKind) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionConditionKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "applicability":
 		*code = ActionConditionKindApplicability

@@ -36,6 +36,7 @@ func (code CodeSearchSupport) MarshalJSON() ([]byte, error) {
 }
 func (code *CodeSearchSupport) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "explicit":
 		*code = CodeSearchSupportExplicit

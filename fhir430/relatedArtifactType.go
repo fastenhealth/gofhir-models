@@ -42,6 +42,7 @@ func (code RelatedArtifactType) MarshalJSON() ([]byte, error) {
 }
 func (code *RelatedArtifactType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "documentation":
 		*code = RelatedArtifactTypeDocumentation

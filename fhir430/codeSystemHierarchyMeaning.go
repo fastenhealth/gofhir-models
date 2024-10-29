@@ -38,6 +38,7 @@ func (code CodeSystemHierarchyMeaning) MarshalJSON() ([]byte, error) {
 }
 func (code *CodeSystemHierarchyMeaning) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "grouped-by":
 		*code = CodeSystemHierarchyMeaningGroupedBy

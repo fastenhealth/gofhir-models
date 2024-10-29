@@ -38,6 +38,7 @@ func (code ConditionalReadStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *ConditionalReadStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "not-supported":
 		*code = ConditionalReadStatusNotSupported

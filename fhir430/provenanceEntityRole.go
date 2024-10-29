@@ -39,6 +39,7 @@ func (code ProvenanceEntityRole) MarshalJSON() ([]byte, error) {
 }
 func (code *ProvenanceEntityRole) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "derivation":
 		*code = ProvenanceEntityRoleDerivation

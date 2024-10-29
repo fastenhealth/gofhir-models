@@ -38,6 +38,7 @@ func (code ActionParticipantType) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionParticipantType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "patient":
 		*code = ActionParticipantTypePatient

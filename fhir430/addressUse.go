@@ -39,6 +39,7 @@ func (code AddressUse) MarshalJSON() ([]byte, error) {
 }
 func (code *AddressUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "home":
 		*code = AddressUseHome

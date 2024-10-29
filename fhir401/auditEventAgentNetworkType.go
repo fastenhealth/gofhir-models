@@ -39,6 +39,7 @@ func (code AuditEventAgentNetworkType) MarshalJSON() ([]byte, error) {
 }
 func (code *AuditEventAgentNetworkType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "1":
 		*code = AuditEventAgentNetworkType1

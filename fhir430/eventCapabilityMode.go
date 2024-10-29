@@ -36,6 +36,7 @@ func (code EventCapabilityMode) MarshalJSON() ([]byte, error) {
 }
 func (code *EventCapabilityMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "sender":
 		*code = EventCapabilityModeSender

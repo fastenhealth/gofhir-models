@@ -38,6 +38,7 @@ func (code AuditEventOutcome) MarshalJSON() ([]byte, error) {
 }
 func (code *AuditEventOutcome) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "0":
 		*code = AuditEventOutcome0

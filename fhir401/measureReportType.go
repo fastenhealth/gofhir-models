@@ -38,6 +38,7 @@ func (code MeasureReportType) MarshalJSON() ([]byte, error) {
 }
 func (code *MeasureReportType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "individual":
 		*code = MeasureReportTypeIndividual

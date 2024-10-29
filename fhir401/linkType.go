@@ -38,6 +38,7 @@ func (code LinkType) MarshalJSON() ([]byte, error) {
 }
 func (code *LinkType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "replaced-by":
 		*code = LinkTypeReplacedBy

@@ -37,6 +37,7 @@ func (code ActionGroupingBehavior) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionGroupingBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "visual-group":
 		*code = ActionGroupingBehaviorVisualGroup

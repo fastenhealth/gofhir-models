@@ -39,6 +39,7 @@ func (code QuestionnaireResponseStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *QuestionnaireResponseStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "in-progress":
 		*code = QuestionnaireResponseStatusInProgress

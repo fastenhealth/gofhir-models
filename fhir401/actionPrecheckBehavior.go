@@ -36,6 +36,7 @@ func (code ActionPrecheckBehavior) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionPrecheckBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "yes":
 		*code = ActionPrecheckBehaviorYes

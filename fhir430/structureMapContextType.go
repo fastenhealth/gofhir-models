@@ -36,6 +36,7 @@ func (code StructureMapContextType) MarshalJSON() ([]byte, error) {
 }
 func (code *StructureMapContextType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "type":
 		*code = StructureMapContextTypeType

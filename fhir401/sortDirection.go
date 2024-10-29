@@ -36,6 +36,7 @@ func (code SortDirection) MarshalJSON() ([]byte, error) {
 }
 func (code *SortDirection) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "ascending":
 		*code = SortDirectionAscending

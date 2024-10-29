@@ -42,6 +42,7 @@ func (code EventStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *EventStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "preparation":
 		*code = EventStatusPreparation

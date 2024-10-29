@@ -39,6 +39,7 @@ func (code TestReportStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *TestReportStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "completed":
 		*code = TestReportStatusCompleted

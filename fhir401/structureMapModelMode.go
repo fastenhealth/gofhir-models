@@ -38,6 +38,7 @@ func (code StructureMapModelMode) MarshalJSON() ([]byte, error) {
 }
 func (code *StructureMapModelMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "source":
 		*code = StructureMapModelModeSource

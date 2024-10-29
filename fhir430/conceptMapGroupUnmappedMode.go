@@ -37,6 +37,7 @@ func (code ConceptMapGroupUnmappedMode) MarshalJSON() ([]byte, error) {
 }
 func (code *ConceptMapGroupUnmappedMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "provided":
 		*code = ConceptMapGroupUnmappedModeProvided

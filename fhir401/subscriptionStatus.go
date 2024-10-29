@@ -38,6 +38,7 @@ func (code SubscriptionStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *SubscriptionStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "requested":
 		*code = SubscriptionStatusRequested

@@ -38,6 +38,7 @@ func (code IdentityAssuranceLevel) MarshalJSON() ([]byte, error) {
 }
 func (code *IdentityAssuranceLevel) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "level1":
 		*code = IdentityAssuranceLevelLevel1

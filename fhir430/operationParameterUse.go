@@ -36,6 +36,7 @@ func (code OperationParameterUse) MarshalJSON() ([]byte, error) {
 }
 func (code *OperationParameterUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "in":
 		*code = OperationParameterUseIn

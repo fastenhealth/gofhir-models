@@ -42,6 +42,7 @@ func (code TriggerType) MarshalJSON() ([]byte, error) {
 }
 func (code *TriggerType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "named-event":
 		*code = TriggerTypeNamedEvent

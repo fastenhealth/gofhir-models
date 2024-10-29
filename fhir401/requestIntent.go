@@ -43,6 +43,7 @@ func (code RequestIntent) MarshalJSON() ([]byte, error) {
 }
 func (code *RequestIntent) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "proposal":
 		*code = RequestIntentProposal

@@ -37,6 +37,7 @@ func (code ConditionalDeleteStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *ConditionalDeleteStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "not-supported":
 		*code = ConditionalDeleteStatusNotSupported

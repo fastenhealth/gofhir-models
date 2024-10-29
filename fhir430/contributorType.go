@@ -38,6 +38,7 @@ func (code ContributorType) MarshalJSON() ([]byte, error) {
 }
 func (code *ContributorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "author":
 		*code = ContributorTypeAuthor

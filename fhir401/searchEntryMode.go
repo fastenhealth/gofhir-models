@@ -37,6 +37,7 @@ func (code SearchEntryMode) MarshalJSON() ([]byte, error) {
 }
 func (code *SearchEntryMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "match":
 		*code = SearchEntryModeMatch

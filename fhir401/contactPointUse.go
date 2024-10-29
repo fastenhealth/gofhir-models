@@ -39,6 +39,7 @@ func (code ContactPointUse) MarshalJSON() ([]byte, error) {
 }
 func (code *ContactPointUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "home":
 		*code = ContactPointUseHome

@@ -40,6 +40,7 @@ func (code DeviceNameType) MarshalJSON() ([]byte, error) {
 }
 func (code *DeviceNameType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "udi-label-name":
 		*code = DeviceNameTypeUdiLabelName

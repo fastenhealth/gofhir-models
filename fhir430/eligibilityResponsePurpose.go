@@ -38,6 +38,7 @@ func (code EligibilityResponsePurpose) MarshalJSON() ([]byte, error) {
 }
 func (code *EligibilityResponsePurpose) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "auth-requirements":
 		*code = EligibilityResponsePurposeAuthRequirements

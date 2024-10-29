@@ -36,6 +36,7 @@ func (code ExampleScenarioActorType) MarshalJSON() ([]byte, error) {
 }
 func (code *ExampleScenarioActorType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "person":
 		*code = ExampleScenarioActorTypePerson

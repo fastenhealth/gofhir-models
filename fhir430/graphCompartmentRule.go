@@ -38,6 +38,7 @@ func (code GraphCompartmentRule) MarshalJSON() ([]byte, error) {
 }
 func (code *GraphCompartmentRule) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "identical":
 		*code = GraphCompartmentRuleIdentical

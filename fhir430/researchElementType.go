@@ -37,6 +37,7 @@ func (code ResearchElementType) MarshalJSON() ([]byte, error) {
 }
 func (code *ResearchElementType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "population":
 		*code = ResearchElementTypePopulation

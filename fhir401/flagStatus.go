@@ -37,6 +37,7 @@ func (code FlagStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *FlagStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "active":
 		*code = FlagStatusActive

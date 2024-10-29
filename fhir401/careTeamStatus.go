@@ -39,6 +39,7 @@ func (code CareTeamStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *CareTeamStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "proposed":
 		*code = CareTeamStatusProposed

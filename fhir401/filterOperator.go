@@ -43,6 +43,7 @@ func (code FilterOperator) MarshalJSON() ([]byte, error) {
 }
 func (code *FilterOperator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "=":
 		*code = FilterOperatorEquals

@@ -38,6 +38,7 @@ func (code ConsentDataMeaning) MarshalJSON() ([]byte, error) {
 }
 func (code *ConsentDataMeaning) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "instance":
 		*code = ConsentDataMeaningInstance

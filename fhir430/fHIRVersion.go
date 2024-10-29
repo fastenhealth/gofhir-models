@@ -56,6 +56,7 @@ func (code FHIRVersion) MarshalJSON() ([]byte, error) {
 }
 func (code *FHIRVersion) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "0.01":
 		*code = FHIRVersion0_01

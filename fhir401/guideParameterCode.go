@@ -44,6 +44,7 @@ func (code GuideParameterCode) MarshalJSON() ([]byte, error) {
 }
 func (code *GuideParameterCode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "apply":
 		*code = GuideParameterCodeApply

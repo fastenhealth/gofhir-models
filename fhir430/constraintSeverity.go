@@ -36,6 +36,7 @@ func (code ConstraintSeverity) MarshalJSON() ([]byte, error) {
 }
 func (code *ConstraintSeverity) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "error":
 		*code = ConstraintSeverityError

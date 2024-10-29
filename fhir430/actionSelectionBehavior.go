@@ -40,6 +40,7 @@ func (code ActionSelectionBehavior) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionSelectionBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "any":
 		*code = ActionSelectionBehaviorAny

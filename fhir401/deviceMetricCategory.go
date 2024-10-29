@@ -38,6 +38,7 @@ func (code DeviceMetricCategory) MarshalJSON() ([]byte, error) {
 }
 func (code *DeviceMetricCategory) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "measurement":
 		*code = DeviceMetricCategoryMeasurement

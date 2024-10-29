@@ -38,6 +38,7 @@ func (code NamingSystemIdentifierType) MarshalJSON() ([]byte, error) {
 }
 func (code *NamingSystemIdentifierType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "oid":
 		*code = NamingSystemIdentifierTypeOid

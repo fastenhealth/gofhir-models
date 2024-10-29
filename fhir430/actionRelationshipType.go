@@ -43,6 +43,7 @@ func (code ActionRelationshipType) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionRelationshipType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "before-start":
 		*code = ActionRelationshipTypeBeforeStart

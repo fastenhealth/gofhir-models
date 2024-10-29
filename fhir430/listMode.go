@@ -37,6 +37,7 @@ func (code ListMode) MarshalJSON() ([]byte, error) {
 }
 func (code *ListMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "working":
 		*code = ListModeWorking

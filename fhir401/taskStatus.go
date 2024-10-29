@@ -46,6 +46,7 @@ func (code TaskStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *TaskStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "draft":
 		*code = TaskStatusDraft

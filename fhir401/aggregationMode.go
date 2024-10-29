@@ -37,6 +37,7 @@ func (code AggregationMode) MarshalJSON() ([]byte, error) {
 }
 func (code *AggregationMode) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "contained":
 		*code = AggregationModeContained

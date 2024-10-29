@@ -39,6 +39,7 @@ func (code ReferenceHandlingPolicy) MarshalJSON() ([]byte, error) {
 }
 func (code *ReferenceHandlingPolicy) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "literal":
 		*code = ReferenceHandlingPolicyLiteral

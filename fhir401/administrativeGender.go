@@ -38,6 +38,7 @@ func (code AdministrativeGender) MarshalJSON() ([]byte, error) {
 }
 func (code *AdministrativeGender) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "male":
 		*code = AdministrativeGenderMale

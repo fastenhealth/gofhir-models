@@ -43,6 +43,7 @@ func (code CarePlanIntent) MarshalJSON() ([]byte, error) {
 }
 func (code *CarePlanIntent) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "proposal":
 		*code = CarePlanIntentProposal

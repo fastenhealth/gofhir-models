@@ -43,6 +43,7 @@ func (code GoalLifecycleStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *GoalLifecycleStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "proposed":
 		*code = GoalLifecycleStatusProposed

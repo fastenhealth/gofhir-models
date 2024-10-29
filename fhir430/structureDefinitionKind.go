@@ -38,6 +38,7 @@ func (code StructureDefinitionKind) MarshalJSON() ([]byte, error) {
 }
 func (code *StructureDefinitionKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "primitive-type":
 		*code = StructureDefinitionKindPrimitiveType

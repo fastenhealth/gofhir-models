@@ -36,6 +36,7 @@ func (code OperationKind) MarshalJSON() ([]byte, error) {
 }
 func (code *OperationKind) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "operation":
 		*code = OperationKindOperation

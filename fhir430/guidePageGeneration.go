@@ -38,6 +38,7 @@ func (code GuidePageGeneration) MarshalJSON() ([]byte, error) {
 }
 func (code *GuidePageGeneration) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "html":
 		*code = GuidePageGenerationHtml

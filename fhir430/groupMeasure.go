@@ -40,6 +40,7 @@ func (code GroupMeasure) MarshalJSON() ([]byte, error) {
 }
 func (code *GroupMeasure) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "mean":
 		*code = GroupMeasureMean

@@ -38,6 +38,7 @@ func (code SupplyDeliveryStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *SupplyDeliveryStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "in-progress":
 		*code = SupplyDeliveryStatusInProgress

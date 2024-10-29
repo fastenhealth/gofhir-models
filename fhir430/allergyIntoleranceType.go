@@ -36,6 +36,7 @@ func (code AllergyIntoleranceType) MarshalJSON() ([]byte, error) {
 }
 func (code *AllergyIntoleranceType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "allergy":
 		*code = AllergyIntoleranceTypeAllergy

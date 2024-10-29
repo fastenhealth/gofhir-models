@@ -36,6 +36,7 @@ func (code TypeDerivationRule) MarshalJSON() ([]byte, error) {
 }
 func (code *TypeDerivationRule) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "specialization":
 		*code = TypeDerivationRuleSpecialization

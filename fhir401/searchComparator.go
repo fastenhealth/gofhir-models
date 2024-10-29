@@ -43,6 +43,7 @@ func (code SearchComparator) MarshalJSON() ([]byte, error) {
 }
 func (code *SearchComparator) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "eq":
 		*code = SearchComparatorEq

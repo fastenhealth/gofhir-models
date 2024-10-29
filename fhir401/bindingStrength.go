@@ -38,6 +38,7 @@ func (code BindingStrength) MarshalJSON() ([]byte, error) {
 }
 func (code *BindingStrength) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "required":
 		*code = BindingStrengthRequired

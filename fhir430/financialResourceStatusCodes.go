@@ -38,6 +38,7 @@ func (code FinancialResourceStatusCodes) MarshalJSON() ([]byte, error) {
 }
 func (code *FinancialResourceStatusCodes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "active":
 		*code = FinancialResourceStatusCodesActive

@@ -37,6 +37,7 @@ func (code ResourceVersionPolicy) MarshalJSON() ([]byte, error) {
 }
 func (code *ResourceVersionPolicy) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "no-version":
 		*code = ResourceVersionPolicyNoVersion

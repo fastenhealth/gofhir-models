@@ -39,6 +39,7 @@ func (code IdentifierUse) MarshalJSON() ([]byte, error) {
 }
 func (code *IdentifierUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "usual":
 		*code = IdentifierUseUsual

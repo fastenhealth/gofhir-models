@@ -37,6 +37,7 @@ func (code BiologicallyDerivedProductStorageScale) MarshalJSON() ([]byte, error)
 }
 func (code *BiologicallyDerivedProductStorageScale) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "farenheit":
 		*code = BiologicallyDerivedProductStorageScaleFarenheit

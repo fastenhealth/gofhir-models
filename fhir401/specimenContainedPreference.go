@@ -36,6 +36,7 @@ func (code SpecimenContainedPreference) MarshalJSON() ([]byte, error) {
 }
 func (code *SpecimenContainedPreference) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "preferred":
 		*code = SpecimenContainedPreferencePreferred

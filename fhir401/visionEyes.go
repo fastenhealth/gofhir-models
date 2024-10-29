@@ -36,6 +36,7 @@ func (code VisionEyes) MarshalJSON() ([]byte, error) {
 }
 func (code *VisionEyes) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "right":
 		*code = VisionEyesRight

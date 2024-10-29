@@ -37,6 +37,7 @@ func (code DocumentReferenceStatus) MarshalJSON() ([]byte, error) {
 }
 func (code *DocumentReferenceStatus) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "current":
 		*code = DocumentReferenceStatusCurrent

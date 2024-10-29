@@ -37,6 +37,7 @@ func (code ExtensionContextType) MarshalJSON() ([]byte, error) {
 }
 func (code *ExtensionContextType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "fhirpath":
 		*code = ExtensionContextTypeFhirpath

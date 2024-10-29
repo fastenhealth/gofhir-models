@@ -43,6 +43,7 @@ func (code SearchParamType) MarshalJSON() ([]byte, error) {
 }
 func (code *SearchParamType) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "number":
 		*code = SearchParamTypeNumber

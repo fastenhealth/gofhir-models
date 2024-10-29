@@ -36,6 +36,7 @@ func (code GraphCompartmentUse) MarshalJSON() ([]byte, error) {
 }
 func (code *GraphCompartmentUse) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "condition":
 		*code = GraphCompartmentUseCondition

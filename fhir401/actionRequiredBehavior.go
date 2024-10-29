@@ -37,6 +37,7 @@ func (code ActionRequiredBehavior) MarshalJSON() ([]byte, error) {
 }
 func (code *ActionRequiredBehavior) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "must":
 		*code = ActionRequiredBehaviorMust

@@ -44,6 +44,7 @@ func (code ConceptMapEquivalence) MarshalJSON() ([]byte, error) {
 }
 func (code *ConceptMapEquivalence) UnmarshalJSON(json []byte) error {
 	s := strings.Trim(string(json), "\"")
+	s = strings.ToLower(s)
 	switch s {
 	case "relatedto":
 		*code = ConceptMapEquivalenceRelatedto
