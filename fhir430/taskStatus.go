@@ -44,8 +44,11 @@ const (
 func (code TaskStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *TaskStatus) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *TaskStatus) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal TaskStatus code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "draft":

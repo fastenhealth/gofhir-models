@@ -41,8 +41,11 @@ const (
 func (code RequestIntent) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *RequestIntent) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *RequestIntent) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal RequestIntent code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "proposal":

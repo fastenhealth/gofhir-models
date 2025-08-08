@@ -36,8 +36,11 @@ const (
 func (code IssueSeverity) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *IssueSeverity) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *IssueSeverity) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal IssueSeverity code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "fatal":

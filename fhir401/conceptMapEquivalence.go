@@ -42,8 +42,11 @@ const (
 func (code ConceptMapEquivalence) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ConceptMapEquivalence) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ConceptMapEquivalence) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ConceptMapEquivalence code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "relatedto":

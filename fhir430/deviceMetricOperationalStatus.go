@@ -36,8 +36,11 @@ const (
 func (code DeviceMetricOperationalStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *DeviceMetricOperationalStatus) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *DeviceMetricOperationalStatus) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal DeviceMetricOperationalStatus code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "on":

@@ -38,8 +38,11 @@ const (
 func (code InvoicePriceComponentType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *InvoicePriceComponentType) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *InvoicePriceComponentType) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal InvoicePriceComponentType code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "base":

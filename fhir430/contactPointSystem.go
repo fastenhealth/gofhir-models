@@ -39,8 +39,11 @@ const (
 func (code ContactPointSystem) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ContactPointSystem) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ContactPointSystem) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ContactPointSystem code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "phone":

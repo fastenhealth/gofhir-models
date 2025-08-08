@@ -37,8 +37,11 @@ const (
 func (code SubscriptionChannelType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *SubscriptionChannelType) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *SubscriptionChannelType) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal SubscriptionChannelType code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "rest-hook":

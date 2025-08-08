@@ -36,8 +36,11 @@ const (
 func (code CompositionAttestationMode) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *CompositionAttestationMode) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *CompositionAttestationMode) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal CompositionAttestationMode code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "personal":

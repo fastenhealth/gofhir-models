@@ -36,8 +36,11 @@ const (
 func (code ActionParticipantType) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ActionParticipantType) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ActionParticipantType) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ActionParticipantType code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "patient":

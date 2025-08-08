@@ -40,8 +40,11 @@ const (
 func (code ImmunizationStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ImmunizationStatusCodes) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ImmunizationStatusCodes) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ImmunizationStatusCodes code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "preparation":

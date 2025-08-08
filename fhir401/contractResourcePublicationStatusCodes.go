@@ -47,8 +47,11 @@ const (
 func (code ContractResourcePublicationStatusCodes) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ContractResourcePublicationStatusCodes) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ContractResourcePublicationStatusCodes) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ContractResourcePublicationStatusCodes code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "amended":

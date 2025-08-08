@@ -36,8 +36,11 @@ const (
 func (code ConditionalReadStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ConditionalReadStatus) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ConditionalReadStatus) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ConditionalReadStatus code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "not-supported":

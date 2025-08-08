@@ -35,8 +35,11 @@ const (
 func (code ResourceVersionPolicy) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *ResourceVersionPolicy) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *ResourceVersionPolicy) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal ResourceVersionPolicy code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "no-version":

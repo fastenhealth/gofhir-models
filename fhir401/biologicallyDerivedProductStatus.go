@@ -34,8 +34,11 @@ const (
 func (code BiologicallyDerivedProductStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *BiologicallyDerivedProductStatus) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *BiologicallyDerivedProductStatus) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal BiologicallyDerivedProductStatus code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "available":

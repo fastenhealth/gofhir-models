@@ -37,8 +37,11 @@ const (
 func (code AccountStatus) MarshalJSON() ([]byte, error) {
 	return json.Marshal(code.Code())
 }
-func (code *AccountStatus) UnmarshalJSON(json []byte) error {
-	s := strings.Trim(string(json), "\"")
+func (code *AccountStatus) UnmarshalJSON(input []byte) error {
+	var s string
+	if err := json.Unmarshal(input, &s); err != nil {
+		return fmt.Errorf("failed to Unmarshal AccountStatus code `%s`", s)
+	}
 	s = strings.ToLower(s)
 	switch s {
 	case "active":
