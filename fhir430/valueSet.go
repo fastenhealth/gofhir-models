@@ -36,14 +36,14 @@ type ValueSet struct {
 	Name              *string            `bson:"name,omitempty" json:"name,omitempty"`
 	Title             *string            `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus  `bson:"status" json:"status"`
-	Experimental      *bool              `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean           `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string            `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string            `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail    `bson:"contact,omitempty" json:"contact,omitempty"`
 	Description       *string            `bson:"description,omitempty" json:"description,omitempty"`
 	UseContext        []UsageContext     `bson:"useContext,omitempty" json:"useContext,omitempty"`
 	Jurisdiction      []CodeableConcept  `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
-	Immutable         *bool              `bson:"immutable,omitempty" json:"immutable,omitempty"`
+	Immutable         *Boolean           `bson:"immutable,omitempty" json:"immutable,omitempty"`
 	Purpose           *string            `bson:"purpose,omitempty" json:"purpose,omitempty"`
 	Copyright         *string            `bson:"copyright,omitempty" json:"copyright,omitempty"`
 	Compose           *ValueSetCompose   `bson:"compose,omitempty" json:"compose,omitempty"`
@@ -56,7 +56,7 @@ type ValueSetCompose struct {
 	Extension         []Extension              `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension              `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	LockedDate        *string                  `bson:"lockedDate,omitempty" json:"lockedDate,omitempty"`
-	Inactive          *bool                    `bson:"inactive,omitempty" json:"inactive,omitempty"`
+	Inactive          *Boolean                 `bson:"inactive,omitempty" json:"inactive,omitempty"`
 	Include           []ValueSetComposeInclude `bson:"include" json:"include"`
 	Exclude           []ValueSetComposeInclude `bson:"exclude,omitempty" json:"exclude,omitempty"`
 }
@@ -133,7 +133,7 @@ type ValueSetExpansionParameter struct {
 	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Name              string       `bson:"name" json:"name"`
 	ValueString       *string      `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueBoolean      *bool        `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean      *Boolean     `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueInteger      *int         `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
 	ValueDecimal      *json.Number `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
 	ValueUri          *string      `bson:"valueUri,omitempty" json:"valueUri,omitempty"`
@@ -147,8 +147,8 @@ type ValueSetExpansionContains struct {
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	System            *string                                    `bson:"system,omitempty" json:"system,omitempty"`
-	Abstract          *bool                                      `bson:"abstract,omitempty" json:"abstract,omitempty"`
-	Inactive          *bool                                      `bson:"inactive,omitempty" json:"inactive,omitempty"`
+	Abstract          *Boolean                                   `bson:"abstract,omitempty" json:"abstract,omitempty"`
+	Inactive          *Boolean                                   `bson:"inactive,omitempty" json:"inactive,omitempty"`
 	Version           *string                                    `bson:"version,omitempty" json:"version,omitempty"`
 	Code              *string                                    `bson:"code,omitempty" json:"code,omitempty"`
 	Display           *string                                    `bson:"display,omitempty" json:"display,omitempty"`

@@ -30,7 +30,7 @@ type Linkage struct {
 	Contained         []json.RawMessage `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Active            *bool             `bson:"active,omitempty" json:"active,omitempty"`
+	Active            *Boolean          `bson:"active,omitempty" json:"active,omitempty"`
 	Author            *Reference        `bson:"author,omitempty" json:"author,omitempty"`
 	Item              []LinkageItem     `bson:"item" json:"item"`
 }

@@ -34,7 +34,7 @@ type ObservationDefinition struct {
 	Code                   CodeableConcept                           `bson:"code" json:"code"`
 	Identifier             []Identifier                              `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	PermittedDataType      []ObservationDataType                     `bson:"permittedDataType,omitempty" json:"permittedDataType,omitempty"`
-	MultipleResultsAllowed *bool                                     `bson:"multipleResultsAllowed,omitempty" json:"multipleResultsAllowed,omitempty"`
+	MultipleResultsAllowed *Boolean                                  `bson:"multipleResultsAllowed,omitempty" json:"multipleResultsAllowed,omitempty"`
 	Method                 *CodeableConcept                          `bson:"method,omitempty" json:"method,omitempty"`
 	PreferredReportName    *string                                   `bson:"preferredReportName,omitempty" json:"preferredReportName,omitempty"`
 	QuantitativeDetails    *ObservationDefinitionQuantitativeDetails `bson:"quantitativeDetails,omitempty" json:"quantitativeDetails,omitempty"`

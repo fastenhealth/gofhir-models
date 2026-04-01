@@ -58,7 +58,7 @@ type AuditEventAgent struct {
 	Who               *Reference              `bson:"who,omitempty" json:"who,omitempty"`
 	AltId             *string                 `bson:"altId,omitempty" json:"altId,omitempty"`
 	Name              *string                 `bson:"name,omitempty" json:"name,omitempty"`
-	Requestor         bool                    `bson:"requestor" json:"requestor"`
+	Requestor         Boolean                 `bson:"requestor" json:"requestor"`
 	Location          *Reference              `bson:"location,omitempty" json:"location,omitempty"`
 	Policy            []string                `bson:"policy,omitempty" json:"policy,omitempty"`
 	Media             *Coding                 `bson:"media,omitempty" json:"media,omitempty"`

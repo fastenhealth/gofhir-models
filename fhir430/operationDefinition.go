@@ -36,7 +36,7 @@ type OperationDefinition struct {
 	Title             *string                        `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus              `bson:"status" json:"status"`
 	Kind              OperationKind                  `bson:"kind" json:"kind"`
-	Experimental      *bool                          `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                       `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                        `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                        `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -44,14 +44,14 @@ type OperationDefinition struct {
 	UseContext        []UsageContext                 `bson:"useContext,omitempty" json:"useContext,omitempty"`
 	Jurisdiction      []CodeableConcept              `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
 	Purpose           *string                        `bson:"purpose,omitempty" json:"purpose,omitempty"`
-	AffectsState      *bool                          `bson:"affectsState,omitempty" json:"affectsState,omitempty"`
+	AffectsState      *Boolean                       `bson:"affectsState,omitempty" json:"affectsState,omitempty"`
 	Code              string                         `bson:"code" json:"code"`
 	Comment           *string                        `bson:"comment,omitempty" json:"comment,omitempty"`
 	Base              *string                        `bson:"base,omitempty" json:"base,omitempty"`
 	Resource          []ResourceType                 `bson:"resource,omitempty" json:"resource,omitempty"`
-	System            bool                           `bson:"system" json:"system"`
-	Type              bool                           `bson:"type" json:"type"`
-	Instance          bool                           `bson:"instance" json:"instance"`
+	System            Boolean                        `bson:"system" json:"system"`
+	Type              Boolean                        `bson:"type" json:"type"`
+	Instance          Boolean                        `bson:"instance" json:"instance"`
 	InputProfile      *string                        `bson:"inputProfile,omitempty" json:"inputProfile,omitempty"`
 	OutputProfile     *string                        `bson:"outputProfile,omitempty" json:"outputProfile,omitempty"`
 	Parameter         []OperationDefinitionParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`

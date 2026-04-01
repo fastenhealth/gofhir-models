@@ -39,7 +39,7 @@ type Immunization struct {
 	OccurrenceDateTime string                        `bson:"occurrenceDateTime" json:"occurrenceDateTime"`
 	OccurrenceString   string                        `bson:"occurrenceString" json:"occurrenceString"`
 	Recorded           *string                       `bson:"recorded,omitempty" json:"recorded,omitempty"`
-	PrimarySource      *bool                         `bson:"primarySource,omitempty" json:"primarySource,omitempty"`
+	PrimarySource      *Boolean                      `bson:"primarySource,omitempty" json:"primarySource,omitempty"`
 	ReportOrigin       *CodeableConcept              `bson:"reportOrigin,omitempty" json:"reportOrigin,omitempty"`
 	Location           *Reference                    `bson:"location,omitempty" json:"location,omitempty"`
 	Manufacturer       *Reference                    `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
@@ -52,7 +52,7 @@ type Immunization struct {
 	Note               []Annotation                  `bson:"note,omitempty" json:"note,omitempty"`
 	ReasonCode         []CodeableConcept             `bson:"reasonCode,omitempty" json:"reasonCode,omitempty"`
 	ReasonReference    []Reference                   `bson:"reasonReference,omitempty" json:"reasonReference,omitempty"`
-	IsSubpotent        *bool                         `bson:"isSubpotent,omitempty" json:"isSubpotent,omitempty"`
+	IsSubpotent        *Boolean                      `bson:"isSubpotent,omitempty" json:"isSubpotent,omitempty"`
 	SubpotentReason    []CodeableConcept             `bson:"subpotentReason,omitempty" json:"subpotentReason,omitempty"`
 	Education          []ImmunizationEducation       `bson:"education,omitempty" json:"education,omitempty"`
 	ProgramEligibility []CodeableConcept             `bson:"programEligibility,omitempty" json:"programEligibility,omitempty"`
@@ -89,7 +89,7 @@ type ImmunizationReaction struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Date              *string     `bson:"date,omitempty" json:"date,omitempty"`
 	Detail            *Reference  `bson:"detail,omitempty" json:"detail,omitempty"`
-	Reported          *bool       `bson:"reported,omitempty" json:"reported,omitempty"`
+	Reported          *Boolean    `bson:"reported,omitempty" json:"reported,omitempty"`
 }
 
 // The protocol (set of recommendations) being followed by the provider who administered the dose.

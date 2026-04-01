@@ -31,16 +31,16 @@ type Patient struct {
 	Extension            []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension    []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier           []Identifier           `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active               *bool                  `bson:"active,omitempty" json:"active,omitempty"`
+	Active               *Boolean               `bson:"active,omitempty" json:"active,omitempty"`
 	Name                 []HumanName            `bson:"name,omitempty" json:"name,omitempty"`
 	Telecom              []ContactPoint         `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Gender               *AdministrativeGender  `bson:"gender,omitempty" json:"gender,omitempty"`
 	BirthDate            *string                `bson:"birthDate,omitempty" json:"birthDate,omitempty"`
-	DeceasedBoolean      *bool                  `bson:"deceasedBoolean,omitempty" json:"deceasedBoolean,omitempty"`
+	DeceasedBoolean      *Boolean               `bson:"deceasedBoolean,omitempty" json:"deceasedBoolean,omitempty"`
 	DeceasedDateTime     *string                `bson:"deceasedDateTime,omitempty" json:"deceasedDateTime,omitempty"`
 	Address              []Address              `bson:"address,omitempty" json:"address,omitempty"`
 	MaritalStatus        *CodeableConcept       `bson:"maritalStatus,omitempty" json:"maritalStatus,omitempty"`
-	MultipleBirthBoolean *bool                  `bson:"multipleBirthBoolean,omitempty" json:"multipleBirthBoolean,omitempty"`
+	MultipleBirthBoolean *Boolean               `bson:"multipleBirthBoolean,omitempty" json:"multipleBirthBoolean,omitempty"`
 	MultipleBirthInteger *int                   `bson:"multipleBirthInteger,omitempty" json:"multipleBirthInteger,omitempty"`
 	Photo                []Attachment           `bson:"photo,omitempty" json:"photo,omitempty"`
 	Contact              []PatientContact       `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -72,7 +72,7 @@ type PatientCommunication struct {
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Language          CodeableConcept `bson:"language" json:"language"`
-	Preferred         *bool           `bson:"preferred,omitempty" json:"preferred,omitempty"`
+	Preferred         *Boolean        `bson:"preferred,omitempty" json:"preferred,omitempty"`
 }
 
 // Link to another patient resource that concerns the same actual patient.

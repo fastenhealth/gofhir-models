@@ -28,7 +28,7 @@ type ElementDefinition struct {
 	Path                            string                        `bson:"path" json:"path"`
 	Representation                  []PropertyRepresentation      `bson:"representation,omitempty" json:"representation,omitempty"`
 	SliceName                       *string                       `bson:"sliceName,omitempty" json:"sliceName,omitempty"`
-	SliceIsConstraining             *bool                         `bson:"sliceIsConstraining,omitempty" json:"sliceIsConstraining,omitempty"`
+	SliceIsConstraining             *Boolean                      `bson:"sliceIsConstraining,omitempty" json:"sliceIsConstraining,omitempty"`
 	Label                           *string                       `bson:"label,omitempty" json:"label,omitempty"`
 	Code                            []Coding                      `bson:"code,omitempty" json:"code,omitempty"`
 	Slicing                         *ElementDefinitionSlicing     `bson:"slicing,omitempty" json:"slicing,omitempty"`
@@ -43,7 +43,7 @@ type ElementDefinition struct {
 	ContentReference                *string                       `bson:"contentReference,omitempty" json:"contentReference,omitempty"`
 	Type                            []ElementDefinitionType       `bson:"type,omitempty" json:"type,omitempty"`
 	DefaultValueBase64Binary        *string                       `bson:"defaultValueBase64Binary,omitempty" json:"defaultValueBase64Binary,omitempty"`
-	DefaultValueBoolean             *bool                         `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
+	DefaultValueBoolean             *Boolean                      `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
 	DefaultValueCanonical           *string                       `bson:"defaultValueCanonical,omitempty" json:"defaultValueCanonical,omitempty"`
 	DefaultValueCode                *string                       `bson:"defaultValueCode,omitempty" json:"defaultValueCode,omitempty"`
 	DefaultValueDate                *string                       `bson:"defaultValueDate,omitempty" json:"defaultValueDate,omitempty"`
@@ -95,7 +95,7 @@ type ElementDefinition struct {
 	MeaningWhenMissing              *string                       `bson:"meaningWhenMissing,omitempty" json:"meaningWhenMissing,omitempty"`
 	OrderMeaning                    *string                       `bson:"orderMeaning,omitempty" json:"orderMeaning,omitempty"`
 	FixedBase64Binary               *string                       `bson:"fixedBase64Binary,omitempty" json:"fixedBase64Binary,omitempty"`
-	FixedBoolean                    *bool                         `bson:"fixedBoolean,omitempty" json:"fixedBoolean,omitempty"`
+	FixedBoolean                    *Boolean                      `bson:"fixedBoolean,omitempty" json:"fixedBoolean,omitempty"`
 	FixedCanonical                  *string                       `bson:"fixedCanonical,omitempty" json:"fixedCanonical,omitempty"`
 	FixedCode                       *string                       `bson:"fixedCode,omitempty" json:"fixedCode,omitempty"`
 	FixedDate                       *string                       `bson:"fixedDate,omitempty" json:"fixedDate,omitempty"`
@@ -145,7 +145,7 @@ type ElementDefinition struct {
 	FixedDosage                     *Dosage                       `bson:"fixedDosage,omitempty" json:"fixedDosage,omitempty"`
 	FixedMeta                       *Meta                         `bson:"fixedMeta,omitempty" json:"fixedMeta,omitempty"`
 	PatternBase64Binary             *string                       `bson:"patternBase64Binary,omitempty" json:"patternBase64Binary,omitempty"`
-	PatternBoolean                  *bool                         `bson:"patternBoolean,omitempty" json:"patternBoolean,omitempty"`
+	PatternBoolean                  *Boolean                      `bson:"patternBoolean,omitempty" json:"patternBoolean,omitempty"`
 	PatternCanonical                *string                       `bson:"patternCanonical,omitempty" json:"patternCanonical,omitempty"`
 	PatternCode                     *string                       `bson:"patternCode,omitempty" json:"patternCode,omitempty"`
 	PatternDate                     *string                       `bson:"patternDate,omitempty" json:"patternDate,omitempty"`
@@ -216,10 +216,10 @@ type ElementDefinition struct {
 	MaxLength                       *int                          `bson:"maxLength,omitempty" json:"maxLength,omitempty"`
 	Condition                       []string                      `bson:"condition,omitempty" json:"condition,omitempty"`
 	Constraint                      []ElementDefinitionConstraint `bson:"constraint,omitempty" json:"constraint,omitempty"`
-	MustSupport                     *bool                         `bson:"mustSupport,omitempty" json:"mustSupport,omitempty"`
-	IsModifier                      *bool                         `bson:"isModifier,omitempty" json:"isModifier,omitempty"`
+	MustSupport                     *Boolean                      `bson:"mustSupport,omitempty" json:"mustSupport,omitempty"`
+	IsModifier                      *Boolean                      `bson:"isModifier,omitempty" json:"isModifier,omitempty"`
 	IsModifierReason                *string                       `bson:"isModifierReason,omitempty" json:"isModifierReason,omitempty"`
-	IsSummary                       *bool                         `bson:"isSummary,omitempty" json:"isSummary,omitempty"`
+	IsSummary                       *Boolean                      `bson:"isSummary,omitempty" json:"isSummary,omitempty"`
 	Binding                         *ElementDefinitionBinding     `bson:"binding,omitempty" json:"binding,omitempty"`
 	Mapping                         []ElementDefinitionMapping    `bson:"mapping,omitempty" json:"mapping,omitempty"`
 }
@@ -231,7 +231,7 @@ type ElementDefinitionSlicing struct {
 	Extension     []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
 	Discriminator []ElementDefinitionSlicingDiscriminator `bson:"discriminator,omitempty" json:"discriminator,omitempty"`
 	Description   *string                                 `bson:"description,omitempty" json:"description,omitempty"`
-	Ordered       *bool                                   `bson:"ordered,omitempty" json:"ordered,omitempty"`
+	Ordered       *Boolean                                `bson:"ordered,omitempty" json:"ordered,omitempty"`
 	Rules         SlicingRules                            `bson:"rules" json:"rules"`
 }
 
@@ -273,7 +273,7 @@ type ElementDefinitionExample struct {
 	Extension                []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
 	Label                    string              `bson:"label" json:"label"`
 	ValueBase64Binary        string              `bson:"valueBase64Binary" json:"valueBase64Binary"`
-	ValueBoolean             bool                `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean             Boolean             `bson:"valueBoolean" json:"valueBoolean"`
 	ValueCanonical           string              `bson:"valueCanonical" json:"valueCanonical"`
 	ValueCode                string              `bson:"valueCode" json:"valueCode"`
 	ValueDate                string              `bson:"valueDate" json:"valueDate"`

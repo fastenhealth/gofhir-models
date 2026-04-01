@@ -36,7 +36,7 @@ type StructureDefinition struct {
 	Name              string                           `bson:"name" json:"name"`
 	Title             *string                          `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus                `bson:"status" json:"status"`
-	Experimental      *bool                            `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                         `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                          `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                          `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                  `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -49,7 +49,7 @@ type StructureDefinition struct {
 	FhirVersion       *FHIRVersion                     `bson:"fhirVersion,omitempty" json:"fhirVersion,omitempty"`
 	Mapping           []StructureDefinitionMapping     `bson:"mapping,omitempty" json:"mapping,omitempty"`
 	Kind              StructureDefinitionKind          `bson:"kind" json:"kind"`
-	Abstract          bool                             `bson:"abstract" json:"abstract"`
+	Abstract          Boolean                          `bson:"abstract" json:"abstract"`
 	Context           []StructureDefinitionContext     `bson:"context,omitempty" json:"context,omitempty"`
 	ContextInvariant  []string                         `bson:"contextInvariant,omitempty" json:"contextInvariant,omitempty"`
 	Type              string                           `bson:"type" json:"type"`

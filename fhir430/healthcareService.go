@@ -31,7 +31,7 @@ type HealthcareService struct {
 	Extension              []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension      []Extension                      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier             []Identifier                     `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active                 *bool                            `bson:"active,omitempty" json:"active,omitempty"`
+	Active                 *Boolean                         `bson:"active,omitempty" json:"active,omitempty"`
 	ProvidedBy             *Reference                       `bson:"providedBy,omitempty" json:"providedBy,omitempty"`
 	Category               []CodeableConcept                `bson:"category,omitempty" json:"category,omitempty"`
 	Type                   []CodeableConcept                `bson:"type,omitempty" json:"type,omitempty"`
@@ -49,7 +49,7 @@ type HealthcareService struct {
 	Characteristic         []CodeableConcept                `bson:"characteristic,omitempty" json:"characteristic,omitempty"`
 	Communication          []CodeableConcept                `bson:"communication,omitempty" json:"communication,omitempty"`
 	ReferralMethod         []CodeableConcept                `bson:"referralMethod,omitempty" json:"referralMethod,omitempty"`
-	AppointmentRequired    *bool                            `bson:"appointmentRequired,omitempty" json:"appointmentRequired,omitempty"`
+	AppointmentRequired    *Boolean                         `bson:"appointmentRequired,omitempty" json:"appointmentRequired,omitempty"`
 	AvailableTime          []HealthcareServiceAvailableTime `bson:"availableTime,omitempty" json:"availableTime,omitempty"`
 	NotAvailable           []HealthcareServiceNotAvailable  `bson:"notAvailable,omitempty" json:"notAvailable,omitempty"`
 	AvailabilityExceptions *string                          `bson:"availabilityExceptions,omitempty" json:"availabilityExceptions,omitempty"`
@@ -72,7 +72,7 @@ type HealthcareServiceAvailableTime struct {
 	Extension          []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension  []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	DaysOfWeek         []DaysOfWeek `bson:"daysOfWeek,omitempty" json:"daysOfWeek,omitempty"`
-	AllDay             *bool        `bson:"allDay,omitempty" json:"allDay,omitempty"`
+	AllDay             *Boolean     `bson:"allDay,omitempty" json:"allDay,omitempty"`
 	AvailableStartTime *string      `bson:"availableStartTime,omitempty" json:"availableStartTime,omitempty"`
 	AvailableEndTime   *string      `bson:"availableEndTime,omitempty" json:"availableEndTime,omitempty"`
 }

@@ -43,7 +43,7 @@ type SpecimenDefinitionTypeTested struct {
 	Id                 *string                                `bson:"id,omitempty" json:"id,omitempty"`
 	Extension          []Extension                            `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension  []Extension                            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	IsDerived          *bool                                  `bson:"isDerived,omitempty" json:"isDerived,omitempty"`
+	IsDerived          *Boolean                               `bson:"isDerived,omitempty" json:"isDerived,omitempty"`
 	Type               *CodeableConcept                       `bson:"type,omitempty" json:"type,omitempty"`
 	Preference         SpecimenContainedPreference            `bson:"preference" json:"preference"`
 	Container          *SpecimenDefinitionTypeTestedContainer `bson:"container,omitempty" json:"container,omitempty"`

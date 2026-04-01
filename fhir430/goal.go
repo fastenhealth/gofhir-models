@@ -60,7 +60,7 @@ type GoalTarget struct {
 	DetailRange           *Range           `bson:"detailRange,omitempty" json:"detailRange,omitempty"`
 	DetailCodeableConcept *CodeableConcept `bson:"detailCodeableConcept,omitempty" json:"detailCodeableConcept,omitempty"`
 	DetailString          *string          `bson:"detailString,omitempty" json:"detailString,omitempty"`
-	DetailBoolean         *bool            `bson:"detailBoolean,omitempty" json:"detailBoolean,omitempty"`
+	DetailBoolean         *Boolean         `bson:"detailBoolean,omitempty" json:"detailBoolean,omitempty"`
 	DetailInteger         *int             `bson:"detailInteger,omitempty" json:"detailInteger,omitempty"`
 	DetailRatio           *Ratio           `bson:"detailRatio,omitempty" json:"detailRatio,omitempty"`
 	DueDate               *string          `bson:"dueDate,omitempty" json:"dueDate,omitempty"`

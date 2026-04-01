@@ -31,9 +31,9 @@ type Group struct {
 	Extension         []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier          `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active            *bool                 `bson:"active,omitempty" json:"active,omitempty"`
+	Active            *Boolean              `bson:"active,omitempty" json:"active,omitempty"`
 	Type              GroupType             `bson:"type" json:"type"`
-	Actual            bool                  `bson:"actual" json:"actual"`
+	Actual            Boolean               `bson:"actual" json:"actual"`
 	Code              *CodeableConcept      `bson:"code,omitempty" json:"code,omitempty"`
 	Name              *string               `bson:"name,omitempty" json:"name,omitempty"`
 	Quantity          *int                  `bson:"quantity,omitempty" json:"quantity,omitempty"`
@@ -50,11 +50,11 @@ type GroupCharacteristic struct {
 	ModifierExtension    []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code                 CodeableConcept `bson:"code" json:"code"`
 	ValueCodeableConcept CodeableConcept `bson:"valueCodeableConcept" json:"valueCodeableConcept"`
-	ValueBoolean         bool            `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean         Boolean         `bson:"valueBoolean" json:"valueBoolean"`
 	ValueQuantity        Quantity        `bson:"valueQuantity" json:"valueQuantity"`
 	ValueRange           Range           `bson:"valueRange" json:"valueRange"`
 	ValueReference       Reference       `bson:"valueReference" json:"valueReference"`
-	Exclude              bool            `bson:"exclude" json:"exclude"`
+	Exclude              Boolean         `bson:"exclude" json:"exclude"`
 	Period               *Period         `bson:"period,omitempty" json:"period,omitempty"`
 }
 
@@ -65,7 +65,7 @@ type GroupMember struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Entity            Reference   `bson:"entity" json:"entity"`
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
-	Inactive          *bool       `bson:"inactive,omitempty" json:"inactive,omitempty"`
+	Inactive          *Boolean    `bson:"inactive,omitempty" json:"inactive,omitempty"`
 }
 
 // This function returns resource reference information

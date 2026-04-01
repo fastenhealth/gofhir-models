@@ -38,7 +38,7 @@ type ResearchElementDefinition struct {
 	ShortTitle             *string                                   `bson:"shortTitle,omitempty" json:"shortTitle,omitempty"`
 	Subtitle               *string                                   `bson:"subtitle,omitempty" json:"subtitle,omitempty"`
 	Status                 PublicationStatus                         `bson:"status" json:"status"`
-	Experimental           *bool                                     `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental           *Boolean                                  `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	SubjectCodeableConcept *CodeableConcept                          `bson:"subjectCodeableConcept,omitempty" json:"subjectCodeableConcept,omitempty"`
 	SubjectReference       *Reference                                `bson:"subjectReference,omitempty" json:"subjectReference,omitempty"`
 	Date                   *string                                   `bson:"date,omitempty" json:"date,omitempty"`
@@ -77,7 +77,7 @@ type ResearchElementDefinitionCharacteristic struct {
 	DefinitionExpression              Expression       `bson:"definitionExpression" json:"definitionExpression"`
 	DefinitionDataRequirement         DataRequirement  `bson:"definitionDataRequirement" json:"definitionDataRequirement"`
 	UsageContext                      []UsageContext   `bson:"usageContext,omitempty" json:"usageContext,omitempty"`
-	Exclude                           *bool            `bson:"exclude,omitempty" json:"exclude,omitempty"`
+	Exclude                           *Boolean         `bson:"exclude,omitempty" json:"exclude,omitempty"`
 	UnitOfMeasure                     *CodeableConcept `bson:"unitOfMeasure,omitempty" json:"unitOfMeasure,omitempty"`
 	StudyEffectiveDescription         *string          `bson:"studyEffectiveDescription,omitempty" json:"studyEffectiveDescription,omitempty"`
 	StudyEffectiveDateTime            *string          `bson:"studyEffectiveDateTime,omitempty" json:"studyEffectiveDateTime,omitempty"`

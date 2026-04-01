@@ -46,8 +46,8 @@ type FamilyMemberHistory struct {
 	AgeAge                *Age                           `bson:"ageAge,omitempty" json:"ageAge,omitempty"`
 	AgeRange              *Range                         `bson:"ageRange,omitempty" json:"ageRange,omitempty"`
 	AgeString             *string                        `bson:"ageString,omitempty" json:"ageString,omitempty"`
-	EstimatedAge          *bool                          `bson:"estimatedAge,omitempty" json:"estimatedAge,omitempty"`
-	DeceasedBoolean       *bool                          `bson:"deceasedBoolean,omitempty" json:"deceasedBoolean,omitempty"`
+	EstimatedAge          *Boolean                       `bson:"estimatedAge,omitempty" json:"estimatedAge,omitempty"`
+	DeceasedBoolean       *Boolean                       `bson:"deceasedBoolean,omitempty" json:"deceasedBoolean,omitempty"`
 	DeceasedAge           *Age                           `bson:"deceasedAge,omitempty" json:"deceasedAge,omitempty"`
 	DeceasedRange         *Range                         `bson:"deceasedRange,omitempty" json:"deceasedRange,omitempty"`
 	DeceasedDate          *string                        `bson:"deceasedDate,omitempty" json:"deceasedDate,omitempty"`
@@ -65,7 +65,7 @@ type FamilyMemberHistoryCondition struct {
 	ModifierExtension  []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code               CodeableConcept  `bson:"code" json:"code"`
 	Outcome            *CodeableConcept `bson:"outcome,omitempty" json:"outcome,omitempty"`
-	ContributedToDeath *bool            `bson:"contributedToDeath,omitempty" json:"contributedToDeath,omitempty"`
+	ContributedToDeath *Boolean         `bson:"contributedToDeath,omitempty" json:"contributedToDeath,omitempty"`
 	OnsetAge           *Age             `bson:"onsetAge,omitempty" json:"onsetAge,omitempty"`
 	OnsetRange         *Range           `bson:"onsetRange,omitempty" json:"onsetRange,omitempty"`
 	OnsetPeriod        *Period          `bson:"onsetPeriod,omitempty" json:"onsetPeriod,omitempty"`

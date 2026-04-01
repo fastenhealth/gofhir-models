@@ -32,7 +32,7 @@ type MedicinalProductIngredient struct {
 	ModifierExtension   []Extension                                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier          *Identifier                                    `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Role                CodeableConcept                                `bson:"role" json:"role"`
-	AllergenicIndicator *bool                                          `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty"`
+	AllergenicIndicator *Boolean                                       `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty"`
 	Manufacturer        []Reference                                    `bson:"manufacturer,omitempty" json:"manufacturer,omitempty"`
 	SpecifiedSubstance  []MedicinalProductIngredientSpecifiedSubstance `bson:"specifiedSubstance,omitempty" json:"specifiedSubstance,omitempty"`
 	Substance           *MedicinalProductIngredientSubstance           `bson:"substance,omitempty" json:"substance,omitempty"`

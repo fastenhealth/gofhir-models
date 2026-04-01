@@ -103,7 +103,7 @@ type ExplanationOfBenefitCareTeam struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence          int              `bson:"sequence" json:"sequence"`
 	Provider          Reference        `bson:"provider" json:"provider"`
-	Responsible       *bool            `bson:"responsible,omitempty" json:"responsible,omitempty"`
+	Responsible       *Boolean         `bson:"responsible,omitempty" json:"responsible,omitempty"`
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 	Qualification     *CodeableConcept `bson:"qualification,omitempty" json:"qualification,omitempty"`
 }
@@ -119,7 +119,7 @@ type ExplanationOfBenefitSupportingInfo struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	TimingDate        *string          `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
 	TimingPeriod      *Period          `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
-	ValueBoolean      *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean      *Boolean         `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueString       *string          `bson:"valueString,omitempty" json:"valueString,omitempty"`
 	ValueQuantity     *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueAttachment   *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
@@ -159,7 +159,7 @@ type ExplanationOfBenefitInsurance struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Focal             bool        `bson:"focal" json:"focal"`
+	Focal             Boolean     `bson:"focal" json:"focal"`
 	Coverage          Reference   `bson:"coverage" json:"coverage"`
 	PreAuthRef        []string    `bson:"preAuthRef,omitempty" json:"preAuthRef,omitempty"`
 }
@@ -359,7 +359,7 @@ type ExplanationOfBenefitBenefitBalance struct {
 	Extension         []Extension                                   `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                   `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Category          CodeableConcept                               `bson:"category" json:"category"`
-	Excluded          *bool                                         `bson:"excluded,omitempty" json:"excluded,omitempty"`
+	Excluded          *Boolean                                      `bson:"excluded,omitempty" json:"excluded,omitempty"`
 	Name              *string                                       `bson:"name,omitempty" json:"name,omitempty"`
 	Description       *string                                       `bson:"description,omitempty" json:"description,omitempty"`
 	Network           *CodeableConcept                              `bson:"network,omitempty" json:"network,omitempty"`

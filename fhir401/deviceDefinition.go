@@ -108,8 +108,8 @@ type DeviceDefinitionMaterial struct {
 	Extension           []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Substance           CodeableConcept `bson:"substance" json:"substance"`
-	Alternate           *bool           `bson:"alternate,omitempty" json:"alternate,omitempty"`
-	AllergenicIndicator *bool           `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty"`
+	Alternate           *Boolean        `bson:"alternate,omitempty" json:"alternate,omitempty"`
+	AllergenicIndicator *Boolean        `bson:"allergenicIndicator,omitempty" json:"allergenicIndicator,omitempty"`
 }
 
 // This function returns resource reference information

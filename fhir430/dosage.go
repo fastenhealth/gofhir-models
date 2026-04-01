@@ -28,7 +28,7 @@ type Dosage struct {
 	AdditionalInstruction    []CodeableConcept   `bson:"additionalInstruction,omitempty" json:"additionalInstruction,omitempty"`
 	PatientInstruction       *string             `bson:"patientInstruction,omitempty" json:"patientInstruction,omitempty"`
 	Timing                   *Timing             `bson:"timing,omitempty" json:"timing,omitempty"`
-	AsNeededBoolean          *bool               `bson:"asNeededBoolean,omitempty" json:"asNeededBoolean,omitempty"`
+	AsNeededBoolean          *Boolean            `bson:"asNeededBoolean,omitempty" json:"asNeededBoolean,omitempty"`
 	AsNeededCodeableConcept  *CodeableConcept    `bson:"asNeededCodeableConcept,omitempty" json:"asNeededCodeableConcept,omitempty"`
 	Site                     *CodeableConcept    `bson:"site,omitempty" json:"site,omitempty"`
 	Route                    *CodeableConcept    `bson:"route,omitempty" json:"route,omitempty"`

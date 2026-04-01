@@ -142,7 +142,7 @@ type ContractTermOfferAnswer struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueBoolean      bool        `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean      Boolean     `bson:"valueBoolean" json:"valueBoolean"`
 	ValueDecimal      json.Number `bson:"valueDecimal" json:"valueDecimal"`
 	ValueInteger      int         `bson:"valueInteger" json:"valueInteger"`
 	ValueDate         string      `bson:"valueDate" json:"valueDate"`
@@ -216,7 +216,7 @@ type ContractTermAction struct {
 	Id                  *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	DoNotPerform        *bool                       `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	DoNotPerform        *Boolean                    `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	Type                CodeableConcept             `bson:"type" json:"type"`
 	Subject             []ContractTermActionSubject `bson:"subject,omitempty" json:"subject,omitempty"`
 	Intent              CodeableConcept             `bson:"intent" json:"intent"`

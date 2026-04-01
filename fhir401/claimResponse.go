@@ -202,7 +202,7 @@ type ClaimResponseInsurance struct {
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence            int         `bson:"sequence" json:"sequence"`
-	Focal               bool        `bson:"focal" json:"focal"`
+	Focal               Boolean     `bson:"focal" json:"focal"`
 	Coverage            Reference   `bson:"coverage" json:"coverage"`
 	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
 	ClaimResponse       *Reference  `bson:"claimResponse,omitempty" json:"claimResponse,omitempty"`

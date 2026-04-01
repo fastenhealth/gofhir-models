@@ -62,7 +62,7 @@ type QuestionnaireResponseItemAnswer struct {
 	Id                *string                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueBoolean      *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean      *Boolean                    `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueDecimal      *json.Number                `bson:"valueDecimal,omitempty" json:"valueDecimal,omitempty"`
 	ValueInteger      *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
 	ValueDate         *string                     `bson:"valueDate,omitempty" json:"valueDate,omitempty"`

@@ -36,7 +36,7 @@ type TestScript struct {
 	Name              string                  `bson:"name" json:"name"`
 	Title             *string                 `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus       `bson:"status" json:"status"`
-	Experimental      *bool                   `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                 `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                 `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail         `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -100,8 +100,8 @@ type TestScriptMetadataCapability struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Required          bool        `bson:"required" json:"required"`
-	Validated         bool        `bson:"validated" json:"validated"`
+	Required          Boolean     `bson:"required" json:"required"`
+	Validated         Boolean     `bson:"validated" json:"validated"`
 	Description       *string     `bson:"description,omitempty" json:"description,omitempty"`
 	Origin            []int       `bson:"origin,omitempty" json:"origin,omitempty"`
 	Destination       *int        `bson:"destination,omitempty" json:"destination,omitempty"`
@@ -114,8 +114,8 @@ type TestScriptFixture struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Autocreate        bool        `bson:"autocreate" json:"autocreate"`
-	Autodelete        bool        `bson:"autodelete" json:"autodelete"`
+	Autocreate        Boolean     `bson:"autocreate" json:"autocreate"`
+	Autodelete        Boolean     `bson:"autodelete" json:"autodelete"`
 	Resource          *Reference  `bson:"resource,omitempty" json:"resource,omitempty"`
 }
 
@@ -165,7 +165,7 @@ type TestScriptSetupActionOperation struct {
 	Accept            *string                                       `bson:"accept,omitempty" json:"accept,omitempty"`
 	ContentType       *string                                       `bson:"contentType,omitempty" json:"contentType,omitempty"`
 	Destination       *int                                          `bson:"destination,omitempty" json:"destination,omitempty"`
-	EncodeRequestUrl  bool                                          `bson:"encodeRequestUrl" json:"encodeRequestUrl"`
+	EncodeRequestUrl  Boolean                                       `bson:"encodeRequestUrl" json:"encodeRequestUrl"`
 	Method            *TestScriptRequestMethodCode                  `bson:"method,omitempty" json:"method,omitempty"`
 	Origin            *int                                          `bson:"origin,omitempty" json:"origin,omitempty"`
 	Params            *string                                       `bson:"params,omitempty" json:"params,omitempty"`
@@ -203,7 +203,7 @@ type TestScriptSetupActionAssert struct {
 	Expression                *string                      `bson:"expression,omitempty" json:"expression,omitempty"`
 	HeaderField               *string                      `bson:"headerField,omitempty" json:"headerField,omitempty"`
 	MinimumId                 *string                      `bson:"minimumId,omitempty" json:"minimumId,omitempty"`
-	NavigationLinks           *bool                        `bson:"navigationLinks,omitempty" json:"navigationLinks,omitempty"`
+	NavigationLinks           *Boolean                     `bson:"navigationLinks,omitempty" json:"navigationLinks,omitempty"`
 	Operator                  *AssertionOperatorType       `bson:"operator,omitempty" json:"operator,omitempty"`
 	Path                      *string                      `bson:"path,omitempty" json:"path,omitempty"`
 	RequestMethod             *TestScriptRequestMethodCode `bson:"requestMethod,omitempty" json:"requestMethod,omitempty"`
@@ -214,7 +214,7 @@ type TestScriptSetupActionAssert struct {
 	SourceId                  *string                      `bson:"sourceId,omitempty" json:"sourceId,omitempty"`
 	ValidateProfileId         *string                      `bson:"validateProfileId,omitempty" json:"validateProfileId,omitempty"`
 	Value                     *string                      `bson:"value,omitempty" json:"value,omitempty"`
-	WarningOnly               bool                         `bson:"warningOnly" json:"warningOnly"`
+	WarningOnly               Boolean                      `bson:"warningOnly" json:"warningOnly"`
 }
 
 // A test in this script.

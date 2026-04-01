@@ -147,7 +147,7 @@ type SubstanceSpecificationName struct {
 	Name              string                               `bson:"name" json:"name"`
 	Type              *CodeableConcept                     `bson:"type,omitempty" json:"type,omitempty"`
 	Status            *CodeableConcept                     `bson:"status,omitempty" json:"status,omitempty"`
-	Preferred         *bool                                `bson:"preferred,omitempty" json:"preferred,omitempty"`
+	Preferred         *Boolean                             `bson:"preferred,omitempty" json:"preferred,omitempty"`
 	Language          []CodeableConcept                    `bson:"language,omitempty" json:"language,omitempty"`
 	Domain            []CodeableConcept                    `bson:"domain,omitempty" json:"domain,omitempty"`
 	Jurisdiction      []CodeableConcept                    `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
@@ -175,7 +175,7 @@ type SubstanceSpecificationRelationship struct {
 	SubstanceReference       *Reference       `bson:"substanceReference,omitempty" json:"substanceReference,omitempty"`
 	SubstanceCodeableConcept *CodeableConcept `bson:"substanceCodeableConcept,omitempty" json:"substanceCodeableConcept,omitempty"`
 	Relationship             *CodeableConcept `bson:"relationship,omitempty" json:"relationship,omitempty"`
-	IsDefining               *bool            `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
+	IsDefining               *Boolean         `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
 	AmountQuantity           *Quantity        `bson:"amountQuantity,omitempty" json:"amountQuantity,omitempty"`
 	AmountRange              *Range           `bson:"amountRange,omitempty" json:"amountRange,omitempty"`
 	AmountRatio              *Ratio           `bson:"amountRatio,omitempty" json:"amountRatio,omitempty"`

@@ -32,7 +32,7 @@ type CatalogEntry struct {
 	ModifierExtension        []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier               []Identifier               `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Type                     *CodeableConcept           `bson:"type,omitempty" json:"type,omitempty"`
-	Orderable                bool                       `bson:"orderable" json:"orderable"`
+	Orderable                Boolean                    `bson:"orderable" json:"orderable"`
 	ReferencedItem           Reference                  `bson:"referencedItem" json:"referencedItem"`
 	AdditionalIdentifier     []Identifier               `bson:"additionalIdentifier,omitempty" json:"additionalIdentifier,omitempty"`
 	Classification           []CodeableConcept          `bson:"classification,omitempty" json:"classification,omitempty"`

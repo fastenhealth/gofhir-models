@@ -38,7 +38,7 @@ type Person struct {
 	Address              []Address             `bson:"address,omitempty" json:"address,omitempty"`
 	Photo                *Attachment           `bson:"photo,omitempty" json:"photo,omitempty"`
 	ManagingOrganization *Reference            `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty"`
-	Active               *bool                 `bson:"active,omitempty" json:"active,omitempty"`
+	Active               *Boolean              `bson:"active,omitempty" json:"active,omitempty"`
 	Link                 []PersonLink          `bson:"link,omitempty" json:"link,omitempty"`
 }
 

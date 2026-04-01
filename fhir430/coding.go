@@ -26,5 +26,5 @@ type Coding struct {
 	Version      *string     `bson:"version,omitempty" json:"version,omitempty"`
 	Code         *string     `bson:"code,omitempty" json:"code,omitempty"`
 	Display      *string     `bson:"display,omitempty" json:"display,omitempty"`
-	UserSelected *bool       `bson:"userSelected,omitempty" json:"userSelected,omitempty"`
+	UserSelected *Boolean    `bson:"userSelected,omitempty" json:"userSelected,omitempty"`
 }

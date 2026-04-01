@@ -37,7 +37,7 @@ type Questionnaire struct {
 	Title             *string             `bson:"title,omitempty" json:"title,omitempty"`
 	DerivedFrom       []string            `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
 	Status            PublicationStatus   `bson:"status" json:"status"`
-	Experimental      *bool               `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean            `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	SubjectType       []ResourceType      `bson:"subjectType,omitempty" json:"subjectType,omitempty"`
 	Date              *string             `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string             `bson:"publisher,omitempty" json:"publisher,omitempty"`
@@ -68,9 +68,9 @@ type QuestionnaireItem struct {
 	Type              QuestionnaireItemType           `bson:"type" json:"type"`
 	EnableWhen        []QuestionnaireItemEnableWhen   `bson:"enableWhen,omitempty" json:"enableWhen,omitempty"`
 	EnableBehavior    *EnableWhenBehavior             `bson:"enableBehavior,omitempty" json:"enableBehavior,omitempty"`
-	Required          *bool                           `bson:"required,omitempty" json:"required,omitempty"`
-	Repeats           *bool                           `bson:"repeats,omitempty" json:"repeats,omitempty"`
-	ReadOnly          *bool                           `bson:"readOnly,omitempty" json:"readOnly,omitempty"`
+	Required          *Boolean                        `bson:"required,omitempty" json:"required,omitempty"`
+	Repeats           *Boolean                        `bson:"repeats,omitempty" json:"repeats,omitempty"`
+	ReadOnly          *Boolean                        `bson:"readOnly,omitempty" json:"readOnly,omitempty"`
 	MaxLength         *int                            `bson:"maxLength,omitempty" json:"maxLength,omitempty"`
 	AnswerValueSet    *string                         `bson:"answerValueSet,omitempty" json:"answerValueSet,omitempty"`
 	AnswerOption      []QuestionnaireItemAnswerOption `bson:"answerOption,omitempty" json:"answerOption,omitempty"`
@@ -86,7 +86,7 @@ type QuestionnaireItemEnableWhen struct {
 	ModifierExtension []Extension               `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Question          string                    `bson:"question" json:"question"`
 	Operator          QuestionnaireItemOperator `bson:"operator" json:"operator"`
-	AnswerBoolean     bool                      `bson:"answerBoolean" json:"answerBoolean"`
+	AnswerBoolean     Boolean                   `bson:"answerBoolean" json:"answerBoolean"`
 	AnswerDecimal     json.Number               `bson:"answerDecimal" json:"answerDecimal"`
 	AnswerInteger     int                       `bson:"answerInteger" json:"answerInteger"`
 	AnswerDate        string                    `bson:"answerDate" json:"answerDate"`
@@ -110,7 +110,7 @@ type QuestionnaireItemAnswerOption struct {
 	ValueString       string      `bson:"valueString" json:"valueString"`
 	ValueCoding       Coding      `bson:"valueCoding" json:"valueCoding"`
 	ValueReference    Reference   `bson:"valueReference" json:"valueReference"`
-	InitialSelected   *bool       `bson:"initialSelected,omitempty" json:"initialSelected,omitempty"`
+	InitialSelected   *Boolean    `bson:"initialSelected,omitempty" json:"initialSelected,omitempty"`
 }
 
 // One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input.
@@ -119,7 +119,7 @@ type QuestionnaireItemInitial struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	ValueBoolean      bool        `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean      Boolean     `bson:"valueBoolean" json:"valueBoolean"`
 	ValueDecimal      json.Number `bson:"valueDecimal" json:"valueDecimal"`
 	ValueInteger      int         `bson:"valueInteger" json:"valueInteger"`
 	ValueDate         string      `bson:"valueDate" json:"valueDate"`

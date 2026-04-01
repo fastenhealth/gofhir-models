@@ -48,7 +48,7 @@ type Observation struct {
 	ValueQuantity        *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueCodeableConcept *CodeableConcept            `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
 	ValueString          *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueBoolean         *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean         *Boolean                    `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueInteger         *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
 	ValueRange           *Range                      `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 	ValueRatio           *Ratio                      `bson:"valueRatio,omitempty" json:"valueRatio,omitempty"`
@@ -93,7 +93,7 @@ type ObservationComponent struct {
 	ValueQuantity        *Quantity                   `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueCodeableConcept *CodeableConcept            `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
 	ValueString          *string                     `bson:"valueString,omitempty" json:"valueString,omitempty"`
-	ValueBoolean         *bool                       `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean         *Boolean                    `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueInteger         *int                        `bson:"valueInteger,omitempty" json:"valueInteger,omitempty"`
 	ValueRange           *Range                      `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
 	ValueRatio           *Ratio                      `bson:"valueRatio,omitempty" json:"valueRatio,omitempty"`

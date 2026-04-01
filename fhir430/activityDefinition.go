@@ -37,7 +37,7 @@ type ActivityDefinition struct {
 	Title                        *string                          `bson:"title,omitempty" json:"title,omitempty"`
 	Subtitle                     *string                          `bson:"subtitle,omitempty" json:"subtitle,omitempty"`
 	Status                       PublicationStatus                `bson:"status" json:"status"`
-	Experimental                 *bool                            `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental                 *Boolean                         `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	SubjectCodeableConcept       *CodeableConcept                 `bson:"subjectCodeableConcept,omitempty" json:"subjectCodeableConcept,omitempty"`
 	SubjectReference             *Reference                       `bson:"subjectReference,omitempty" json:"subjectReference,omitempty"`
 	Date                         *string                          `bson:"date,omitempty" json:"date,omitempty"`
@@ -64,7 +64,7 @@ type ActivityDefinition struct {
 	Code                         *CodeableConcept                 `bson:"code,omitempty" json:"code,omitempty"`
 	Intent                       *RequestIntent                   `bson:"intent,omitempty" json:"intent,omitempty"`
 	Priority                     *RequestPriority                 `bson:"priority,omitempty" json:"priority,omitempty"`
-	DoNotPerform                 *bool                            `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	DoNotPerform                 *Boolean                         `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	TimingTiming                 *Timing                          `bson:"timingTiming,omitempty" json:"timingTiming,omitempty"`
 	TimingDateTime               *string                          `bson:"timingDateTime,omitempty" json:"timingDateTime,omitempty"`
 	TimingAge                    *Age                             `bson:"timingAge,omitempty" json:"timingAge,omitempty"`

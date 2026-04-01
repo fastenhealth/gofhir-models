@@ -55,7 +55,7 @@ type CoverageEligibilityRequestSupportingInfo struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence          int         `bson:"sequence" json:"sequence"`
 	Information       Reference   `bson:"information" json:"information"`
-	AppliesToAll      *bool       `bson:"appliesToAll,omitempty" json:"appliesToAll,omitempty"`
+	AppliesToAll      *Boolean    `bson:"appliesToAll,omitempty" json:"appliesToAll,omitempty"`
 }
 
 // Financial instruments for reimbursement for the health care products and services.
@@ -64,7 +64,7 @@ type CoverageEligibilityRequestInsurance struct {
 	Id                  *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Focal               *bool       `bson:"focal,omitempty" json:"focal,omitempty"`
+	Focal               *Boolean    `bson:"focal,omitempty" json:"focal,omitempty"`
 	Coverage            Reference   `bson:"coverage" json:"coverage"`
 	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`
 }

@@ -31,7 +31,7 @@ type Practitioner struct {
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active            *bool                       `bson:"active,omitempty" json:"active,omitempty"`
+	Active            *Boolean                    `bson:"active,omitempty" json:"active,omitempty"`
 	Name              []HumanName                 `bson:"name,omitempty" json:"name,omitempty"`
 	Telecom           []ContactPoint              `bson:"telecom,omitempty" json:"telecom,omitempty"`
 	Address           []Address                   `bson:"address,omitempty" json:"address,omitempty"`

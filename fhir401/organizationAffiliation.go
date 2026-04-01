@@ -31,7 +31,7 @@ type OrganizationAffiliation struct {
 	Extension                 []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension         []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier                []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active                    *bool             `bson:"active,omitempty" json:"active,omitempty"`
+	Active                    *Boolean          `bson:"active,omitempty" json:"active,omitempty"`
 	Period                    *Period           `bson:"period,omitempty" json:"period,omitempty"`
 	Organization              *Reference        `bson:"organization,omitempty" json:"organization,omitempty"`
 	ParticipatingOrganization *Reference        `bson:"participatingOrganization,omitempty" json:"participatingOrganization,omitempty"`

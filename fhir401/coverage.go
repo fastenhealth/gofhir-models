@@ -45,7 +45,7 @@ type Coverage struct {
 	Order             *int                         `bson:"order,omitempty" json:"order,omitempty"`
 	Network           *string                      `bson:"network,omitempty" json:"network,omitempty"`
 	CostToBeneficiary []CoverageCostToBeneficiary  `bson:"costToBeneficiary,omitempty" json:"costToBeneficiary,omitempty"`
-	Subrogation       *bool                        `bson:"subrogation,omitempty" json:"subrogation,omitempty"`
+	Subrogation       *Boolean                     `bson:"subrogation,omitempty" json:"subrogation,omitempty"`
 	Contract          []Reference                  `bson:"contract,omitempty" json:"contract,omitempty"`
 }
 

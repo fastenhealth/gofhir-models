@@ -35,7 +35,7 @@ type ExampleScenario struct {
 	Version           *string                   `bson:"version,omitempty" json:"version,omitempty"`
 	Name              *string                   `bson:"name,omitempty" json:"name,omitempty"`
 	Status            PublicationStatus         `bson:"status" json:"status"`
-	Experimental      *bool                     `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                  `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                   `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                   `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail           `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -109,7 +109,7 @@ type ExampleScenarioProcessStep struct {
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Process           []ExampleScenarioProcess                `bson:"process,omitempty" json:"process,omitempty"`
-	Pause             *bool                                   `bson:"pause,omitempty" json:"pause,omitempty"`
+	Pause             *Boolean                                `bson:"pause,omitempty" json:"pause,omitempty"`
 	Operation         *ExampleScenarioProcessStepOperation    `bson:"operation,omitempty" json:"operation,omitempty"`
 	Alternative       []ExampleScenarioProcessStepAlternative `bson:"alternative,omitempty" json:"alternative,omitempty"`
 }
@@ -125,8 +125,8 @@ type ExampleScenarioProcessStepOperation struct {
 	Initiator         *string                                   `bson:"initiator,omitempty" json:"initiator,omitempty"`
 	Receiver          *string                                   `bson:"receiver,omitempty" json:"receiver,omitempty"`
 	Description       *string                                   `bson:"description,omitempty" json:"description,omitempty"`
-	InitiatorActive   *bool                                     `bson:"initiatorActive,omitempty" json:"initiatorActive,omitempty"`
-	ReceiverActive    *bool                                     `bson:"receiverActive,omitempty" json:"receiverActive,omitempty"`
+	InitiatorActive   *Boolean                                  `bson:"initiatorActive,omitempty" json:"initiatorActive,omitempty"`
+	ReceiverActive    *Boolean                                  `bson:"receiverActive,omitempty" json:"receiverActive,omitempty"`
 	Request           *ExampleScenarioInstanceContainedInstance `bson:"request,omitempty" json:"request,omitempty"`
 	Response          *ExampleScenarioInstanceContainedInstance `bson:"response,omitempty" json:"response,omitempty"`
 }

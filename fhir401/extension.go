@@ -26,7 +26,7 @@ type Extension struct {
 	Extension                []Extension          `bson:"extension,omitempty" json:"extension,omitempty"`
 	Url                      string               `bson:"url" json:"url"`
 	ValueBase64Binary        *string              `bson:"valueBase64Binary,omitempty" json:"valueBase64Binary,omitempty"`
-	ValueBoolean             *bool                `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean             *Boolean             `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueCanonical           *string              `bson:"valueCanonical,omitempty" json:"valueCanonical,omitempty"`
 	ValueCode                *string              `bson:"valueCode,omitempty" json:"valueCode,omitempty"`
 	ValueDate                *string              `bson:"valueDate,omitempty" json:"valueDate,omitempty"`

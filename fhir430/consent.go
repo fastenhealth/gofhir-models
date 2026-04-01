@@ -60,7 +60,7 @@ type ConsentVerification struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Verified          bool        `bson:"verified" json:"verified"`
+	Verified          Boolean     `bson:"verified" json:"verified"`
 	VerifiedWith      *Reference  `bson:"verifiedWith,omitempty" json:"verifiedWith,omitempty"`
 	VerificationDate  *string     `bson:"verificationDate,omitempty" json:"verificationDate,omitempty"`
 }

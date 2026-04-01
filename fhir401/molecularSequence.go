@@ -132,7 +132,7 @@ type MolecularSequenceStructureVariant struct {
 	Extension         []Extension                             `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                             `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	VariantType       *CodeableConcept                        `bson:"variantType,omitempty" json:"variantType,omitempty"`
-	Exact             *bool                                   `bson:"exact,omitempty" json:"exact,omitempty"`
+	Exact             *Boolean                                `bson:"exact,omitempty" json:"exact,omitempty"`
 	Length            *int                                    `bson:"length,omitempty" json:"length,omitempty"`
 	Outer             *MolecularSequenceStructureVariantOuter `bson:"outer,omitempty" json:"outer,omitempty"`
 	Inner             *MolecularSequenceStructureVariantInner `bson:"inner,omitempty" json:"inner,omitempty"`

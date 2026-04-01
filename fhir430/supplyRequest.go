@@ -59,7 +59,7 @@ type SupplyRequestParameter struct {
 	ValueCodeableConcept *CodeableConcept `bson:"valueCodeableConcept,omitempty" json:"valueCodeableConcept,omitempty"`
 	ValueQuantity        *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueRange           *Range           `bson:"valueRange,omitempty" json:"valueRange,omitempty"`
-	ValueBoolean         *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean         *Boolean         `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 }
 
 // This function returns resource reference information

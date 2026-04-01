@@ -87,7 +87,7 @@ type ClaimCareTeam struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence          int              `bson:"sequence" json:"sequence"`
 	Provider          Reference        `bson:"provider" json:"provider"`
-	Responsible       *bool            `bson:"responsible,omitempty" json:"responsible,omitempty"`
+	Responsible       *Boolean         `bson:"responsible,omitempty" json:"responsible,omitempty"`
 	Role              *CodeableConcept `bson:"role,omitempty" json:"role,omitempty"`
 	Qualification     *CodeableConcept `bson:"qualification,omitempty" json:"qualification,omitempty"`
 }
@@ -103,7 +103,7 @@ type ClaimSupportingInfo struct {
 	Code              *CodeableConcept `bson:"code,omitempty" json:"code,omitempty"`
 	TimingDate        *string          `bson:"timingDate,omitempty" json:"timingDate,omitempty"`
 	TimingPeriod      *Period          `bson:"timingPeriod,omitempty" json:"timingPeriod,omitempty"`
-	ValueBoolean      *bool            `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
+	ValueBoolean      *Boolean         `bson:"valueBoolean,omitempty" json:"valueBoolean,omitempty"`
 	ValueString       *string          `bson:"valueString,omitempty" json:"valueString,omitempty"`
 	ValueQuantity     *Quantity        `bson:"valueQuantity,omitempty" json:"valueQuantity,omitempty"`
 	ValueAttachment   *Attachment      `bson:"valueAttachment,omitempty" json:"valueAttachment,omitempty"`
@@ -144,7 +144,7 @@ type ClaimInsurance struct {
 	Extension           []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Sequence            int         `bson:"sequence" json:"sequence"`
-	Focal               bool        `bson:"focal" json:"focal"`
+	Focal               Boolean     `bson:"focal" json:"focal"`
 	Identifier          *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty"`
 	Coverage            Reference   `bson:"coverage" json:"coverage"`
 	BusinessArrangement *string     `bson:"businessArrangement,omitempty" json:"businessArrangement,omitempty"`

@@ -40,7 +40,7 @@ type ServiceRequest struct {
 	Intent                  RequestIntent     `bson:"intent" json:"intent"`
 	Category                []CodeableConcept `bson:"category,omitempty" json:"category,omitempty"`
 	Priority                *RequestPriority  `bson:"priority,omitempty" json:"priority,omitempty"`
-	DoNotPerform            *bool             `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	DoNotPerform            *Boolean          `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	Code                    *CodeableConcept  `bson:"code,omitempty" json:"code,omitempty"`
 	OrderDetail             []CodeableConcept `bson:"orderDetail,omitempty" json:"orderDetail,omitempty"`
 	QuantityQuantity        *Quantity         `bson:"quantityQuantity,omitempty" json:"quantityQuantity,omitempty"`
@@ -51,7 +51,7 @@ type ServiceRequest struct {
 	OccurrenceDateTime      *string           `bson:"occurrenceDateTime,omitempty" json:"occurrenceDateTime,omitempty"`
 	OccurrencePeriod        *Period           `bson:"occurrencePeriod,omitempty" json:"occurrencePeriod,omitempty"`
 	OccurrenceTiming        *Timing           `bson:"occurrenceTiming,omitempty" json:"occurrenceTiming,omitempty"`
-	AsNeededBoolean         *bool             `bson:"asNeededBoolean,omitempty" json:"asNeededBoolean,omitempty"`
+	AsNeededBoolean         *Boolean          `bson:"asNeededBoolean,omitempty" json:"asNeededBoolean,omitempty"`
 	AsNeededCodeableConcept *CodeableConcept  `bson:"asNeededCodeableConcept,omitempty" json:"asNeededCodeableConcept,omitempty"`
 	AuthoredOn              *string           `bson:"authoredOn,omitempty" json:"authoredOn,omitempty"`
 	Requester               *Reference        `bson:"requester,omitempty" json:"requester,omitempty"`

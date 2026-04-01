@@ -81,7 +81,7 @@ type CarePlanActivityDetail struct {
 	Goal                   []Reference            `bson:"goal,omitempty" json:"goal,omitempty"`
 	Status                 CarePlanActivityStatus `bson:"status" json:"status"`
 	StatusReason           *CodeableConcept       `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
-	DoNotPerform           *bool                  `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	DoNotPerform           *Boolean               `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	ScheduledTiming        *Timing                `bson:"scheduledTiming,omitempty" json:"scheduledTiming,omitempty"`
 	ScheduledPeriod        *Period                `bson:"scheduledPeriod,omitempty" json:"scheduledPeriod,omitempty"`
 	ScheduledString        *string                `bson:"scheduledString,omitempty" json:"scheduledString,omitempty"`

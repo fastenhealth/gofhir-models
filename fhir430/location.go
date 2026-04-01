@@ -70,7 +70,7 @@ type LocationHoursOfOperation struct {
 	Extension         []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	DaysOfWeek        []DaysOfWeek `bson:"daysOfWeek,omitempty" json:"daysOfWeek,omitempty"`
-	AllDay            *bool        `bson:"allDay,omitempty" json:"allDay,omitempty"`
+	AllDay            *Boolean     `bson:"allDay,omitempty" json:"allDay,omitempty"`
 	OpeningTime       *string      `bson:"openingTime,omitempty" json:"openingTime,omitempty"`
 	ClosingTime       *string      `bson:"closingTime,omitempty" json:"closingTime,omitempty"`
 }

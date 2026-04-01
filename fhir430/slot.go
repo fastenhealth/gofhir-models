@@ -39,7 +39,7 @@ type Slot struct {
 	Status            SlotStatus        `bson:"status" json:"status"`
 	Start             string            `bson:"start" json:"start"`
 	End               string            `bson:"end" json:"end"`
-	Overbooked        *bool             `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
+	Overbooked        *Boolean          `bson:"overbooked,omitempty" json:"overbooked,omitempty"`
 	Comment           *string           `bson:"comment,omitempty" json:"comment,omitempty"`
 }
 

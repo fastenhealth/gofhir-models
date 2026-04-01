@@ -35,7 +35,7 @@ type TerminologyCapabilities struct {
 	Name              *string                                `bson:"name,omitempty" json:"name,omitempty"`
 	Title             *string                                `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus                      `bson:"status" json:"status"`
-	Experimental      *bool                                  `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                               `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              string                                 `bson:"date" json:"date"`
 	Publisher         *string                                `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                        `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -47,7 +47,7 @@ type TerminologyCapabilities struct {
 	Kind              CapabilityStatementKind                `bson:"kind" json:"kind"`
 	Software          *TerminologyCapabilitiesSoftware       `bson:"software,omitempty" json:"software,omitempty"`
 	Implementation    *TerminologyCapabilitiesImplementation `bson:"implementation,omitempty" json:"implementation,omitempty"`
-	LockedDate        *bool                                  `bson:"lockedDate,omitempty" json:"lockedDate,omitempty"`
+	LockedDate        *Boolean                               `bson:"lockedDate,omitempty" json:"lockedDate,omitempty"`
 	CodeSystem        []TerminologyCapabilitiesCodeSystem    `bson:"codeSystem,omitempty" json:"codeSystem,omitempty"`
 	Expansion         *TerminologyCapabilitiesExpansion      `bson:"expansion,omitempty" json:"expansion,omitempty"`
 	CodeSearch        *CodeSearchSupport                     `bson:"codeSearch,omitempty" json:"codeSearch,omitempty"`
@@ -82,7 +82,7 @@ type TerminologyCapabilitiesCodeSystem struct {
 	ModifierExtension []Extension                                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Uri               *string                                    `bson:"uri,omitempty" json:"uri,omitempty"`
 	Version           []TerminologyCapabilitiesCodeSystemVersion `bson:"version,omitempty" json:"version,omitempty"`
-	Subsumption       *bool                                      `bson:"subsumption,omitempty" json:"subsumption,omitempty"`
+	Subsumption       *Boolean                                   `bson:"subsumption,omitempty" json:"subsumption,omitempty"`
 }
 
 // For the code system, a list of versions that are supported by the server.
@@ -92,8 +92,8 @@ type TerminologyCapabilitiesCodeSystemVersion struct {
 	Extension         []Extension                                      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Code              *string                                          `bson:"code,omitempty" json:"code,omitempty"`
-	IsDefault         *bool                                            `bson:"isDefault,omitempty" json:"isDefault,omitempty"`
-	Compositional     *bool                                            `bson:"compositional,omitempty" json:"compositional,omitempty"`
+	IsDefault         *Boolean                                         `bson:"isDefault,omitempty" json:"isDefault,omitempty"`
+	Compositional     *Boolean                                         `bson:"compositional,omitempty" json:"compositional,omitempty"`
 	Language          []string                                         `bson:"language,omitempty" json:"language,omitempty"`
 	Filter            []TerminologyCapabilitiesCodeSystemVersionFilter `bson:"filter,omitempty" json:"filter,omitempty"`
 	Property          []string                                         `bson:"property,omitempty" json:"property,omitempty"`
@@ -113,9 +113,9 @@ type TerminologyCapabilitiesExpansion struct {
 	Id                *string                                     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Hierarchical      *bool                                       `bson:"hierarchical,omitempty" json:"hierarchical,omitempty"`
-	Paging            *bool                                       `bson:"paging,omitempty" json:"paging,omitempty"`
-	Incomplete        *bool                                       `bson:"incomplete,omitempty" json:"incomplete,omitempty"`
+	Hierarchical      *Boolean                                    `bson:"hierarchical,omitempty" json:"hierarchical,omitempty"`
+	Paging            *Boolean                                    `bson:"paging,omitempty" json:"paging,omitempty"`
+	Incomplete        *Boolean                                    `bson:"incomplete,omitempty" json:"incomplete,omitempty"`
 	Parameter         []TerminologyCapabilitiesExpansionParameter `bson:"parameter,omitempty" json:"parameter,omitempty"`
 	TextFilter        *string                                     `bson:"textFilter,omitempty" json:"textFilter,omitempty"`
 }
@@ -134,7 +134,7 @@ type TerminologyCapabilitiesValidateCode struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Translations      bool        `bson:"translations" json:"translations"`
+	Translations      Boolean     `bson:"translations" json:"translations"`
 }
 
 // Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation.
@@ -142,7 +142,7 @@ type TerminologyCapabilitiesTranslation struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	NeedsMap          bool        `bson:"needsMap" json:"needsMap"`
+	NeedsMap          Boolean     `bson:"needsMap" json:"needsMap"`
 }
 
 // Whether the $closure operation is supported.
@@ -150,7 +150,7 @@ type TerminologyCapabilitiesClosure struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Translation       *bool       `bson:"translation,omitempty" json:"translation,omitempty"`
+	Translation       *Boolean    `bson:"translation,omitempty" json:"translation,omitempty"`
 }
 
 // This function returns resource reference information

@@ -48,7 +48,7 @@ type MedicationIngredient struct {
 	ModifierExtension   []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept"`
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference"`
-	IsActive            *bool           `bson:"isActive,omitempty" json:"isActive,omitempty"`
+	IsActive            *Boolean        `bson:"isActive,omitempty" json:"isActive,omitempty"`
 	Strength            *Ratio          `bson:"strength,omitempty" json:"strength,omitempty"`
 }
 

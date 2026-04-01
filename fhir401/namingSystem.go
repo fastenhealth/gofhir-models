@@ -53,7 +53,7 @@ type NamingSystemUniqueId struct {
 	ModifierExtension []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              NamingSystemIdentifierType `bson:"type" json:"type"`
 	Value             string                     `bson:"value" json:"value"`
-	Preferred         *bool                      `bson:"preferred,omitempty" json:"preferred,omitempty"`
+	Preferred         *Boolean                   `bson:"preferred,omitempty" json:"preferred,omitempty"`
 	Comment           *string                    `bson:"comment,omitempty" json:"comment,omitempty"`
 	Period            *Period                    `bson:"period,omitempty" json:"period,omitempty"`
 }

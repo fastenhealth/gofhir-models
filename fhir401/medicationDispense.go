@@ -72,7 +72,7 @@ type MedicationDispenseSubstitution struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	WasSubstituted    bool              `bson:"wasSubstituted" json:"wasSubstituted"`
+	WasSubstituted    Boolean           `bson:"wasSubstituted" json:"wasSubstituted"`
 	Type              *CodeableConcept  `bson:"type,omitempty" json:"type,omitempty"`
 	Reason            []CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 	ResponsibleParty  []Reference       `bson:"responsibleParty,omitempty" json:"responsibleParty,omitempty"`

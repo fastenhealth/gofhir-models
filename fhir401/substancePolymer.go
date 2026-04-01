@@ -54,7 +54,7 @@ type SubstancePolymerMonomerSetStartingMaterial struct {
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Material          *CodeableConcept `bson:"material,omitempty" json:"material,omitempty"`
 	Type              *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
-	IsDefining        *bool            `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
+	IsDefining        *Boolean         `bson:"isDefining,omitempty" json:"isDefining,omitempty"`
 	Amount            *SubstanceAmount `bson:"amount,omitempty" json:"amount,omitempty"`
 }
 

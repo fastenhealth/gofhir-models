@@ -34,7 +34,7 @@ type GraphDefinition struct {
 	Version           *string               `bson:"version,omitempty" json:"version,omitempty"`
 	Name              string                `bson:"name" json:"name"`
 	Status            PublicationStatus     `bson:"status" json:"status"`
-	Experimental      *bool                 `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean              `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string               `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string               `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail       `bson:"contact,omitempty" json:"contact,omitempty"`

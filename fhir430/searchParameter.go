@@ -35,7 +35,7 @@ type SearchParameter struct {
 	Name              string                     `bson:"name" json:"name"`
 	DerivedFrom       *string                    `bson:"derivedFrom,omitempty" json:"derivedFrom,omitempty"`
 	Status            PublicationStatus          `bson:"status" json:"status"`
-	Experimental      *bool                      `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                   `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                    `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                    `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail            `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -50,8 +50,8 @@ type SearchParameter struct {
 	Xpath             *string                    `bson:"xpath,omitempty" json:"xpath,omitempty"`
 	XpathUsage        *XPathUsageType            `bson:"xpathUsage,omitempty" json:"xpathUsage,omitempty"`
 	Target            []ResourceType             `bson:"target,omitempty" json:"target,omitempty"`
-	MultipleOr        *bool                      `bson:"multipleOr,omitempty" json:"multipleOr,omitempty"`
-	MultipleAnd       *bool                      `bson:"multipleAnd,omitempty" json:"multipleAnd,omitempty"`
+	MultipleOr        *Boolean                   `bson:"multipleOr,omitempty" json:"multipleOr,omitempty"`
+	MultipleAnd       *Boolean                   `bson:"multipleAnd,omitempty" json:"multipleAnd,omitempty"`
 	Comparator        []SearchComparator         `bson:"comparator,omitempty" json:"comparator,omitempty"`
 	Modifier          []SearchModifierCode       `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	Chain             []string                   `bson:"chain,omitempty" json:"chain,omitempty"`

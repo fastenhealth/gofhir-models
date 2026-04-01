@@ -37,7 +37,7 @@ type MessageDefinition struct {
 	Title             *string                            `bson:"title,omitempty" json:"title,omitempty"`
 	Replaces          []string                           `bson:"replaces,omitempty" json:"replaces,omitempty"`
 	Status            PublicationStatus                  `bson:"status" json:"status"`
-	Experimental      *bool                              `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                           `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              string                             `bson:"date" json:"date"`
 	Publisher         *string                            `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                    `bson:"contact,omitempty" json:"contact,omitempty"`

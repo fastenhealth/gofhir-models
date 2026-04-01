@@ -31,7 +31,7 @@ type RelatedPerson struct {
 	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active            *bool                        `bson:"active,omitempty" json:"active,omitempty"`
+	Active            *Boolean                     `bson:"active,omitempty" json:"active,omitempty"`
 	Patient           Reference                    `bson:"patient" json:"patient"`
 	Relationship      []CodeableConcept            `bson:"relationship,omitempty" json:"relationship,omitempty"`
 	Name              []HumanName                  `bson:"name,omitempty" json:"name,omitempty"`
@@ -51,7 +51,7 @@ type RelatedPersonCommunication struct {
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Language          CodeableConcept `bson:"language" json:"language"`
-	Preferred         *bool           `bson:"preferred,omitempty" json:"preferred,omitempty"`
+	Preferred         *Boolean        `bson:"preferred,omitempty" json:"preferred,omitempty"`
 }
 
 // This function returns resource reference information

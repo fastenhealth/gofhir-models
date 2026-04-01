@@ -35,7 +35,7 @@ type CapabilityStatement struct {
 	Name                *string                            `bson:"name,omitempty" json:"name,omitempty"`
 	Title               *string                            `bson:"title,omitempty" json:"title,omitempty"`
 	Status              PublicationStatus                  `bson:"status" json:"status"`
-	Experimental        *bool                              `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental        *Boolean                           `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date                string                             `bson:"date" json:"date"`
 	Publisher           *string                            `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact             []ContactDetail                    `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -99,7 +99,7 @@ type CapabilityStatementRestSecurity struct {
 	Id                *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Cors              *bool             `bson:"cors,omitempty" json:"cors,omitempty"`
+	Cors              *Boolean          `bson:"cors,omitempty" json:"cors,omitempty"`
 	Service           []CodeableConcept `bson:"service,omitempty" json:"service,omitempty"`
 	Description       *string           `bson:"description,omitempty" json:"description,omitempty"`
 }
@@ -116,11 +116,11 @@ type CapabilityStatementRestResource struct {
 	Documentation     *string                                      `bson:"documentation,omitempty" json:"documentation,omitempty"`
 	Interaction       []CapabilityStatementRestResourceInteraction `bson:"interaction,omitempty" json:"interaction,omitempty"`
 	Versioning        *ResourceVersionPolicy                       `bson:"versioning,omitempty" json:"versioning,omitempty"`
-	ReadHistory       *bool                                        `bson:"readHistory,omitempty" json:"readHistory,omitempty"`
-	UpdateCreate      *bool                                        `bson:"updateCreate,omitempty" json:"updateCreate,omitempty"`
-	ConditionalCreate *bool                                        `bson:"conditionalCreate,omitempty" json:"conditionalCreate,omitempty"`
+	ReadHistory       *Boolean                                     `bson:"readHistory,omitempty" json:"readHistory,omitempty"`
+	UpdateCreate      *Boolean                                     `bson:"updateCreate,omitempty" json:"updateCreate,omitempty"`
+	ConditionalCreate *Boolean                                     `bson:"conditionalCreate,omitempty" json:"conditionalCreate,omitempty"`
 	ConditionalRead   *ConditionalReadStatus                       `bson:"conditionalRead,omitempty" json:"conditionalRead,omitempty"`
-	ConditionalUpdate *bool                                        `bson:"conditionalUpdate,omitempty" json:"conditionalUpdate,omitempty"`
+	ConditionalUpdate *Boolean                                     `bson:"conditionalUpdate,omitempty" json:"conditionalUpdate,omitempty"`
 	ConditionalDelete *ConditionalDeleteStatus                     `bson:"conditionalDelete,omitempty" json:"conditionalDelete,omitempty"`
 	ReferencePolicy   []ReferenceHandlingPolicy                    `bson:"referencePolicy,omitempty" json:"referencePolicy,omitempty"`
 	SearchInclude     []string                                     `bson:"searchInclude,omitempty" json:"searchInclude,omitempty"`

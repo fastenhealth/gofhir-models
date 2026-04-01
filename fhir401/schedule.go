@@ -31,7 +31,7 @@ type Schedule struct {
 	Extension         []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier      `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active            *bool             `bson:"active,omitempty" json:"active,omitempty"`
+	Active            *Boolean          `bson:"active,omitempty" json:"active,omitempty"`
 	ServiceCategory   []CodeableConcept `bson:"serviceCategory,omitempty" json:"serviceCategory,omitempty"`
 	ServiceType       []CodeableConcept `bson:"serviceType,omitempty" json:"serviceType,omitempty"`
 	Specialty         []CodeableConcept `bson:"specialty,omitempty" json:"specialty,omitempty"`

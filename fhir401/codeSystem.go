@@ -36,7 +36,7 @@ type CodeSystem struct {
 	Name              *string                     `bson:"name,omitempty" json:"name,omitempty"`
 	Title             *string                     `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus           `bson:"status" json:"status"`
-	Experimental      *bool                       `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                    `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                     `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                     `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail             `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -45,11 +45,11 @@ type CodeSystem struct {
 	Jurisdiction      []CodeableConcept           `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
 	Purpose           *string                     `bson:"purpose,omitempty" json:"purpose,omitempty"`
 	Copyright         *string                     `bson:"copyright,omitempty" json:"copyright,omitempty"`
-	CaseSensitive     *bool                       `bson:"caseSensitive,omitempty" json:"caseSensitive,omitempty"`
+	CaseSensitive     *Boolean                    `bson:"caseSensitive,omitempty" json:"caseSensitive,omitempty"`
 	ValueSet          *string                     `bson:"valueSet,omitempty" json:"valueSet,omitempty"`
 	HierarchyMeaning  *CodeSystemHierarchyMeaning `bson:"hierarchyMeaning,omitempty" json:"hierarchyMeaning,omitempty"`
-	Compositional     *bool                       `bson:"compositional,omitempty" json:"compositional,omitempty"`
-	VersionNeeded     *bool                       `bson:"versionNeeded,omitempty" json:"versionNeeded,omitempty"`
+	Compositional     *Boolean                    `bson:"compositional,omitempty" json:"compositional,omitempty"`
+	VersionNeeded     *Boolean                    `bson:"versionNeeded,omitempty" json:"versionNeeded,omitempty"`
 	Content           CodeSystemContentMode       `bson:"content" json:"content"`
 	Supplements       *string                     `bson:"supplements,omitempty" json:"supplements,omitempty"`
 	Count             *int                        `bson:"count,omitempty" json:"count,omitempty"`
@@ -116,7 +116,7 @@ type CodeSystemConceptProperty struct {
 	ValueCoding       Coding      `bson:"valueCoding" json:"valueCoding"`
 	ValueString       string      `bson:"valueString" json:"valueString"`
 	ValueInteger      int         `bson:"valueInteger" json:"valueInteger"`
-	ValueBoolean      bool        `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean      Boolean     `bson:"valueBoolean" json:"valueBoolean"`
 	ValueDateTime     string      `bson:"valueDateTime" json:"valueDateTime"`
 	ValueDecimal      json.Number `bson:"valueDecimal" json:"valueDecimal"`
 }

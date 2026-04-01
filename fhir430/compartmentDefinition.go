@@ -34,7 +34,7 @@ type CompartmentDefinition struct {
 	Version           *string                         `bson:"version,omitempty" json:"version,omitempty"`
 	Name              string                          `bson:"name" json:"name"`
 	Status            PublicationStatus               `bson:"status" json:"status"`
-	Experimental      *bool                           `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                        `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                         `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                         `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                 `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -42,7 +42,7 @@ type CompartmentDefinition struct {
 	UseContext        []UsageContext                  `bson:"useContext,omitempty" json:"useContext,omitempty"`
 	Purpose           *string                         `bson:"purpose,omitempty" json:"purpose,omitempty"`
 	Code              CompartmentType                 `bson:"code" json:"code"`
-	Search            bool                            `bson:"search" json:"search"`
+	Search            Boolean                         `bson:"search" json:"search"`
 	Resource          []CompartmentDefinitionResource `bson:"resource,omitempty" json:"resource,omitempty"`
 }
 

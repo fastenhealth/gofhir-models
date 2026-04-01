@@ -36,8 +36,8 @@ type MedicationRequest struct {
 	Intent                    string                            `bson:"intent" json:"intent"`
 	Category                  []CodeableConcept                 `bson:"category,omitempty" json:"category,omitempty"`
 	Priority                  *RequestPriority                  `bson:"priority,omitempty" json:"priority,omitempty"`
-	DoNotPerform              *bool                             `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
-	ReportedBoolean           *bool                             `bson:"reportedBoolean,omitempty" json:"reportedBoolean,omitempty"`
+	DoNotPerform              *Boolean                          `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	ReportedBoolean           *Boolean                          `bson:"reportedBoolean,omitempty" json:"reportedBoolean,omitempty"`
 	ReportedReference         *Reference                        `bson:"reportedReference,omitempty" json:"reportedReference,omitempty"`
 	MedicationCodeableConcept CodeableConcept                   `bson:"medicationCodeableConcept" json:"medicationCodeableConcept"`
 	MedicationReference       Reference                         `bson:"medicationReference" json:"medicationReference"`
@@ -95,7 +95,7 @@ type MedicationRequestSubstitution struct {
 	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension              []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension      []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	AllowedBoolean         bool             `bson:"allowedBoolean" json:"allowedBoolean"`
+	AllowedBoolean         Boolean          `bson:"allowedBoolean" json:"allowedBoolean"`
 	AllowedCodeableConcept CodeableConcept  `bson:"allowedCodeableConcept" json:"allowedCodeableConcept"`
 	Reason                 *CodeableConcept `bson:"reason,omitempty" json:"reason,omitempty"`
 }

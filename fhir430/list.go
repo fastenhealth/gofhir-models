@@ -52,7 +52,7 @@ type ListEntry struct {
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Flag              *CodeableConcept `bson:"flag,omitempty" json:"flag,omitempty"`
-	Deleted           *bool            `bson:"deleted,omitempty" json:"deleted,omitempty"`
+	Deleted           *Boolean         `bson:"deleted,omitempty" json:"deleted,omitempty"`
 	Date              *string          `bson:"date,omitempty" json:"date,omitempty"`
 	Item              Reference        `bson:"item" json:"item"`
 }

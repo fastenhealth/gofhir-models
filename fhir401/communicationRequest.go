@@ -38,7 +38,7 @@ type CommunicationRequest struct {
 	StatusReason       *CodeableConcept              `bson:"statusReason,omitempty" json:"statusReason,omitempty"`
 	Category           []CodeableConcept             `bson:"category,omitempty" json:"category,omitempty"`
 	Priority           *RequestPriority              `bson:"priority,omitempty" json:"priority,omitempty"`
-	DoNotPerform       *bool                         `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
+	DoNotPerform       *Boolean                      `bson:"doNotPerform,omitempty" json:"doNotPerform,omitempty"`
 	Medium             []CodeableConcept             `bson:"medium,omitempty" json:"medium,omitempty"`
 	Subject            *Reference                    `bson:"subject,omitempty" json:"subject,omitempty"`
 	About              []Reference                   `bson:"about,omitempty" json:"about,omitempty"`

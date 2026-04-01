@@ -36,7 +36,7 @@ type StructureMap struct {
 	Name              string                  `bson:"name" json:"name"`
 	Title             *string                 `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus       `bson:"status" json:"status"`
-	Experimental      *bool                   `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                 `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                 `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail         `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -110,7 +110,7 @@ type StructureMapGroupRuleSource struct {
 	Max                             *string                     `bson:"max,omitempty" json:"max,omitempty"`
 	Type                            *string                     `bson:"type,omitempty" json:"type,omitempty"`
 	DefaultValueBase64Binary        *string                     `bson:"defaultValueBase64Binary,omitempty" json:"defaultValueBase64Binary,omitempty"`
-	DefaultValueBoolean             *bool                       `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
+	DefaultValueBoolean             *Boolean                    `bson:"defaultValueBoolean,omitempty" json:"defaultValueBoolean,omitempty"`
 	DefaultValueCanonical           *string                     `bson:"defaultValueCanonical,omitempty" json:"defaultValueCanonical,omitempty"`
 	DefaultValueCode                *string                     `bson:"defaultValueCode,omitempty" json:"defaultValueCode,omitempty"`
 	DefaultValueDate                *string                     `bson:"defaultValueDate,omitempty" json:"defaultValueDate,omitempty"`
@@ -189,7 +189,7 @@ type StructureMapGroupRuleTargetParameter struct {
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	ValueId           string      `bson:"valueId" json:"valueId"`
 	ValueString       string      `bson:"valueString" json:"valueString"`
-	ValueBoolean      bool        `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean      Boolean     `bson:"valueBoolean" json:"valueBoolean"`
 	ValueInteger      int         `bson:"valueInteger" json:"valueInteger"`
 	ValueDecimal      json.Number `bson:"valueDecimal" json:"valueDecimal"`
 }

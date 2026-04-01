@@ -35,7 +35,7 @@ type ImplementationGuide struct {
 	Name              string                         `bson:"name" json:"name"`
 	Title             *string                        `bson:"title,omitempty" json:"title,omitempty"`
 	Status            PublicationStatus              `bson:"status" json:"status"`
-	Experimental      *bool                          `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental      *Boolean                       `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	Date              *string                        `bson:"date,omitempty" json:"date,omitempty"`
 	Publisher         *string                        `bson:"publisher,omitempty" json:"publisher,omitempty"`
 	Contact           []ContactDetail                `bson:"contact,omitempty" json:"contact,omitempty"`
@@ -104,7 +104,7 @@ type ImplementationGuideDefinitionResource struct {
 	FhirVersion       []FHIRVersion `bson:"fhirVersion,omitempty" json:"fhirVersion,omitempty"`
 	Name              *string       `bson:"name,omitempty" json:"name,omitempty"`
 	Description       *string       `bson:"description,omitempty" json:"description,omitempty"`
-	ExampleBoolean    *bool         `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
+	ExampleBoolean    *Boolean      `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
 	ExampleCanonical  *string       `bson:"exampleCanonical,omitempty" json:"exampleCanonical,omitempty"`
 	GroupingId        *string       `bson:"groupingId,omitempty" json:"groupingId,omitempty"`
 }
@@ -159,7 +159,7 @@ type ImplementationGuideManifestResource struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Reference         Reference   `bson:"reference" json:"reference"`
-	ExampleBoolean    *bool       `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
+	ExampleBoolean    *Boolean    `bson:"exampleBoolean,omitempty" json:"exampleBoolean,omitempty"`
 	ExampleCanonical  *string     `bson:"exampleCanonical,omitempty" json:"exampleCanonical,omitempty"`
 	RelativePath      *string     `bson:"relativePath,omitempty" json:"relativePath,omitempty"`
 }

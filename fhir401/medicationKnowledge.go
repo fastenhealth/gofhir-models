@@ -79,7 +79,7 @@ type MedicationKnowledgeIngredient struct {
 	ModifierExtension   []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	ItemCodeableConcept CodeableConcept `bson:"itemCodeableConcept" json:"itemCodeableConcept"`
 	ItemReference       Reference       `bson:"itemReference" json:"itemReference"`
-	IsActive            *bool           `bson:"isActive,omitempty" json:"isActive,omitempty"`
+	IsActive            *Boolean        `bson:"isActive,omitempty" json:"isActive,omitempty"`
 	Strength            *Ratio          `bson:"strength,omitempty" json:"strength,omitempty"`
 }
 
@@ -179,7 +179,7 @@ type MedicationKnowledgeRegulatorySubstitution struct {
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type              CodeableConcept `bson:"type" json:"type"`
-	Allowed           bool            `bson:"allowed" json:"allowed"`
+	Allowed           Boolean         `bson:"allowed" json:"allowed"`
 }
 
 // Specifies the schedule of a medication in jurisdiction.

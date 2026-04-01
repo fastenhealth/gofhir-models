@@ -64,7 +64,7 @@ type AccountGuarantor struct {
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Party             Reference   `bson:"party" json:"party"`
-	OnHold            *bool       `bson:"onHold,omitempty" json:"onHold,omitempty"`
+	OnHold            *Boolean    `bson:"onHold,omitempty" json:"onHold,omitempty"`
 	Period            *Period     `bson:"period,omitempty" json:"period,omitempty"`
 }
 

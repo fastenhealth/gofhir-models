@@ -31,7 +31,7 @@ type PractitionerRole struct {
 	Extension              []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension      []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier             []Identifier                    `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Active                 *bool                           `bson:"active,omitempty" json:"active,omitempty"`
+	Active                 *Boolean                        `bson:"active,omitempty" json:"active,omitempty"`
 	Period                 *Period                         `bson:"period,omitempty" json:"period,omitempty"`
 	Practitioner           *Reference                      `bson:"practitioner,omitempty" json:"practitioner,omitempty"`
 	Organization           *Reference                      `bson:"organization,omitempty" json:"organization,omitempty"`
@@ -53,7 +53,7 @@ type PractitionerRoleAvailableTime struct {
 	Extension          []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension  []Extension  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	DaysOfWeek         []DaysOfWeek `bson:"daysOfWeek,omitempty" json:"daysOfWeek,omitempty"`
-	AllDay             *bool        `bson:"allDay,omitempty" json:"allDay,omitempty"`
+	AllDay             *Boolean     `bson:"allDay,omitempty" json:"allDay,omitempty"`
 	AvailableStartTime *string      `bson:"availableStartTime,omitempty" json:"availableStartTime,omitempty"`
 	AvailableEndTime   *string      `bson:"availableEndTime,omitempty" json:"availableEndTime,omitempty"`
 }

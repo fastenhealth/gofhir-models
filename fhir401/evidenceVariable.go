@@ -73,7 +73,7 @@ type EvidenceVariableCharacteristic struct {
 	DefinitionDataRequirement    DataRequirement   `bson:"definitionDataRequirement" json:"definitionDataRequirement"`
 	DefinitionTriggerDefinition  TriggerDefinition `bson:"definitionTriggerDefinition" json:"definitionTriggerDefinition"`
 	UsageContext                 []UsageContext    `bson:"usageContext,omitempty" json:"usageContext,omitempty"`
-	Exclude                      *bool             `bson:"exclude,omitempty" json:"exclude,omitempty"`
+	Exclude                      *Boolean          `bson:"exclude,omitempty" json:"exclude,omitempty"`
 	ParticipantEffectiveDateTime *string           `bson:"participantEffectiveDateTime,omitempty" json:"participantEffectiveDateTime,omitempty"`
 	ParticipantEffectivePeriod   *Period           `bson:"participantEffectivePeriod,omitempty" json:"participantEffectivePeriod,omitempty"`
 	ParticipantEffectiveDuration *Duration         `bson:"participantEffectiveDuration,omitempty" json:"participantEffectiveDuration,omitempty"`

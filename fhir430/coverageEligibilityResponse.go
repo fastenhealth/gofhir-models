@@ -55,7 +55,7 @@ type CoverageEligibilityResponseInsurance struct {
 	Extension         []Extension                                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Coverage          Reference                                  `bson:"coverage" json:"coverage"`
-	Inforce           *bool                                      `bson:"inforce,omitempty" json:"inforce,omitempty"`
+	Inforce           *Boolean                                   `bson:"inforce,omitempty" json:"inforce,omitempty"`
 	BenefitPeriod     *Period                                    `bson:"benefitPeriod,omitempty" json:"benefitPeriod,omitempty"`
 	Item              []CoverageEligibilityResponseInsuranceItem `bson:"item,omitempty" json:"item,omitempty"`
 }
@@ -69,14 +69,14 @@ type CoverageEligibilityResponseInsuranceItem struct {
 	ProductOrService        *CodeableConcept                                  `bson:"productOrService,omitempty" json:"productOrService,omitempty"`
 	Modifier                []CodeableConcept                                 `bson:"modifier,omitempty" json:"modifier,omitempty"`
 	Provider                *Reference                                        `bson:"provider,omitempty" json:"provider,omitempty"`
-	Excluded                *bool                                             `bson:"excluded,omitempty" json:"excluded,omitempty"`
+	Excluded                *Boolean                                          `bson:"excluded,omitempty" json:"excluded,omitempty"`
 	Name                    *string                                           `bson:"name,omitempty" json:"name,omitempty"`
 	Description             *string                                           `bson:"description,omitempty" json:"description,omitempty"`
 	Network                 *CodeableConcept                                  `bson:"network,omitempty" json:"network,omitempty"`
 	Unit                    *CodeableConcept                                  `bson:"unit,omitempty" json:"unit,omitempty"`
 	Term                    *CodeableConcept                                  `bson:"term,omitempty" json:"term,omitempty"`
 	Benefit                 []CoverageEligibilityResponseInsuranceItemBenefit `bson:"benefit,omitempty" json:"benefit,omitempty"`
-	AuthorizationRequired   *bool                                             `bson:"authorizationRequired,omitempty" json:"authorizationRequired,omitempty"`
+	AuthorizationRequired   *Boolean                                          `bson:"authorizationRequired,omitempty" json:"authorizationRequired,omitempty"`
 	AuthorizationSupporting []CodeableConcept                                 `bson:"authorizationSupporting,omitempty" json:"authorizationSupporting,omitempty"`
 	AuthorizationUrl        *string                                           `bson:"authorizationUrl,omitempty" json:"authorizationUrl,omitempty"`
 }

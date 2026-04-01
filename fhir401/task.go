@@ -80,7 +80,7 @@ type TaskInput struct {
 	ModifierExtension        []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type                     CodeableConcept     `bson:"type" json:"type"`
 	ValueBase64Binary        string              `bson:"valueBase64Binary" json:"valueBase64Binary"`
-	ValueBoolean             bool                `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean             Boolean             `bson:"valueBoolean" json:"valueBoolean"`
 	ValueCanonical           string              `bson:"valueCanonical" json:"valueCanonical"`
 	ValueCode                string              `bson:"valueCode" json:"valueCode"`
 	ValueDate                string              `bson:"valueDate" json:"valueDate"`
@@ -138,7 +138,7 @@ type TaskOutput struct {
 	ModifierExtension        []Extension         `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Type                     CodeableConcept     `bson:"type" json:"type"`
 	ValueBase64Binary        string              `bson:"valueBase64Binary" json:"valueBase64Binary"`
-	ValueBoolean             bool                `bson:"valueBoolean" json:"valueBoolean"`
+	ValueBoolean             Boolean             `bson:"valueBoolean" json:"valueBoolean"`
 	ValueCanonical           string              `bson:"valueCanonical" json:"valueCanonical"`
 	ValueCode                string              `bson:"valueCode" json:"valueCode"`
 	ValueDate                string              `bson:"valueDate" json:"valueDate"`

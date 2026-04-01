@@ -37,7 +37,7 @@ type Measure struct {
 	Title                           *string                   `bson:"title,omitempty" json:"title,omitempty"`
 	Subtitle                        *string                   `bson:"subtitle,omitempty" json:"subtitle,omitempty"`
 	Status                          PublicationStatus         `bson:"status" json:"status"`
-	Experimental                    *bool                     `bson:"experimental,omitempty" json:"experimental,omitempty"`
+	Experimental                    *Boolean                  `bson:"experimental,omitempty" json:"experimental,omitempty"`
 	SubjectCodeableConcept          *CodeableConcept          `bson:"subjectCodeableConcept,omitempty" json:"subjectCodeableConcept,omitempty"`
 	SubjectReference                *Reference                `bson:"subjectReference,omitempty" json:"subjectReference,omitempty"`
 	Date                            *string                   `bson:"date,omitempty" json:"date,omitempty"`
