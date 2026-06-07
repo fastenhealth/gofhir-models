@@ -20,10 +20,11 @@ package fhir430
 // Annotation is documented here http://hl7.org/fhir/StructureDefinition/Annotation
 // Base StructureDefinition for Annotation Type: A  text note which also  contains information about who made the statement and when.
 type Annotation struct {
-	Id              *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension       []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	AuthorReference *Reference  `bson:"authorReference,omitempty" json:"authorReference,omitempty"`
-	AuthorString    *string     `bson:"authorString,omitempty" json:"authorString,omitempty"`
-	Time            *string     `bson:"time,omitempty" json:"time,omitempty"`
-	Text            string      `bson:"text" json:"text"`
+	Unknown         map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id              *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension       []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	AuthorReference *Reference             `bson:"authorReference,omitempty" json:"authorReference,omitempty"`
+	AuthorString    *string                `bson:"authorString,omitempty" json:"authorString,omitempty"`
+	Time            *string                `bson:"time,omitempty" json:"time,omitempty"`
+	Text            string                 `bson:"text" json:"text"`
 }

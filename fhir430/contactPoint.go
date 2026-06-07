@@ -20,11 +20,12 @@ package fhir430
 // ContactPoint is documented here http://hl7.org/fhir/StructureDefinition/ContactPoint
 // Base StructureDefinition for ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
 type ContactPoint struct {
-	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	System    *ContactPointSystem `bson:"system,omitempty" json:"system,omitempty"`
-	Value     *string             `bson:"value,omitempty" json:"value,omitempty"`
-	Use       *ContactPointUse    `bson:"use,omitempty" json:"use,omitempty"`
-	Rank      *int                `bson:"rank,omitempty" json:"rank,omitempty"`
-	Period    *Period             `bson:"period,omitempty" json:"period,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	System    *ContactPointSystem    `bson:"system,omitempty" json:"system,omitempty"`
+	Value     *string                `bson:"value,omitempty" json:"value,omitempty"`
+	Use       *ContactPointUse       `bson:"use,omitempty" json:"use,omitempty"`
+	Rank      *int                   `bson:"rank,omitempty" json:"rank,omitempty"`
+	Period    *Period                `bson:"period,omitempty" json:"period,omitempty"`
 }

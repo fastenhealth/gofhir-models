@@ -20,9 +20,10 @@ package fhir401
 // Contributor is documented here http://hl7.org/fhir/StructureDefinition/Contributor
 // Base StructureDefinition for Contributor Type: A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers.
 type Contributor struct {
-	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type      ContributorType `bson:"type" json:"type"`
-	Name      string          `bson:"name" json:"name"`
-	Contact   []ContactDetail `bson:"contact,omitempty" json:"contact,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type      ContributorType        `bson:"type" json:"type"`
+	Name      string                 `bson:"name" json:"name"`
+	Contact   []ContactDetail        `bson:"contact,omitempty" json:"contact,omitempty"`
 }

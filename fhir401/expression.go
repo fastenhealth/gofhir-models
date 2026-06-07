@@ -20,11 +20,12 @@ package fhir401
 // Expression is documented here http://hl7.org/fhir/StructureDefinition/Expression
 // Base StructureDefinition for Expression Type: A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
 type Expression struct {
-	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Description *string     `bson:"description,omitempty" json:"description,omitempty"`
-	Name        *string     `bson:"name,omitempty" json:"name,omitempty"`
-	Language    string      `bson:"language" json:"language"`
-	Expression  *string     `bson:"expression,omitempty" json:"expression,omitempty"`
-	Reference   *string     `bson:"reference,omitempty" json:"reference,omitempty"`
+	Unknown     map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id          *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension   []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Description *string                `bson:"description,omitempty" json:"description,omitempty"`
+	Name        *string                `bson:"name,omitempty" json:"name,omitempty"`
+	Language    string                 `bson:"language" json:"language"`
+	Expression  *string                `bson:"expression,omitempty" json:"expression,omitempty"`
+	Reference   *string                `bson:"reference,omitempty" json:"reference,omitempty"`
 }

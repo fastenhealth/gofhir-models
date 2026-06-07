@@ -20,13 +20,14 @@ package fhir430
 // HumanName is documented here http://hl7.org/fhir/StructureDefinition/HumanName
 // Base StructureDefinition for HumanName Type: A human's name with the ability to identify parts and usage.
 type HumanName struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Use       *NameUse    `bson:"use,omitempty" json:"use,omitempty"`
-	Text      *string     `bson:"text,omitempty" json:"text,omitempty"`
-	Family    *string     `bson:"family,omitempty" json:"family,omitempty"`
-	Given     []string    `bson:"given,omitempty" json:"given,omitempty"`
-	Prefix    []string    `bson:"prefix,omitempty" json:"prefix,omitempty"`
-	Suffix    []string    `bson:"suffix,omitempty" json:"suffix,omitempty"`
-	Period    *Period     `bson:"period,omitempty" json:"period,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Use       *NameUse               `bson:"use,omitempty" json:"use,omitempty"`
+	Text      *string                `bson:"text,omitempty" json:"text,omitempty"`
+	Family    *string                `bson:"family,omitempty" json:"family,omitempty"`
+	Given     []string               `bson:"given,omitempty" json:"given,omitempty"`
+	Prefix    []string               `bson:"prefix,omitempty" json:"prefix,omitempty"`
+	Suffix    []string               `bson:"suffix,omitempty" json:"suffix,omitempty"`
+	Period    *Period                `bson:"period,omitempty" json:"period,omitempty"`
 }

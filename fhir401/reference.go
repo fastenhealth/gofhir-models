@@ -20,10 +20,11 @@ package fhir401
 // Reference is documented here http://hl7.org/fhir/StructureDefinition/Reference
 // Base StructureDefinition for Reference Type: A reference from one resource to another.
 type Reference struct {
-	Id         *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension  []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Reference  *string     `bson:"reference,omitempty" json:"reference,omitempty"`
-	Type       *string     `bson:"type,omitempty" json:"type,omitempty"`
-	Identifier *Identifier `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Display    *string     `bson:"display,omitempty" json:"display,omitempty"`
+	Unknown    map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id         *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension  []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Reference  *string                `bson:"reference,omitempty" json:"reference,omitempty"`
+	Type       *string                `bson:"type,omitempty" json:"type,omitempty"`
+	Identifier *Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Display    *string                `bson:"display,omitempty" json:"display,omitempty"`
 }

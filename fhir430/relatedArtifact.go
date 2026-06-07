@@ -20,13 +20,14 @@ package fhir430
 // RelatedArtifact is documented here http://hl7.org/fhir/StructureDefinition/RelatedArtifact
 // Base StructureDefinition for RelatedArtifact Type: Related artifacts such as additional documentation, justification, or bibliographic references.
 type RelatedArtifact struct {
-	Id        *string             `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type      RelatedArtifactType `bson:"type" json:"type"`
-	Label     *string             `bson:"label,omitempty" json:"label,omitempty"`
-	Display   *string             `bson:"display,omitempty" json:"display,omitempty"`
-	Citation  *string             `bson:"citation,omitempty" json:"citation,omitempty"`
-	Url       *string             `bson:"url,omitempty" json:"url,omitempty"`
-	Document  *Attachment         `bson:"document,omitempty" json:"document,omitempty"`
-	Resource  *string             `bson:"resource,omitempty" json:"resource,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type      RelatedArtifactType    `bson:"type" json:"type"`
+	Label     *string                `bson:"label,omitempty" json:"label,omitempty"`
+	Display   *string                `bson:"display,omitempty" json:"display,omitempty"`
+	Citation  *string                `bson:"citation,omitempty" json:"citation,omitempty"`
+	Url       *string                `bson:"url,omitempty" json:"url,omitempty"`
+	Document  *Attachment            `bson:"document,omitempty" json:"document,omitempty"`
+	Resource  *string                `bson:"resource,omitempty" json:"resource,omitempty"`
 }

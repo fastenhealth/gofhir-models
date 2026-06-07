@@ -20,16 +20,17 @@ package fhir430
 // Address is documented here http://hl7.org/fhir/StructureDefinition/Address
 // Base StructureDefinition for Address Type: An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
 type Address struct {
-	Id         *string      `bson:"id,omitempty" json:"id,omitempty"`
-	Extension  []Extension  `bson:"extension,omitempty" json:"extension,omitempty"`
-	Use        *AddressUse  `bson:"use,omitempty" json:"use,omitempty"`
-	Type       *AddressType `bson:"type,omitempty" json:"type,omitempty"`
-	Text       *string      `bson:"text,omitempty" json:"text,omitempty"`
-	Line       []string     `bson:"line,omitempty" json:"line,omitempty"`
-	City       *string      `bson:"city,omitempty" json:"city,omitempty"`
-	District   *string      `bson:"district,omitempty" json:"district,omitempty"`
-	State      *string      `bson:"state,omitempty" json:"state,omitempty"`
-	PostalCode *string      `bson:"postalCode,omitempty" json:"postalCode,omitempty"`
-	Country    *string      `bson:"country,omitempty" json:"country,omitempty"`
-	Period     *Period      `bson:"period,omitempty" json:"period,omitempty"`
+	Unknown    map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id         *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension  []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Use        *AddressUse            `bson:"use,omitempty" json:"use,omitempty"`
+	Type       *AddressType           `bson:"type,omitempty" json:"type,omitempty"`
+	Text       *string                `bson:"text,omitempty" json:"text,omitempty"`
+	Line       []string               `bson:"line,omitempty" json:"line,omitempty"`
+	City       *string                `bson:"city,omitempty" json:"city,omitempty"`
+	District   *string                `bson:"district,omitempty" json:"district,omitempty"`
+	State      *string                `bson:"state,omitempty" json:"state,omitempty"`
+	PostalCode *string                `bson:"postalCode,omitempty" json:"postalCode,omitempty"`
+	Country    *string                `bson:"country,omitempty" json:"country,omitempty"`
+	Period     *Period                `bson:"period,omitempty" json:"period,omitempty"`
 }

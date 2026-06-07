@@ -20,6 +20,7 @@ package fhir401
 // SubstanceAmount is documented here http://hl7.org/fhir/StructureDefinition/SubstanceAmount
 // Base StructureDefinition for SubstanceAmount Type: Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.
 type SubstanceAmount struct {
+	Unknown           map[string]interface{}         `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
 	Id                *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
@@ -33,8 +34,9 @@ type SubstanceAmount struct {
 
 // Reference range of possible or expected values.
 type SubstanceAmountReferenceRange struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	LowLimit  *Quantity   `bson:"lowLimit,omitempty" json:"lowLimit,omitempty"`
-	HighLimit *Quantity   `bson:"highLimit,omitempty" json:"highLimit,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	LowLimit  *Quantity              `bson:"lowLimit,omitempty" json:"lowLimit,omitempty"`
+	HighLimit *Quantity              `bson:"highLimit,omitempty" json:"highLimit,omitempty"`
 }

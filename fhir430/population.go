@@ -20,12 +20,13 @@ package fhir430
 // Population is documented here http://hl7.org/fhir/StructureDefinition/Population
 // Base StructureDefinition for Population Type: A populatioof people with some set of grouping criteria.
 type Population struct {
-	Id                     *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension              []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension      []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	AgeRange               *Range           `bson:"ageRange,omitempty" json:"ageRange,omitempty"`
-	AgeCodeableConcept     *CodeableConcept `bson:"ageCodeableConcept,omitempty" json:"ageCodeableConcept,omitempty"`
-	Gender                 *CodeableConcept `bson:"gender,omitempty" json:"gender,omitempty"`
-	Race                   *CodeableConcept `bson:"race,omitempty" json:"race,omitempty"`
-	PhysiologicalCondition *CodeableConcept `bson:"physiologicalCondition,omitempty" json:"physiologicalCondition,omitempty"`
+	Unknown                map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id                     *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension              []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension      []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	AgeRange               *Range                 `bson:"ageRange,omitempty" json:"ageRange,omitempty"`
+	AgeCodeableConcept     *CodeableConcept       `bson:"ageCodeableConcept,omitempty" json:"ageCodeableConcept,omitempty"`
+	Gender                 *CodeableConcept       `bson:"gender,omitempty" json:"gender,omitempty"`
+	Race                   *CodeableConcept       `bson:"race,omitempty" json:"race,omitempty"`
+	PhysiologicalCondition *CodeableConcept       `bson:"physiologicalCondition,omitempty" json:"physiologicalCondition,omitempty"`
 }

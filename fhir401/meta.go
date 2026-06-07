@@ -20,12 +20,13 @@ package fhir401
 // Meta is documented here http://hl7.org/fhir/StructureDefinition/Meta
 // Base StructureDefinition for Meta Type: The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
 type Meta struct {
-	Id          *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension   []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	VersionId   *string     `bson:"versionId,omitempty" json:"versionId,omitempty"`
-	LastUpdated *string     `bson:"lastUpdated,omitempty" json:"lastUpdated,omitempty"`
-	Source      *string     `bson:"source,omitempty" json:"source,omitempty"`
-	Profile     []string    `bson:"profile,omitempty" json:"profile,omitempty"`
-	Security    []Coding    `bson:"security,omitempty" json:"security,omitempty"`
-	Tag         []Coding    `bson:"tag,omitempty" json:"tag,omitempty"`
+	Unknown     map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id          *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension   []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	VersionId   *string                `bson:"versionId,omitempty" json:"versionId,omitempty"`
+	LastUpdated *string                `bson:"lastUpdated,omitempty" json:"lastUpdated,omitempty"`
+	Source      *string                `bson:"source,omitempty" json:"source,omitempty"`
+	Profile     []string               `bson:"profile,omitempty" json:"profile,omitempty"`
+	Security    []Coding               `bson:"security,omitempty" json:"security,omitempty"`
+	Tag         []Coding               `bson:"tag,omitempty" json:"tag,omitempty"`
 }

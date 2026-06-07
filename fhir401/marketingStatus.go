@@ -20,12 +20,13 @@ package fhir401
 // MarketingStatus is documented here http://hl7.org/fhir/StructureDefinition/MarketingStatus
 // Base StructureDefinition for MarketingStatus Type: The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
 type MarketingStatus struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Country           CodeableConcept  `bson:"country" json:"country"`
-	Jurisdiction      *CodeableConcept `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
-	Status            CodeableConcept  `bson:"status" json:"status"`
-	DateRange         Period           `bson:"dateRange" json:"dateRange"`
-	RestoreDate       *string          `bson:"restoreDate,omitempty" json:"restoreDate,omitempty"`
+	Unknown           map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Country           CodeableConcept        `bson:"country" json:"country"`
+	Jurisdiction      *CodeableConcept       `bson:"jurisdiction,omitempty" json:"jurisdiction,omitempty"`
+	Status            CodeableConcept        `bson:"status" json:"status"`
+	DateRange         Period                 `bson:"dateRange" json:"dateRange"`
+	RestoreDate       *string                `bson:"restoreDate,omitempty" json:"restoreDate,omitempty"`
 }

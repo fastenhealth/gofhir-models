@@ -20,8 +20,9 @@ package fhir430
 // CodeableConcept is documented here http://hl7.org/fhir/StructureDefinition/CodeableConcept
 // Base StructureDefinition for CodeableConcept Type: A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
 type CodeableConcept struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Coding    []Coding    `bson:"coding,omitempty" json:"coding,omitempty"`
-	Text      *string     `bson:"text,omitempty" json:"text,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Coding    []Coding               `bson:"coding,omitempty" json:"coding,omitempty"`
+	Text      *string                `bson:"text,omitempty" json:"text,omitempty"`
 }
