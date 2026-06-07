@@ -20,11 +20,12 @@ package fhir430
 // Coding is documented here http://hl7.org/fhir/StructureDefinition/Coding
 // Base StructureDefinition for Coding Type: A reference to a code defined by a terminology system.
 type Coding struct {
-	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension    []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	System       *string     `bson:"system,omitempty" json:"system,omitempty"`
-	Version      *string     `bson:"version,omitempty" json:"version,omitempty"`
-	Code         *string     `bson:"code,omitempty" json:"code,omitempty"`
-	Display      *string     `bson:"display,omitempty" json:"display,omitempty"`
-	UserSelected *Boolean    `bson:"userSelected,omitempty" json:"userSelected,omitempty"`
+	Unknown      map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id           *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension    []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	System       *string                `bson:"system,omitempty" json:"system,omitempty"`
+	Version      *string                `bson:"version,omitempty" json:"version,omitempty"`
+	Code         *string                `bson:"code,omitempty" json:"code,omitempty"`
+	Display      *string                `bson:"display,omitempty" json:"display,omitempty"`
+	UserSelected *Boolean               `bson:"userSelected,omitempty" json:"userSelected,omitempty"`
 }

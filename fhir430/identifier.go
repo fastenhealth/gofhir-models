@@ -20,12 +20,13 @@ package fhir430
 // Identifier is documented here http://hl7.org/fhir/StructureDefinition/Identifier
 // Base StructureDefinition for Identifier Type: An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
 type Identifier struct {
-	Id        *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	Use       *IdentifierUse   `bson:"use,omitempty" json:"use,omitempty"`
-	Type      *CodeableConcept `bson:"type,omitempty" json:"type,omitempty"`
-	System    *string          `bson:"system,omitempty" json:"system,omitempty"`
-	Value     *string          `bson:"value,omitempty" json:"value,omitempty"`
-	Period    *Period          `bson:"period,omitempty" json:"period,omitempty"`
-	Assigner  *Reference       `bson:"assigner,omitempty" json:"assigner,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Use       *IdentifierUse         `bson:"use,omitempty" json:"use,omitempty"`
+	Type      *CodeableConcept       `bson:"type,omitempty" json:"type,omitempty"`
+	System    *string                `bson:"system,omitempty" json:"system,omitempty"`
+	Value     *string                `bson:"value,omitempty" json:"value,omitempty"`
+	Period    *Period                `bson:"period,omitempty" json:"period,omitempty"`
+	Assigner  *Reference             `bson:"assigner,omitempty" json:"assigner,omitempty"`
 }

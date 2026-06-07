@@ -20,13 +20,14 @@ package fhir430
 // Signature is documented here http://hl7.org/fhir/StructureDefinition/Signature
 // Base StructureDefinition for Signature Type: A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
 type Signature struct {
-	Id           *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension    []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Type         []Coding    `bson:"type" json:"type"`
-	When         string      `bson:"when" json:"when"`
-	Who          Reference   `bson:"who" json:"who"`
-	OnBehalfOf   *Reference  `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty"`
-	TargetFormat *string     `bson:"targetFormat,omitempty" json:"targetFormat,omitempty"`
-	SigFormat    *string     `bson:"sigFormat,omitempty" json:"sigFormat,omitempty"`
-	Data         *string     `bson:"data,omitempty" json:"data,omitempty"`
+	Unknown      map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id           *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension    []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Type         []Coding               `bson:"type" json:"type"`
+	When         string                 `bson:"when" json:"when"`
+	Who          Reference              `bson:"who" json:"who"`
+	OnBehalfOf   *Reference             `bson:"onBehalfOf,omitempty" json:"onBehalfOf,omitempty"`
+	TargetFormat *string                `bson:"targetFormat,omitempty" json:"targetFormat,omitempty"`
+	SigFormat    *string                `bson:"sigFormat,omitempty" json:"sigFormat,omitempty"`
+	Data         *string                `bson:"data,omitempty" json:"data,omitempty"`
 }

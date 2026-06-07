@@ -20,18 +20,19 @@ package fhir401
 // ProdCharacteristic is documented here http://hl7.org/fhir/StructureDefinition/ProdCharacteristic
 // Base StructureDefinition for ProdCharacteristic Type: The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
 type ProdCharacteristic struct {
-	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
-	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension []Extension      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Height            *Quantity        `bson:"height,omitempty" json:"height,omitempty"`
-	Width             *Quantity        `bson:"width,omitempty" json:"width,omitempty"`
-	Depth             *Quantity        `bson:"depth,omitempty" json:"depth,omitempty"`
-	Weight            *Quantity        `bson:"weight,omitempty" json:"weight,omitempty"`
-	NominalVolume     *Quantity        `bson:"nominalVolume,omitempty" json:"nominalVolume,omitempty"`
-	ExternalDiameter  *Quantity        `bson:"externalDiameter,omitempty" json:"externalDiameter,omitempty"`
-	Shape             *string          `bson:"shape,omitempty" json:"shape,omitempty"`
-	Color             []string         `bson:"color,omitempty" json:"color,omitempty"`
-	Imprint           []string         `bson:"imprint,omitempty" json:"imprint,omitempty"`
-	Image             []Attachment     `bson:"image,omitempty" json:"image,omitempty"`
-	Scoring           *CodeableConcept `bson:"scoring,omitempty" json:"scoring,omitempty"`
+	Unknown           map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id                *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension         []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Height            *Quantity              `bson:"height,omitempty" json:"height,omitempty"`
+	Width             *Quantity              `bson:"width,omitempty" json:"width,omitempty"`
+	Depth             *Quantity              `bson:"depth,omitempty" json:"depth,omitempty"`
+	Weight            *Quantity              `bson:"weight,omitempty" json:"weight,omitempty"`
+	NominalVolume     *Quantity              `bson:"nominalVolume,omitempty" json:"nominalVolume,omitempty"`
+	ExternalDiameter  *Quantity              `bson:"externalDiameter,omitempty" json:"externalDiameter,omitempty"`
+	Shape             *string                `bson:"shape,omitempty" json:"shape,omitempty"`
+	Color             []string               `bson:"color,omitempty" json:"color,omitempty"`
+	Imprint           []string               `bson:"imprint,omitempty" json:"imprint,omitempty"`
+	Image             []Attachment           `bson:"image,omitempty" json:"image,omitempty"`
+	Scoring           *CodeableConcept       `bson:"scoring,omitempty" json:"scoring,omitempty"`
 }

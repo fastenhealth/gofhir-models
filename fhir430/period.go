@@ -20,8 +20,9 @@ package fhir430
 // Period is documented here http://hl7.org/fhir/StructureDefinition/Period
 // Base StructureDefinition for Period Type: A time period defined by a start and end date and optionally time.
 type Period struct {
-	Id        *string     `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
-	Start     *string     `bson:"start,omitempty" json:"start,omitempty"`
-	End       *string     `bson:"end,omitempty" json:"end,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Start     *string                `bson:"start,omitempty" json:"start,omitempty"`
+	End       *string                `bson:"end,omitempty" json:"end,omitempty"`
 }

@@ -20,8 +20,9 @@ package fhir430
 // Narrative is documented here http://hl7.org/fhir/StructureDefinition/Narrative
 // Base StructureDefinition for Narrative Type: A human-readable summary of the resource conveying the essential clinical and business information for the resource.
 type Narrative struct {
-	Id        *string         `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`
-	Status    NarrativeStatus `bson:"status" json:"status"`
-	Div       string          `bson:"div" json:"div"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Status    NarrativeStatus        `bson:"status" json:"status"`
+	Div       string                 `bson:"div" json:"div"`
 }

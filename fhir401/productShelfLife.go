@@ -20,11 +20,12 @@ package fhir401
 // ProductShelfLife is documented here http://hl7.org/fhir/StructureDefinition/ProductShelfLife
 // Base StructureDefinition for ProductShelfLife Type: The shelf-life and storage information for a medicinal product item or container can be described using this class.
 type ProductShelfLife struct {
-	Id                           *string           `bson:"id,omitempty" json:"id,omitempty"`
-	Extension                    []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`
-	ModifierExtension            []Extension       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
-	Identifier                   *Identifier       `bson:"identifier,omitempty" json:"identifier,omitempty"`
-	Type                         CodeableConcept   `bson:"type" json:"type"`
-	Period                       Quantity          `bson:"period" json:"period"`
-	SpecialPrecautionsForStorage []CodeableConcept `bson:"specialPrecautionsForStorage,omitempty" json:"specialPrecautionsForStorage,omitempty"`
+	Unknown                      map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id                           *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension                    []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	ModifierExtension            []Extension            `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
+	Identifier                   *Identifier            `bson:"identifier,omitempty" json:"identifier,omitempty"`
+	Type                         CodeableConcept        `bson:"type" json:"type"`
+	Period                       Quantity               `bson:"period" json:"period"`
+	SpecialPrecautionsForStorage []CodeableConcept      `bson:"specialPrecautionsForStorage,omitempty" json:"specialPrecautionsForStorage,omitempty"`
 }

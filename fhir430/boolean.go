@@ -15,7 +15,7 @@
 package fhir430
 
 import (
-	"encoding/json"
+	v2 "encoding/json/v2"
 	"fmt"
 	"strconv"
 )
@@ -29,19 +29,19 @@ import (
 type Boolean bool
 
 func (b Boolean) MarshalJSON() ([]byte, error) {
-	return json.Marshal(bool(b))
+	return v2.Marshal(bool(b))
 }
 func (b *Boolean) UnmarshalJSON(data []byte) error {
 	if string(data) == "null" {
 		return nil
 	}
 	var rawBool bool
-	if err := json.Unmarshal(data, &rawBool); err == nil {
+	if err := v2.Unmarshal(data, &rawBool); err == nil {
 		*b = Boolean(rawBool)
 		return nil
 	}
 	var rawString string
-	if err := json.Unmarshal(data, &rawString); err == nil {
+	if err := v2.Unmarshal(data, &rawString); err == nil {
 		parsed, err := strconv.ParseBool(rawString)
 		if err != nil {
 			return fmt.Errorf("invalid Boolean value %q", rawString)

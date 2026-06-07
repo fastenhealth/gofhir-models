@@ -20,8 +20,9 @@ package fhir401
 // ContactDetail is documented here http://hl7.org/fhir/StructureDefinition/ContactDetail
 // Base StructureDefinition for ContactDetail Type: Specifies contact information for a person or organization.
 type ContactDetail struct {
-	Id        *string        `bson:"id,omitempty" json:"id,omitempty"`
-	Extension []Extension    `bson:"extension,omitempty" json:"extension,omitempty"`
-	Name      *string        `bson:"name,omitempty" json:"name,omitempty"`
-	Telecom   []ContactPoint `bson:"telecom,omitempty" json:"telecom,omitempty"`
+	Unknown   map[string]interface{} `json:",unknown"` // stores any unknown fields found during unmarshaling. See: https://pkg.go.dev/encoding/json/v2#example-package-UnknownMembers
+	Id        *string                `bson:"id,omitempty" json:"id,omitempty"`
+	Extension []Extension            `bson:"extension,omitempty" json:"extension,omitempty"`
+	Name      *string                `bson:"name,omitempty" json:"name,omitempty"`
+	Telecom   []ContactPoint         `bson:"telecom,omitempty" json:"telecom,omitempty"`
 }
