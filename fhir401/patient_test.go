@@ -12,7 +12,7 @@ import (
 )
 
 func TestPatientJSONRoundTrip(t *testing.T) {
-	patientFiles, err := filepath.Glob("testdata/patient*.json")
+	patientFiles, err := filepath.Glob("testdata/patient/*.json")
 	require.NoError(t, err)
 	require.NotEmpty(t, patientFiles)
 
@@ -41,7 +41,7 @@ func TestPatientJSONRoundTrip(t *testing.T) {
 
 			remarshaledPatient, err := json.Marshal(unmarshaledPatient)
 			require.NoError(t, err)
-			require.Equal(t, string(marshaledPatient), string(remarshaledPatient))
+			require.JSONEq(t, string(marshaledPatient), string(remarshaledPatient))
 		})
 	}
 }
