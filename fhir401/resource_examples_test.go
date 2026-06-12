@@ -2,6 +2,7 @@ package fhir401
 
 import (
 	"encoding/json"
+	"encoding/json/jsontext"
 	"os"
 	"path/filepath"
 	"strings"
@@ -24,6 +25,7 @@ func requireResourceJSONRoundTrip[T testResource](t *testing.T, resourceType str
 
 	for _, resourceFile := range resourceFiles {
 		t.Run(strings.TrimSuffix(filepath.Base(resourceFile), ".json"), func(t *testing.T) {
+			t.Helper()
 			resourceData, err := os.ReadFile(resourceFile)
 			require.NoError(t, err)
 
@@ -36,7 +38,6 @@ func requireResourceJSONRoundTrip[T testResource](t *testing.T, resourceType str
 
 			marshaledResource, err := json.Marshal(resource)
 			require.NoError(t, err)
-
 			requireJSONFieldsPresent(t, resourceData, marshaledResource)
 
 			var unmarshaledResource T
@@ -44,7 +45,17 @@ func requireResourceJSONRoundTrip[T testResource](t *testing.T, resourceType str
 
 			remarshaledResource, err := json.Marshal(unmarshaledResource)
 			require.NoError(t, err)
-			require.JSONEq(t, string(marshaledResource), string(remarshaledResource))
+
+			//require.JSONEq(t, string(marshaledResource), string(remarshaledResource))
+
+			marshaledResourceJsonValue := jsontext.Value(marshaledResource)
+			err = marshaledResourceJsonValue.Canonicalize()
+			require.NoError(t, err)
+			remarshaledResourceJsonValue := jsontext.Value(remarshaledResource)
+			err = remarshaledResourceJsonValue.Canonicalize()
+			require.NoError(t, err)
+
+			require.JSONEq(t, string(marshaledResourceJsonValue), string(remarshaledResourceJsonValue))
 		})
 	}
 }
