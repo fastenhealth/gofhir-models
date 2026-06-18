@@ -43,9 +43,9 @@ func (code *AdministrativeGender) UnmarshalJSON(input []byte) error {
 	}
 	s = strings.ToLower(s)
 	switch s {
-	case "male":
+	case "male", "m":
 		*code = AdministrativeGenderMale
-	case "female":
+	case "female", "f":
 		*code = AdministrativeGenderFemale
 	case "other":
 		*code = AdministrativeGenderOther

@@ -1,0 +1,320 @@
+{
+  "active": true,
+  "address": [
+    {
+      "city": "Cleveland",
+      "country": "US",
+      "line": [
+        "23 Parker Drive"
+      ],
+      "period": {
+        "start": "2022-05-17"
+      },
+      "postalCode": "44115",
+      "state": "OH",
+      "use": "home"
+    }
+  ],
+  "birthDate": "1974-05-08",
+  "communication": [
+    {
+      "_preferred": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-preferenceType",
+            "valueCoding": {
+              "code": "verbal",
+              "display": "verbal",
+              "system": "http://hl7.org/fhir/language-preference-type"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-preferenceType",
+            "valueCoding": {
+              "code": "written",
+              "display": "written",
+              "system": "http://hl7.org/fhir/language-preference-type"
+            }
+          }
+        ]
+      },
+      "extension": [
+        {
+          "extension": [
+            {
+              "url": "type",
+              "valueCoding": {
+                "code": "ESP",
+                "display": "Expressed spoken",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"
+              }
+            }
+          ],
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-proficiency"
+        },
+        {
+          "extension": [
+            {
+              "url": "type",
+              "valueCoding": {
+                "code": "EWR",
+                "display": "Expressed written",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-LanguageAbilityMode"
+              }
+            }
+          ],
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-proficiency"
+        }
+      ],
+      "language": {
+        "coding": [
+          {
+            "code": "en",
+            "display": "English",
+            "system": "urn:ietf:bcp:47"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ],
+  "contact": [
+    {
+      "name": {
+        "text": "Juanita G Evans",
+        "use": "usual"
+      },
+      "relationship": [
+        {
+          "coding": [
+            {
+              "code": "3",
+              "display": "Father",
+              "system": "urn:oid:1.2.840.114350.1.13.510.2.7.4.827665.1000"
+            }
+          ],
+          "text": "Father"
+        },
+        {
+          "coding": [
+            {
+              "code": "C",
+              "display": "Emergency Contact",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131"
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "telecom": [
+        {
+          "rank": 1,
+          "system": "phone",
+          "use": "mobile",
+          "value": "+1 555-555-1234"
+        }
+      ]
+    },
+    {
+      "name": {
+        "text": "Carrie G Evans",
+        "use": "usual"
+      },
+      "relationship": [
+        {
+          "coding": [
+            {
+              "code": "8",
+              "display": "Mother",
+              "system": "urn:oid:1.2.840.114350.1.13.510.2.7.4.827665.1000"
+            }
+          ],
+          "text": "Mother"
+        },
+        {
+          "coding": [
+            {
+              "code": "C",
+              "display": "Emergency Contact",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131"
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "telecom": [
+        {
+          "rank": 1,
+          "system": "phone",
+          "use": "mobile",
+          "value": "+1 555-555-2077"
+        }
+      ]
+    }
+  ],
+  "deceasedBoolean": false,
+  "extension": [
+    {
+      "url": "http://open.epic.com/FHIR/StructureDefinition/extension/legal-sex",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "M",
+            "display": "M",
+            "system": "urn:oid:1.2.840.114350.1.13.510.2.7.10.698084.130.657370.258"
+          }
+        ],
+        "text": "Male"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "male",
+            "display": "male",
+            "system": "http://hl7.org/fhir/gender-identity"
+          }
+        ],
+        "text": "Male"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "M"
+    },
+    {
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "code": "2106-3",
+            "display": "White",
+            "system": "urn:oid:2.16.840.1.113883.6.238"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "White"
+        }
+      ],
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+    },
+    {
+      "extension": [
+        {
+          "url": "text",
+          "valueString": "Unknown"
+        }
+      ],
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex",
+      "valueCode": "184115007"
+    }
+  ],
+  "gender": "M",
+  "generalPractitioner": [
+    {
+      "display": "Jones Jones",
+      "reference": "Practitioner/e836mn71WegmcQreddBhllDA3",
+      "type": "Practitioner"
+    }
+  ],
+  "id": "evSwnY1bMD9YmcKap8zES-A3",
+  "identifier": [
+    {
+      "system": "http://open.epic.com/FHIR/StructureDefinition/patient-fhir-id",
+      "type": {
+        "text": "FHIR STU3"
+      },
+      "use": "usual",
+      "value": "evSwnY1bMD9YmcKap8zES-A3"
+    }
+  ],
+  "link": [
+    {
+      "extension": [
+        {
+          "url": "https://open.epic.com/FHIR/StructureDefinition/patient-merge-target-reference",
+          "valueReference": {
+            "reference": "Patient/evSwnY1bMD9YmcKap8zES-A3"
+          }
+        },
+        {
+          "url": "https://open.epic.com/FHIR/StructureDefinition/patient-merge-unmerge-instant",
+          "valueInstant": "2017-09-19T00:32:10Z"
+        }
+      ],
+      "other": {
+        "reference": "Patient/eT0339wgoFaAiF6At-0Z414dw3"
+      },
+      "type": "replaces"
+    },
+    {
+      "extension": [
+        {
+          "url": "https://open.epic.com/FHIR/StructureDefinition/patient-merge-target-reference",
+          "valueReference": {
+            "reference": "Patient/evSwnY1bMD9YmcKap8zES-A3"
+          }
+        },
+        {
+          "url": "https://open.epic.com/FHIR/StructureDefinition/patient-merge-unmerge-instant",
+          "valueInstant": "2017-09-19T00:32:10Z"
+        }
+      ],
+      "other": {
+        "reference": "Patient/eq8OJgwHzLpJ9PYXEgMbokg3"
+      },
+      "type": "replaces"
+    }
+  ],
+  "managingOrganization": {
+    "display": " Regional Health",
+    "reference": "Organization/eMHyrPUw12-6obW5sBrGaH7eg3"
+  },
+  "maritalStatus": {
+    "text": "Single"
+  },
+  "name": [
+    {
+      "family": "Evans",
+      "given": [
+        "Juanita"
+      ],
+      "text": "Juanita Evans",
+      "use": "official"
+    },
+    {
+      "family": "Evans",
+      "given": [
+        "Juanita",
+        "G"
+      ],
+      "text": "Juanita G Evans",
+      "use": "usual"
+    }
+  ],
+  "resourceType": "Patient",
+  "telecom": [
+    {
+      "rank": 1,
+      "system": "phone",
+      "use": "mobile",
+      "value": "+1 555-555-5955"
+    },
+    {
+      "rank": 1,
+      "system": "email",
+      "value": "xx2331jJuanita@example.com"
+    },
+    {
+      "system": "email",
+      "value": "xx2331jJuanita@example.com"
+    }
+  ]
+}
